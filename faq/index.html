@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+  <base href="http://fai-project.org/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <title>FAI - Fully Automatic Installation</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1>Frequently Asked Questions (FAQ)</h1>
+
+<a name="version"></a>
+<h2>Which FAI version is the right one for me?</h2>
+
+<p>There are two official supported versions of FAI:</p>
+
+<p>The <strong>3.4.x releases</strong> are the stable versions and should be
+used if you need a reliably working FAI system without problems when
+upgrading.</p>
+
+<p>The <strong>4.x releases</strong> are the testing versions and provide the
+bleeding edge features and most recent development. Upgrading from any 3.x
+release to 4.x might break your setup, but if you are interested in the latest
+features and testing FAI the 4.x releases are the right choice for you.</p>
+
+<p>Please note that versions older than 3.4 are not supported anymore, please
+consider upgrading! If you do not know which version is the right one for you
+just choose the most recent 3.4.x release.</p>
+
+<a name="download"></a>
+<h2>Which repository do I have to use to get FAI for lenny/squeeze/...?</h2>
+
+<p>If you want to deploy Debian <strong>squeeze</strong> the entry for
+/etc/apt/sources.list and for /etc/fai/apt/sources.list should contain
+(Note/Todo: TBC!):</p>
+
+<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<pre>
+deb http://fai-project.org/download squeeze koeln
+</pre></h3></div>
+
+<p>Tip: You can use this squeeze repository also for deploying lenny. See <a
+  href="http://svn.debian.org/wsvn/fai/branches/stable/3.4/doc/lenny-instructions.txt">/usr/share/doc/fai-doc/lenny-instructions.txt</a>
+of package fai-doc for instructions.</p>
+
+<p>If you want to deploy Debian <strong>lenny</strong> the entry for
+/etc/apt/sources.list and for /etc/fai/apt/sources.list should contain:</p>
+
+<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<pre>
+deb http://fai-project.org/download lenny koeln
+</pre></h3></div>
+
+<p>If you want to get the <strong>experimental</strong> FAI versions, please use
+the following entry in /etc/apt/sources.list and /etc/fai/apt/sources.list:</p>
+
+<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<pre>
+deb http://fai-project.org/download experimental koeln
+</pre></h3></div>
+
+<p><strong>TODO/Discuss:</strong> provide 3.4.x for lenny and etch?</p>
+
+<a name="ubuntu"></a>
+<h2>Is FAI available for Ubuntu?</h2>
+
+<p>Yes, please visit <a href="https://launchpad.net/~fai/+archive/ppa">the PPA
+  for Ubuntu FAI webpage</a> for details.</p>
+
+<a name="kernel"></a>
+<h2>I need a more recent hardware support/kernel version</h2>
+
+<p>FAI by default uses the same kernel version as present in Debian.  Depending
+on the time-frame since the last Debian release this kernel might not support
+the most recent hardware. The <a href="http://grml.org/">Grml</a> live system
+provides Debian packages of recent kernel versions which can be used within FAI,
+just following <a href="http://wiki.fai-project.org/index.php/Grml_Kernel">the
+  instructions from the Grml_Kernel page in the wiki</a>.</p>
+
+<a name="dash"></a>
+<h2>I get strange errors like 'ifclass: not found' during execution</h2>
+
+<p>Debian supports /bin/dash as interpreter for /bin/sh. FAI uses bash scripts
+which aren't supported by dash. If you notice errors like 'ifclass: not found'
+during execution of FAI make sure to use '#!/bin/bash' as shebang line in your
+scripts instead of '#!/bin/sh'.</p>
+
+<a name="two_dhcp_servers"</a>
+<h2>Using two DHCP daemons in the same subnet</h2>
+
+<p>If you have two DHCP daemons in the subnet of your FAI infrastructure,
+and one uses the option <em>allow unknown-clients</em> you are in trouble,
+because if this daemon responses faster it will give the install
+client an IP address and the other daemon has no chance to control the
+clients boot parameters for FAI.</p>
+
+<p>The solution for this problem is to use the '<em>ignore booting</em>'
+instruction. So you have a DHCP daemon A which includes the <em>allow
+  unknown-clients</em> option. In the same subnet you would like to run a second
+DHCP daemon B for the FAI infrastructure which includes <em>deny
+  unknown-clients</em> and contains a
+list of all the install clients using their MAC address.</p>
+
+<p>Since you know the MAC addresses of the install clients (that should be
+controlled by B), you can instruct DHCP daemon A to ignore those clients.
+For each install client you add a line into DHCPd.conf (of DHCP A) like
+this:</p>
+
+<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<pre>
+host demohost {hardware ethernet 00:42:23:11:be:af;ignore booting;}
+</pre></h3></div>
+
+<p>That's it. If demohost does a PXE boot, DHCP A will ignore it, and
+DHCP B can answer the request.</p>
+
+<a name="bugreports"></a>
+<h2>Where should I report bugreports?</h2>
+
+<p>Please report bugs against the according FAI Debian package (fai-client,
+fai-server,...) using <a href="http://wiki.debian.org/reportbug">reportbug</a>
+to <a
+  href="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=fai">bugs.debian.org</a>.
+If you do not know how to use reportbug please write a mail to the <a
+  href="/mailinglist/">linux-fai mailinglist</a>.</p>
+
+<hr>
+<address>
+Fri, 15 Oct 2010 16:15:43 +0200
+</address>
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>
