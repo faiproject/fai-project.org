@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <title>FAI - Roadmap</title>
+      <meta name="Title" content="FAI - Roadmap" />
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<a name=description></a>
+<h1>Roadmap for FAI</h1>
+These are topics that are important for the next FAI release.
+If you have any suggestions or like to work on a topic, please get in
+contact before you start working.
+
+<h1>Topics for FAI 4.0</h1>
+<ul>
+<li> --- DONE ---
+<li> add MAC support for fai-chboot (in pxelinux.cfg file name) (DONE)
+<li> receive tar file of config space via http, use xz for compression (DONE)
+<li> get client config data which is needed in /target (sources.list, resolv.conf, hosts, apt
+preferences, other apt stuff) from the config space (using fcopy) instead of getting
+it from inside the nfsroot (DONE)
+<li> fcopy preinst exit code: #573044  (DONE)
+<li> should ainsl's exit code tell if something was appended? No. (DONE)
+<li> make uuid in disk_config default (DONE)
+<li> new variable FAI_RAMDISKS? mkramdisk will use it  (DONE)
+<li> faimond-gui: new option, that uses half size icons, so more hosts
+can be displayed (DONE)
+<li> add GRUB2 support to fai-cd  (DONE)
+<li> add option to fai-mirror to set MAXPACKAGES (DONE)
+<li> replace apt-proxy with apt-cacher-ng or approx (prefered by andreas) (DONE)
+<li> put Debian specific configs in the new class DEBIAN (DONE)
+<li> add cupt support to install_packages (DONE)
+<li> fai-cd should create USB stick using grub2 (currently only grub1 can be used for USB sticks)
+<li> make ext4 as default? then only grub2 will work (DONE)
+<li> --- TODO ---
+<li> better CentOS support (Michael Goetze is heavily working on this) checkout the svn trunk version
+<li> rename task prepareapt (use non Debian name), maybe task_prepare_repository
+<li> add option -l to fai command. List status of fai. Show list of
+classes, date of last fai action
+<li> analyse which files are change by make-fai-nfsroot inside the
+nfsroot. Try to remove those changes, so the nfsroot will be much more
+generic. Install client will receive those files later.
+<li> new action inventory
+<li> load *.asc files containing keys by class names
+
+<li> --- MINOR WISHES ---
+<li> send MAC address to faimond (or hostname), use BOOTIF for that?,
+patch from lhm
+<li> new option for fcopy, that replaces variables in the source
+file. Use %%_VARIABLENAME_%% ? check a mail concerning that
+<li> faimond-gui: new option, remove host if everything went fine
+<li> add new command collect-mac
+<li> NFSROOT using NFS v4
+</ul>
+
+<p>
+
+<h2>Timeline for next major release</h2>
+<ul>
+<li> The next major release will be FAI 4.0 (planed for 2011)
+<li> A first beta version was released in august 2010
+</ul>
+
+<HR>
+<ADDRESS>
+Mon, 04 Apr 2011 17:12:47 +0200
+</ADDRESS>
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>

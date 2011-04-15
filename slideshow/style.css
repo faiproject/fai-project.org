@@ -1,0 +1,47 @@
+body
+{
+        background-color: #CCCCCC;
+}
+
+.page_title
+{
+        text-align:center;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+}
+
+.img_block
+{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        color: #000000;
+}
+
+.img
+{
+        border-width: 2px;
+        border-color: #000000;
+        border-style: solid;
+}
+
+.nav_block
+{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 13px;
+        color: #000000;
+}
+
+.link
+{
+        color: #000000;
+        text-decoration: none;
+}

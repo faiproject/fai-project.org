@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <title>FAI - Fully Automatic Installation</title>
+      <meta name="Title" content="FAI - Features" />
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<a name="description"></a>
+<h1>What is FAI? Main Features</h1>
+<ul>
+<li> A tool for automated unattended installation. Lazy system administrators like it.
+<li> Remote network installation of different Linux flavors
+<li> Easy-to-use centralized management system for your Linux deployment.
+<li> It's fast. It only takes a few minutes for a complete installation.
+<li> Scalable. FAI users manage their computer infrastructures starting
+ from a few computers up to several thousands of machines.
+<li> Different hardware and different configuration requirements are easy to
+establish using FAI. You do not need to repeat information that is shared
+among several machines.
+<li> Using the FAI class concept, you can group a bunch of similar machines.
+<li> Installation targets: desktops, servers, notebooks, Beowulf cluster, rendering or web server farm, Linux laboratory or classroom.
+<li> Linux rollout, mass installation and automated server provisioning are additional topics of FAI. 
+<li> FAI is lightweight. No special daemons are running, no database setup
+is needed. It's architecture independent, since it consists
+only of shell, Perl and Cfengine scripts.
+<li> Besides initial installations, it is used for daily maintenance,
+and can set up chroot environments.
+<li> Compared to tools like kickstart or cobbler for Red Hat, autoyast for SUSE or
+Jumpstart for SUN Solaris, FAI is much more flexible. You can tune every
+small part of your configuration to your local needs using hooks.
+<li> More technical information in the <a href=/poster>flyer and poster</a>
+</ul>
+
+<p>
+
+<h1>FAI Installation Steps</h1>
+<UL>
+<li> Network boot via PXE
+<li> Receive configuration data via HTTP, NFS, svn or git
+<li> Run scripts to determine FAI classes and variables
+<li> Partition local hard disks and create RAID, LVM configuration and the file systems
+<li> Install and configure software packages 
+<li> Customize OS and software to your local needs
+<li> Reboot freshly installed machine
+</ul>
+
+<h1>FAI History</h1>
+FAI is rock-solid. It's now ten years old. FAI was started in 1999 at
+the University of Cologne (<a href=http://www.uni-koeln.de>Universit&auml;t zu K&ouml;ln</a>), when
+<a href="http://www.informatik.uni-koeln.de/~lange">Thomas</a> had to
+organize an installation of a Linux cluster with one server and 16
+clients. Today, FAI is regularly used in varying environments,
+ranging from a dozen machines up to several thousands machines.
+<p>
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>

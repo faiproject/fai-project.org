@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <meta name="Title" content="FAI - CD" />
+      <title>FAI - Fully Automatic Installation</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1>FAI-CD: Installation from CD, DVD or USB stick</h1>
+
+<b>FAI-CD is the easy way to start with FAI.</b>
+<P>
+Perform a FAI installation from CD-ROM without setting up an install server.
+FAI-CD puts all data needed for a fully automatic installation on a
+CD. So no network is needed and you can install the whole system from
+CD. The script creates an ISO image that includes the nfsroot, the
+configuration space and a partitial Debian mirror.
+<p>
+Look at the fai-cd slideshow! <a href="/slideshow/">16
+pictures</a> showing a complete installation from CD (<a
+  href="/slideshow/fai-cd-slideshow.tar.gz">all pictures in a tarball</a>)
+<HR>
+
+<h3>fai-cd for lenny</h3>
+<ul>
+<li>
+<a href=fai-cd-3.3.iso>ISO image for i386</a>, <a href=fai-cd-3.3.iso.md5>md5sum</a>
+(using FAI 3.3, kernel 2.6.26, size 642MB)
+
+<li>
+<a href=fai-cd-3.3_amd64.iso>ISO image for amd64</a>,  <a href=fai-cd-3.3_amd64.iso.md5>md5sum</a> (using FAI 3.3, kernel 2.6.26, 679MB)
+
+<li> 
+<a href=fai-usb-3.3.tar.lzma>USB stick tar file</a> for i386 (using FAI 3.3, kernel 2.6.26, size 471MB). How to create the bootable USB stick:
+<ul>
+<li> create a ext2 file system on your USB stick
+<li> extract the compressed tar into this file system (tar --lzma -xf)
+<li> download the small script <a href=../download/misc/mk-grub>mk-grub</a>
+and call <pre>mk-grub doit</pre>
+</ul>
+</ul>
+
+<p>
+Please send comments to 
+<A href="mailto:fai@informatik.uni-koeln.de">
+fai@informatik.uni-koeln.de</A> or the fai mailling list.
+<HR>
+<p>
+
+<h3>fai-cd for squeeze not yet prepared</h3>
+
+<h3>Short description for the sample FAI-CD image</h3>
+
+<ul>
+<!-- <li> Choose FAISERVER for installing the host as a FAI install server -->
+
+<li> The system will be installed to the first disk (either IDE, SATA or
+SCSI). All data on the disk will be deleted.
+<li>
+
+<li> All log files from the installation can be found in <tt>/var/log/fai/localhost/last/</tt>
+
+<li> After the installation the account demo with the
+password fai is available.
+<li> The root password is also fai.
+</ul>
+
+<hr>
+<ADDRESS>
+Sun, 27 Feb 2011 23:24:01 +0100
+</ADDRESS>
+
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <meta name="Title" content="FAI - Download" />
+      <title>FAI - Fully Automatic Installation</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="http://fai-project.org">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1>Package download</h1>
+The FAI software is divided in several packages:
+<ul>
+<li> <b>fai-server</b>: Package needed on the install server
+<li> <b>fai-client</b>: This package is needed on all hosts
+<li> <b>fai-doc</b>: The documentation
+<li> <b>fai-nfsroot</b>: Files only needed inside the nfsroot
+<li> <b>fai-setup-storage</b>: Contains the setup-storage tool
+<li> <b>fai-quickstart</b>: Meta package for easy setup of an install server
+</ul>
+
+<ul>
+<li> Entry for /etc/apt/sources.list and for /etc/fai/apt/sources.list: 
+<p>
+<div class="featurebox"><h3>
+<pre>deb http://fai-project.org/download squeeze koeln</pre>
+</h3></div>
+
+<li> The packages are signed with the gpg key of Thomas Lange. This is
+how you can get the gpg key in your apt configuration
+
+  <pre>gpg -a --recv-keys AB9B66FD; gpg -a --export AB9B66FD | apt-key add -</pre>
+
+<p>
+
+<li> FAI packages from official <A href=" http://fai-project.org/download/squeeze/">project repository</A> or
+from a <a href=http://cdn.debian.net/debian/pool/main/f/fai/>Debian mirror</a>.
+</ul>
+<hr />
+
+<p>
+
+<h1>Packages for Ubuntu</h1>
+
+Have a look at <a href="https://launchpad.net/~fai/+archive/ppa">PPA</a> or the
+<a href="https://launchpad.net/ubuntu/+source/fai">list</a> of FAI packages in Ubuntu releases.
+<p>
+<div class="featurebox"><h3>
+<pre>deb http://ppa.launchpad.net/fai/ubuntu lucid main</pre>
+</h3></div>
+
+FAI 3.4.x packages are included in Ubuntu maverick.
+<p>
+<div class="featurebox"><h3>
+<pre>deb http://archive.ubuntu.com/ubuntu maverick universe</pre>
+</h3></div>
+
+<p>
+
+
+
+<h1>Experimental packages</h1>
+<ul>
+<li> The experimental builds contain patches contributed by the developers
+that may or may not make it into the official version;
+the more feedback we get on this one, the likelier it is
+:-) (see also the <a href="https://lists.uni-koeln.de/pipermail/linux-fai-devel/2008q3/000593.html"> announcement on linux-fai-devel</a>)
+<p>
+<div class="featurebox"><h3>
+<pre>deb http://fai-project.org/download experimental koeln</pre>
+</h3></div>
+</li>
+</ul>
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>

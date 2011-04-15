@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>FAI - Fully Automatic Installation</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+	  <script type="text/javascript" src="/css/common.js"></script>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1>Das FAI Projekt feiert seinen 10. Geburtstag</h1>
+
+Vor genau zehn Jahren, am 21. Dezember 1999, wurde die Version 1.0 von FAI
+(Fully Automatic Installation) auf der Mailingliste debian-admintool
+von Thomas Lange angekündigt[1].
+<p />
+
+<p />
+Das Projekt wurde Anfang 1999 ins Leben gerufen, nachdem ein Lehrstuhl
+für Informatik an der Uni Köln ein kleines Beowulf Cluster gekauft
+hatte und der Autor zu faul war, die Rechner per Hand zu
+installieren. Die Hardware bestand aus 16 Rechnern mit je zwei
+Pentium II 400MHz und je 256 MB RAM[2].
+<p/>
+Die erste offizielle Präsentation der FAI Software fand schon am
+8. September 1999 auf dem 6. Linux Kongress in Augsburg statt. Dort
+gab es ein Tutorium mit Vortrag und einen Praxisteil, bei dem die
+Teilnehmer die Software direkt ausprobieren konnten.
+<p/>
+Version 1.0 wurde als einfaches Tarball verteilt und nutzte Debian 2.1
+(slink) und die Kernelversion 2.0.36. Gebootet wurde meist noch von
+einer Floppy disk. Schon in der ersten Version war Punkt 1 der
+ToDo-Liste, dass auch andere Linux Distributionen (RPM basierte)
+unterstützt werden sollten. Zwar gab es im Januar 2000 den ersten
+Versuch mit FAI4RPM[3], das einige Teile von FAI in Python
+implementierte, jedoch dauerte es noch viele Jahre bis FAI endlich
+ohne große Probleme RPM basierte Distributionen unterstützte.
+<p/>
+Anfang 2000 wurde das zweite offizielle Release 1.0.1 veröffentlicht.
+<p/>
+Nachdem zuvor auf anderen Listen über FAI diskutiert worden war, gab
+es am 19. April 2000 das erste Posting[4] auf der neuen Mailingliste
+linux-fai. Diese Liste ist das wichtigste Kommunikationsmittel, wenn
+es um Diskussionen und Ankündigungen rund um FAI geht.
+<p/>
+Das erste Debian Paket beinhaltete Version 1.1beta1 und erschien im
+Juni 2000 nachdem der Autor offizieller Debian Developer (DD) geworden
+war.
+<p/>
+Eine Woche später wurde dann ein Fork von FAI angekündigt. Ein kleiner
+Schock, da die zwei Studenten, die an FAI mitgearbeitet hatten, nun
+ein eigenes Projekt starteten. Aber dieses Projekt war nur eines von
+zigtausend kurzzeitigen Sternschnuppen auf Sourceforge und ist seit
+langem verglüht.
+<p/>
+Zur Zeit gibt es noch das Projekt lucie[5], das Teile von FAI 3.2.17
+nutzt, und einige FAI Teile neu in Ruby implementiert, indem es
+einfach Shell Kommandos aus einem Ruby Skript heraus aufruft.
+<p/>
+Nach einem Vortrag auf der DebConf 1 in Bordeaux 2001, folgten viele
+weitere Vorträge von Thomas Lange[6], anderen Entwicklern[7]
+und Nutzern über FAI. Außerdem war FAI auf einigen Konferenzen und
+Messen mit einem Stand vertreten, auf dem die Besucher den Ablauf
+einer Installation direkt beobachten und sich bei den Entwicklern über
+FAI informieren konnten.
+<p/>
+2005 startete das Wiki[8] für FAI. Es beinhaltet viele zusätzliche
+Informationen von Benutzern zu FAI.
+<p/>
+In den letzten Jahren wurde FAI immer weiter verbessert und erweitert.
+Das Kommando zum Erzeugen der bootbaren FAI CD (mit nfsroot und
+Paketdepot) wurde erstmals mit Version 2.7 im Jahre 2005 ausgeliefert
+und kann seit 2007 auch bootbare USB Sticks erzeugen. Mit Version 3.0
+wurde im September 2006 die Funktionalität hinzugefügt chroot
+Umgebungen zu erzeugen. Seit 2008 nutzt das Projekt grml[9] (ein
+Debian-basiertes Live-System für Systemadministratoren) diese Funktion
+zum Bauen der verschiedenen CD/DVD Varianten. Somit ist es nun möglich
+täglich aktuelle ISO Dateien automatisch zu erzeugen.
+<p/>
+Seit Version 3.2 arbeitet FAI mit dem Standard Debian Kernel mit
+initrd. Dies erleichtert die Anpassung an neue Hardware, da kein
+speziell gebauter Kernel mehr benötigt wird.
+<p/>
+Nachdem schon einige Jahre lang die Idee bestand das Festplatten
+Partitionierungstool neu zu schreiben um Software-RAID und LVM
+Unterstützung zu ermöglichen, wurde das neue Tool setup-storage[10]
+endlich im Juni 2008 in FAI eingebaut. Dies ermöglicht nun auch
+Festplatten mit mehr als 2 TB zu partitionieren.
+<p/>
+In den 10 Jahren wurde FAI auf fast allen Hardwarearchitekturen
+eingesetzt. Neben den weit verbreiteten Architekturen wurden auch alte
+Alpha Rechner, ein Itanium Cluster, PowerPC und SPARC Rechner unter
+Solaris mit FAI installiert und gewartet. Selbst Mainframes sind
+mit zwei zSeries z10 Rechnern vertreten auf denen FAI ca. 260 Debian
+Instanzen installiert hat.
+<p/>
+FAI wird für sehr unterschiedliche Hardware genutzt aber auch in sehr
+unterschiedlichen Projekten. Dies ist eine der Stärken
+von FAI im Gegensatz zu vielen anderen Installations- und
+Konfigurationstools, die meist auf ein bestimmtes Nutzungsszenario und
+eine bestimmte Linux Distribution festgelegt sind. FAI hingegen
+arbeitet distributionsübergreifend. Es kann Debian, Ubuntu, SuSE,
+CentOS, Red Hat und Mandriva installieren und wurde auch schon
+für Solaris auf SPARC genutzt.
+<p/>
+Um detaillierte Rückmeldungen von FAI Anwendern zu erhalten, wurde der
+FAI Fragebogen entworfen. Die erste Antwort im Juni 2001 berichtete
+noch davon, das wegen Kinderkrankheiten kein Rechner installiert
+wurde. Mittlerweile gibt es aber über 220 Antworten, in denen die
+Nutzer von kleinen und großen Installationen mit bis zu 3000 Rechnern
+berichten. Dies gibt einen sehr guter Überblick in welchen verschiedenen
+Bereichen FAI eingesetzt wird[11].
+<p/>
+Einige Beispiele von FAI Anwendern sind: Opera Software (300 Cluster
+Knoten), Stadtverwaltung München (ca. 2000 Arbeitsplätze, geplant
+14.000), BUF Compagnie (ca. 1000 Arbeitsplätze, Rendering und Storage
+Knoten), Albert Einstein Institut (1725 HPC Knoten), Mathworks (1000
+Arbeitsplätze), Zivit (260 Rechner auf IBM zSeries Z10), Spotify
+(Musik Anbieter, 450 Server für verschiedene Dienste), ein anonymes
+Webportal (3000 Server), mobile.de (600 verschiedene Web-, Mail-,
+Datenbank- und Anwendungsserver). Ebenso verwenden viele Universitäten
+und Forschungseinrichtungen FAI zur Administration ihrer Rechner.
+<p/>
+FAI wurde auf dem 100 Roboter Projekt Centibots eingesetzt. Viele
+Dutzend Cluster für verschiedene Anwendungen wurden mit FAI
+aufgesetzt. Einige dieser Cluster schafften es sogar in die Top500.org
+Liste, die Liste der schnellsten Computer der Welt. Eine Firma
+installierte weit in Deutschland verteilt Miniserver mit CF
+Speicher. Auch einige Schulungsräume werden mit FAI verwaltet, sodass
+sie vor Beginn einer Schulung automatisch neu installiert werden.
+Web- und Hosting-Provider profitieren häufig von FAI, da sie eine
+große Anzahl von ähnlichen Servern installieren müssen.
+<p/>
+FAI in Zahlen:
+Zur Zeit besteht FAI aus 12.000 Zeilen Code (meist Perl und Shell) und
+1300 Zeilen Konfigurationsbeispielen. Die Dokumentation ist 5500
+Zeilen lang. In 10 Jahren wurden mehr als 5600 Änderungen im
+Sourcecode vorgenommen, das bedeutet mehr als 1.5 Commits pro Tag.
+Im Bug Tracking System gab es insgesamt über 500 Fehlerberichte, die
+gelöst wurden. Somit wurde ungefähr ein Fehler pro Woche behoben.
+Derzeit gibt es noch ca. 30 nicht behobene Fehler. Die meisten sind
+jedoch Wünsche, neue Funktionen einzubauen.
+<p/>
+Neben dem technischen Aspekt ist in den letzten Jahren der Austausch
+der Entwickler und Nutzer immer wichtiger geworden. So gab es von 2005
+bis 2008 jährlich ein FAI Entwicklertreffen, bei denen meist im
+Linuxhotel[12] ein Wochenende lang mit bis zu einem Dutzend Leuten an
+FAI gearbeitet wurde. Diese Treffen waren sehr produktiv und wir
+hoffen, dass auch 2010 wieder ein Treffen stattfindet. Daneben gibt es
+regelmäßig Arbeitstreffen auf der DebConf (Debian Entwickler
+Konferenz).
+<p/>
+Anfang Dezember 2009 wurde dann endlich das Layout der FAI Webseiten[13]
+auf ein zeitgemäßes Design umgestellt. Nun fehlt immer noch ein Logo
+für das Projekt, aber das sollte in den nächsten 10 Jahren auch fertig
+werden ;-)
+<p/>
+FAI ist ein klassisches OpenSource Projekt, das davon lebt, dass die
+Benutzer durch Rückmeldungen, Fehlerberichte und Patches helfen, die
+Software zu verbessern.
+<p/>
+Herzlichen Dank an alle, die mitgeholfen haben die Software FAI zu
+entwickeln[14] und zu verbessern! Nur mit eurer Unterstützung ist FAI
+so gut geworden.
+<p/>
+Es gibt immer noch viele Ideen für Erweiterung und Neuerungen. So
+wird auch in den nächsten 10 Jahren genügend zu tun sein im FAI
+Projekt.
+<p/>
+Thomas Lange
+<p/>
+
+[UPDATE]: 27 Sep 2010: Nutze neuen Domain Namen des FAI Projekts
+
+<ul>
+<li> [1]: <a href="http://www.mail-archive.com/debian-admintool@lists.debian.org/msg00594.html">http://www.mail-archive.com/debian-admintool@lists.debian.org/msg00594.html</a>
+<li> [2]: Einer dieser Rechner fungiert noch heute als Fileserver.
+<li> [3]: <a href="https://lists.uni-koeln.de/pipermail/linux-users/2000-January/005983.html">https://lists.uni-koeln.de/pipermail/linux-users/2000-January/005983.html</a>
+<li> [4]: <a href="https://lists.uni-koeln.de/pipermail/linux-fai/2000-April/000000.html">https://lists.uni-koeln.de/pipermail/linux-fai/2000-April/000000.html</a>
+<li> [5]: <a href="http://lucie.is.titech.ac.jp/trac/lucie/">http://lucie.is.titech.ac.jp/trac/lucie/ </a>
+<li> [6]: <a href="http://fai-project.org/talks/">http://fai-project.org/talks/</a>
+<li> [7]: <a href="http://fai-project.org/otherdocs/">http://fai-project.org/otherdocs/</a>
+<li> [8]: <a href="http://wiki.fai-project.org">http://wiki.fai-project.org</a>
+<li> [9]: <a href="http://grml.org/grml-live/">http://grml.org/grml-live/</a>
+<li>[10]: <a href="http://fai-project.org/doc/man/setup-storage.html">http://fai-project.org/doc/man/setup-storage.html</a>
+<li>[11]: <a href="http://fai-project.org/reports/">http://fai-project.org/reports/</a>
+<li>[12]: <a href="http://www.linuxhotel.de/">http://www.linuxhotel.de/</a>
+<li>[13]: <a href="http://fai-project.org/">http://fai-project.org/</a>
+<li>[14]: <a href="file:///usr/share/doc/fai-client/THANKS">file:///usr/share/doc/fai-client/THANKS</a>
+</ul>
+<hr>
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>
