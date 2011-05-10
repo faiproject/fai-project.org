@@ -36,6 +36,101 @@ Currently we have more than 250 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<a id=stayfriends></a>
+<b>From:</b> Steffen Eichler, StayFriends, Germany
+<br><b>Date:</b> Mon, 2 May 2011 13:54:54 +0200
+<pre>
+How many hosts have you installed using fai? <b>several hundred</b> (and counting)
+Which version of fai are you using? <b>3.4.7</b>
+Which version are you using as your install kernel? plain debian kernel
+
+Which types of hosts are you installing with fai? database servers, application servers, Xen hosts (Dom0)
+
+How do you boot your hosts? via network: PXE, DHCP
+Does the default install kernel recognize all your hardware? mostly, yes 
+Which drivers are missing? sometimes problems with broadcom network cards
+
+Do you manage your configuration space under version control? yes (subversion)
+
+How big is your config space (Mbytes, # of files)?
+	-> etch 6,3MB, #64
+	-> lenny 1,4MB, #59
+	-> squeeze 388KB, #14
+
+How many files do you have in ../config/files?
+find files ! -type d | grep -v svn|grep -v cvs|wc -l
+	-> etch = 13
+	-> lenny = 13
+	-> squeeze = 14
+
+<b>What is the business of your company/organisation?</b> social network platform, <a href="http://www.stayfriends.de/">StayFriends GmbH</a>
+<br><b>Additional comments:</b> 
+We are running a very basic setup to perform the basic partitioning
+and minimal OS installation; the rest is managed by puppet.
+
+Additional sites we host:
+http://www.trombi.com/
+http://www.stayfriends.se/
+http://www.stayfriends.at/
+http://www.stayfriends.ch/
+http://www.abschlusszeit.de/
+http://www.stayfriends.com/
+</pre> <HR>
+
+
+<a id=lvm></a>
+<b>From:</b> Hans-Gerd van Schelve, LVM Versicherung, Germany
+<br><b>Date:</b> Fri, 29 Apr 2011 11:01:16 +0200
+
+<pre>
+How many hosts have you installed using fai? <b>about 10.000</b>
+Which version of fai are you using? <b>3.3.4lvm21</b>
+Which version are you using as your install kernel? Linux 2.6.32-24-generic-pae i686
+
+Which types of hosts are you installing with fai? desktops and notebooks
+
+How do you boot your hosts? DHCP / PXE
+Do you manage your configuration space under version control? yes, bazaar
+How big is your config space (Mbytes, # of files)? 788K, 93 files
+How many files do you have in ../config/files? 25
+What types of scripts are you using for local customization? we have added some shell based scripts
+
+<b>What is the business of your company/organisation?</b> <a href="http://www.lvm.de">LVM Versicherung</a> is a german insurance company.
+<br><b>Additional comments:</b> 
+We are using FAI for installation of our Ubuntu based desktop systems. We did
+some modifications to implement our own software deployment solution. This
+way we are able to install each system with the software that the user needs.
+</pre> <HR>
+
+
+<b>From:</b> anonymous
+<br><b>Date:</b> Tue, 26 Apr 2011 21:47:09 +0100
+<pre>
+How many hosts have you installed using fai? <b>~32000 </b> in batches of ~30 to ~700 with each go
+Which version of fai are you using? most current one i.e. <b>3.4.7</b> as of April 2011
+Which version are you using as your install kernel? plain Debian kernel and custom ones depending on
+                                                    use case; ~70% plain Debian/CentOS/Fedora though
+
+Which types of hosts are you installing with fai? dedicated servers and shared hosting platform 
+      e.g. NAS drives and cluster nodes using Supermicro/Dell/IBM gear; sometimes office setups
+
+How do you boot your hosts? PXE, DHCP and custom infrastructure management using IBM software written for us
+
+Does the default install kernel recognize all your hardware? most of the time all works
+   (Dell and Supermicro hardware); if not we customize until it does
+
+Do you manage your configuration space under version control? yes, git
+How big is your config space (Mbytes, # of files)? from ~ 160 MiB to ~3.2 GiB depending on use case
+How many files do you have in ../config/files? from ~230 to ~650 depending on use case
+
+What types of scripts are you using for local customization? custom python framework
+
+<b>What is the business of your company/organisation?</b> hosting provider, financial industry
+		                                          quantitative analysis and data modellling
+
+</pre> <HR>
+
+
 <b>From:</b> Frank Doelitzscher,  doelitz :ad: hs - furtwangen .de
 <br><b>Date:</b> Tue, 15 Mar 2011 16:04:08 +0100
 <pre>
