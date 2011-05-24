@@ -51,14 +51,6 @@ pictures</a> showing a complete installation from CD (<a
 <li>
 <a href=fai-cd-3.3_amd64.iso>ISO image for amd64</a>,  <a href=fai-cd-3.3_amd64.iso.md5>md5sum</a> (using FAI 3.3, kernel 2.6.26, 679MB)
 
-<li> 
-<a href=fai-usb-3.3.tar.lzma>USB stick tar file</a> for i386 (using FAI 3.3, kernel 2.6.26, size 471MB). How to create the bootable USB stick:
-<ul>
-<li> create a ext2 file system on your USB stick
-<li> extract the compressed tar into this file system (tar --lzma -xf)
-<li> download the small script <a href=../download/misc/mk-grub>mk-grub</a>
-and call <pre>mk-grub doit</pre>
-</ul>
 </ul>
 
 <p>
@@ -69,6 +61,20 @@ fai@informatik.uni-koeln.de</A> or the fai mailling list.
 <p>
 
 <h3>fai-cd for squeeze not yet prepared</h3>
+
+
+<h3>fai-cd on a USB stick (using grub2)</h3>
+<ul>
+<li> get the ISO image (here fai-cd.iso)
+<li> create a ext2 file system on your USB stick (here /dev/sdf1)
+<li> mount /dev/sdf1 /media/stick
+<li> mount -o loop fai-cd.iso /mnt
+<li> cp -a /mnt/* /media/stick
+<li> umount /mnt
+<li> grub-install --no-floppy --root-directory=/media/stick/ /dev/sdf
+<li> umount /media/stick
+</ul>
+
 
 <h3>Short description for the sample FAI-CD image</h3>
 
@@ -88,7 +94,7 @@ password fai is available.
 
 <hr>
 <ADDRESS>
-Sun, 27 Feb 2011 23:24:01 +0100
+Mon, 23 May 2011 18:28:13 +0200
 </ADDRESS>
 
 
