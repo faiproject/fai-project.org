@@ -61,10 +61,10 @@ fai@informatik.uni-koeln.de</A> or the fai mailling list.
 
 <h3>FAI CD on a USB stick (using grub2)</h3>
 <ul>
-<li> get the ISO image (here fai-cd.iso)
+<li> get the ISO image (here faicd.iso)
 <li> create a ext2 file system on your USB stick (here /dev/sdf1)
 <li> mount /dev/sdf1 /media/stick
-<li> mount -o loop fai-cd.iso /mnt
+<li> mount -o loop faicd.iso /mnt
 <li> cp -a /mnt/* /media/stick
 <li> umount /mnt
 <li> grub-install --no-floppy --root-directory=/media/stick/ /dev/sdf
