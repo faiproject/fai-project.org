@@ -36,35 +36,34 @@ contact before you start working.
 <h1>Topics for FAI 4.0</h1>
 <ul>
 <li> --- DONE ---
-<li> add MAC support for fai-chboot (in pxelinux.cfg file name) (DONE)
-<li> receive tar file of config space via http, use xz for compression (DONE)
+<li> add MAC support for fai-chboot (in pxelinux.cfg file name) 
+<li> receive tar file of config space via http, use xz for compression 
 <li> get client config data which is needed in /target (sources.list, resolv.conf, hosts, apt
 preferences, other apt stuff) from the config space (using fcopy) instead of getting
-it from inside the nfsroot (DONE)
-<li> fcopy preinst exit code: #573044  (DONE)
-<li> should ainsl's exit code tell if something was appended? No. (DONE)
-<li> make uuid in disk_config default (DONE)
-<li> new variable FAI_RAMDISKS? mkramdisk will use it  (DONE)
+it from inside the nfsroot 
+<li> fcopy preinst exit code: #573044  
+<li> should ainsl's exit code tell if something was appended? No. 
+<li> make uuid in disk_config default 
+<li> new variable FAI_RAMDISKS? mkramdisk will use it  
 <li> faimond-gui: new option, that uses half size icons, so more hosts
-can be displayed (DONE)
-<li> add GRUB2 support to fai-cd  (DONE)
-<li> add option to fai-mirror to set MAXPACKAGES (DONE)
-<li> replace apt-proxy with apt-cacher-ng or approx (prefered by andreas) (DONE)
-<li> put Debian specific configs in the new class DEBIAN (DONE)
-<li> add cupt support to install_packages (DONE)
+can be displayed 
+<li> add GRUB2 support to fai-cd  
+<li> add option to fai-mirror to set MAXPACKAGES 
+<li> replace apt-proxy with apt-cacher-ng or approx (prefered by andreas) 
+<li> put Debian specific configs in the new class DEBIAN 
+<li> add cupt support to install_packages 
 <li> fai-cd should create USB stick using grub2 (currently only grub1 can be used for USB sticks)
-<li> make ext4 as default? then only grub2 will work (DONE)
-<li> make-fai-nfsroot should use xz compression if available (DONE)
-<li> CentOS support (DONE) 
+<li> make ext4 as default? then only grub2 will work 
+<li> make-fai-nfsroot should use xz compression if available 
+<li> load *.asc files containing keys by class names 
+<li> CentOS support 
 <li> --- TODO ---
 <li> rename task prepareapt (use non Debian name), maybe task_prepare_repository
 <li> add option -l to fai command. List status of fai. Show list of
 classes, date of last fai action
-<li> analyse which files are change by make-fai-nfsroot inside the
-nfsroot. Try to remove those changes, so the nfsroot will be much more
+<li> Make nfsroot generic, remove server specific configs (ongoing work)
 generic. Install client will receive those files later.
 <li> new action inventory
-<li> load *.asc files containing keys by class names
 
 <li> --- MINOR WISHES ---
 <li> send MAC address to faimond (or hostname), use BOOTIF for that?,
@@ -80,13 +79,13 @@ file. Use %%_VARIABLENAME_%% ? check a mail concerning that
 
 <h2>Timeline for next major release</h2>
 <ul>
-<li> The next major release will be FAI 4.0 (planed for 2011)
-<li> A first beta version was released in august 2010
+<li> The next major release will be FAI 4.0 (planed for end of 2011)
+<li> The next beta version will be released during DebConf11
 </ul>
 
 <HR>
 <ADDRESS>
-Tue, 14 Jun 2011 22:11:25 +0200
+Thu, 21 Jul 2011 10:11:34 +0200
 </ADDRESS>
 
       </div>
