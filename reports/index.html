@@ -58,13 +58,22 @@ Which types of hosts are you installing with fai?
 - Puppet Master servers
 - Torque/Maui servers
 - SLURM servers
-- Web, NTP ans mail servers
+- Web, NTP and mail servers
+
+
+How do you boot your hosts?
+  The first server is installed using a USB disk, the others are 
+  installed via network (DHCP + GPXE)
+
+Do you manage your configuration space under version control? Yes, using Subversion.
+
+What types of scripts are you using for local customization? Shell + Puppet after the installation
 
 == For the Aster4 cluster (this is the most complex configuration)  
 How big is your config space (Mbytes, # of files)? 29MB, #633
 How many files do you have in ../config/files? #439
 
-<b>What is the business of your company/organisation?</b> Energy, <a href="http://www.edf.fr/">EDF - Électricité de France</a>
+<b>What is the business of your company/organisation?</b> Energy, <a href="http://www.edf.com/">EDF S.A. - Électricité de France</a>
 <br><b>Additional comments:</b> 
 We use FAI for the installation and for backup/restore system images using a hook.
 </pre> <HR>
