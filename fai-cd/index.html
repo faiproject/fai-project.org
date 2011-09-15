@@ -59,7 +59,20 @@ fai@informatik.uni-koeln.de</A> or the fai mailling list.
 <p>
 
 
-<h3>FAI multi-distribution CD</h3>
+<h3>FAI CD on a USB stick (using grub2)</h3>
+<ul>
+<li> get the ISO image (here faicd.iso)
+<li> create a ext2 file system on your USB stick (here /dev/sdf1)
+<li> mount /dev/sdf1 /media/stick
+<li> mount -o loop faicd.iso /mnt
+<li> cp -a /mnt/* /media/stick
+<li> umount /mnt
+<li> grub-install --no-floppy --root-directory=/media/stick/ /dev/sdf
+<li> umount /media/stick
+</ul>
+
+
+<h1>FAI multi-distribution CD</h1>
 <ul>
 <li> This CD image can install Debian 6, CentOS 6 and Scientific Linux Cern 6
 <li>
@@ -74,20 +87,6 @@ password fai is available.
 
 <HR>
 <p>
-
-
-<h3>FAI CD on a USB stick (using grub2)</h3>
-<ul>
-<li> get the ISO image (here faicd.iso)
-<li> create a ext2 file system on your USB stick (here /dev/sdf1)
-<li> mount /dev/sdf1 /media/stick
-<li> mount -o loop faicd.iso /mnt
-<li> cp -a /mnt/* /media/stick
-<li> umount /mnt
-<li> grub-install --no-floppy --root-directory=/media/stick/ /dev/sdf
-<li> umount /media/stick
-</ul>
-
 
 <h3>Short description for the sample FAI-CD image</h3>
 
@@ -107,7 +106,7 @@ password fai is available.
 
 <hr>
 <ADDRESS>
-Tue, 24 May 2011 16:26:57 +0200
+Thu, 15 Sep 2011 14:15:38 +0200
 </ADDRESS>
 
 
