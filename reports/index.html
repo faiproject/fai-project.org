@@ -36,6 +36,47 @@ Currently we have more than 270 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Christopher Huhn, hpc gsi de
+<br><b>Date:</b> Mon, 04 Jun 2012 17:43:24 +0200
+<pre>
+How many hosts have you installed using fai? Many since 2005, currently we have about <b>2000</b> nodes running.
+
+Which version of fai are you using? <b>3.2.17~lenny1 and 3.4.7</b>
+Which version are you using as your install kernel? Mostly plain Debian kernel, custom kernels for our Lustre servers.
+
+Which types of hosts are you installing with fai? clusters, servers, desktops and some notebooks
+   Basically all of these including batch clusters with ~ 15k cores, Lustre storage
+   clusters with  >200 servers and  >4 PB net storage, central servers for
+   DNS,DHCP,mail web etc. desktops and some notebooks all running Debian.
+
+
+How do you boot your hosts?
+  via network (PXE, DHCP): This is the default.
+             using FAI-CD: Virtual FAI-CD images mounted via Samba and
+                           IPMI BMCs - until we managed to PXE-boot via Infiniband.
+
+Does the default install kernel recognize all your hardware?
+Which drivers are missing?
+   Intel 10Gbit Ethernet modules are sometimes too old. We create custom packages
+   with newer modules then.
+
+Do you manage your configuration space under version control? Yes, SVN and Git.
+
+How big is your config space (Mbytes, # of files)? 5 MB, 538
+How many files do you have in ../config/files? 78
+
+What types of scripts are you using for local customization?
+  We only do the base install with FAI (formatting, package install and
+  configuration management system bootstrapping) and let Cfengine2 and/or Chef
+  take over for the continuous configuration management afterwards.
+  The config space for these tools is therefore much larger.
+
+<b>What is the business of your company/organisation?</b> Non-profit research institute. <a href="http://gsi.de/">GSI Helmholtzzentrum für Schwerionenforschung</a>
+<br><b>Additional comments:</b> 
+FAI serves us very well since many years now. <a href="pictures/Prometheus.jpg">Picture of one cluster</a>
+</pre> <HR>
+
+
 <b>From:</b> Sebastien Varrette, first . lastname @ uni.lu
 <br><b>Date:</b> Thu, 5 Apr 2012 11:37:25 +0200
 <pre>
