@@ -5,6 +5,7 @@ pictures
 *.tar
 *.tar.gz
 *.jpg
+*.mp3
 fai-cd
 !fai-cd/index.html
 download
@@ -12,7 +13,6 @@ download
 logs
 pics
 doc
-fai.mp3
 fai-guide
 fai-guide.text
 fai-guide.ps.gz
