@@ -1,0 +1,179 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Mon May 16 14:25:54 2011 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>faimond</title>
+
+</head>
+<body>
+
+<h1 align="center">faimond</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">faimond &minus;
+fai monitor daemon</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>faimond</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>faimond</b>
+receives messages from all install clients on port 4711 and
+prints them to stdout.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>-p
+port</b></p>
+
+<p style="margin-left:22%;">Define port to listen on.
+Default is port 4711.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-b</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Call fai-chboot for the install client if the task
+install was finished properly. Default is not to call
+fai-chboot.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-i</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Use IP address of connecting host when calling
+fai-chboot. This can only be used if the host has the same
+IP while installing as when running.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-l FILE</b></p>
+
+<p style="margin-left:22%;">Logfile. Default is standard
+out in non-daemon mode and &quot;/var/log/faimond.log&quot;
+in daemon mode.</p>
+
+<p style="margin-left:11%;"><b>-t TIMEOUT</b></p>
+
+<p style="margin-left:22%;">Timeout for bad clients. 0 to
+disable.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-d</b></p></td>
+<td width="8%"></td>
+<td width="18%">
+
+
+<p>Daemon mode.</p></td>
+<td width="60%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-P FILE</b></p>
+
+<p style="margin-left:22%;">PID-file. Default is
+&quot;/var/run/faimond.pid&quot;. Used only if starting in
+daemon mode.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-T</b></p></td>
+<td width="8%"></td>
+<td width="43%">
+
+
+<p>Print timestamps in the log.</p></td>
+<td width="35%">
+</td></tr>
+</table>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Normally, the
+output will be piped to faimond-gui, a GUI which displays
+all information.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use faimond. The FAI
+homepage is http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

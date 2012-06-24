@@ -1,0 +1,268 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:37 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai.conf</title>
+
+</head>
+<body>
+
+<h1 align="center">fai.conf</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#VARIABLES">VARIABLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai.conf
+&minus; FAI Configuration</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>/etc/fai/fai.conf</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">FAI - Fully
+Automatic Installation - allows for non-interactive initial
+installation and online maintenance
+(&quot;softupdates&quot;) of operating systems according to
+a user-defined configuration. See <b>fai</b>(8) for the
+possible operation modes of FAI.</p>
+
+<p style="margin-left:11%; margin-top: 1em">To manage a set
+of configurations, FAI implements a concept of classes,
+i.e., a list of symbolic names, which is determined at the
+start of FAI on a given host. Each host is associated with
+an ordered set of classes.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration for a target host consists of two parts:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>The <i>NFSROOT</i>, a very basic yet complete root file
+system, which is exported to clients. The NFSROOT is built
+using <b>fai-make-nfsroot</b>(8).</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>The <i>configuration space</i>, which is loaded as one
+of the first steps of a FAI run. Several tools and protocols
+are supported for maintaining and accessing the
+configuration space. See <b>FAI_CONFIG_SRC</b> below.</p></td></tr>
+</table>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai.conf</b>
+defines the essential options to successfully start a FAI
+run.</p>
+
+<h2>VARIABLES
+<a name="VARIABLES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai.conf</b>
+is sourced by <b>fai</b>(8) and other scripts of fai and
+thus must be valid <b>bash</b>(1) code. All variables
+described below are variables that must be assigned to use
+<b>bash</b>(1) syntax. <b><br>
+FAI_CONFIG_SRC</b> URL to access configuration space</p>
+
+<p style="margin-left:22%;">A protocol-specific URL
+defining the server and directory/repository to fetch the
+configuration space from. If left undefined, the assumed
+default value is nfs://&lt;install
+server&gt;/$FAI_CONFIGDIR</p>
+
+<p style="margin-left:11%; margin-top: 1em">The following
+protocols and URL schemes are currently supported:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>NFS: nfs://&lt;server&gt;/&lt;exported directory&gt;</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Local file: file://&lt;directory&gt;</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>CVS: cvs[+ssh]://&lt;user&gt;@&lt;host&gt;/&lt;cvs
+root&gt; &lt;module&gt;[=&lt;tag&gt;]</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Subversion:
+svn[+(file|http|https|ssh)]://[&lt;user&gt;@]&lt;host&gt;/&lt;repository&gt;</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Git: git[+&lt;protocol&gt;]://&lt;git path&gt;</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Mercurial: hg+(http|https)://&lt;hg path&gt;</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>HTTP: http://&lt;server&gt;/&lt;filename&gt; where
+&lt;filename&gt; is a (compressed) tar archive. For
+verification purposes, also an <b>md5sum</b>(1) generated
+hash must exist at the same location as
+&lt;filename&gt;.md5.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>LOGUSER</b> Account name on
+the install server to save log files and call</p>
+
+<p style="margin-left:22%;"><b>fai-chboot</b>(8). At the
+end of an installation, <b>fai</b>(8) may connect to the
+install server using <b>FAI_LOGPROTO</b> (see below) to
+store the generated log files and to change the network boot
+configuration of the target host. To fully enable this,
+configure .rhosts and PAM such that the configured user can
+log in from all install clients without password. This
+account should have write permissions for /srv/tftp/fai. For
+example, you can use write permissions for the group
+linuxadm. chgrp linuxadm /srv/tftp/fai;chmod g+w
+/srv/tftp/fai. If the variable is undefined, this feature is
+disabled.</p>
+
+<p style="margin-left:11%;"><b>FAI_LOGPROTO</b> Protocol
+for saving logs</p>
+
+<p style="margin-left:22%;">Supported values are: ssh, rsh,
+and ftp. If undefined use ssh. Will only be used if
+<b>LOGUSER</b> is set.</p>
+
+<p style="margin-left:11%;"><b>FAI_DEBMIRROR</b> Access
+Debian mirror via NFS-mounted directory</p>
+
+<p style="margin-left:22%;">If defined, install clients
+mount the NFS share to $MNTPOINT. Syntax:
+&lt;host&gt;:&lt;exported directory&gt;</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai</b>(8),
+<b>fai&minus;make-nfsroot</b>(8), <b>fai&minus;setup</b>(8),
+<b>fai&minus;mirror</b>(1), <b>fai&minus;cd</b>(8)</p>
+
+<p style="margin-left:11%; margin-top: 1em">This file is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information. The FAI homepage is
+http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This man page
+was written by Michael Tautschnig &lt;mt@debian.org&gt;.</p>
+<hr>
+</body>
+</html>

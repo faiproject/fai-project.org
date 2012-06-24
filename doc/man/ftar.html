@@ -1,0 +1,274 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:38 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ftar</title>
+
+</head>
+<body>
+
+<h1 align="center">ftar</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">ftar &minus;
+extract tar files using classes</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>ftar</b>
+[<i>options</i>] <i>SOURCE</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Extract an
+archive from SOURCE to its target directory using
+classes.</p>
+
+<p style="margin-left:11%; margin-top: 1em">SOURCE is a
+directory which contains one or more template files for the
+source archive to extract. Depending on the list of defined
+classes, one or more archives of the source directory are
+selected and extracted to the target. The base target
+directory is the name of the source directory. Template
+files must have suffix .tar, .tgz, .tar.gz, .tar.xz, .txz,
+.tbz2 or .tar.bz2 depending on the type of archive.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The exit code
+returned by ftar is mostly 0. For every successfully
+extracted tar file, a log message is printed to standard
+output.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Options
+&minus;c, &minus;s, &minus;t (or their analog variables) and
+a SOURCE are <br>
+required.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;1</b></p></td>
+<td width="8%"></td>
+<td width="73%">
+
+
+<p>Use only one archive file matching a class name.</p></td>
+<td width="5%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;c</b>
+<i>class[class]</i></p>
+
+<p style="margin-left:22%;">Define classes. Multiple
+classes must be space separated. The first class has the
+lowest priority. If not specified, use the classes from the
+file /tmp/FAI_CLASES.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;d</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Delete all files in target directory before extracting
+the archive(s).</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;D</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create debugging output.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show help, version and summary of options.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;i</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Ignore warnings about no matching class and always exit
+with 0.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;r</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Recursively remove files in target directory before
+extracting archive.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;s</b>
+<i>source_dir</i></p>
+
+<p style="margin-left:22%;">Look for SOURCE files relative
+to <i>source_dir</i>. Use $FAI/files if not specified.</p>
+
+<p style="margin-left:11%;"><b>&minus;t</b>
+<i>target_dir</i></p>
+
+<p style="margin-left:22%;">Extract archives relative to
+<i>target_dir</i>. Use $FAI_ROOT if not specified.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="40%">
+
+
+<p>Be verbose. Not yet used.</p></td>
+<td width="38%">
+</td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Suppose the
+source directory /files/usr/local consists of the following
+files:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">DATALESS.tar.gz
+ant01.tar.bz2</p>
+
+<p style="margin-left:11%; margin-top: 1em">Each file is a
+compressed archive. If only class DATALESS is defined, the
+following command</p>
+
+<p style="margin-left:11%; margin-top: 1em"># ftar &minus;s
+/files &minus;t /target /usr/local</p>
+
+<p style="margin-left:11%; margin-top: 1em">is equal to</p>
+
+<p style="margin-left:11%; margin-top: 1em"># tar &minus;C
+/target/usr/local &minus;zxf
+/files/usr/local/DATALESS.tar.gz</p>
+
+<p style="margin-left:11%; margin-top: 1em">If additionally
+class ant01 is defined, the following command is also
+executed</p>
+
+<p style="margin-left:11%; margin-top: 1em"># tar &minus;C
+/target/usr/local &minus;jxf
+/files/usr/local/ant01.tar.bz2</p>
+
+<p style="margin-left:11%; margin-top: 1em">If only one
+archive should be extracted, the class with highest priority
+is used.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Do not create a
+file DEFAULT if no reasonable default configuration file can
+be used. It&rsquo;s better to exit with an error than to
+extract a wrong archive.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This command
+can also be used to maintain your complete directory trees
+on a huge number of hosts.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>fcopy</i>(8)</p>
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use ftar. The FAI
+homepage is http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

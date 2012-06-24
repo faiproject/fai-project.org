@@ -1,0 +1,275 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:37 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-cd</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-cd</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-cd &minus;
+make a bootable CD-ROM or USB stick that performs an FAI</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-cd</b>
+[<i>OPTION</i>] &minus;m MIRROR <i>FILE</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;m MIRROR <i>-u
+DIRECTORY</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;B <i>FILE</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This command
+creates a bootable ISO CD-ROM image that performs the fully
+automatic installation from CD-ROM without an install
+server. The ISO image will be written to FILE. To create the
+image, the command needs the NFSROOT, the configuration
+space and a partial mirror, which is created by fai-mirror.
+The command can also copy all needed data to DIRECTORY on a
+mounted USB stick.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;B</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Create a boot only ISO image
+which does a network installation. It does not include the
+nfsroot, the partitial mirror and the config space. Unless
+the option &minus;g is used, /usr/share/fai/menu.lst will be
+used as boot menu configuration.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;b</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>After creating the ISO image burn it by calling wodim(1)
+(a version of cdrecord).</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
+
+<p style="margin-left:22%;">Use CFDIR as the configuration
+directory. Default is /etc/fai. You can also set the
+environment variable FAI_ETC_DIR.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;f</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Force removal of an existing ISO image before creating a
+new one.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;g</b> <i>FILE</i></p>
+
+<p style="margin-left:22%;">Use FILE as grub grub.cfg file.
+The script will look for FILE in CFDIR. If FILE is located
+in another directory then a full path must be specified. If
+not specified, use /etc/fai/grub.cfg.</p>
+
+<p style="margin-left:11%;"><b>&minus;G GRUBVERSION</b></p>
+
+<p style="margin-left:22%;">Specify which grub version
+should be used. Either 1 or 2, the default is 2.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show simple help and version.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;H</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Do not hide directories. Using this option will consume
+220MB more disk space on your media. By default, some
+directories like man pages and locales are hidden and will
+not be put onto the CD or the USB stick.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;k</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Keep the temporary filesystem for debugging. The script
+will sleep for a long time, before continuing the cleanup of
+temp files and mounts. Beware of killing or suspending the
+script itself, since a lot of mounts will remain. This is
+for debugging only!</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;m</b>
+<i>DIRECTORY</i></p>
+
+<p style="margin-left:22%;">Use DIRECTORY as partial FAI
+mirror. This option is mandatory.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;n</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>No ISO image. Do not call genisoimage to create the ISO
+image. This is for creating the filesystem only. Useful for
+writing it to a USB stick.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;u</b>
+<i>DIRECTORY</i></p>
+
+<p style="margin-left:22%;">Create a bootable USB stick.
+The USB stick must be mounted on DIRECTORY before you run
+fai-cd. Copies all FAI-CD data to DIRECTORY and try to
+install grub onto its device. Currently the file system on
+the USB stick must be ext2. USUALLY THIS WILL ERASE ALL DATA
+ON YOUR USB-STICK!</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">After
+you&rsquo;ve created a mirror with fai-mirror in
+/media/mirror, you can create a CD using:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;m /media/mirror fai-cd.iso</p>
+
+<p style="margin-left:11%; margin-top: 1em">If you want to
+create a bootable USB stick, create an ext2 file system on
+your stick, mount it to /media/usbstick and call</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;m /media/mirror &minus;u /media/usbstick <br>
+# umount /media/usbstick</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). The FAI homepage
+is http://fai-project.org. <b><br>
+fai-mirror</b>(1)</p>
+
+<h2>FILES
+<a name="FILES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/fai.conf</i></p>
+
+<p style="margin-left:22%;">The FAI configuration file.</p>
+
+<p style="margin-left:11%;"><i>/etc/fai/grub.cfg</i></p>
+
+<p style="margin-left:22%;">The default grub2 menu
+configuration file for fai-cd.</p>
+
+
+<p style="margin-left:11%;"><i>/usr/share/fai/grub.cfg</i></p>
+
+<p style="margin-left:22%;">The default grub2 menu
+configuration file when using &minus;B.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%;">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

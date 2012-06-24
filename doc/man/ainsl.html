@@ -1,0 +1,292 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:36 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ainsl</title>
+
+</head>
+<body>
+
+<h1 align="center">ainsl</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#EXIT CODES">EXIT CODES</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">ainsl &minus;
+AppendIfNoSuchLine</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>ainsl</b>
+[<i>options</i>] <i>FILE LINE [PATTERN]</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Add LINE to the
+end of FILE if this file does not contain this line already.
+If PATTERN is given, then the LINE is only appended if
+PATTERN is not found in the file.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Since ainsl is
+written in Perl, you can use Perl&rsquo;s regular
+expressions in PATTERN. If PATTERN is not given, LINE is
+used instead for matching a line in FILE. Then LINE may also
+contain the anchors &rsquo;^&rsquo; and &rsquo;$&rsquo;
+which are only treated specialy at the beginning or end of
+the pattern and are used for matching, not when adding the
+line. Additionaly, the following characters are escaped in
+LINE: ( ) +</p>
+
+<p style="margin-left:11%; margin-top: 1em">The exit code
+returned by ainsl is 0 on success and non-zero on error. See
+the section EXIT CODES.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;a</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Autocreate file if it does not
+exist.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;D</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create debugging output.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show help, version and summary of options.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;n</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Print the actions, but do not execute them.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;Q</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Quote all metacharacters in pattern. Uses perl&rsquo;s
+\Q function.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;q</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Quote * and + metacharacters in pattern.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;s</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Convert white space in LINE or PATTERN to
+&rsquo;\s+&rsquo; regexp for matching.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create verbose output.</p></td></tr>
+</table>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">IF the variable
+AINSL_TARGET is defined, it&rsquo;s value will become the
+prefix for the filename. This is used in FAI for changing
+files in /target without specifying /target in the file
+name.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">ainsl &minus;v
+/etc/fstab &rsquo;/dev/fd0 /floppy auto users,noauto 0
+0&rsquo;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Append the
+entry for the floppy device to /etc/fstab, if this line
+isn&rsquo;t already inlcuded.</p>
+
+<p style="margin-left:11%; margin-top: 1em">ainsl &minus;s
+/etc/exports &rsquo;/srv/www @linuxhosts(async,rw)
+backup(async,ro)&rsquo;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Add exports
+entry without exactly matching spaces.</p>
+
+<h2>EXIT CODES
+<a name="EXIT CODES"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>0</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Success: Either FILE contains
+the LINE/PATTERN or LINE was appended to FILE.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>13</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Permissions do not allow writing to FILE and
+LINE/PATTERN was not found in file.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>28</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>FILE cannot written because the filesystem has no space
+and LINE/PATTERN was not found in file.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>30</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>FILE cannot written because the filesystem is read-only
+and LINE/PATTERN was not found in file.</p></td></tr>
+</table>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is a
+similar function to AppendIfNoSuchLine from cfengine(8).</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use ainsl. The FAI
+homepage is http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

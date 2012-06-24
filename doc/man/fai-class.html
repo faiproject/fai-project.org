@@ -1,0 +1,292 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:36 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-class</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-class</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#EXAMPLES FOR SCRIPTS">EXAMPLES FOR SCRIPTS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">fai&minus;class
+&minus; define classes using files and scripts.</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai&minus;class</b>
+[OPTION] <i>DIRECTORY CLASSFILE</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">fai&minus;class
+executes scripts in DIRECTORY to define classes. All classes
+are written to CLASSFILE, each class on a separate line. Use
+absolute paths for both arguments. All scripts or
+executables matching &quot;[0&minus;9][0&minus;9]*&quot; are
+executed in alphabetical order. They can define classes by
+writing the names of the classes to stdout. Classes can be
+separated by spaces or written one on a line. All lines that
+start with a &quot;#&quot; are comment lines and are
+ignored.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Shell scripts
+that end in &quot;.source&quot; are sourced and can define
+classes by setting the variable $newclasses. This is useful
+for scripts where you can&rsquo;t control stdout. Variables
+that are defined in these scripts are available to other
+scripts in DIRECTORY, but they are not exported to the shell
+that calls fai&minus;class. Those scripts can define
+variables by writing definitions to the file
+$LOGDIR/additional.var, which will be sourced in the
+following task.</p>
+
+<p style="margin-left:11%; margin-top: 1em">All scripts can
+define additional classes by writing the classes to the file
+$LOGDIR/additional&minus;classes. These classes are defined
+after all scripts are executed. This temporary file will be
+removed after use.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The order of
+the classes is important because it defines the priority of
+the classes from low to high. First, the class DEFAULT is
+defined. Then all scripts are executed to define classes.
+After that, the classes from the file
+$LOGDIR/additional&minus;classes are added. Then, all
+classes in the file with the hostname are added. Then
+classes defined by the variable ADDCLASSES are used. This
+variable must be a comma separated list of classes. You can
+define this variable on the kernel command line.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Finally, the
+class with the hostname and LAST are defined.</p>
+
+<p style="margin-left:11%; margin-top: 1em">It&rsquo;s
+important that each line in a file containg a class name
+ends with a newline. If the newline is missing on the last
+line of a file, this class can&rsquo;t be added.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The exit code
+of every script is written to the file status.log in
+LOGDIR.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;d</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Create debugging output.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show help, version and summary of options.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;T</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Test if classes in CLASSFILE are defined multiple times.
+This should never happen. The test is executed after the
+classes are defined.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;t tmpdir</b></p>
+
+<p style="margin-left:22%;">The file
+additional&minus;classes is read from the directory tmpdir.
+Default value is /tmp/fai/.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="33%">
+
+
+<p>Create verbose output.</p></td>
+<td width="45%">
+</td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">In FAI,
+fai&minus;class is used in the following way:</p>
+
+<p style="margin-left:11%; margin-top: 1em">#
+fai&minus;class /fai/class /tmp/fai/FAI_CLASSES</p>
+
+<p style="margin-left:11%; margin-top: 1em">Then the list
+of all classes is assigned to the variable classes.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">classes=&rsquo;cat
+/tmp/fai/FAI_CLASSES&rsquo;</p>
+
+<h2>EXAMPLES FOR SCRIPTS
+<a name="EXAMPLES FOR SCRIPTS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+script 01alias:</p>
+
+<p style="margin-left:11%; margin-top: 1em">#! /bin/sh</p>
+
+<p style="margin-left:11%; margin-top: 1em">catnc() { # cat
+but no comment lines <br>
+grep &minus;v &quot;^#&quot; $1 <br>
+} <br>
+# echo architecture in upper case <br>
+dpkg &minus;&minus;print&minus;architecture | tr /a&minus;z/
+/A&minus;Z/ <br>
+uname &minus;s | tr /a&minus;z/ /A&minus;Z/</p>
+
+<p style="margin-left:11%; margin-top: 1em"># all hosts
+named ant?? use the classes in file anthill <br>
+case $HOSTNAME in <br>
+ant??) catnc anthill ;; <br>
+esac</p>
+
+<p style="margin-left:11%; margin-top: 1em"># a Beowulf
+cluster; all nodes except the master node <br>
+# use classes from file class/atoms <br>
+case $HOSTNAME in <br>
+atom00) echo BEOWULF_MASTER ;; <br>
+atom??) catnc atoms ;; <br>
+esac</p>
+
+<p style="margin-left:11%; margin-top: 1em"># if host
+belongs to class C subnet 123.45.6.0 use class NET_6 <br>
+case $IPADDR in <br>
+123.45.6.*) echo NET_6 ;; <br>
+esac</p>
+
+<p style="margin-left:11%; margin-top: 1em">Another
+EXAMPLE:</p>
+
+<p style="margin-left:11%; margin-top: 1em">The script
+24nis:</p>
+
+<p style="margin-left:11%; margin-top: 1em">#! /bin/sh</p>
+
+<p style="margin-left:11%; margin-top: 1em"># add NIS and
+the NIS domain name if YPDOMAIN is defined</p>
+
+<p style="margin-left:11%; margin-top: 1em">if [ &minus;n
+&quot;$YPDOMAIN&quot; ];then <br>
+echo &quot;NIS $YPDOMAIN&quot; | tr /.a&minus;z&minus;/
+/_A&minus;Z_/ <br>
+else <br>
+echo NONIS <br>
+fi</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can define
+classes on the kernel command line by appening this to the
+kernel:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">ADDCLASSES=CLASS1,CLASSX,CLASS3</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">All class names
+should be written in uppercase letters (execpt the class of
+the hostname). Do not use a dash, use an underscore. Only
+executable scripts in DIRECTORY are used. CLASSFILE is
+removed before writing to it. Scripts should not directly
+write to CLASSFILE. LOGDIR should not be writable for
+everybody.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). The FAI homepage
+is http://fai&minus;project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Thomas Lange &lt;lange@informatik.uni&minus;koeln.de&gt;</p>
+<hr>
+</body>
+</html>

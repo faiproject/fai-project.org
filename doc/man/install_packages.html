@@ -1,0 +1,263 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:38 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>install_packages</title>
+
+</head>
+<body>
+
+<h1 align="center">install_packages</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">install_packages
+&minus; install FAI configured packages</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>install_packages</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Fully Automatic
+Installation (FAI) is used to provide unattended
+installation of Debian GNU/Linux operating systems with a
+very flexible class-based system. install_packages is a Perl
+script written for FAI to selectively install, hold, remove,
+or purge packages or tasks.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">install_packages
+is called from the fai installation script and should not be
+called directly. Its function is to parse the package_config
+files based on the class definitions of the client. For
+example, if the client belonged to the SMTPSERVER class,
+install_packages would parse ../package_config/SMTPSERVER
+for instructions on what packages to install, hold, remove,
+or purge.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em"><b>&minus;d</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Only download packages instead
+of installing them. Variable $aptoptions must be set.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Show help, version and summary of options.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;H</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Show list of all available commands for the file in
+package_config.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;l</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Print only the list of all packages that would be
+installed, then exit.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;L</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Print the list of all packages with version number that
+would be installed, then exit.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;m MAX</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Install only MAX packages at a time. Same as setting the
+shell environment variable MAXPACKAGES.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;n</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Dry run. Do not execute installation commands, just
+print them.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;N</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Do not check package names whether they are valid.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;p</b>
+<i>DIRECTORY</i></p>
+
+<p style="margin-left:22%;">Read the configuration files
+from DIRECTORY instead of $FAI/packages_config.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Download source of binary packages that are installed.
+Currently supported only for apt-get/aptitude based
+installations.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Be verbose.</p></td></tr>
+</table>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">install_packages
+expects to find the FAI_ROOT directory, the location of
+class definitions, package configurations, and custom
+install scripts, somewhere in the filesystem. This location
+is configurable in /etc/fai/fai.conf and defaults to
+/srv/fai/config.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>apt</i>(1),
+<i>aptitude</i>(8), <i>apt-get</i>(8), <i>dpkg</i>(8),
+<i>tasksel</i>(1)</p>
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use install_packages.
+The FAI homepage is http://fai-project.org.</p>
+
+<h2>FILES
+<a name="FILES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/fai.conf</i></p>
+
+<p style="margin-left:22%;">The FAI configuration file.</p>
+
+
+<p style="margin-left:11%;"><i>/srv/fai/config/package_config/</i></p>
+
+<p style="margin-left:22%;">The FAI package configuration
+directory.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

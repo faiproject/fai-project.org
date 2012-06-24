@@ -1,0 +1,267 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:37 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-mirror</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-mirror</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-mirror
+&minus; create and manage a partial mirror for FAI</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-mirror</b>
+[OPTION]... DIRECTORY</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This command
+creates a partial mirror of Debian packages. It can be used
+to create the fai CD or as a local mirror when you
+can&rsquo;t download the whole Debian mirror. By default the
+mirror will contain all packages of all classes used in the
+configuration space (/srv/fai/config/package_config).</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>&minus;a
+ARCH</b></p>
+
+<p style="margin-left:22%;">Download packages from
+architecture ARCH. If not specified, use native architecture
+of host.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;B</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Do not add packages included in base.tgz and packages
+defined in nfsroot.conf to the mirror. By default all these
+packages are included in the mirror.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
+
+<p style="margin-left:22%;">Use CFDIR as the configuration
+directory. Default is /etc/fai. You can also set the
+environment variable FAI_ETC_DIR.</p>
+
+<p style="margin-left:11%;"><b>&minus;c</b>
+<i>CLASS[,CLASS]</i></p>
+
+<p style="margin-left:22%;">Use only this list of classes
+for building the mirror. Can&rsquo;t be used in conjunction
+with &minus;x.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Show simple help and version.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;m</b> <i>MAX</i></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Set the number of packages to NUM. This overwrites the
+variable MAXPACKAGES.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;x</b>
+<i>CLASS[,CLASS]</i></p>
+
+<p style="margin-left:22%;">Exclude these classes. Do not
+add the packages of these classes to the mirror.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;p</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Preserve existing sources.list. NOT YET IMPLEMENTED.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create verbose output.</p></td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v /files/scratch/mirror</p>
+
+<p style="margin-left:11%; margin-top: 1em">Creates a
+partial mirror in the directory /files/scratch/mirror using
+all classes.</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v &minus;cDEFAULT,DEMO /debmirror</p>
+
+<p style="margin-left:11%; margin-top: 1em">Creates a
+partial mirror containing all packages used in the classes
+DEFAULT and DEMO.</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v &minus;cDEFAULT,AMD64 /srv/debmirror-amd64</p>
+
+<p style="margin-left:11%; margin-top: 1em">Will create a
+mirror including packages for amd64 architecture defined for
+classes DEFAULT and AMD64. You can also run this on a non
+amd64 host.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">You only need
+root permissions if you access the official Debian mirror
+via NFS. By default, the variable MAXPACKAGES is set to 1,
+so conflicting packages can also be added to the mirror.
+Setting this to a higher number (e.g. 99999) reduces the
+time for creating the mirror, but some packages may be
+missing.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). The FAI homepage
+is http://fai-project.org. <b><br>
+fai-make-nfsroot</b>(8), <b>install_packages</b>(8)</p>
+
+<h2>FILES
+<a name="FILES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/fai.conf</i></p>
+
+<p style="margin-left:22%;">The FAI configuration file.</p>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/nfsroot.conf</i></p>
+
+<p style="margin-left:22%;">The FAI configuration file for
+the nfsroot.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/apt/sources.list</i></p>
+
+<p style="margin-left:22%;">Package resource definition for
+FAI.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>/srv/fai/config/package_config/</i></p>
+
+<p style="margin-left:22%;">The FAI package configuration
+directory. This directory is defined by the variable
+FAI_CONFIGDIR.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>$NFSROOT/var/tmp/base-pkgs.lis</i></p>
+
+<p style="margin-left:22%;">The list of packages included
+in base.tgz inside the nfsroot.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>$NFSROOT/var/tmp/packages.nfsroot</i></p>
+
+<p style="margin-left:22%;">Additional packages that were
+added to the nfsroot by the configuration file
+/etc/fai/NFSROOT.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

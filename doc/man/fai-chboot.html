@@ -1,0 +1,499 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:38 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-chboot</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-chboot</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-chboot
+&minus; manage the network boot configuration files</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-chboot</b>
+[OPTION]... KERNELNAME HOST... <b><br>
+fai-chboot</b> &minus;l[e|d|t|o|g] [PATTERN] <b><br>
+fai-chboot</b> &minus;e HOST... <b><br>
+fai-chboot</b> &minus;d HOST... <b><br>
+fai-chboot</b> &minus;c HOST|TEMPLATE HOST|TEMPLATE...
+<b><br>
+fai-chboot</b> &minus;i [OPTION]... HOST... <b><br>
+fai-chboot</b> &minus;I [OPTION]... HOST...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This command
+creates the configuration files for network booting using
+pxelinux and DHCP.</p>
+
+<p style="margin-left:11%; margin-top: 1em">KERNELNAME is
+the file name of the kernel that will be booted. This kernel
+will mount the root filesystem via NFS. You can add
+additional kernel parameters and define some FAI specific
+flags. For each host one configuration file is created. The
+file name of the configuration file is its IP address in
+upper case hexadecimal or its MAC address with the prefix
+&quot;01-&quot;. HOST can be a host name, an IP or a MAC
+address or the keyword &quot;default&quot;.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;B</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Set default values for
+FAI_FLAGS. This is the same as &minus;f
+verbose,sshd,reboot</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;c</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Copy an existing config file to one or more hosts or
+templates and enable them for network booting.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;C</b>
+<i>CFDIR</i></p>
+
+<p style="margin-left:22%;">Use CFDIR as the configuration
+directory. Default is /etc/fai. You can also set the
+environment variable FAI_ETC_DIR.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;D</b> <i>DIR</i></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Set the directory for the network boot configuration to
+DIR. The default value is /srv/tftp/fai/pxelinux.cfg/.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;d</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Disable network booting for HOST. This renames the
+config file adding the suffix .disable to it.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;e</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Reenable network booting for HOST. This renames the
+config file removing the suffix .disable from it, so the
+next time it uses the PXE configuration.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;E</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Add FAI_FLAG initial. This causes setup-storage to
+disable preserving partitions. This may erase (therefore
+option E) data on the disk.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;f</b>
+<i>fai_flags</i></p>
+
+<p style="margin-left:22%;">Set FAI_FLAGS. The flags must
+be comma separated.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;F</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Set default values for FAI_FLAGS. This is the same as
+&minus;f verbose,sshd,createvt</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show simple help and version.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;i</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Set parameters for booting the FAI install kernel
+(proper initrd, boot from nfs). This does not set
+FAI_ACTION</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;I</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Same as &minus;i but also sets FAI_ACTION=install. So a
+fully automatic installation will be performed. ATTENTION!
+This will erase most of the data on the local disks of the
+install clients.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;k</b>
+<i>parameters</i></p>
+
+<p style="margin-left:22%;">Set kernel append
+parameters.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;l</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>List the configuration for all hosts in short format. If
+PATTERN is given, list only hosts matching PATTERN. Lists
+hostname, FAI_ACTION, kernel name and IP address in hex. Use
+<b>&minus;le</b>, to list only enabled hosts, <b>-ld</b> to
+list only disabled hosts, <b>-lt</b> to list only templates,
+<b>-lo</b> to list only hosts that do not match any of the
+previous categories, and <b>-lg</b> to list the
+configuration for all hosts, sorted and ordered by groups
+(enabled, disabled, templates, others). Note that a
+combination of multiple <b>-l</b> options is not supported
+and that in listing mode no other action will be
+performed.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;L</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>List the configuration for all hosts. Also list the
+kernel append parameters. If PATTERN is given, list only
+hosts matching PATTERN.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;n</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Do not create configuration but show what would be done.
+This also enables the verbose flag.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;o</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Do localboot via PXE. Do not boot via network card, but
+use next boot device which is specified in the BIOS.
+Normally this is the local disk.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;p</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Preserve existing config files. The default is to
+overwrite an existing config file.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;P</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Add the pxelinux option IPAPPEND 3 to the config file.
+This will add two variables to the kernel command line, that
+are also defined as variables inside FAI.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">Example: <br>
+BOOTIF=01-08-00-27-12-34-56 <br>
+ip=123.45.9.99:123.45.9.11:123.45.9.254:255.255.255.128</p>
+
+<p style="margin-left:11%;"><b>&minus;s</b>
+<i>SUFFIX</i></p>
+
+<p style="margin-left:22%;">Use SUFFIX to determine which
+kernel and initrd to use.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;S</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Same as &minus;i but also sets FAI_ACTION=sysinfo.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;u</b> <i>URL</i></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Set FAI_CONFIG_SRC to URL. If not set the value from
+fai.conf inside the nfsroot will be used.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Create verbose output.</p></td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-chboot
+&minus;l</p>
+
+<p style="margin-left:22%;">List the configuration for all
+hosts. fai-chboot &minus;FSPv -u
+nfs://faiserver/srv/fai/config atom02 The host atom02 will
+boot the FAI install kernel but with FAI_ACTION sysinfo.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;l tmpl</p>
+
+<p style="margin-left:22%;">All templates are lsited.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;IBPv -u
+nfs://faiserver/srv/fai/config atom02</p>
+
+<p style="margin-left:22%;">The host atom02 will be
+installed. ATTENTION! All data on the local hard disks are
+lost in most cases, because we want to install a new system.
+After the installation the host automatically reboots.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;vSP
+&minus;s2.6.18-4-amd64 faiserver</p>
+
+<p style="margin-left:22%;">Booting kernel
+vmlinuz-2.6.18-4-amd64 <br>
+append initrd=initrd.img-2.6.18-4-amd64 ip=dhcp</p>
+
+<p style="margin-left:22%; margin-top: 1em">faiserver has
+1.2.3.4 in hex 01020304 <br>
+Writing file /srv/tftp/fai/pxelinux.cfg/01020304 for
+faiserver</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;IFv &minus;u
+nfs://faiserver/srv/fai/clusterconf node03</p>
+
+<p style="margin-left:22%;">node03 will be installed using
+the configuration space /srv/fai/clusterconf, which is
+mounted from faiserver via NFS.</p>
+
+<p style="margin-left:11%;">fai-chboot memtest86+
+atom02</p>
+
+<p style="margin-left:22%;">The host atom02 will boot the
+memory test. Install the package memtest86+ and copy the
+executable memtest86+.bin to /srv/tftp/fai without the .bin
+suffix.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;o default</p>
+
+<p style="margin-left:22%;">All hosts, that do not have a
+PXE configuration for their IP-address will do a localboot,
+i.e. booting from local disk.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;vc lenny64
+james007</p>
+
+<p style="margin-left:22%;">This command will tell the host
+james007 to use the template called lenny64. Beforehand, you
+have to manually create the template and save it to
+/srv/tftp/fai/pxelinux.cfg/lenny64.tmpl.</p>
+
+<p style="margin-left:11%;">fai-chboot &minus;iFPv atom02
+atom03 dom kueppers</p>
+
+<p style="margin-left:22%;">The hosts atom02, atom03, dom
+and kueppers will boot the FAI install kernel. FAI_ACTION
+will not be set unless specified with option &minus;k or
+&minus;I. You can also use the script class/LAST.var on the
+install server to set FAI_ACTION.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+</td>
+<td width="4%"></td>
+<td width="56%">
+
+
+<p style="margin-top: 1em">Currently only PXE boot is
+supported.</p> </td>
+<td width="22%">
+</td></tr>
+</table>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-mirror</b>(1)
+<i><br>
+/usr/share/doc/syslinux/pxelinux.doc.gz</i></p>
+
+<p style="margin-left:22%;">The pxelinux documentation.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI <br>
+manual for more information on how to use fai-chboot. The
+FAI homepage <br>
+is http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>

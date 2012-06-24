@@ -1,0 +1,281 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun Jun 24 12:53:38 2012 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-make-nfsroot</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-make-nfsroot</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-make-nfsroot
+&minus; create the FAI nfsroot directory</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-make-nfsroot</b>
+[<i>options</i>]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Create the FAI
+nfsroot directory as pointed by $NFSROOT in the config_file.
+This directory is necessary for the installation of Debian
+on remote clients using the FAI package. The config_file
+location is discussed in the OPTIONS below.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The exit code
+returned is 0 if all commands to build the root directory
+exited successfully and &gt;0 if an error occurs.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;a</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Adjust a generic nfsroot. Add
+resolv.conf, add host entries, set the root password.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;B BASETGZ</b></p>
+
+<p style="margin-left:22%;">Use specified BASETGZ file as
+base.tgz (or base.tar.gz, base.tar.xz, base.txz) for the
+nfsroot. This avoids calling debootstrap and therefore
+reduces the buildtime for the nfsroot.</p>
+
+<p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
+
+<p style="margin-left:22%;">Use CFDIR as configuration
+directory. Default is /etc/fai. You can also set the
+environment variable FAI_ETC_DIR.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;f</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Force overwriting an existing nfsroot. By default
+fai-make-nfsroot aborts if the configuration variable
+NFSROOT points to a directory which already exists. To force
+overwriting (and therefore rebuilding) the existing nfsroot
+use this option. This option is supported starting with FAI
+4.0. Note: To update and therefore preserve an existing
+nfsroot see option &minus;k.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;g</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create a generic nfsroot. Remove most install server
+specific data from nfsroot. See also -a.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;K</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Remove all kernels from NFSROOT. This is the same as
+calling aptitude purge ~nlinux-image inside the nfsroot.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;k</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Install additional packages defined in /etc/fai/NFSROOT
+into the nfsroot. Also copies all kernels from the nfsroot
+to the directory $TFTPROOT.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;l</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create a nfsroot using live/filesystem.dir subdirectory.
+This is needed if the initrd of the kernel is created by the
+live-boot package.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;p</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Preserve ssh keys. This will preserve the whole .ssh
+directory of the root account inside the nfsroot.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;v</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create verbose output on stdout.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Show simple help.</p></td></tr>
+</table>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">If you do not
+use NFS, you may still use the NFSROOT directory as a
+staging point for building the base installation
+tarball.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>exports</i>(5),
+<i>nfsd</i>(8), <i>fai-setup</i>(8)</p>
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use fai-make-nfsroot.
+The FAI homepage is http://fai-project.org.</p>
+
+<h2>FILES
+<a name="FILES"></a>
+</h2>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/fai.conf</i></p>
+
+<p style="margin-left:22%;">The FAI configuration file.</p>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/nfsroot.conf</i></p>
+
+<p style="margin-left:22%;">The configuration file for
+fai-make-nfsroot.</p>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/nfsroot-hooks/</i></p>
+
+<p style="margin-left:22%;">Directory containing shell
+scripts to be sourced at the end of fai-make-nfsroot for
+additional configuration of the nfsroot. Can be changed with
+NFSROOT_HOOKS.</p>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/apt/sources.list</i></p>
+
+<p style="margin-left:22%;">Copy this file to the
+NFSROOT.</p>
+
+
+<p style="margin-left:11%;"><i>/etc/fai/apt/keys/*.asc</i></p>
+
+<p style="margin-left:22%;">Repository keys in .asc format
+found here will be installed into the NFSROOT.</p>
+
+
+<p style="margin-left:11%;"><i>/var/run/fai/fai-make-nfsroot/*-stamp</i></p>
+
+<p style="margin-left:22%;">Stamp files used for
+recovery.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>
