@@ -36,6 +36,37 @@ Currently we have more than 270 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Denny Schierz, linuxmail  <four>lin <dot>net
+
+<br><b>Date:</b> Wed, 11 Jul 2012 11:23:56 +0200
+
+<pre>
+How many hosts have you installed using fai? At the moment, round about <b>20</b> hosts
+Which version of fai are you using? <b>3.4.7</b>
+Which version are you using as your install kernel?  Custom 3.3.x kernel
+
+Which types of hosts are you installing with fai? Vmware ESX VMs with Squeeze for Bachelor students, 
+          servers for Print/Web/Backup/Icinga ....
+
+How do you boot your hosts? PXE/DHCP via ISC dhcpserver / dnsmasq, SPARC ALOM Network
+Does the default install kernel recognize all your hardware? 
+     The default Debian kernel has a bug with mdadm partitions, which
+     produces a lot of noise in syslog
+Do you manage your configuration space under version control? Not at the moment, but planed with Puppet
+How big is your config space (Mbytes, # of files)? 792K / 118 files
+How many files do you have in ../config/files? 51
+What types of scripts are you using for local customization? Shell
+
+<b>What is the business of your company/organisation?</b> University, <a href="http://www.rbg.informatik.tu-darmstadt.de/">Department of Computer Science</a>, Technical University of Darmstadt 
+<br><b>Additional comments:</b> 
+We have Fai installed in a VM which let us install SPARC (v215/v245) in the same way, like
+every X86 host (but with Alom instead of PXE and customized partition setup). Also we have
+Bacula on the backup side, so that we can in the emergency case reinstall the broken client
+and push the latest backup back. Also on the todo list: Use Puppet for the configuration
+files and create a clone from the whole production environment for testing purposes.
+</pre> <HR>
+
+
 <b>From:</b> Christopher Huhn, hpc gsi de
 <br><b>Date:</b> Mon, 04 Jun 2012 17:43:24 +0200
 <pre>
