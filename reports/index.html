@@ -36,8 +36,80 @@ Currently we have more than 270 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
-<b>From:</b> Denny Schierz, linuxmail  <four>lin <dot>net
+<b>From:</b> Katarzyna Myrek, katarz y n a == myrek = pl, michal dot dwuznik notdotbut@ g m a i l.c o m
+<br><b>Date:</b> Sun, 7 Oct 2012 19:24:56 +0200
+<pre>
+How many hosts have you installed using fai? <b>About a hundred</b>
+Which version of fai are you using? <b>3.4.8</b>
+Which version are you using as your install kernel? Vanilla Debian Squeeze kernel
 
+Which types of hosts are you installing with fai? Desktops, 5 flavours (different hardware and software used)
+
+How do you boot your hosts? Via network (PXE, DHCP)
+Does the default install kernel recognize all your hardware? Mostly.
+Which drivers are missing? Drivers for Intel ethernet cards.
+
+Do you manage your configuration space under version control? No.
+How big is your config space (Mbytes, # of files)? 15GB as of yet
+How many files do you have in ../config/files? Lots of.
+
+What types of scripts are you using for local customization? Bash scripts for linux part, chntpw+ntfsclone for MS Windows part.
+
+<b>What is the business of your company/organisation?</b> <a href="http://agh.edu.pl/en">AGH University of Science and Technology</a> and <a href="http://www.fis.agh.edu.pl/indexe.html">Faculty of Physics and Applied Computer Science</a>
+<br><b>Additional comments:</b> 
+(What follows is written by Katarzyna Myrek, agreed upon by the parties involved, with K.M and M.D.
+remarks marked below when needed)
+
+My bachelor's degree thesis in 'applied computer science' is based on FAI - the title translated to
+English is (sorry, looong one):
+'Design and deployment of an automated system to install, configure, upgrade and recover operating
+systems within WFiIS (the faculty) computer lab environment'
+Some details below. Michal Dwuznik is one of my tutors (and a de facto
+happy coworker rather than a teacher, by his own words).
+
+Deployment and disaster recovery of operating systems in faculty computer labs, ranging from old
+machines serving 'linux for dummies' classes, through 'network lab' to 'Sound processing/graphics lab'.
+Extension to 'nuclear electronics and particle detectors' and 'biometrics' lab is foreseen as well.
+For most of the labs there's a common NFS /home for users + NIS server handling the accounts database
+for Linux part and Novell eDirectory serving the same purpose on Windows.
+
+M.D.:Legacy NIS to be replaced by LDAP+KRB5 combo as soon as possible (fingers crossed)
+
+The machines involved are dual-boot -> there's a new set of actions created by me for cloning 'known
+good' windows installations to the 'image server' as well as ones for 'golden image'->workstation
+recovery (ntfsclone with the needed registry  changes done by chntpw)
+
+M.D:The Windows part of the deployment with no WDS around is blood, sweat and tears (and working really nice afterwards)
+
+The software included in the installs in various places (other than 'typical Debian stable desktop
+install') contains:
+1)Linux side
+a) local gizmos: NIS, NFS /home, monitoring, SSH keys to access the running hosts, faculty wallpapers and GDM theme, etc.
+b) 'IDE' group(and class as well)-> recent versions of eclipse, netbeans, QTSDK, Codeblocks, CUDA toolkit, MPI...
+c) 'HEP' software -> CERN ROOT Object Oriented Toolkit, GEANT4
+d) 'IC design' group -> Cadence environment from Europractice, Xilinx tools
+
+2)included in Windows installs (in 'golden images' deployed on the workstations):
+a) Novell Zenworks environment integration
+b) Matlab/Mathematica/CFD packages
+c) lots of software in Zenworks containers -> MS Office, web browsers, 'everyday utilities'
+
+3)virtualization tools for both Windows and Linux to serve as VM host platforms for various 'special
+  needs' -> disposable VMs with root access for some classes, VMs tailored for some legacy software
+  needs, tools to connect to remote lab equipment.
+
+M.D.: Cadence/EUROPRACTICE install - full range of ASIC development tools + various design kits (can't name them all due to NDAs)
+was pretty hard part, too...
+Close cooperation with IC design experts made it possible (ASICs designed here were/are/will be used in various applications -> from neurobiology experiments through X-ray diffractometry to high energy physics experiments)
+Lab use of that requires quite some effort to run software packages certified for various RHEL versions
+to run on _one_ Debian, plus some logging/firewalling/scripting to reach the license servers and in the
+same time comply with non-disclosure-agreements.
+The future extension of the aforementioned system to include 'electronics' labs will probably bring
+even more software packages, and many more licensing and security issues...
+</pre> <HR>
+
+
+<b>From:</b> Denny Schierz, linuxmail  <four>lin <dot>net
 <br><b>Date:</b> Wed, 11 Jul 2012 11:23:56 +0200
 
 <pre>
