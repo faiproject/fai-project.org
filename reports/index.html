@@ -35,6 +35,83 @@ hr {margin: 1em 0;background:#777777;height:2px;color:#777777;border:none;clear:
 Currently we have more than 280 detailed reports. Please also fill out the <a href="/questionnaire">FAI questionnaire</a>. 
 <p>
 <hr/>
+<b>From:</b> Nils Schroeder  nils dotschroeder =cewecol o r dotde>
+<br><b>Date:</b> Tue, 13 Aug 2013 14:39:52 +0000
+
+<pre>
+How many hosts have you installed using fai? About <b>50 to 100</b>. We install all our new servers since 2 years with fai.
+Which version of fai are you using? <b>4.0.6</b>
+Which version are you using as your install kernel? plain Debian kernel
+
+Which types of hosts are you installing with fai? All kind of webservers and application servers 
+   (frontend and backend) for our dc. We have a few standard plattformprofiles we use to install with fai.
+   So OS, users, monitoring and some site specific stuff is in place. We use these installed hosts as a
+   start point to install the actual services. For our big platforms we have FAI profiles as well.
+
+How do you boot your hosts? PXE boot, dhcp server gives hostnames and IPs by preconfigured mac adresses.
+   New Hostname decides which classes fai shoud install.
+
+Does the default install kernel recognize all your hardware? Yes, though we had some trouble with one raid card.
+Which drivers are missing? None
+
+Do you manage your configuration space under version control?  No,
+    it is not volatile enough and only one person is managing changes. So we do not see any need for versioncontrol.
+How big is your config space (Mbytes, # of files)? Only scripts and a few binarys (mostly for custom monitoring). 3,3 MB  and 47 Scripts.
+How many files do you have in ../config/files? 5
+What types of scripts are you using for local customization? shell (bash) and python
+
+<b>What is the business of your company/organisation?</b> We are europes leading photofinisher <a href="http://www.cewecolor.de/en/">CEWE COLOR AG</a>. 
+    You can buy out products at our business partners like DM, Müller, Amazon and a lot more. 
+<br><b>Additional comments:</b>
+Doing the base install of our new servers for our datacenter.
+</pre> <HR>
+
+
+<b>From:</b> Steve Jahl, j a h l csail dot mit,edu
+<br><b>Date:</b> Fri, 5 Jul 2013 11:14:38 -0400
+<pre>
+How many hosts have you installed using fai? <b>Several hundred</b>
+Which version of fai are you using? <b>3.2.17 and 3.4.8</b>
+Which version are you using as your install kernel?
+    - Debian installs use the Debian 3.2 kernel from squeeze-backports
+    - Ubuntu installs use the 3.2 kernel from the 12.04 LTS release
+
+Which types of hosts are you installing with fai?
+    All hosts running linux are being installed with FAI. This ranges from desktops,
+    to the hardware compute nodes in our Openstack cloud and everything in between.
+
+How do you boot your hosts? We boot our hosts via PXE/DHCP. We also have a netboot CD for cases where this isn't possible.
+Does the default install kernel recognize all your hardware?
+Which drivers are missing?
+    - The default install kernel for Ubuntu has recognized all hardware that I've tried to install.
+    - The default install kernel for Debian was missing the latest versions of the broadcom drivers.
+
+Do you manage your configuration space under version control?
+    - We manage our newer config space with git, and older config space with SVN.
+
+How big is your config space (Mbytes, # of files)? 
+    - Ubuntu: 236K, #89
+    - Debian: 16M, #1197
+
+How many files do you have in ../config/files?
+    - Ubuntu: 22
+    - Debian: 987
+
+What types of scripts are you using for local customization?
+    - For Debian, we use shell scripts, and some file copying that's munged with cfengine a bit. We've migrated
+      to Puppet for Ubuntu hosts. Configuration for puppet includes running a few shell scripts that add local
+      Facter facts to /etc/facter/facts.d based on the FAI_CLASSES of the machine, and then starts a chroot'ed
+      puppet agent run. As a result, the Ubuntu/puppet based FAI setup requires much less scripting and file
+      copying, so the config tree is drastically smaller.
+
+<b>What is the business of your company/organisation?</b> Higher education & research: <a href="http://csail.mit.edu">MIT Computer Science & Artificial Intelligence Laboratory</a>
+<br><b>Additional comments:</b>
+We use FAI for all linux installations. I believe we started with FAI in the Debian Lenny release cycle, and the transition
+to Ubuntu has been very seamless. We investigated the Razor Project since it's what Puppet Labs recommends
+(https://github.com/puppetlabs/Razor/wiki), but the FAI Nfsroot and class-based setup provides a lot more flexibility
+(particularly when it comes to installing later kernel versions and hardware drivers), so we stuck with FAI.
+</pre> <HR>
+
 
 <b>From:</b> Harald Staub, firstname . lastname @switch .ch>
 <br><b>Date:</b> Wed, 03 Jul 2013 17:08:10 +0200
