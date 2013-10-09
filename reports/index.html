@@ -35,6 +35,33 @@ hr {margin: 1em 0;background:#777777;height:2px;color:#777777;border:none;clear:
 Currently we have more than 280 detailed reports. Please also fill out the <a href="/questionnaire">FAI questionnaire</a>. 
 <p>
 <hr/>
+<a id=sindermann></a>
+<b>From:</b> Andreas Sindermann, sinder ä thp döt uni-koeln de
+<br><b>Date:</b> Wed, 9 Oct 2013 11:00:10 +0200 (MEST)
+
+<pre>
+How many hosts have you installed using fai? <b>75</b>
+Which version of fai are you using? <b>3.4.8ubuntu2</b>
+Which version are you using as your install kernel? 3.2.0-32-generic-pae
+
+Which types of hosts are you installing with fai? Desktop machines, no servers
+
+How do you boot your hosts?   PXE+DHCP
+Does the default install kernel recognize all your hardware? yes
+Which drivers are missing?  none
+Do you manage your configuration space under version control? no
+
+How big is your config space (Mbytes, # of files)?  54M, 111 files
+How many files do you have in ../config/files?    59
+
+What types of scripts are you using for local customization?  mostly shell, very little cfengine/perl
+<b>What is the business of your company/organisation?</b> <a href=http://www.thp.uni-koeln.de/>Institute for Theoretical Physics</a>, University of Cologne
+<br><b>Additional comments:</b>
+We are buying standard hardware with nvidia based graphics adapter
+(not too new) so no driver issues occur.
+</pre> <HR>
+
+
 <b>From:</b> Nils Schroeder  nils dotschroeder =cewecol o r dotde>
 <br><b>Date:</b> Tue, 13 Aug 2013 14:39:52 +0000
 
@@ -4872,32 +4899,6 @@ connection to the outside world and all other machines were on a private network
 to the master node.  So I ended up creating a FAI installation that installs an FAI server that all
 other networking lab machines can install off of.  That was fun :)  That's also why my .../fai/files
 is so large.  
-</pre> <hr />
-
-
-<a id=sindermann></a>
-<b>From:</b> Andreas Sindermann,  sinder äd thp.Uni-Koeln.DE 
-<br /><b>Date:</b> Thu, 3 Aug 2006 12:12:03 +0200 (MEST)
-<pre>
-How many hosts have you installed using fai? <b>~50</b>
-Which version of fai are you using? <b>2.10.1ubuntu1</b>
-Which version of fai-kernels are you using? custom build kernel 2.6, kernel from
- fai-kernels 1.10.3ubuntu2 with forcedeth network driver added 
-
-How do you boot your hosts?
-       via network card:  X
-       BOOTP, PXE, DHCP:  PXE/DHCP
-
-Does the default install kernel recognize all your hardware? no
-Which drivers are missing? forcedeth driver is missing in Ubuntu 6.06 version of fai-kernels
-
-Which types of hosts are you installing with fai? desktops
-Do you manage your configuration space under version control? no
-
-How big is your config space (Mbytes, # of files)? 38MB, 116 files
-How many files do you have in ../fai/files? 76
-
-<b>What is the business of your company/organisation?</b> <a href=http://www.thp.uni-koeln.de/>Institute for Theoretical Physics</a>, University of Cologne
 </pre> <hr />
 
 
