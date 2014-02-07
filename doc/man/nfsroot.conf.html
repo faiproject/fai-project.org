@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.20.1 -->
-<!-- CreationDate: Tue Nov  6 16:13:21 2012 -->
+<!-- Creator     : groff version 1.21 -->
+<!-- CreationDate: Fri Feb  7 16:49:42 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,6 +24,7 @@
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#VARIABLES">VARIABLES</a><br>
+<a href="#NOTES">NOTES</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 <a href="#AUTHOR">AUTHOR</a><br>
 
@@ -51,17 +52,15 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">FAI - Fully
-Automatic Installation - allows for non-interactive initial
-installation and online maintenance
-(&quot;softupdates&quot;) of operating systems according to
-a user-defined configuration. See <b>fai</b>(8) for the
-possible operation modes of FAI.</p>
-
 <p style="margin-left:11%; margin-top: 1em">The nfsroot is
-the file system which is used during installation by the
-install client. It is mounted by the install kernel via NFS.
-It&rsquo;s also used on the FAI CD.</p>
+a file system on the install server. It is used during
+installation by the install clients.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>nfsroot.conf</b>
+defines the essential options for the install server, which
+are mostly used inside the nfsroot. Use bash(1) syntax for
+defining variables.</p>
 
 <h2>VARIABLES
 <a name="VARIABLES"></a>
@@ -69,18 +68,15 @@ It&rsquo;s also used on the FAI CD.</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>nfsroot.conf</b>
-is sourced by <b>fai-make-nfsroot</b>(8) and other scripts
-and thus must be valid <b>bash</b>(1) code. <b><br>
-FAI_DEBOOTSTRAP</b></p>
+<p style="margin-left:11%; margin-top: 1em"><b>FAI_DEBOOTSTRAP</b></p>
 
 <p style="margin-left:22%;">Two parameters for
 debootstrap(8), space separated. Debootstrap is called as
-the firt part of fai-make-nfsroot. This variable defines
+the first part of fai-make-nfsroot. This variable defines
 SUITE and MIRROR for debootstrap. Example:</p>
 
 
-<p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP=&quot;squeeze
+<p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP=&quot;wheezy
 http://http.debian.net/debian&quot;</p>
 
 <p style="margin-left:11%;"><b>NFSROOT_ETC_HOSTS</b></p>
@@ -90,7 +86,7 @@ added to /etc/hosts inside the nfsroot. You can use this
 when DNS is not available on the clients. Example:</p>
 
 
-<p style="margin-left:22%; margin-top: 1em">NFSROOT_ETC_HOSTS=&quot;192.168.1.250
+<p style="margin-left:22%; margin-top: 1em">NFSROOT_ETC_HOSTS=&quot;192.168.33.250
 faiserver&quot;</p>
 
 <p style="margin-left:11%;"><b>FAI_ROOTPW</b></p>
@@ -128,13 +124,13 @@ fai-mirror(1) and fai-setup(8).</p>
 
 <p style="margin-left:11%;"><b>SSH_IDENTITY</b></p>
 
-<p style="margin-left:22%;">Location of a identity.pub
+<p style="margin-left:22%;">Location of a ssh public key
 file. This user can log into the install clients in as root
 without a password. Only useful with
 FAI_FLAGS=&quot;sshd&quot;. Example:</p>
 
 
-<p style="margin-left:22%; margin-top: 1em">SSH_IDENTITY=/home/admin/.ssh/identity.pub</p>
+<p style="margin-left:22%; margin-top: 1em">SSH_IDENTITY=/home/admin/.ssh/id_rsa.pub</p>
 
 <p style="margin-left:11%;"><b>NFSROOT_HOOKS</b></p>
 
@@ -149,8 +145,15 @@ shell scripts.</p>
 debootstrap(8). Used for excluding packages and for
 specifying a different architecture.</p>
 
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
 
-<p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP_OPTS=&quot;--exclude=info&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Normally, the
+nfsroot is mounted by the install kernel via NFS. It&rsquo;s
+also used on the FAI CD. You can convert an nfsroot to a
+compressed image using fai-nfsroot2image(8).</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
@@ -159,7 +162,9 @@ specifying a different architecture.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai&minus;make-nfsroot</b>(8),
-<b>fai&minus;setup</b>(8), <b>fai</b>(8)</p>
+<b>fai&minus;setup</b>(8), <b>fai</b>(8)
+<b>fai&minus;mirror(1) fai&minus;chboot(8)
+fai&minus;nfsroot2image(8)</b></p>
 
 <p style="margin-left:11%; margin-top: 1em">This file is
 part of FAI (Fully Automatic Installation). The FAI homepage

@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.20.1 -->
-<!-- CreationDate: Tue Nov  6 16:13:21 2012 -->
+<!-- Creator     : groff version 1.21 -->
+<!-- CreationDate: Fri Feb  7 16:49:42 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -46,7 +46,7 @@ make a bootable CD-ROM or USB stick that performs an FAI</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai-cd</b>
-[<i>OPTION</i>] &minus;m MIRROR <i>FILE</i> <b><br>
+[<i>OPTION</i>] &minus;m MIRROR <i>ISOFILE</i> <b><br>
 fai-cd</b> [<i>OPTION</i>] &minus;m MIRROR <i>-u
 DIRECTORY</i> <b><br>
 fai-cd</b> [<i>OPTION</i>] &minus;B <i>FILE</i></p>
@@ -64,6 +64,11 @@ image, the command needs the NFSROOT, the configuration
 space and a partial mirror, which is created by fai-mirror.
 The command can also copy all needed data to DIRECTORY on a
 mounted USB stick.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Note:</b>
+Currently, fai-cd is only working with the package live-boot
+inside the nfsroot, not with dracut. Therefore you have to
+use the option -l with fai-make-nfsroot(8).</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -84,9 +89,7 @@ mounted USB stick.</p>
 
 <p style="margin-top: 1em">Create a boot only ISO image
 which does a network installation. It does not include the
-nfsroot, the partitial mirror and the config space. Unless
-the option &minus;g is used, /usr/share/fai/menu.lst will be
-used as boot menu configuration.</p></td></tr>
+nfsroot, the partitial mirror and the config space.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -130,11 +133,6 @@ The script will look for FILE in CFDIR. If FILE is located
 in another directory then a full path must be specified. If
 not specified, use /etc/fai/grub.cfg.</p>
 
-<p style="margin-left:11%;"><b>&minus;G GRUBVERSION</b></p>
-
-<p style="margin-left:22%;">Specify which grub version
-should be used. Either 1 or 2, the default is 2.</p>
-
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
@@ -177,13 +175,25 @@ will sleep for a long time, before continuing the cleanup of
 temp files and mounts. Beware of killing or suspending the
 script itself, since a lot of mounts will remain. This is
 for debugging only!</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;M</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Do not add the package mirror to the CD.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>&minus;m</b>
 <i>DIRECTORY</i></p>
 
 <p style="margin-left:22%;">Use DIRECTORY as partial FAI
-mirror. This option is mandatory.</p>
+mirror. This option is mandatory, unless you use -M or
+-B.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -256,12 +266,6 @@ fai-mirror</b>(1)</p>
 
 <p style="margin-left:22%;">The default grub2 menu
 configuration file for fai-cd.</p>
-
-
-<p style="margin-left:11%;"><i>/usr/share/fai/grub.cfg</i></p>
-
-<p style="margin-left:22%;">The default grub2 menu
-configuration file when using &minus;B.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>

@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.20.1 -->
-<!-- CreationDate: Tue Nov  6 16:13:21 2012 -->
+<!-- Creator     : groff version 1.21 -->
+<!-- CreationDate: Fri Feb  7 16:49:41 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -51,19 +51,6 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">FAI - Fully
-Automatic Installation - allows for non-interactive initial
-installation and online maintenance
-(&quot;softupdates&quot;) of operating systems according to
-a user-defined configuration. See <b>fai</b>(8) for the
-possible operation modes of FAI.</p>
-
-<p style="margin-left:11%; margin-top: 1em">To manage a set
-of configurations, FAI implements a concept of classes,
-i.e., a list of symbolic names, which is determined at the
-start of FAI on a given host. Each host is associated with
-an ordered set of classes.</p>
-
 <p style="margin-left:11%; margin-top: 1em">The
 configuration for a target host consists of two parts:</p>
 
@@ -101,7 +88,9 @@ configuration space. See <b>FAI_CONFIG_SRC</b> below.</p></td></tr>
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai.conf</b>
 defines the essential options to successfully start a FAI
-run.</p>
+run. It must be valid <b>bash</b>(1) code. This
+configuration file is NOT copied into the nfsroot by
+fai-make-nfsroot.</p>
 
 <h2>VARIABLES
 <a name="VARIABLES"></a>
@@ -109,18 +98,12 @@ run.</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai.conf</b>
-is sourced by <b>fai</b>(8) and other scripts of fai and
-thus must be valid <b>bash</b>(1) code. All variables
-described below are variables that must be assigned to use
-<b>bash</b>(1) syntax. <b><br>
-FAI_CONFIG_SRC</b> URL to access configuration space</p>
+<p style="margin-left:11%; margin-top: 1em"><b>FAI_CONFIG_SRC</b>
+URL to access configuration space</p>
 
 <p style="margin-left:22%;">A protocol-specific URL
 defining the server and directory/repository to fetch the
-configuration space from. If left undefined, the assumed
-default value is nfs://&lt;install
-server&gt;/$FAI_CONFIGDIR</p>
+configuration space from.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The following
 protocols and URL schemes are currently supported:</p>
@@ -134,10 +117,12 @@ protocols and URL schemes are currently supported:</p>
 
 <p>&bull;</p></td>
 <td width="10%"></td>
-<td width="78%">
+<td width="61%">
 
 
-<p>NFS: nfs://&lt;server&gt;/&lt;exported directory&gt;</p></td></tr>
+<p>NFS: nfs://&lt;server&gt;/&lt;exported directory&gt;</p></td>
+<td width="17%">
+</td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -145,22 +130,33 @@ protocols and URL schemes are currently supported:</p>
 
 <p>&bull;</p></td>
 <td width="10%"></td>
-<td width="78%">
+<td width="61%">
 
 
-<p>Local file: file://&lt;directory&gt;</p></td></tr>
+<p>Local directory: file://&lt;directory&gt;</p></td>
+<td width="17%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The directory
+has to be an absolute path. So, this URI always starts with
+three slashes like this: file:///</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p>&bull;</p></td>
+<p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
 <td width="78%">
 
 
-<p>CVS: cvs[+ssh]://&lt;user&gt;@&lt;host&gt;/&lt;cvs
-root&gt; &lt;module&gt;[=&lt;tag&gt;]</p></td></tr>
+<p style="margin-top: 1em">CVS:
+cvs[+ssh]://&lt;user&gt;@&lt;host&gt;/&lt;cvs root&gt;
+&lt;module&gt;[=&lt;tag&gt;]</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
