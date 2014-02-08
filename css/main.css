@@ -240,3 +240,20 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 #footer {clear:both;padding: 10px 0 30px;font-size:86%;color:#999;background: #fff url("images/body_bg.gif") repeat-x 0 100%}
 	#footer p {margin:0}
 	#footer a:link {color:#999}
+
+
+.downloadbox-border { border: 0px solid #000000; font-size: 22px; font-weight:bold;
+ -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+ }
+.downloadbox-real { border: 2px solid #000000; background: #ffa920; padding: 30px;  color: #000000;
+ -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+ }
+.downloadbox-real:hover {border: 2px solid #000000; background: #aaf420 ; color: #000000;
+ -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+}
