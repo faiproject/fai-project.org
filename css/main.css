@@ -242,12 +242,12 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#footer a:link {color:#999}
 
 
-.downloadbox-border { border: 0px solid #000000; font-size: 22px; font-weight:bold;
+.downloadbox-border { border: 0px solid #000000; font-size: 120%; font-weight:bold;
  -webkit-border-radius: 19px;
    -moz-border-radius: 19px;
    border-radius: 19px;
  }
-.downloadbox-real { border: 2px solid #000000; background: #ffa920; padding: 30px;  color: #000000;
+.downloadbox-real { border: 2px solid #000000; background: #ffc940; padding: 20px;  color: #000000;
  -webkit-border-radius: 19px;
    -moz-border-radius: 19px;
    border-radius: 19px;
