@@ -51,7 +51,7 @@ ul {margin: .3em 0 1.5em 0;list-style-type:none}
 ol {margin: .5em .5em 1.5em}
 ol li {margin-left: 1.4em;padding-left: 0;background: none; list-style-type: decimal}
 /* li {line-height: 1.4em;padding-left: 25px;background: none}  */
-li {line-height: 1.4em;padding-left: 25px;background: transparent url("images/sprites.gif") no-repeat 0 0}
+li {line-height: 1.4em;padding-left: 25px;background: transparent url("images/sprites.png") no-repeat 0 0}
 
 li.doc {background-position: 3px -500px}
 ul.nomarker li {background:none;padding-left:0}
@@ -66,7 +66,7 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 .clear {clear:both;position:relative;font-size:0px;height:0px;line-height:0px} 
 
 /* LAYOUT - HEADER */
-#header {background: #666 url("images/sprites.gif") repeat-x 0 100%;margin: 0 0 25px;padding: 0 0 8px}
+#header {background: #666 url("images/sprites.png") repeat-x 0 100%;margin: 0 0 25px;padding: 0 0 8px}
 
 	#header #site-name {font: 265% arial;letter-spacing: -.05em;margin:0 0 0 40px;padding:3px 0;color:#ccc;border:none}
 	#site-name a  {color: #ccc;text-decoration:none}
@@ -94,9 +94,9 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav li.active li {border:none;border-top: 1px solid #c15c5c;border-bottom: 1px solid #ffffff}
 	#nav li.active li.last {border-bottom: none}
 	#nav li.active li a:link, #nav li.active li a:visited, #nav li.active li a:hover, #nav li.active li a:active {color:#fff}
-	#nav li.active li a:hover {background: #666 url("images/sprites.gif") repeat-x 0 99%;color:#fff}
+	#nav li.active li a:hover {background: #666 url("images/sprites.png") repeat-x 0 99%;color:#fff}
 	
-	#nav li.active li.active a:link, #nav li.active li.active a:visited, #nav li.active li.active a:hover, #nav li.active li.active a:active {color:#fff;font-weight:bold;background: #666 url("images/sprites.gif") repeat-x 0 99%}
+	#nav li.active li.active a:link, #nav li.active li.active a:visited, #nav li.active li.active a:hover, #nav li.active li.active a:active {color:#fff;font-weight:bold;background: #666 url("images/sprites.png") repeat-x 0 99%}
 
 	/* hide from IE mac \*/
 	#nav li {width:auto}
@@ -150,11 +150,11 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	
 	/* TABLES */
 	.table1 {border: 2px solid #900;border-collapse:collapse;width:100%}
-		.table1 td {background: #fff url("images/sprites.gif") repeat-x 0 -1600px;padding:3px;border: 1px solid #fff}
+		.table1 td {background: #fff url("images/sprites.png") repeat-x 0 -1600px;padding:3px;border: 1px solid #fff}
 		.table1 th {text-align:left;border: 1px solid #fff}
-		.table1 thead th {color:#fff;font-size:145%;background: #900 url("images/sprites.gif") repeat-x 0 -1300px;padding: 10px 6px}
-		.table1 tbody th {color:#fff;font-size:115%;background: #88b8db url("images/sprites.gif") repeat-x 0 -1400px;padding: 6px}
-		.table1 tbody th.sub {font-size:100%;color:#000;background: #efefef url("images/sprites.gif") repeat-x 0 -1500px;padding: 6px}
+		.table1 thead th {color:#fff;font-size:145%;background: #900 url("images/sprites.png") repeat-x 0 -1300px;padding: 10px 6px}
+		.table1 tbody th {color:#fff;font-size:115%;background: #88b8db url("images/sprites.png") repeat-x 0 -1400px;padding: 6px}
+		.table1 tbody th.sub {font-size:100%;color:#000;background: #efefef url("images/sprites.png") repeat-x 0 -1500px;padding: 6px}
 
 	/* TABLES - calendar */
 	.calendar {width:200px;font-size:92%}
@@ -165,8 +165,8 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 		.calendar tbody th.sub {padding: 2px}
 		
 	/* 'MORE' LINK - provides an accessible alternative to just using 'more' as a link at the end of paragraphs */
-		a.morelink:link, a.morelink:visited, a.morelink:hover, a.morelink:active {background: transparent url("images/sprites.gif") no-repeat 5px -500px;padding-left:21px}
-		a.morelink:hover {background: transparent url("images/sprites.gif") 5px -400px}
+		a.morelink:link, a.morelink:visited, a.morelink:hover, a.morelink:active {background: transparent url("images/sprites.png") no-repeat 5px -500px;padding-left:21px}
+		a.morelink:hover {background: transparent url("images/sprites.png") 5px -400px}
 		.morelink span {position:absolute;left:-9999px;width:900px}
 		
 	/* CODE - formatting for code inserted into body - more here: http://dizque.lacalabaza.net/temp/lipt/ */
@@ -191,11 +191,11 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav-secondary, #nav-secondary ul {position:static}
 	#nav-secondary, #nav-secondary li {list-style: none;margin:0;padding:0;background:#fff}
 	#nav-secondary {padding-top:0;border-top: 1px solid #ccc;margin-top: 1px}
-	#nav-secondary a {line-height:1.8;padding: 5px 0 5px 23px;background: #fff url("images/sprites.gif") no-repeat 10px -695px;font: bold 86% arial;display:block}
+	#nav-secondary a {line-height:1.8;padding: 5px 0 5px 23px;background: #fff url("images/sprites.png") no-repeat 10px -695px;font: bold 86% arial;display:block}
 	#nav-secondary a, #nav-secondary a:link, #nav-secondary a:visited, #nav-secondary a:hover, #nav-secondary a:active {text-decoration:none;cursor:pointer} 
 	#nav-secondary a:link {color:#000} 
 	#nav-secondary a:visited {color:#000} 
-	#nav-secondary a:hover {color:#000;background: #fc8 url("images/sprites.gif") no-repeat 10px -695px} 
+	#nav-secondary a:hover {color:#000;background: #fc8 url("images/sprites.png") no-repeat 10px -695px} 
 	#nav-secondary li.active a:link, #nav-secondary li.active a:visited, #nav-secondary li.active a:hover, #nav-secondary li.active a:active {color:#000} 
 	#nav-secondary li {border-top: 1px solid #ccc;border-bottom: 1px solid #ccc} 
 
