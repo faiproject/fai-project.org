@@ -32,6 +32,47 @@ Currently we have more than 290 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Bernhard Glomm
+<br><b>Date:</b> Tue, 13 May 2014 14:33:30 +0200
+<pre>
+How many hosts have you installed using fai? <b>about 60</b> instances at kinemathek that run permanently
+              Many many more with short living projects just 5 to 10 virtual instances for tests
+
+Which version of fai are you using? <b>3.4.8ubuntu5</b>
+Which version are you using as your install kernel?  plain ubuntu vmlinuz-3.13.0-24-generic on amd64 system
+  just now I'm working on setting up a second nfsroot to be able to install i686 kernel... kross fingers 
+ 
+Which types of hosts are you installing with fai? server, cluster nodes, notebooks
+    - server, both virtual and metal
+    - storage cluster nodes
+    - got a profile for notebooks too
+
+How do you boot your hosts?
+ via network (PXE, DHCP): mostly
+          from USB stick: want to do that in near future
+ 
+Does the default install kernel recognize all your hardware? yes
+Which drivers are missing? none
+ 
+Do you manage your configuration space under version control? git
+ 
+How big is your config space (Mbytes, # of files)? 712K, 96
+How many files do you have in ../config/files? 32
+
+What types of scripts are you using for local customization? shell in config/scripts, Later on the clients I use cfengine3
+
+<b>What is the business of your company/organisation?</b> film museum and a environmental research organisation
+   formerly <a href="http://www.kinemathek.de">www.kinemathek.de</a>, now <a href="http://www.ecologic.eu">www.ecologic.eu</a>
+<br><b>Additional comments:</b>
+installing production and test systems 
+
+To be honest I do not very much with fai, most important is the
+individual formating and installing of different base systems.  The
+general configuration and installation of additional software, also
+update/upgrade I do with cfengine3
+</pre> <HR>
+
+
 <b>From:</b> Roland Dieterich, lastname mpipz dot mpg.de
 <br><b>Date:</b> Mon, 28 Apr 2014 16:48:18 +0200
 <pre>
@@ -297,7 +338,9 @@ Which drivers are missing? None
 
 Do you manage your configuration space under version control?  No,
     it is not volatile enough and only one person is managing changes. So we do not see any need for versioncontrol.
-How big is your config space (Mbytes, # of files)? Only scripts and a few binarys (mostly for custom monitoring). 3,3 MB  and 47 Scripts.
+
+How big is your config space (Mbytes, # of files)? 3,3 MB  and 47 Scripts.
+             Only scripts and a few binarys (mostly for custom monitoring).
 How many files do you have in ../config/files? 5
 What types of scripts are you using for local customization? shell (bash) and python
 
