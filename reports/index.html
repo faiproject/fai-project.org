@@ -32,6 +32,33 @@ Currently we have more than 290 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> anonymous
+<br><b>Date:</b> Tue, 13 May 2014 15:43:02 +0200
+<pre>
+How many hosts have you installed using fai? <b>~600</b>
+Which version of fai are you using? <b>4.1</b>
+
+Which version are you using as your install kernel? plain debian, bpo, customized kernel for 
+          virtualized environments
+
+Which types of hosts are you installing with fai? cluster nodes, hypervisors
+
+How do you boot your hosts? network via PXE, CD and USB stick
+Does the default install kernel recognize all your hardware? No
+Which drivers are missing? Blade network interfaces, raid controllers
+
+Do you manage your configuration space under version control? Yes, SVN. The .svn dirs are copied, however :)
+
+How big is your config space (Mbytes, # of files)? 704K, 97
+How many files do you have in ../config/files? 33
+What types of scripts are you using for local customization? shell, perl
+
+<b>What is the business of your company/organisation?</b> Healthcare
+<br><b>Additional comments:</b>
+Installing the software backend of our product: a distributed system.
+</pre> <HR>
+
+
 <b>From:</b> Bernhard Glomm
 <br><b>Date:</b> Tue, 13 May 2014 14:33:30 +0200
 <pre>
@@ -59,7 +86,7 @@ Do you manage your configuration space under version control? git
 How big is your config space (Mbytes, # of files)? 712K, 96
 How many files do you have in ../config/files? 32
 
-What types of scripts are you using for local customization? shell in config/scripts, Later on the clients I use cfengine3
+What types of scripts are you using for local customization? shell in config/scripts, Later I use cfengine3
 
 <b>What is the business of your company/organisation?</b> film museum and a environmental research organisation
    formerly <a href="http://www.kinemathek.de">www.kinemathek.de</a>, now <a href="http://www.ecologic.eu">www.ecologic.eu</a>
@@ -136,14 +163,15 @@ Which types of hosts are you installing with fai? Linux workstations
 
 How do you boot your hosts? via network (PXE, DHCP)
 Does the default install kernel recognize all your hardware? no
-Which drivers are missing? atheros network card drivers, evtl. audio drivers (I sometimes have problems with getting sound)
+Which drivers are missing? atheros network card drivers, evtl. audio drivers
+        (I sometimes have problems with getting sound)
 
 Do you manage your configuration space under version control? yes, svn
 How big is your config space (Mbytes, # of files)? 107M, 365 files
 How many files do you have in ../config/files? 199 files
 What types of scripts are you using for local customization? shell, perl
 
-
+xxxx
 <b>What is the business of your company/organisation?</b> University, <a href="http://www.climate.unibe.ch">Climate and Environmental Physics Group, Univ. Bern</a>
 <br><b>Additional comments:</b>
 I use it to install all workstations of our Linux network, because its very easy and fast to do lots of installations.
@@ -388,7 +416,8 @@ What types of scripts are you using for local customization?
       puppet agent run. As a result, the Ubuntu/puppet based FAI setup requires much less scripting and file
       copying, so the config tree is drastically smaller.
 
-<b>What is the business of your company/organisation?</b> Higher education & research: <a href="http://csail.mit.edu">MIT Computer Science & Artificial Intelligence Laboratory</a>
+<b>What is the business of your company/organisation?</b> Higher education & research: <a href="http://csail.mit.edu">MIT CSAIL</a>
+         MIT Computer Science & Artificial Intelligence Laboratory
 <br><b>Additional comments:</b>
 We use FAI for all linux installations. I believe we started with FAI in the Debian Lenny release cycle, and the transition
 to Ubuntu has been very seamless. We investigated the Razor Project since it's what Puppet Labs recommends
