@@ -65,7 +65,10 @@ pictures</a> showing a complete installation from CD (<a
 
 <h3>FAI on a USB stick</h3>
 
-<a href="../download/misc/faicd2usb">Here's</a> a small shell script for creating a USB stick from the ISO image.
+You can write the ISO image to a USB stick using the command dd(1):
+<div class="featurebox">
+<pre>dd if=faicd64-4.2.iso of=/dev/sdX</pre> </div>
+and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
 
 
 <h3>FAI CD Multi distribution</h3>
@@ -103,7 +106,7 @@ password fai is available.
 
 <hr>
 <ADDRESS>
-Wed, 05 Mar 2014 13:25:29 +0100
+Tue, 03 Jun 2014 15:53:38 +0200
 </ADDRESS>
 
 
