@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Fri Feb  7 16:49:42 2014 -->
+<!-- CreationDate: Tue Jun  3 11:07:53 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,6 +25,7 @@
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#OPTIONS">OPTIONS</a><br>
 <a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#NOTES">NOTES</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 <a href="#FILES">FILES</a><br>
 <a href="#AUTHOR">AUTHOR</a><br>
@@ -62,13 +63,8 @@ automatic installation from CD-ROM without an install
 server. The ISO image will be written to FILE. To create the
 image, the command needs the NFSROOT, the configuration
 space and a partial mirror, which is created by fai-mirror.
-The command can also copy all needed data to DIRECTORY on a
-mounted USB stick.</p>
-
-<p style="margin-left:11%; margin-top: 1em"><b>Note:</b>
-Currently, fai-cd is only working with the package live-boot
-inside the nfsroot, not with dracut. Therefore you have to
-use the option -l with fai-make-nfsroot(8).</p>
+This hybrid CD image can also be written to an USB stick
+using dd(1).</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -89,7 +85,9 @@ use the option -l with fai-make-nfsroot(8).</p>
 
 <p style="margin-top: 1em">Create a boot only ISO image
 which does a network installation. It does not include the
-nfsroot, the partitial mirror and the config space.</p></td></tr>
+nfsroot, the partitial mirror and the config space; however
+for it to automatically initiate the installation -d has to
+be set. By default CONFIG_SRC will be empty.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -104,11 +102,21 @@ nfsroot, the partitial mirror and the config space.</p></td></tr>
 (a version of cdrecord).</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
+<p style="margin-left:11%;"><b>&minus;C</b>
+<i>CFDIR</i></p>
 
 <p style="margin-left:22%;">Use CFDIR as the configuration
 directory. Default is /etc/fai. You can also set the
 environment variable FAI_ETC_DIR.</p>
+
+<p style="margin-left:11%;"><b>&minus;d</b>
+<i>CONFIG_SRC</i></p>
+
+<p style="margin-left:22%;">Set the path to the config
+space to CONFIG_SRC. Set to &quot;&quot; to create an ISO
+image with an empty path. If not set, the config space of
+the fai server will be included in the image in
+/var/lib/fai/config.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -212,16 +220,6 @@ image. This is for creating the filesystem only. Useful for
 writing it to a USB stick.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;u</b>
-<i>DIRECTORY</i></p>
-
-<p style="margin-left:22%;">Create a bootable USB stick.
-The USB stick must be mounted on DIRECTORY before you run
-fai-cd. Copies all FAI-CD data to DIRECTORY and try to
-install grub onto its device. Currently the file system on
-the USB stick must be ext2. USUALLY THIS WILL ERASE ALL DATA
-ON YOUR USB-STICK!</p>
-
 <h2>EXAMPLES
 <a name="EXAMPLES"></a>
 </h2>
@@ -235,12 +233,25 @@ you&rsquo;ve created a mirror with fai-mirror in
 &minus;m /media/mirror fai-cd.iso</p>
 
 <p style="margin-left:11%; margin-top: 1em">If you want to
-create a bootable USB stick, create an ext2 file system on
-your stick, mount it to /media/usbstick and call</p>
+create a bootable USB stick (here /dev/sdf) , write the CD
+image to the stick via dd(1).</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-cd
-&minus;m /media/mirror &minus;u /media/usbstick <br>
-# umount /media/usbstick</p>
+<p style="margin-left:11%; margin-top: 1em"># dd
+if=fai-cd.iso of=/dev/sdf bs=1M</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Currently,
+fai-cd is only working with the package live-boot inside the
+nfsroot, not with dracut which is used for PXE network
+booting in FAI. Therefore you have to use the option -l with
+fai-make-nfsroot(8) and change the package list in
+/etc/fai/NFSROOT. Also the kernel command line options are
+slightly different. For details see live-boot(7) inside the
+nfsroot.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

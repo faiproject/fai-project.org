@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Fri Feb  7 16:49:42 2014 -->
+<!-- CreationDate: Tue Jun  3 11:07:53 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -320,14 +320,15 @@ overwrite an existing config file.</p></td></tr>
 <td width="78%">
 
 
-<p>Add the pxelinux option IPAPPEND 3 to the config file.
-This will add two variables to the kernel command line, that
-are also defined as variables inside FAI.</p></td></tr>
+<p>Add the pxelinux option IPAPPEND 6 to the config file.
+This will add the two variables BOOTIF and SYSUUID to the
+kernel command line, that are also defined as variables
+inside FAI.</p></td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">Example: <br>
 BOOTIF=01-08-00-27-12-34-56 <br>
-ip=123.45.9.99:123.45.9.11:123.45.9.254:255.255.255.128</p>
+SYSUUID=00234567-1111-2222-3333-123456789000</p>
 
 <p style="margin-left:11%;"><b>&minus;s</b>
 <i>SUFFIX</i></p>
@@ -475,11 +476,8 @@ supported.</p> </td>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai-mirror</b>(1)
-<i><br>
-/usr/share/doc/syslinux/pxelinux.doc.gz</i></p>
-
-<p style="margin-left:22%;">The pxelinux documentation.</p>
+<p style="margin-left:11%; margin-top: 1em"><i>/usr/share/doc/syslinux/pxelinux.doc.gz</i>
+The pxelinux documentation.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). See the FAI <br>
