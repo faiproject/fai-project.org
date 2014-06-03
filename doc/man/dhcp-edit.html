@@ -1,0 +1,154 @@
+<!-- Creator     : groff version 1.21 -->
+<!-- CreationDate: Tue Jun  3 16:19:46 2014 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>DHCP-EDIT</title>
+
+</head>
+<body>
+
+<h1 align="center">DHCP-EDIT</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">dhcp&minus;edit
+&minus; add or and remove entries to/from dhcpd.conf</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">dhcp-edit [
+<small>OPTION</small> ] <small>HOST MAC</small> [
+<small>IP</small> ]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Add a new host
+entry to dhcpd.conf or remove an existing entry.
+Additionally restart <small>DHCP</small> daemon.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>&minus;d</b></p></td>
+<td width="9%"></td>
+<td width="45%">
+
+
+<p style="margin-top: 1em">Dry run. Do not change
+files.</p> </td>
+<td width="32%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="9%"></td>
+<td width="45%">
+
+
+<p>Print help.</p></td>
+<td width="32%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;n</b></p></td>
+<td width="9%"></td>
+<td width="45%">
+
+
+<p>Do not restart <small>DHCP</small> daemon.</p></td>
+<td width="32%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;p</b>
+<small>PATTERN</small></p>
+
+<p style="margin-left:23%;">Add new entry before line
+matching <small>PATTERN</small></p>
+
+<p style="margin-left:11%;"><b>&minus;r</b> HOST|MAC</p>
+
+<p style="margin-left:23%;">Remove entry contain
+<small>HOST</small> or <small>MAC</small> address.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">dhcp-edit host
+mac</p>
+
+<pre style="margin-left:11%; margin-top: 1em">   Add entry using host and mac address using a fixed IP address. You
+   have to define the IP address in /etc/hosts or similar service.</pre>
+
+
+<p style="margin-left:11%; margin-top: 1em">dhcp-edit host
+mac ip</p>
+
+<pre style="margin-left:11%; margin-top: 1em">   Add entry using host and mac address using the numerical IP address.</pre>
+
+
+<p style="margin-left:11%; margin-top: 1em">dhcp-edit
+&minus;r hostname|mac</p>
+
+<pre style="margin-left:11%; margin-top: 1em">   Remove line containing this hostname or mac address.</pre>
+
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+Copyright (C) 2010 by Thomas Lange
+&lt;lange@informatik.uni&minus;koeln.de&gt;</p>
+<hr>
+</body>
+</html>

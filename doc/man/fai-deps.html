@@ -1,0 +1,148 @@
+<!-- Creator     : groff version 1.21 -->
+<!-- CreationDate: Tue Jun  3 16:19:47 2014 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>FAI-DEPS</title>
+
+</head>
+<body>
+
+<h1 align="center">FAI-DEPS</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#ABSTRACT">ABSTRACT</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#ENVIROMENT">ENVIROMENT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<pre style="margin-left:11%; margin-top: 1em">  fai&minus;deps &minus; class dependencies for FAI</pre>
+
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<pre style="margin-left:11%; margin-top: 1em">  fai&minus;deps [&minus;h] [&minus;&minus;man] [&minus;d]</pre>
+
+
+<h2>ABSTRACT
+<a name="ABSTRACT"></a>
+</h2>
+
+
+<pre style="margin-left:11%; margin-top: 1em">  implements dependencies between fai classes.</pre>
+
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-deps uses
+files <tt>$FAI</tt>/class/*.deps to sort the classes in
+<tt>$LOGDIR</tt>/FAI_CLASSES and define additional ones.
+While doing so, it retains the original order as much as
+possible.</p>
+
+<p style="margin-left:11%; margin-top: 1em">*.deps files
+may contain class names, seperated by whitespace. Comments (
+after # or ; ) are ignored</p>
+
+<p style="margin-left:11%; margin-top: 1em">e.g. you have a
+class <small>WORDPRESS</small> that depends on the classes
+<small>VHOST</small> and <small>POSTGRES</small> .
+<small>VHOST</small> again may depend on
+<small>WEBSERVER</small> . So if you want to install the
+blogging software wordpress, you add a file</p>
+
+<pre style="margin-left:11%; margin-top: 1em">  $FAI/class/WORDPRESS.deps</pre>
+
+
+<p style="margin-left:11%; margin-top: 1em">that contains
+the words <small><br>
+VHOST <br>
+POSTGRES</small></p>
+
+<p style="margin-left:11%; margin-top: 1em">and a file
+<tt><br>
+$FAI</tt>/class/VHOST.deps</p>
+
+<p style="margin-left:11%; margin-top: 1em">that contains
+the word <small><br>
+WEBSERVER</small></p>
+
+<p style="margin-left:11%; margin-top: 1em">The order often
+is important, so this script is taking care of it. The order
+of the example above would be: <small><br>
+WEBSERVER VHOST POSTGRES WORDPRESS</small></p>
+
+<p style="margin-left:11%; margin-top: 1em">That way, in
+<tt>$FAI</tt>/scripts/ first the webserver would be
+configured, then the vhosts, ...</p>
+
+<p style="margin-left:11%; margin-top: 1em">It removes
+double entries from <small>FAI_CLASSES</small> and handles
+circular dependencies[1].</p>
+
+<p style="margin-left:11%; margin-top: 1em">I do not
+recommend using circular dependencies, but if you
+accidentally define them, they will not break your neck. But
+you&rsquo;ll get a warning ...</p>
+
+<h2>ENVIROMENT
+<a name="ENVIROMENT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">One
+non-standard perl module is required: <br>
+Graph::Directed; On debian install libgraph-perl</p>
+
+<p style="margin-left:11%; margin-top: 1em">The following
+enviroment variables are used:</p>
+
+<pre style="margin-left:11%; margin-top: 1em"> $LOGDIR  : path to fai temporary files
+ $FAI     : path to fai config space</pre>
+
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<pre style="margin-left:11%; margin-top: 1em"> http://fai&minus;project.org</pre>
+
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<pre style="margin-left:11%; margin-top: 1em"> Copyright 2008 by Ingo Wichmann &lt;iw@linuxhotel.de&gt;
+ This software ist free software; you can redistribute it and/or modify
+ it unter the same terms as Perl itself.</pre>
+<hr>
+</body>
+</html>
