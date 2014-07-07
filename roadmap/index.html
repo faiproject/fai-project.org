@@ -35,37 +35,10 @@ contact before you start working.
 <h1>Topics for FAI 4.0</h1>
 <ul>
 <li> --- DONE ---
-<li> add MAC support for fai-chboot (in pxelinux.cfg file name) 
-<li> receive tar file of config space via http, use xz for compression 
-<li> get client config data which is needed in /target (sources.list, resolv.conf, hosts, apt
-preferences, other apt stuff) from the config space (using fcopy) instead of getting
-it from inside the nfsroot 
-<li> fcopy preinst exit code: #573044  
-<li> should ainsl's exit code tell if something was appended? No. 
-<li> make uuid in disk_config default 
-<li> new variable FAI_RAMDISKS? mkramdisk will use it  
-<li> faimond-gui: new option, that uses half size icons, so more hosts
-can be displayed 
-<li> add GRUB2 support to fai-cd  
-<li> add option to fai-mirror to set MAXPACKAGES 
-<li> replace apt-proxy with apt-cacher-ng or approx (prefered by andreas) 
-<li> put Debian specific configs in the new class DEBIAN 
-<li> add cupt support to install_packages 
-<li> fai-cd should create USB stick using grub2 (currently only grub1 can be used for USB sticks)
-<li> make ext4 as default? then only grub2 will work 
-<li> make-fai-nfsroot should use xz compression if available 
-<li> load *.asc files containing keys by class names 
-<li> CentOS support 
-<li> NFSROOT using NFS v4
-<li> rename task_prepareapt to task_repository
-<li> add new command fai-new-mac
-<li> Make nfsroot generic, remove server specific configs
 <li> --- TODO ---
 <li> relax and recover
-<li> --- Added in FAI 4.1 ---
-<li> send MAC address to faimond (or hostname) DONE
-<li> new action inventory DONE
 <li> --- TODO's for the next versions ---
+<li> btrfs support for setup-storage
 <li> new option for fcopy, that replaces variables in the source
 file. Use %%_VARIABLENAME_%% ? check a mail concerning that
 <li> fai-monitor-gui: new option, remove host if everything went fine
@@ -77,7 +50,7 @@ classes, date of last fai action
 
 <HR>
 <ADDRESS>
-Fri, 07 Feb 2014 17:09:50 +0100
+Mon, 07 Jul 2014 13:46:24 +0200
 </ADDRESS>
 
       </div>
