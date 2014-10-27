@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Tue Jun  3 16:19:48 2014 -->
+<!-- CreationDate: Mon Oct 27 11:16:39 2014 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -66,11 +66,12 @@ disk_config files, <b>setup-storage</b> computes effective
 partition and volume sizes and executes the necessary
 commands to configure storage devices. It manages disk
 drives as well as RAID and LVM volumes plus encryption and
-tmpfs. It handles all file systems supported by
-<b>parted</b>(8) as well as ntfs but is flexible enough to
-be extended to further types as well. Once the storage
-devices are prepared, an appropriate <b>fstab</b>(5) (and
-possibly also a <b>crypttab</b>(5)) file is generated.</p>
+tmpfs. It handles following filesystems: <b>ext2/3/4</b>,
+<b>vFAT(FAT32)</b>, <b>msdos(FAT16)</b>, <b>reiserFS</b>,
+<b>XFS</b> and <b>BTRFS</b> but is flexible enough to be
+extended to further types as well. Once the storage devices
+are prepared, an appropriate <b>fstab</b>(5) (and possibly
+also a <b>crypttab</b>(5) file is generated.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Without the
 <b>&minus;X</b> parameter <b>setup-storage</b> runs in
@@ -388,7 +389,7 @@ is appended.</p></td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-271241.png" alt="Image grohtml-271241.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-167761.png" alt="Image grohtml-167761.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -434,7 +435,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-271242.png" alt="Image grohtml-271242.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-167762.png" alt="Image grohtml-167762.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -682,6 +683,81 @@ equivalent to using size=20% in the tmpfs mount options.</p></td></tr>
 
 <p>Mount a tmpfs on /scratch with a maximum size of 3
 GiB.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;">Simple BTRFS example</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+disk1 <br>
+primary /boot 500 ext4 rw <br>
+primary - 2048 - -</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+disk2 <br>
+primary - 2048 - -</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+disk3 sameas:disk2 <br>
+disk_config disk4 sameas:disk2</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+btrfs <br>
+btrfs raid1 / disk1.2,disk2.1 noatime,subvol=@/ <br>
+btrfs raid1 /home disk3.1,disk4.1 subvol=@home,noatime</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Four disks are used to create a BTRFS RAID. The first
+disk contains the boot partition, the second partition of
+disk one and the second disk in its entirety are used to
+create the / RAID. The third and fourth disks are used to
+create the /home RAID.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Note that each BTRFS RAID must contain an initial
+subvolume. This is necessary to use advanced BTRFS features
+such as snapshots. The intial subvolume name is taken from
+the subvol mountoption. In the above example those would be
+@/ and @home.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;">Subvolume names begin with an @
+by convention.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Every BTRFS line must begin with
+btrfs followed by the RAID-level of the actual data -- NOT
+metadata! By default metadata uses RAID1, however this can
+be changed using createopts.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;">External log device example</p>
