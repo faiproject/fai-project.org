@@ -28,46 +28,25 @@
 
 <h1>Frequently Asked Questions (FAQ)</h1>
 
-<a name="version"></a>
-<h2>Which FAI version is the right one for me?</h2>
-
-<p>There are two official supported versions of FAI:</p>
-
-<p>The <strong>3.4.x releases</strong> are the stable versions and should be
-used if you need a reliably working FAI system without problems when
-upgrading.</p>
-
-<p>The <strong>4.x releases</strong> are the testing versions and provide the
-bleeding edge features and most recent development. Upgrading from any 3.x
-release to 4.x might break your setup, but if you are interested in the latest
-features and testing FAI the 4.x releases are the right choice for you.</p>
-
-<p>Please note that versions older than 3.4 are not supported anymore, please
-consider upgrading! If you do not know which version is the right one for you
-just choose the most recent 3.4.x release.</p>
 
 <a name="download"></a>
-<h2>Which repository do I have to use to get FAI for lenny/squeeze/...?</h2>
+<h2>Which repository do I have to use to get FAI for wheezy/jessie/...?</h2>
 
-<p>If you want to deploy Debian <strong>squeeze</strong> the entry for
+<p>If you want to deploy Debian <strong>wheezy</strong> the entry for
 /etc/apt/sources.list and for /etc/fai/apt/sources.list should contain
-(Note/Todo: TBC!):</p>
+:</p>
 
 <div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
 <pre>
-deb http://fai-project.org/download squeeze koeln
+deb http://fai-project.org/download wheezy koeln
 </pre></h3></div>
 
-<p>Tip: You can use this squeeze repository also for deploying lenny. See <a
-  href="http://anonscm.debian.org/viewvc/fai/branches/stable/3.4/doc/lenny-instructions.txt?view=markup">/usr/share/doc/fai-doc/lenny-instructions.txt</a>
-of package fai-doc for instructions.</p>
-
-<p>If you want to deploy Debian <strong>lenny</strong> the entry for
+<p>If you want to deploy Debian <strong>jessie</strong> the entry for
 /etc/apt/sources.list and for /etc/fai/apt/sources.list should contain:</p>
 
 <div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
 <pre>
-deb http://fai-project.org/download lenny koeln
+deb http://fai-project.org/download jessie koeln
 </pre></h3></div>
 
 <p>If you want to get the <strong>newest</strong> test versions of FAI, please use
@@ -77,8 +56,6 @@ the following entry in /etc/apt/sources.list and /etc/fai/apt/sources.list:</p>
 <pre>
 deb http://jenkins.grml.org/debian fai main
 </pre></h3></div>
-
-<p><strong>TODO/Discuss:</strong> provide 3.4.x for lenny and etch?</p>
 
 <a name="ubuntu"></a>
 <h2>Is FAI available for Ubuntu?</h2>
@@ -91,7 +68,8 @@ deb http://jenkins.grml.org/debian fai main
 
 <p>FAI by default uses the same kernel version as present in Debian.  Depending
 on the time-frame since the last Debian release this kernel might not support
-the most recent hardware. The <a href="http://grml.org/">Grml</a> live system
+the most recent hardware. You can use the backports kernel or the grml
+kernel. The <a href="http://grml.org/">Grml</a> live system
 provides Debian packages of recent kernel versions which can be used within FAI,
 just following <a href="http://wiki.fai-project.org/index.php/Grml_Kernel">the
   instructions from the Grml_Kernel page in the wiki</a>.</p>
@@ -145,7 +123,7 @@ If you do not know how to use reportbug please write a mail to the <a
 
 <hr>
 <address>
-Fri, 15 Oct 2010 16:15:43 +0200
+Sun, 08 Mar 2015 22:31:57 +0100
 </address>
 
       </div>
