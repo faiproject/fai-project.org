@@ -32,6 +32,33 @@ Currently we have more than 290 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Luke from brandwatch
+<br><b>Date:</b>  Wed, 22 Apr 2015 11:03:31 +0100
+<pre>
+How many hosts have you installed using fai? <b>~50</b> (but we have around 400 servers that will gradually be re-installed with FAI)
+Which version of fai are you using? <b>4.3.2</b>
+Which types of hosts are you installing with fai? Hbase cluster nodes, Solr nodes, Postgres servers, Kafka nodes.
+
+Which version are you using as your install kernel? 3.16.0-0.bpo.4-amd64
+How do you boot your hosts? DHCP, PXE
+Does the default install kernel recognize all your hardware? Everything, except for FusionIO cards
+Which drivers are missing? FusionIO, but they are kernel specific and only available via FusionIO with a support license (so I would never expect them to be included!)
+
+Do you manage your configuration space under version control? We use git to manage puppet, which deploys the FAI server role (including config and exec to make the nfsroot)
+How big is your config space (Mbytes, # of files)? 504k, 116 files (it's small atm, will grow as we add more server roles and split config space as needed)
+How many files do you have in ../config/files? 9 files - I don't think we use this bit at all, yet.
+What types of scripts are you using for local customization? Shell, perl and puppet.
+
+<b>What is the business of your company/organisation?</b> Social Media Monitoring, <a href="http://www.brandwatch.com/">Brandwatch</a>
+<br><b>Additional comments:</b>
+The main benefits of using FAI for us, are:
+- stop using horrible preseed / d-i (preseeding complex disk layouts is a major pita!)
+- easily/quickly automate full installations
+- allow loading of drivers for specific hardware during the install to allow it to be used straight after install
+- allow easy use of hooks and scripts to custom the install as needed
+</pre> <HR>
+
+
 <b>From:</b> Rikard Nordin, first.last at l i u dot .se
 <br><b>Date:</b> Mon, 13 Apr 2015 09:25:45 +0200
 <pre>
