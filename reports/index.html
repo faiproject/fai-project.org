@@ -42,10 +42,14 @@ Which types of hosts are you installing with fai? Hbase cluster nodes, Solr node
 Which version are you using as your install kernel? 3.16.0-0.bpo.4-amd64
 How do you boot your hosts? DHCP, PXE
 Does the default install kernel recognize all your hardware? Everything, except for FusionIO cards
-Which drivers are missing? FusionIO, but they are kernel specific and only available via FusionIO with a support license (so I would never expect them to be included!)
+Which drivers are missing? FusionIO, but they are kernel specific and
+                only available via FusionIO with a support license
+                (so I would never expect them to be included!)
 
-Do you manage your configuration space under version control? We use git to manage puppet, which deploys the FAI server role (including config and exec to make the nfsroot)
-How big is your config space (Mbytes, # of files)? 504k, 116 files (it's small atm, will grow as we add more server roles and split config space as needed)
+Do you manage your configuration space under version control? We use git to manage puppet, which deploys the
+                                             FAI server role (including config and exec to make the nfsroot)
+How big is your config space (Mbytes, # of files)? 504k, 116 files (it's small atm, will grow as we add more
+                                                   server roles and split config space as needed)
 How many files do you have in ../config/files? 9 files - I don't think we use this bit at all, yet.
 What types of scripts are you using for local customization? Shell, perl and puppet.
 
