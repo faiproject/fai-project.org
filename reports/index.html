@@ -32,6 +32,58 @@ Currently we have more than 290 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Christian Meyer, c 2 h 5 o h @ web dot=de
+<br><b>Date:</b> Fri, 25 Sep 2015 19:00:06 +0200
+<pre>
+How many hosts have you installed using fai? <b>4-6</b>, more planned.
+Which version of fai are you using? <b>4.3.1+deb8u1</b> (Debian stable)
+Which version are you using as your install kernel? linux-image-3.16.0-4-amd64 (plain Debian stable)
+
+Which types of hosts are you installing with fai?
+   Desktop and notebook PCs (providing non-GUI, GNOME or LXDE)
+   and my FAI-Server (including apt-cacher-ng)
+
+How do you boot your hosts?
+   via network (PXE, DHCP): not yet (not in control of DHCP server)
+   using FAI-CD: to create DVDs and bootable USB pendrive
+   from USB stick: mostly used, dd-ing from fai-cd.iso 
+
+Does the default install kernel recognize all your hardware? Mostly.
+     I didn't try too much yet. Have tons of old hardware here.
+Which drivers are missing? None at the moment,
+   but I included non-free firmware in my NFSROOT.
+
+Do you manage your configuration space under version control? No.
+
+How big is your config space (Mbytes, # of files)? 440 k, 64
+How many files do you have in ../config/files? 18
+What types of scripts are you using for local customization? shell (with one perl line)
+
+<b>What is the business of your company/organisation?</b> Education: school
+<br><b>Additional comments:</b>
+  Because I want to do some user interaction with a Windows AD I had to
+  put procinfo, ldap-utils, krb5-user, dialog, locales, console-setup
+  and keyboard-configuration into my NFSROOT - and whois for mkpasswd.
+
+Installing Debian machines with FAI is a spare-time project of me and
+it still is a long way to go:
+My school runs a Windows Active Directory with Win 7 Clients. I'm not
+too happy with that but it's not my job to change that.
+My initially idea was to reuse old computers (formerly driven with XP
+and not able to run Win 7) with a more modern, secure and ressource
+friendly desktop.
+After some trial and error and cleaning up the FAI_CONFIG_SRC FAI works
+fine now. (Or: NOW I know FAI good enough to make it run with my own
+classes and config).
+My goal is to seamlessly integrate the Debian machines into the given
+domain environment with samba file shares, printers and http-proxy. So
+I'm now taking care of the AD-related stuff and reading 'tons of'
+HowTo's and manpages about LDAP (done), Samba (work), PAM (work),
+Kerberos (todo), Aufs (todo) and so on.
+</pre> <HR>
+
+
+
 <b>From:</b> Bruno Kleinert, name1.name2 at informatik.uni minus erlangen.de
 <br><b>Date:</b> Sat, 22 Aug 2015 17:05:47 +0200
 <pre>
