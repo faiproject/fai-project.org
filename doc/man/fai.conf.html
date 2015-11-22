@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -98,12 +98,17 @@ fai-make-nfsroot.</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>FAI_CONFIG_SRC</b>
-URL to access configuration space</p>
+<p style="margin-left:11%; margin-top: 1em"><b>FAI_CONFIG_SRC</b></p>
 
-<p style="margin-left:22%;">A protocol-specific URL
-defining the server and directory/repository to fetch the
-configuration space from.</p>
+<p style="margin-left:22%;">This variable defines how to
+access the configuration space. It defines the protocol, the
+server and the location of the config space.</p>
+
+<p style="margin-left:22%; margin-top: 1em">For an initial
+installation of a client this variable is defined by using
+fai-chboot(8). If you do a fai softupdate, you can set the
+value in /etc/fai/fai.conf or by using the option
+--cspace.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The following
 protocols and URL schemes are currently supported:</p>
@@ -123,23 +128,31 @@ protocols and URL schemes are currently supported:</p>
 <p>NFS: nfs://&lt;server&gt;/&lt;exported directory&gt;</p></td>
 <td width="17%">
 </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">Example:
+nfs://faiserver/srv/fai/config</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p>&bull;</p></td>
+<p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
-<td width="61%">
+<td width="53%">
 
 
-<p>Local directory: file://&lt;directory&gt;</p></td>
-<td width="17%">
+<p style="margin-top: 1em">Local directory:
+file://&lt;directory&gt;</p> </td>
+<td width="25%">
 </td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">The directory
-has to be an absolute path. So, this URI always starts with
+has to be an absolute path. So, this URL always starts with
 three slashes like this: file:///</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -157,40 +170,68 @@ three slashes like this: file:///</p>
 <p style="margin-top: 1em">CVS:
 cvs[+ssh]://&lt;user&gt;@&lt;host&gt;/&lt;cvs root&gt;
 &lt;module&gt;[=&lt;tag&gt;]</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The config
+space is received from a cvs checkout.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p>&bull;</p></td>
+<p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
 <td width="78%">
 
 
-<p>Subversion:
+<p style="margin-top: 1em">Subversion:
 svn[+(file|http|https|ssh)]://[&lt;user&gt;@]&lt;host&gt;/&lt;repository&gt;</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The config
+space checked out from a subversion repository using several
+protocol variants. Checkouts without a user name are also
+supported.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p>&bull;</p></td>
+<p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
-<td width="78%">
+<td width="52%">
 
 
-<p>Git: git[+&lt;protocol&gt;]://&lt;git path&gt;</p></td></tr>
+<p style="margin-top: 1em">Git:
+git[+&lt;protocol&gt;]://&lt;git path&gt;</p></td>
+<td width="26%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The config
+space checked out from a git repository, host can be empty.
+Also supported is git+http.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p>&bull;</p></td>
+<p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
 <td width="78%">
 
 
-<p>Mercurial: hg+(http|https)://&lt;hg path&gt;</p></td></tr>
+<p style="margin-top: 1em">Mercurial:
+hg+(http|https)://&lt;hg path&gt;</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -207,6 +248,13 @@ verification purposes, also an <b>md5sum</b>(1) generated
 hash must exist at the same location as
 &lt;filename&gt;.md5.</p> </td></tr>
 </table>
+
+<p style="margin-left:22%; margin-top: 1em">The config
+space will be downloaded from the given location via HTTP.
+Furthermore +path/tarfile.md5+ will be downloaded and the
+md5sum will be checked. +tarfile+ will be extracted by
+ftar(8), and thus needs to have a recognized suffix, such as
+.tar.gz or tar.xz.</p>
 
 <p style="margin-left:11%;"><b>LOGUSER</b> Account name on
 the install server to save log files and call</p>
@@ -227,16 +275,44 @@ disabled.</p>
 <p style="margin-left:11%;"><b>FAI_LOGPROTO</b> Protocol
 for saving logs</p>
 
-<p style="margin-left:22%;">Supported values are: ssh, rsh,
-and ftp. If undefined use ssh. Will only be used if
+<p style="margin-left:22%;">Supported values are: ssh
+(default), rsh, ftp and none. This will only be used if also
 <b>LOGUSER</b> is set.</p>
+
+<p style="margin-left:22%; margin-top: 1em">ssh: Use the
+scp command to copy the log files to the log server.</p>
+
+<p style="margin-left:22%; margin-top: 1em">rsh: Use the
+rcp command to copy the log files to the log server.</p>
+
+<p style="margin-left:22%; margin-top: 1em">ftp: This
+option saves logs to the remote FTP server defined by the
+$LOGSERVER variable ($SERVER value is used if not set).
+Connection to the FTP server is done as user $LOGUSER using
+password $LOGPASSWD. The FTP server log directory is defined
+in $LOGREMOTEDIR. These variables are also defined in file
+server. All files in the directory /tmp/fai are copied to
+the FTP server following this example:</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">ftp://$LOGUSER:$LOGPASSWD@$LOGSERVER/$LOGREMOTEDIR/</p>
+
+<p style="margin-left:22%; margin-top: 1em">none:
+Don&rsquo;t save the log files to the install server.</p>
 
 <p style="margin-left:11%;"><b>FAI_DEBMIRROR</b> Access
 Debian mirror via NFS-mounted directory</p>
 
-<p style="margin-left:22%;">If defined, install clients
-mount the NFS share to $MNTPOINT. Syntax:
-&lt;host&gt;:&lt;exported directory&gt;</p>
+<p style="margin-left:22%;">If defined, FAI mounts the NFS
+share to $MNTPOINT during installation. Example:
+installserver:/srv/debianmirror</p>
+
+<p style="margin-left:11%;"><b>FAI_MONITOR_PORT</b></p>
+
+<p style="margin-left:22%;">The port to which FAI sents
+messages, if the fai-monitor is running. Default to 4711.
+See also fai-monitor(8). This variable has to be set inside
+the nfsroot before the configuration space is available.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

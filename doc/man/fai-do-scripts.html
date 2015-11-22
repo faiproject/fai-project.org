@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:47 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,14 +54,19 @@
 </h2>
 
 
+<p style="margin-left:11%; margin-top: 1em">This command is
+only called internally by FAI and not directly by the
+user.</p>
+
 
 <p style="margin-left:11%; margin-top: 1em">fai&minus;do&minus;scripts
 executes all scripts in DIRECTORY which are also a defined
 class. If the name of the class is a directory, all scripts
-that match &rsquo;[0&minus;9][0&minus;9].*&rsquo; (starting
-with two digits) in this directory are executed. So it is
-possible to have several scripts of different types (shell,
-cfengine,...) be executed for one class.</p>
+that match
+&rsquo;&lt;CLASSNAME&gt;/^[0&minus;9][0&minus;9].*&rsquo;
+(starting with two digits) in this directory are executed.
+So it is possible to have several scripts of different types
+(shell, cfengine,...) be executed for one class.</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>

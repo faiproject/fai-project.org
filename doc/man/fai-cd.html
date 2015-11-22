@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,9 +48,9 @@ make a bootable CD-ROM or USB stick that performs an FAI</p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai-cd</b>
 [<i>OPTION</i>] &minus;m MIRROR <i>ISOFILE</i> <b><br>
-fai-cd</b> [<i>OPTION</i>] &minus;m MIRROR <i>-u
-DIRECTORY</i> <b><br>
-fai-cd</b> [<i>OPTION</i>] &minus;B <i>FILE</i></p>
+fai-cd</b> [<i>OPTION</i>] &minus;B <i>FILE</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;d <i>URL</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;S <i>IMAGEFILE</i></p>
 
 <h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
@@ -63,6 +63,7 @@ automatic installation from CD-ROM without an install
 server. The ISO image will be written to FILE. To create the
 image, the command needs the NFSROOT, the configuration
 space and a partial mirror, which is created by fai-mirror.
+The ISO image will contain a compressed squashfs filesystem.
 This hybrid CD image can also be written to an USB stick
 using dd(1).</p>
 
@@ -78,16 +79,32 @@ using dd(1).</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>&minus;B</b></p></td>
+<p style="margin-top: 1em"><b>&minus;A</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p style="margin-top: 1em">Create a boot only ISO image
-which does a network installation. It does not include the
-nfsroot, the partitial mirror and the config space; however
-for it to automatically initiate the installation -d has to
-be set. By default CONFIG_SRC will be empty.</p></td></tr>
+<p style="margin-top: 1em">Create a boot only CD image
+(also usable for an USB stick) with autodiscover function.
+The CD will scan the subnet for a FAI server. By default it
+shows a menu with all profiles available from which you can
+select a type of installation. This image only needs 25MB.
+You can add the -J option to make the image smaller.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;B</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create a boot only ISO image which does a network
+installation. It does not include the nfsroot, the partitial
+mirror and the config space; however for it to automatically
+initiate the installation -d has to be set. By default
+CONFIG_SRC will be empty.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -109,24 +126,45 @@ be set. By default CONFIG_SRC will be empty.</p></td></tr>
 directory. Default is /etc/fai. You can also set the
 environment variable FAI_ETC_DIR.</p>
 
-<p style="margin-left:11%;"><b>&minus;d</b>
-<i>CONFIG_SRC</i></p>
-
-<p style="margin-left:22%;">Set the path to the config
-space to CONFIG_SRC. Set to &quot;&quot; to create an ISO
-image with an empty path. If not set, the config space of
-the fai server will be included in the image in
-/var/lib/fai/config.</p>
-
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
-<td width="3%">
+<td width="9%">
+
+
+<p><b>&minus;d</b> <i>URL</i></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Set the location of the config space to URL (this sets
+FAI_CONFIG_SRC). Set it to &quot;&quot; to create an ISO
+image without a config space. If not set, the value of
+FAI_CONFIGDIR will be used. Currently no file: is allowed
+here, instead set FAI_CONFIGDIR in fai.conf(5).</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>&minus;e</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Exclude the directory /var/tmp from the nfsroot. You may
+put the file base.tar.xz in the configuration space into the
+subdirectory basefiles. This option will save about 50MB of
+disk space. This option will exclude the directory even when
+&minus;H is given.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
 
 
 <p><b>&minus;f</b></p></td>
-<td width="8%"></td>
+<td width="2%"></td>
 <td width="78%">
 
 
@@ -165,7 +203,7 @@ not specified, use /etc/fai/grub.cfg.</p>
 
 
 <p>Do not hide directories. Using this option will consume
-220MB more disk space on your media. By default, some
+about 45MB more disk space on your media. By default, some
 directories like man pages and locales are hidden and will
 not be put onto the CD or the USB stick.</p></td></tr>
 <tr valign="top" align="left">
@@ -173,16 +211,13 @@ not be put onto the CD or the USB stick.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;k</b></p></td>
+<p><b>&minus;J</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>Keep the temporary filesystem for debugging. The script
-will sleep for a long time, before continuing the cleanup of
-temp files and mounts. Beware of killing or suspending the
-script itself, since a lot of mounts will remain. This is
-for debugging only!</p></td></tr>
+<p>Use xz compression when calling mksquashfs. Default is
+gzip.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -210,14 +245,14 @@ mirror. This option is mandatory, unless you use -M or
 <td width="3%">
 
 
-<p><b>&minus;n</b></p></td>
+<p><b>&minus;S</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>No ISO image. Do not call genisoimage to create the ISO
-image. This is for creating the filesystem only. Useful for
-writing it to a USB stick.</p></td></tr>
+<p>Create a squashfs image file, instead of a complete iso.
+This image file can be used to fetch the nfsroot through
+various ways over the network.</p></td></tr>
 </table>
 
 <h2>EXAMPLES
@@ -239,29 +274,52 @@ image to the stick via dd(1).</p>
 <p style="margin-left:11%; margin-top: 1em"># dd
 if=fai-cd.iso of=/dev/sdf bs=1M</p>
 
+<p style="margin-left:11%; margin-top: 1em">It is possible
+to install over the network without using NFS, i.e. by
+getting the nfsroot via an http request. To do so you have
+to create a squashfs image using the following command:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;S squashfs.img</p>
+
+<p style="margin-left:11%; margin-top: 1em">In addition to
+that you can create said image without a config space and
+without a mirror. This is useful for when you want to avoid
+creating a new image after modifying your config space or
+updating your mirror:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;d &quot;&quot; &minus;SMeJ squashfs.img</p>
+
+<p style="margin-left:11%; margin-top: 1em">To fetch the
+image via http, use the following kernel command line
+option:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">root=live:http://your_server_or_IP/path/to/squashfs.img</p>
+
 <h2>NOTES
 <a name="NOTES"></a>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">Currently,
-fai-cd is only working with the package live-boot inside the
-nfsroot, not with dracut which is used for PXE network
-booting in FAI. Therefore you have to use the option -l with
-fai-make-nfsroot(8) and change the package list in
-/etc/fai/NFSROOT. Also the kernel command line options are
-slightly different. For details see live-boot(7) inside the
-nfsroot.</p>
+<p style="margin-left:11%; margin-top: 1em">Additional
+kernel command line options can be found in the man page of
+dracut.cmdline(7). fai-cd needs enough disk space in TMPDIR
+(/tmp by default) for creating the compressed filesystem.
+You may want to set it to another directories, before
+calling fai-cd.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">This program is
-part of FAI (Fully Automatic Installation). The FAI homepage
-is http://fai-project.org. <b><br>
-fai-mirror</b>(1)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai&minus;mirror(1)</b></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>mksquashfs(1)</b></p>
 
 <h2>FILES
 <a name="FILES"></a>
@@ -269,7 +327,7 @@ fai-mirror</b>(1)</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/fai.conf</i></p>
+<p style="margin-left:11%; margin-top: 1em"><b><i>/etc/fai/fai.conf</i></b></p>
 
 <p style="margin-left:22%;">The FAI configuration file.</p>
 

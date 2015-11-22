@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:39 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -393,44 +393,103 @@ executed in the newly installed system.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Suppose the
-source directory /files/etc/X11/XF86Config consists of the
+source directory /files/etc/X11/xorg.conf consists of the
 following files:</p>
 
 <p style="margin-left:11%; margin-top: 1em">CAD DEFAULT LAB
-MACH64 server1 faifoo file-modes postinst</p>
+MACH64 server1 ant04 postinst</p>
 
 <p style="margin-left:11%; margin-top: 1em">Each file is an
-instance of a XF86Config file for a different xserver
-configuration except file-modes, which holds the file
-creation data. The command</p>
+instance of a xorg.conf file for a different Xserver
+configuration. The command</p>
 
 <p style="margin-left:11%; margin-top: 1em"># fcopy
-&minus;s /files &minus;t /target /etc/X11/XF86Config</p>
+&minus;s /files &minus;t /target /etc/X11/xorg.conf</p>
 
 <p style="margin-left:11%; margin-top: 1em">copies one of
-these files from the directory /files/etc/X11/XF86Config to
-the file /target/etc/XF86Config. For all defined classes,
+these files from the directory /files/etc/X11/xorg.conf to
+the file /target/etc/xorg.conf. For all defined classes,
 fcopy looks if a corresponding file exists. The class with
-the highest priority will be used for copying. Here are
-examples of defined classes and the file which will be
-copied by fcopy.</p>
+the highest priority that matches an existing file name will
+be used for copying. Here are examples of defined classes
+for different hosts and the file which will be copied by
+fcopy.</p>
 
-<p style="margin-left:11%; margin-top: 1em">Defined classes
-File used for copy</p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="42%">
 
 
-<p style="margin-left:11%; margin-top: 1em">DEFAULT,LAB,server3
-LAB <br>
-DEFAULT,CAD,server1 server1 <br>
-DEFAULT,MACH64,ant01 MACH64 <br>
-DEFAULT,TFT,ant13 DEFAULT</p>
+<p>Host belongs to the classes</p></td>
+<td width="5%"></td>
+<td width="27%">
 
-<p style="margin-left:11%; margin-top: 1em">In FAI (look at
-SEE ALSO) the list of defined classes starts with DEFAULT
-and the last class is the hostname. So DEFAULT is only used
-when no file for another class exists. If a file is equal to
-the hostname, this will be used, since hostname should
-always be the last class.</p>
+
+<p>File used for copy</p></td>
+<td width="11%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="42%">
+
+
+<p>DEFAULT,LAB,server3</p></td>
+<td width="5%"></td>
+<td width="27%">
+
+
+<p>LAB</p></td>
+<td width="11%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="42%">
+
+
+<p>DEFAULT,CAD,server1</p></td>
+<td width="5%"></td>
+<td width="27%">
+
+
+<p>server1</p></td>
+<td width="11%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="42%">
+
+
+<p>DEFAULT,MACH64,ant01</p></td>
+<td width="5%"></td>
+<td width="27%">
+
+
+<p>MACH64</p></td>
+<td width="11%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="42%">
+
+
+<p>DEFAULT,TFT,ant13</p></td>
+<td width="5%"></td>
+<td width="27%">
+
+
+<p>DEFAULT server1</p></td>
+<td width="11%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">In FAI the list
+of defined classes starts with DEFAULT and the last class is
+the hostname. So DEFAULT is only used when no file for
+another class exists. If a file is equal to the hostname,
+this will be used, since hostname should always be the last
+class.</p>
 
 <p style="margin-left:11%; margin-top: 1em">User, group and
 permissions for the files can be defined in several ways.

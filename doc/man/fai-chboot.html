@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -140,8 +140,9 @@ DIR. The default value is /srv/tftp/fai/pxelinux.cfg/.</p></td></tr>
 <td width="78%">
 
 
-<p>Disable network booting for HOST. This renames the
-config file adding the suffix .disable to it.</p></td></tr>
+<p>Disable the PXE configuration for the specific HOST.
+This renames the config file adding the suffix .disable to
+it, making PXE boot fall back to the default.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">
@@ -154,7 +155,7 @@ config file adding the suffix .disable to it.</p></td></tr>
 
 <p>Reenable network booting for HOST. This renames the
 config file removing the suffix .disable from it, so the
-next time it uses the PXE configuration.</p></td></tr>
+next time it uses its own PXE configuration.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">
@@ -360,7 +361,8 @@ kernel and initrd to use.</p>
 
 
 <p>Set FAI_CONFIG_SRC to URL. Setting this variable is
-mandatory for the operation of FAI.</p></td></tr>
+mandatory for the operation of FAI. See fai.conf(5) for the
+format of this variable.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">

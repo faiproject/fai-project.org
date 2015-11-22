@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:39 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -246,7 +246,7 @@ this.</p> </td></tr>
 
 <p style="margin-left:22%;">This variable determines if
 partitions should be preserved when they are tagged with
-preserved_initial (see below for details). Normally set by
+preserve_reinstall (see below for details). Normally set by
 the list of FAI flags (FAI_FLAGS).</p>
 
 <h2>FILES
@@ -267,10 +267,9 @@ and disk/RAID/LVM device hosting the mount point for /boot.
 If /boot has no extra mount point, / is used instead. You
 may source $LOGDIR/disk_var.sh to get the variables set. The
 example config space shipped with FAI sources this file in
-scripts/GRUB_PC/10-setup and
-files/boot/grub/menu.lst/postinst. If encryption was
-configured, a proper <b>crypttab</b>(5) file plus keyfiles
-will be generated.</p>
+scripts/GRUB_PC/10-setup. If encryption was configured, a
+proper <b>crypttab</b>(5) file plus keyfiles will be
+generated.</p>
 
 <h2>EXAMPLES
 <a name="EXAMPLES"></a>
@@ -279,8 +278,8 @@ will be generated.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>setup-storage</b>
-configures storage devices according to FAI disk_config
-files. The full grammar describing the syntax of these
+configures storage devices according to a FAI disk_config
+file. The full grammar describing the syntax of these
 disk_config files is given below. First we show a number of
 examples to give an intuition what these should look like.
 <br>
@@ -389,7 +388,7 @@ is appended.</p></td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-167761.png" alt="Image grohtml-167761.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-48851.png" alt="Image grohtml-48851.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -435,7 +434,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-167762.png" alt="Image grohtml-167762.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-48852.png" alt="Image grohtml-48852.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -535,31 +534,28 @@ _root.</p> </td></tr>
 
 <p style="margin-left:11%;">LVM on software RAID</p>
 
-<p style="margin-left:22%; margin-top: 1em">disk_config sda
-<br>
-primary - 256 - - <br>
-primary swap 8G swap sw <br>
+<p style="margin-left:22%; margin-top: 1em">disk_config
+disk1 <br>
+primary - 350 - - <br>
+primary swap 2G swap sw,pri=1 <br>
 primary - 0- - -</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config sdb
-<br>
-primary - 256 - - <br>
-primary swap 8G swap sw <br>
-primary - 0- - -</p>
+sameas:disk1</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
 raid fstabkey:uuid <br>
-raid1 / sda1,sdb1 ext4 rw,noatime,errors=remount-ro <br>
-raid1 - sda3,sdb3 ext4 default</p>
+raid1 /boot disk1.1,disk2.1 ext4
+rw,noatime,errors=remount-ro <br>
+raid1 - disk1.3,disk2.3 - -</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config lvm
 fstabkey:uuid <br>
 vg vg_system md1 <br>
-vg_system-usr /usr 8G ext4 rw,noatime <br>
-vg_system-var /var 16G ext4 rw,noatime <br>
-vg_system-varlog /var/log 8G ext4 rw,noatime <br>
-vg_system-srv /srv 32G ext4 rw,noatime <br>
-vg_system-tmp /tmp 32G ext4 rw,noatime</p>
+vg_system-root / 8G ext4 rw,noatime <br>
+vg_system-var /var 20G ext4 rw,noatime <br>
+vg_system-home /home 10G ext4 rw,noatime,nosuid,nodev <br>
+vg_system-tmp /tmp 30G ext4 rw,noatime,nosuid,nodev</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -573,8 +569,8 @@ vg_system-tmp /tmp 32G ext4 rw,noatime</p>
 <td width="78%">
 
 
-<p>Configure /dev/sda and /dev/sdb with three partitions
-each.</p> </td></tr>
+<p>Configure the first and second disk identical with three
+partitions each.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -586,7 +582,7 @@ each.</p> </td></tr>
 
 
 <p>The first partitions of each device are bundled into a
-RAID 1 (/dev/md0), which will be mounted at /.</p></td></tr>
+RAID 1 (/dev/md0), which will be mounted at /boot.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -602,6 +598,11 @@ another RAID 1, but not mounted. Instead, the resulting
 device /dev/md1 is used to host the LVM volume group
 vg_system.</p> </td></tr>
 </table>
+
+<p style="margin-left:22%; margin-top: 1em">Do not forget
+to install the packages mdadm and lvm2 into a system using
+this partition scheme. Also set rd.auto when using dracut as
+initrd generator.</p>
 
 <p style="margin-left:11%;">Crypt example</p>
 
@@ -690,18 +691,18 @@ GiB.</p> </td></tr>
 <p style="margin-left:22%; margin-top: 1em">disk_config
 disk1 <br>
 primary /boot 500 ext4 rw <br>
-primary - 2048 - -</p>
+primary - 2G- - -</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
 disk2 <br>
-primary - 2048 - -</p>
+primary - 2G- - -</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
 disk3 sameas:disk2 <br>
 disk_config disk4 sameas:disk2</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-btrfs <br>
+btrfs fstabkey:uuid <br>
 btrfs raid1 / disk1.2,disk2.1 noatime,subvol=@/ <br>
 btrfs raid1 /home disk3.1,disk4.1 subvol=@home,noatime</p>
 
@@ -1079,17 +1080,32 @@ filesystem-specific <br>
 <td width="78%">
 
 
-<p style="margin-top: 1em">Machine does not boot because no
-partition is marked as bootable: If the bootable option is
-not specified, not partition will be marked as such. Modern
-BIOSes don&rsquo;t seem to require such markers anymore, but
-for some systems it may still be necessary. Previous
-versions of setup-storage by default marked the partition
-mounting / as bootable, but this is not a sane default for
-all cases. If you want to be sure not boot failures happen
-because of a missing bootable marker, explicitly set the
-bootable option. Of course, there are lots of other reasons
-why a system may fail to boot.</p></td></tr>
+<p style="margin-top: 1em">If you use software RAID or LVM
+in your disk config, do not forget also to add the required
+packages (like mdadm and lvm2) to the package config.
+Otherwise the client will not be able to use these
+features.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Machine does not boot because no partition is marked as
+bootable: If the bootable option is not specified, not
+partition will be marked as such. Modern BIOSes don&rsquo;t
+seem to require such markers anymore, but for some systems
+it may still be necessary. Previous versions of
+setup-storage by default marked the partition mounting / as
+bootable, but this is not a sane default for all cases. If
+you want to be sure not boot failures happen because of a
+missing bootable marker, explicitly set the bootable option.
+Of course, there are lots of other reasons why a system may
+fail to boot.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">

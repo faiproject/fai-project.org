@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:47 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -72,12 +72,13 @@ defining variables.</p>
 
 <p style="margin-left:22%;">Two parameters for
 debootstrap(8), space separated. Debootstrap is called as
-the first part of fai-make-nfsroot. This variable defines
-SUITE and MIRROR for debootstrap. Example:</p>
+the first part of fai-make-nfsroot unless -B is used. This
+variable defines SUITE and MIRROR for debootstrap.
+Example:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP=&quot;wheezy
-http://http.debian.net/debian&quot;</p>
+http://httpredir.debian.org/debian&quot;</p>
 
 <p style="margin-left:11%;"><b>NFSROOT_ETC_HOSTS</b></p>
 
@@ -91,10 +92,10 @@ faiserver&quot;</p>
 
 <p style="margin-left:11%;"><b>FAI_ROOTPW</b></p>
 
-<p style="margin-left:22%;">The encrypted (with md5 or
-crypt) root password on all install clients during the
-installation process. Used when log in via ssh. This is not
-the password for the new installed system. Example:</p>
+<p style="margin-left:22%;">The encrypted root password on
+all install clients during the installation process. Used
+when log in via ssh. This is not the password for the new
+installed system. Example:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">FAI_ROOTPW=&rsquo;$1$kBnWcO.E$djxB128U7dMkrltJHPf6d1&rsquo;
@@ -152,8 +153,9 @@ specifying a different architecture.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Normally, the
 nfsroot is mounted by the install kernel via NFS. It&rsquo;s
-also used on the FAI CD. You can convert an nfsroot to a
-compressed image using fai-nfsroot2image(8).</p>
+also used on the FAI CD. FAI clients can also receive the
+nfsroot via http. There you have to create a compressed
+squashfs image of the nfsroot with fai-cd(8).</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
@@ -163,8 +165,7 @@ compressed image using fai-nfsroot2image(8).</p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai&minus;make-nfsroot</b>(8),
 <b>fai&minus;setup</b>(8), <b>fai</b>(8)
-<b>fai&minus;mirror(1) fai&minus;chboot(8)
-fai&minus;nfsroot2image(8)</b></p>
+<b>fai&minus;mirror(1) fai&minus;chboot(8)</b></p>
 
 <p style="margin-left:11%; margin-top: 1em">This file is
 part of FAI (Fully Automatic Installation). The FAI homepage

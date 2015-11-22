@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -157,6 +157,16 @@ in daemon mode.</p>
 <p style="margin-left:11%; margin-top: 1em">Normally, the
 output will be piped to fai-monitor-gui, a GUI which
 displays all information.</p>
+
+<p style="margin-left:11%; margin-top: 1em">fai-monitor
+reads variables from /var/log/fai/variables (key=value pair
+format) and replies to request from clients if they have the
+format: VARIABLE &lt;VARNAME&gt;. For e.g. if the clients
+sends &quot;VARIABLE FAI_VERSION&quot;, fai-monitor will
+reply with OK and the value of this variable (e.g. &quot;OK
+4.5.6&quot;) if this variable is defined, otherwise it will
+reply with UNKNOW and repeats the VARNAME (e.g.
+&quot;UNKNOWN FAI_VERSION&quot;).</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

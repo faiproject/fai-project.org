@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -160,26 +160,14 @@ to the directory $TFTPROOT.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;l</b></p></td>
-<td width="8%"></td>
-<td width="78%">
-
-
-<p>Create a nfsroot using live/filesystem.dir subdirectory.
-This is needed if the initrd of the kernel is created by the
-live-boot package.</p></td></tr>
-<tr valign="top" align="left">
-<td width="11%"></td>
-<td width="3%">
-
-
 <p><b>&minus;p</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>Preserve ssh keys. This will preserve the whole .ssh
-directory of the root account inside the nfsroot.</p></td></tr>
+<p>Preserve ssh configs including the keys of the root
+account. This will not preserve the ssh host keys inside the
+nfsroot.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -202,6 +190,18 @@ directory of the root account inside the nfsroot.</p></td></tr>
 
 
 <p>Show simple help.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;z</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Use gzip for compressing the base.tar file. Default is
+to use xz.</p></td></tr>
 </table>
 
 <h2>NOTES
@@ -262,6 +262,12 @@ NFSROOT.</p>
 
 <p style="margin-left:22%;">Repository keys in .asc format
 found here will be installed into the NFSROOT.</p>
+
+
+<p style="margin-left:11%;"><i>/var/log/fai/variables</i></p>
+
+<p style="margin-left:22%;">The script will write the
+values of FAI_VERSION and NFSROOT to this file.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>

@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:38 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:47 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,20 +56,24 @@
 </h2>
 
 
+<p style="margin-left:11%; margin-top: 1em">This command is
+only called internally by FAI and not directly by the
+user.</p>
+
 
 <p style="margin-left:11%; margin-top: 1em">fai&minus;class
 executes scripts in DIRECTORY to define classes. All classes
 are written to CLASSFILE, each class on a separate line. Use
 absolute paths for both arguments. All scripts or
-executables matching &quot;[0&minus;9][0&minus;9]*&quot; are
-executed in alphabetical order. They can define classes by
-writing the names of the classes to stdout. Classes can be
-separated by spaces or written one on a line. All lines that
-start with a &quot;#&quot; are comment lines and are
-ignored.</p>
+executables matching &quot;^[0&minus;9][0&minus;9]*&quot;
+(they start with two digits) are executed in alphabetical
+order. They can define classes by writing the names of the
+classes to stdout. Classes can be separated by spaces or
+written one on a line. All lines that start with a
+&quot;#&quot; are comment lines and are ignored.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Shell scripts
-that end in &quot;.source&quot; are sourced and can define
+that end in &quot;.sh&quot; are sourced and can define
 classes by setting the variable $newclasses. This is useful
 for scripts where you can&rsquo;t control stdout. Variables
 that are defined in these scripts are available to other

@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.21 -->
-<!-- CreationDate: Mon Oct 27 11:16:39 2014 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,22 +54,19 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">Fully Automatic
-Installation (FAI) is used to provide unattended
-installation of Debian GNU/Linux operating systems with a
-very flexible class-based system. install_packages is a Perl
-script written for FAI to selectively install, hold, remove,
-or purge packages or tasks.</p>
+<p style="margin-left:11%; margin-top: 1em">This command is
+only called internally by FAI and not directly by the
+user.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">install_packages
-is called from the fai installation script and should not be
-called directly. Its function is to parse the package_config
-files based on the class definitions of the client. For
-example, if the client belonged to the SMTPSERVER class,
-install_packages would parse ../package_config/SMTPSERVER
-for instructions on what packages to install, hold, remove,
-or purge.</p>
+is a Perl script written for FAI to selectively install,
+hold, remove, or purge packages or tasks. Its function is to
+parse the package_config files based on the class
+definitions of the client. For example, if the client
+belonged to the SMTPSERVER class, install_packages would
+parse ../package_config/SMTPSERVER for instructions on what
+packages to install, hold, remove, or purge.</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -217,9 +214,7 @@ installations.</p> </td></tr>
 <p style="margin-left:11%; margin-top: 1em">install_packages
 expects to find the FAI_ROOT directory, the location of
 class definitions, package configurations, and custom
-install scripts, somewhere in the filesystem. This location
-is configurable in /etc/fai/fai.conf and defaults to
-/srv/fai/config.</p>
+install scripts, somewhere in the filesystem.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
@@ -241,12 +236,7 @@ The FAI homepage is http://fai-project.org.</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><i>/etc/fai/fai.conf</i></p>
-
-<p style="margin-left:22%;">The FAI configuration file.</p>
-
-
-<p style="margin-left:11%;"><i>/srv/fai/config/package_config/</i></p>
+<p style="margin-left:11%; margin-top: 1em"><i>/srv/fai/config/package_config/</i></p>
 
 <p style="margin-left:22%;">The FAI package configuration
 directory.</p>
