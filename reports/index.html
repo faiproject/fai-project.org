@@ -32,6 +32,39 @@ Currently we have more than 290 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Ricardo Branco Pinto
+<br><b>Date:</b> Tue, 24 Nov 2015 17:00:37 +0000
+
+<pre>
+How many hosts have you installed using fai? <b>Hundreds of them,</b> literally. Be it on virtual machines (VirtualBox, Proxmox) or real hardware.
+
+Which version of fai are you using? Currently we're using <b>FAI 4.3.3</b> but we've been using it since 3.x
+
+Which version are you using as your install kernel? 
+  Currently Ubuntu 14.04 (using 3.19 kernel from Vivid), but recently
+  Debian 8 and Debian 7 (in both cases, using kernel from backports to
+  support Docker on the final image). 
+
+Which types of hosts are you installing with fai? Desktops, virtual machines and appliances.
+
+How do you boot your hosts? FAI-CD for production, PXE for testing.
+Does the default install kernel recognize all your hardware? Yes.
+Which drivers are missing? Currently none.
+Do you manage your configuration space under version control? Yes.
+
+How big is your config space (Mbytes, # of files)?  158M. 267 files.
+How many files do you have in ../config/files? 118.
+What types of scripts are you using for local customization? Shell, Perl, Python, Expect.
+
+<b>What is the business of your company/organisation?</b> n/a
+<br><b>Additional comments:</b>
+We use FAI to automate the installation.
+
+We use the latest kernel available via apt-get/aptitude just to
+support Docker, and we add the firmware packages to the NFSROOT.
+</pre> <HR>
+
+
 <b>From:</b> Christian Meyer, c 2 h 5 o h @ web dot=de
 <br><b>Date:</b> Fri, 25 Sep 2015 19:00:06 +0200
 <pre>
