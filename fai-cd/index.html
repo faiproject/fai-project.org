@@ -26,86 +26,93 @@
       <div id="content">
 <!-- removed breadcrumb -->
 
-<h1>FAI CD: the easy way to start with FAI</h1>
+<h1>FAI CD: The Easy Way to Start With FAI</h1>
 
 <br>
 <br>
 <br>
-<p style="text-align: center;">
 <span class="downloadbox-border" >
-<a href="faicd64-4.3.2+wheezy1.iso" style="text-decoration: none">
-<span class="downloadbox-real" >Download FAI CD</span>
+<a href="faicd64-large_5.0.iso" style="text-decoration: none">
+<span class="downloadbox-real" >FAI ISO large  &nbsp; (940 MB) </span>
 </a>
 </span>
+&nbsp;
+&nbsp;
+&nbsp;
+The default image. Includes packages for XFCE, GNOME and the basefiles
+for CentOS 7 and Ubuntu 14.04
+<p>
+<p> &nbsp;
+<p>
+
+
+<span class="downloadbox-border" >
+<a href="faicd64-small_5.0.iso" style="text-decoration: none">
+<span class="downloadbox-real" >FAI ISO small &nbsp; (567 MB)</span>
+</a>
+</span>
+&nbsp;
+&nbsp;
+&nbsp;
+Fits onto a CD. Only the XFCE packages are included. Other packages and
+basefiles are downloaded from the internet.
+<p>
+<p> &nbsp;
+<p>
+
+<span class="downloadbox-border" >
+<a href="faicd64-autodiscover_5.0.iso" style="text-decoration: none">
+<span class="downloadbox-real" >Autodiscover CD &nbsp; (19 MB) </span>
+</a>
+</span>
+&nbsp;
+&nbsp;
+&nbsp;
+Boot only image which autodiscovers the FAI server.
 </p>
 <br>
 
 <p style="text-align: center;">
-FAI 4.3.2+wheezy1, Debian Wheezy, Kernel 3.2, amd64, size 646MB,
-<a href=faicd64-4.3.2+wheezy1.iso.md5>md5sum</a>,
-<a href=sha256sums.asc>sha256sum</a>
+All boot images use FAI 5.0, kernel 3.16, amd64 architecture,
+<a href=sha256sums.asc>sha256sum.asc</a> of the ISO's
 <HR>
 <p>
-
-
-<h2>Installation from CD, DVD or USB stick</h2>
-
-<P>
-Perform a FAI installation from CD-ROM without setting up an install server.
-FAI-CD puts all data needed for a fully automatic installation on a
-CD. No network is needed and you can install the whole system from
-CD. 
-<p>
-Look at the fai-cd slideshow! <a href="/slideshow/">16
-pictures</a> showing a complete installation from CD
-<HR>
-
-
 
 <h3>FAI on a USB stick</h3>
 
-You can write the ISO image to a USB stick using the command dd(1):
+You can write the ISO image onto a USB stick using the command dd(1):
 <div class="featurebox">
-<pre>dd if=faicd64-4.3.2+wheezy1.iso of=/dev/sdX</pre> </div>
+<pre>dd if=faicd64-large_5.0.iso of=/dev/sdX</pre> </div>
 and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
-
-
-<h3>FAI CD Multi distribution</h3>
-<ul>
-<li> This CD image can install Debian 6, CentOS 6 and Scientific Linux Cern 6 from CD
-<li> You can select from simple installation without any X11 or including a desktop
-<li>
-<a href=faicd-multi-distrib-4.2.iso>FAI CD Multi ISO image</a>,  <a href=faicd-multi-distrib-4.2.iso.md5>md5sum</a> ,<a href=sha256sums.asc>sha256sum</a>
-
-<li> FAI 4.2, kernel 3.2, amd64, size 682MB
-
-<li> For Debian it uses the package mirror on the CD, for CentOS and SLC it connects to the fastest network mirror
-
-<li> After the installation the account demo with the
-password fai is available.
-<li> The root password is also fai.
-</ul>
 
 <HR>
 <p>
 
-<h3>Short description for the FAI-CD</h3>
-
+<h3>Short description for the FAI boot images</h3>
 <ul>
+<li> These installation images can install Debian 8 (XFCE and GNOME),
+Ubuntu 14.04 and CentOS 7, without the need of an install server
+<li> No network is needed and you can install the whole system from
+the installation media.
 
+
+<li> You can set up your own FAI install server using this installation media.
+<li> You can select from a simple menu which distribution to install
+<li> After the installation the account demo with the password fai is available.
+<li> The root password is also fai.
 <li> The system will be installed to the first disk. All data on the disk will be deleted.
-<li>
-
 <li> All log files from the installation can be found in <tt>/var/log/fai/localhost/last/</tt>
 
-<li> After the installation the account demo with the
-password fai is available.
-<li> The root password is also fai.
+
+<li> Look at the fai-cd <a href="/slideshow/">slideshow!</a> Showing a complete installation from CD
+<HR>
+
+
 </ul>
 
 <hr>
 <ADDRESS>
-Fri, 27 Mar 2015 16:01:25 +0100
+Tue, 24 Nov 2015 11:41:19 +0100
 </ADDRESS>
 
 
