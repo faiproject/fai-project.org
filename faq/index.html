@@ -30,16 +30,7 @@
 
 
 <a name="download"></a>
-<h2>Which repository do I have to use to get FAI for wheezy/jessie/...?</h2>
-
-<p>If you want to deploy Debian <strong>wheezy</strong> the entry for
-/etc/apt/sources.list and for /etc/fai/apt/sources.list should contain
-:</p>
-
-<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
-<pre>
-deb http://fai-project.org/download wheezy koeln
-</pre></h3></div>
+<h2>Which repository do I have to use to get FAI for jessie/...?</h2>
 
 <p>If you want to deploy Debian <strong>jessie</strong> the entry for
 /etc/apt/sources.list and for /etc/fai/apt/sources.list should contain:</p>
@@ -48,6 +39,12 @@ deb http://fai-project.org/download wheezy koeln
 <pre>
 deb http://fai-project.org/download jessie koeln
 </pre></h3></div>
+
+This is the default setup, which uses the same distribution for the
+server itself and the nfsroot. But you can also mix distributions
+versions, for e.g. using a server running wheezy and create a jessie
+nfsroot on this server. The distribution you want to deploy on your
+clients is also independent from those defined here.
 
 <p>If you want to get the <strong>newest</strong> test versions of FAI, please use
 the following entry in /etc/apt/sources.list and /etc/fai/apt/sources.list:</p>
@@ -123,7 +120,7 @@ If you do not know how to use reportbug please write a mail to the <a
 
 <hr>
 <address>
-Sun, 08 Mar 2015 22:31:57 +0100
+Mon, 14 Mar 2016 16:57:40 +0100
 </address>
 
       </div>
