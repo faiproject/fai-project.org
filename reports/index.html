@@ -32,6 +32,50 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Andrew Bezella, aLASTNAME =at= archive.org
+<br><b>Date:</b> Tue, 26 Apr 2016 13:52:21 -0700
+<pre>
+How many hosts have you installed using fai? <b>1197</b> bar-metal
+hosts. In addition, we have about 800 ganeti-managed kvm instances
+
+Which version of fai are you using? 	currently migrating from <b>3.4.8ubuntu5</b> to 5.0.3
+Which version are you using as your install kernel? linux-image-4.4.6-fai-amd64
+
+Which types of hosts are you installing with fai? bare-metal servers and virtual machines
+
+How do you boot your hosts?
+ via network (PXE, DHCP): Y
+            using FAI-CD: N
+	  from USB stick: N
+
+Does the default install kernel recognize all your hardware? Y
+Which drivers are missing? N/A
+
+Do you manage your configuration space under version control? Y
+
+How big is your config space (Mbytes, # of files)? 668K, #107
+How many files do you have in ../config/files? 11
+
+What types of scripts are you using for local customization? shell; currently migrating from cfengine to ansible
+
+<b>What is the business of your company/organisation?</b> non-profit, digital library, <a href="http://www.archive.org">Internet Archive</a>
+
+<br><b>Additional comments:</b>
+1197 bare-metal hosts have uploaded their logs to our fai server.  many
+of these have been reinstalled multiple times and we also use the fai
+nfsroot for diagnostics (looks like about 10000 logged uses of fai).
+in addition, we have about 800 ganeti-managed kvm instances that have
+been installed (again, in many cases multiple times) with fai.
+
+FAI is used to partition and lay down a base operating system, then cfg mgmt takes over.
+
+love that it's flexible enough to do chroot/dirinstalls for our
+ganeti-managed kvms.  nice to have a single installer for both.
+
+<a href="pictures/brewster-Internet-archive-petabox-2011-ver2.jpg"><img alt="petabox1" src="pictures/brewster-Internet-archive-petabox-2011-ver2.jpg" width="40%" border="0" ></a> <a href="pictures/petabox.jpg"><img alt="petabox" src="pictures/petabox.jpg" width="40%" border="0" ></a>
+</pre> <HR>
+
+
 <b>From:</b> anonymous
 <br><b>Date:</b> Date: Mon, 22 Feb 2016 11:16:23 +0100
 <pre>
@@ -185,7 +229,7 @@ What types of scripts are you using for local customization? shell, puppet
 <br><b>Additional comments:</b>
 We are deploying all kind of linux-servers using fai for many years
 Our PXE menu:
-<a href="pictures/fai_screeny.jpg"><img alt="pxe menu" src="pictures/fai_screeny.jpg" width="20%" border="0" ></a>
+<a href="pictures/fai_screeny.jpg"><img alt="pxe menu" src="pictures/fai_screeny.jpg" width="40%" border="0" ></a>
 </pre> <HR>
 
 
@@ -220,10 +264,10 @@ How many hosts have you installed using fai? <b>Hundreds of them,</b> literally.
 
 Which version of fai are you using? Currently we're using <b>FAI 4.3.3</b> but we've been using it since 3.x
 
-Which version are you using as your install kernel? 
+Which version are you using as your install kernel?
   Currently Ubuntu 14.04 (using 3.19 kernel from Vivid), but recently
   Debian 8 and Debian 7 (in both cases, using kernel from backports to
-  support Docker on the final image). 
+  support Docker on the final image).
 
 Which types of hosts are you installing with fai? Desktops, virtual machines and appliances.
 
