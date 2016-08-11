@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
+<!-- CreationDate: Tue Jul  5 10:21:51 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -268,7 +268,7 @@ If /boot has no extra mount point, / is used instead. You
 may source $LOGDIR/disk_var.sh to get the variables set. The
 example config space shipped with FAI sources this file in
 scripts/GRUB_PC/10-setup. If encryption was configured, a
-proper <b>crypttab</b>(5) file plus keyfiles will be
+proper <b>crypttab</b>(5) file plus key files will be
 generated.</p>
 
 <h2>EXAMPLES
@@ -388,7 +388,7 @@ is appended.</p></td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-48851.png" alt="Image grohtml-48851.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-196381.png" alt="Image grohtml-196381.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -434,7 +434,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-48852.png" alt="Image grohtml-48852.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-196382.png" alt="Image grohtml-196382.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -735,7 +735,7 @@ create the /home RAID.</p></td></tr>
 
 <p>Note that each BTRFS RAID must contain an initial
 subvolume. This is necessary to use advanced BTRFS features
-such as snapshots. The intial subvolume name is taken from
+such as snapshots. The initial subvolume name is taken from
 the subvol mountoption. In the above example those would be
 @/ and @home.</p></td></tr>
 </table>
@@ -990,8 +990,8 @@ it as-is */ <br>
 | raid[0156] <br>
 /* raid level */ <br>
 | luks <br>
-/* encrypted partition using LUKS and auto-generate a
-keyfile */ <br>
+/* encrypted partition using LUKS and auto-generate a key
+file */ <br>
 | luks:&quot;[^&quot;]+&quot; <br>
 /* encrypted partition using LUKS and use quoted string as
 passphrase */ <br>

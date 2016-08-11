@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Sun Nov 22 21:50:47 2015 -->
+<!-- CreationDate: Tue Jul  5 10:21:50 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -86,9 +86,27 @@ of host.</p>
 <td width="78%">
 
 
-<p>Do not add packages included in base.tgz and packages
-defined in nfsroot.conf to the mirror. By default all these
-packages are included in the mirror.</p></td></tr>
+<p>Do not add packages included in base.tar.xz and packages
+defined in /etc/fai/NFSROOT to the mirror. By default all
+these packages are included in the mirror. This will
+explicitly remove packages from the mirror that are already
+in base.tar.xz.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>&minus;b</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create the mirror only from packages names in
+/srv/fai/config. Do not include packages from
+/etc/fai/NFSROOT, but also do not remove packages that are
+in base.tar.xz. This is useful if your partitial mirror does
+not match the Linux distribution of the nfsroot, or if you
+do not have a nfsroot yet.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
@@ -253,7 +271,7 @@ FAI_CONFIGDIR.</p>
 <p style="margin-left:11%; margin-top: 1em"><i>$NFSROOT/var/tmp/base-pkgs.lis</i></p>
 
 <p style="margin-left:22%;">The list of packages included
-in base.tgz inside the nfsroot.</p>
+in base.tar.xz inside the nfsroot.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><i>$NFSROOT/var/tmp/packages.nfsroot</i></p>

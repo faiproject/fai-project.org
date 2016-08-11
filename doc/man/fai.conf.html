@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Sun Nov 22 21:50:48 2015 -->
+<!-- CreationDate: Tue Jul  5 10:21:50 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -242,17 +242,14 @@ hg+(http|https)://&lt;hg path&gt;</p></td></tr>
 <td width="78%">
 
 
-<p>HTTP: http://&lt;server&gt;/&lt;filename&gt; where
-&lt;filename&gt; is a (compressed) tar archive. For
-verification purposes, also an <b>md5sum</b>(1) generated
-hash must exist at the same location as
-&lt;filename&gt;.md5.</p> </td></tr>
+<p>HTTP:
+(http|https|scp|sftp)://&lt;server&gt;/&lt;filename&gt;
+where &lt;filename&gt; is a (compressed) tar archive.</p></td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">The config
-space will be downloaded from the given location via HTTP.
-Furthermore +path/tarfile.md5+ will be downloaded and the
-md5sum will be checked. +tarfile+ will be extracted by
+space will be downloaded from the given location via the
+specified protocol. &lt;filename&gt; will be extracted by
 ftar(8), and thus needs to have a recognized suffix, such as
 .tar.gz or tar.xz.</p>
 
