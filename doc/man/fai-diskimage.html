@@ -1,0 +1,174 @@
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Fri Oct 14 16:44:03 2016 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>fai-diskimage</title>
+
+</head>
+<body>
+
+<h1 align="center">fai-diskimage</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-diskimage
+&minus; create a disk image for booting a VM</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-diskimage</b>
+<i>imagename</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i><b>fai-diskimage</b></i>
+creates a disk image that can be used with Qemu/KVM,
+VirtualBox, VMware, Xen or by your cloud infrastructure. It
+runs the Fully Automatic Installation using a list of FAI
+classes. In the end you have a bootable disk image.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>&minus;c,
+--class</b> <i>CLASS</i>[,<i>CLASS</i>]</p>
+
+<p style="margin-left:22%;">Define list of FAI classes</p>
+
+<p style="margin-left:11%;"><b>-D, --debug</b></p>
+
+<p style="margin-left:22%;">Enter debugging after the FAI
+process has finished. Therefore the fai-diskimage script is
+stopped and you may enter the chroot for debugging purpose.
+When finished, leave the chroot and send a CONT signal for
+resuming the fai-diskimage script.</p>
+
+<p style="margin-left:11%;"><b>-h, --help</b></p>
+
+<p style="margin-left:22%;">Print help</p>
+
+<p style="margin-left:11%;"><b>-S, --size</b>
+<i>SIZE</i></p>
+
+<p style="margin-left:22%;">Set size of raw image (suffixes
+k M G T are supported)</p>
+
+<p style="margin-left:11%;"><b>-s, &minus;-cspace</b>
+<i>URI</i></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-14%">
+
+
+<p>Location of the confi</p></td>
+<td width="30%"></td>
+<td width="8%"></td>
+<td width="54%">
+
+
+<p>g space. If location starts with /, the prefix file://
+will be added. See fai.conf(5) for all supported
+protocols</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-u, --hostname</b>
+<i>name</i></p>
+
+<p style="margin-left:22%;">Set hostname to name</p>
+
+<p style="margin-left:11%;"><b>-v, --verbose</b></p>
+
+<p style="margin-left:22%;">Be verbose</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"># fai-diskimage
+-u cloud3 -S2G -cDEBIAN,AMD64,FAIBASE,GRUB_PC,CLOUD,GCE
+disk.raw</p>
+
+<p style="margin-left:11%; margin-top: 1em">Creates a
+Debian system with a small set of software packages without
+graphical desktop. The disk image disk.raw will be of size 2
+GB and the host ist called cloud3.</p>
+
+<p style="margin-left:11%; margin-top: 1em">#
+cl=DEFAULT,DHCPC,DEBIAN,AMD64,FAIBASE,DEMO,GRUB_PC,UBUNTU,XENIAL,XENIAL64,XORG
+<br>
+# fai-diskimage -v -u cloudhost -S5G -c$cl ubuntu.qcow2</p>
+
+<p style="margin-left:11%; margin-top: 1em">Creates a disk
+image of size 5GB called ubuntu.qcow2 for a Ubuntu 16.04
+desktop.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fai-diskimage
+is not limited to creating images for virtual machines. The
+raw images can also be copies (via dd) onto a real disk for
+booting bare metal hosts.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use fai-monitor. The
+FAI homepage is http://fai-project.org.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thomas Lange
+&lt;lange@informatik.uni-koeln.de&gt;</p>
+<hr>
+</body>
+</html>
