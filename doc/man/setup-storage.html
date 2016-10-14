@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Tue Jul  5 10:21:51 2016 -->
+<!-- CreationDate: Fri Oct 14 16:44:02 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -388,7 +388,7 @@ is appended.</p></td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-196381.png" alt="Image grohtml-196381.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-76921.png" alt="Image grohtml-76921.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -434,7 +434,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-196382.png" alt="Image grohtml-196382.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-76922.png" alt="Image grohtml-76922.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -648,7 +648,52 @@ extended partition, and 3 logical partitions.</p></td></tr>
 <p>Encrypt the swap space, /tmp, and /local00. As described
 in the CAVEATS section, the encryption keys will be stored
 in a temporary directory only.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Do not forget to install the cryptsetup package on a
+system using thus scheme.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>The initial password for the encrypted device can also
+be set in the configuration file by using the syntax -
+luks:&quot;secret&quot;</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>With a working RAID+LVM configuration, an encryption
+layer can be added between the RAID and LVM device layers by
+adding the following cryptsetup configuration. In this case,
+the encrypted device will be called
+&rsquo;crypt_format_md1&rsquo; and will be used as the
+underlying physical device (PV) in LVM.</p></td></tr>
 </table>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+cryptsetup <br>
+luks - /dev/md1 - -</p>
 
 <p style="margin-left:11%;">tmpfs example</p>
 
@@ -971,8 +1016,8 @@ must, however, always be a multiple of this sector size.
 
 <p style="margin-left:11%; margin-top: 1em">volume ::=
 &lt;type&gt; &lt;mountpoint&gt; &lt;size&gt;
-&lt;filesystem&gt; &lt;mount_options&gt; &lt;fs_options&gt;
-<br>
+&lt;filesystem&gt; &lt;mount_options&gt;
+&lt;luks_options&gt; &lt;fs_options&gt; <br>
 | vg &lt;name&gt; &lt;size&gt; &lt;fs_options&gt; <br>
 /* lvm vg */ <br>
 | tmpfs &lt;mountpoint&gt; &lt;tmpfs_size&gt;
@@ -1055,6 +1100,14 @@ logical <br>
 | swap <br>
 | [^[:space:]] <br>
 /* mkfs.xxx must exist */</p>
+
+<p style="margin-left:11%; margin-top: 1em">luks_options
+::= (lukscreateoptions=&quot;.*&quot;) <br>
+/* options to supply to cryptsetup when creating a LUKS <br>
+* encrypted filesystem. If no ciper (-c) is specified, then
+<br>
+* aes-cbc-essiv:sha2 is used. If no key size (-s) is <br>
+* specified then 256 is used. */</p>
 
 <p style="margin-left:11%; margin-top: 1em">fs_options ::=
 (createopts=&quot;.*&quot;|tuneopts=&quot;.*&quot;|(pv|vg|lv|md)createopts=&quot;.*&quot;)*
