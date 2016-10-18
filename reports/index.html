@@ -32,6 +32,78 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Brian Kroth bp+lastname a t engr d o t .wisc.edu
+<br><b>Date:</b> Mon, 17 Oct 2016 09:28:46 -0500
+
+<pre>
+How many hosts have you installed using fai? <b>~300 VMs</b> and growing, <b>~100</b> Workstations
+
+Which version of fai are you using? <b>Currently 4.3.2+wheezy1</b>, though I'm excited to try out the new FAI
+   with cloud disk image support.
+
+Which version are you using as your install kernel? Generally the kernel from stable backports (eg: wheezy-backports)
+
+Which types of hosts are you installing with fai?
+   Desktop workstations for labs, a few physical machines including some critical
+   servers and cluster machines, and lots of different types of server VMs (eg:
+   dns, dhcp, ldap, nfs, syslog, mysql, memcached, mongodb, apache, squid,
+   sendmail, etc.).
+
+How do you boot your hosts?
+   PXE and DHCP, though no fai-chboot - we have custom rolled scripts
+   around FAI to support multiple nfsroots and a menu to select one of
+   the various Debian flavors we're currently supporting and our own
+   auto install script and pxelinux conf variant since our DHCP server
+   is also somewhat custom.
+
+Does the default install kernel recognize all your hardware? Generally, though that's usually why we use the backports kernel as well.
+Which drivers are missing? Lately, the latest intel ethernet drivers.
+   We also need to provide our own nvidia drivers for quatro cards that the lab
+   machines require for custom engineering software.
+
+   Historically we also provided afs and vmware drivers, but we've dropped the
+   former, and the latter has been included in the mainline kernel for a number of
+   years now.
+
+Do you manage your configuration space under version control? Yes.  It's in git now along with the rest our cfengine config and file artifacts.
+How big is your config space (Mbytes, # of files)?
+How many files do you have in ../config/files?
+   Not very large.  Most of the work goes into disk_configs and package_config files.
+
+   The rest has been largely dumbed down now to simply running cfengine (which
+   also controls our FAI servers - turtles all the way down).
+
+What types of scripts are you using for local customization?
+   Mostly just a few shell scripts and one major perl one that parses the cfengine
+   inputs to determine the classes for the machine and represent them as FAI
+   classes so we don't need to maintain two sets of class based infrastructures.
+
+<b>What is the business of your company/organisation?</b> <a href="http://www.cae.wisc.edu/ ">Computer Aided Engineering Center</a> at the College of Engineering at UW-Madison
+<br><b>Additional comments:</b>
+We use FAI to fairly rapidly (~10-15 minutes) spin up new VMs to do pivoted
+service upgrades, on demand expansions to accommodate service growth need, and
+roll out lab machines.
+
+In particular, this helped us quickly address an spike in usage a couple of
+years ago by allowing us to quickly more than triple the amount of VM resources
+configured to serve an application when a snow storm unexpectedly caused a
+number of large classes to move their final exams to an online format using the
+UW-Madison campus wide Moodle install that we host.
+
+As for my comments/suggestions - I think one of the best pieces of FAI and
+reason to use it over preseeding or some other system is the disk_config
+system.  It'd be really great to see continued work on that and in particular
+some more support for different btrfs layouts (eg: nested subvolume layouts to
+support rollback of package updates).  It seems to be one of the building
+blocks that many container solutions would like to use (systemd or docker) and
+having the ability to use FAI to build those container images in a scripted and
+repeatable fashion is still very attractive.
+
+Thanks much for the hard work over the years (been using it since at least 2007).
+</pre> <HR>
+
+
+
 <b>From:</b> Guglielmi Matteo, lastname.firstname @ epfl.ch
 <br><b>Date:</b> Mon, 5 Sep 2016 16:56:05 +0000
 <pre>
