@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Mon Oct 17 04:10:29 2016 -->
+<!-- CreationDate: Fri Nov 25 17:17:23 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -83,6 +83,12 @@ resuming the fai-diskimage script.</p>
 
 <p style="margin-left:22%;">Print help</p>
 
+<p style="margin-left:11%;"><b>-N, --new</b></p>
+
+<p style="margin-left:22%;">This option will be passed to
+the fai call. It then executes the scripts in class/[0-9]*
+for defining classes.</p>
+
 <p style="margin-left:11%;"><b>-S, --size</b>
 <i>SIZE</i></p>
 
@@ -94,7 +100,8 @@ k M G T are supported)</p>
 
 <p style="margin-left:22%;">Location of the config space.
 If location starts with /, the prefix file:// will be added.
-See fai.conf(5) for all supported protocols</p>
+See fai.conf(5) for all supported protocols. Default is
+/srv/fai/config.</p>
 
 <p style="margin-left:11%;"><b>-u, --hostname</b>
 <i>name</i></p>
@@ -110,19 +117,21 @@ See fai.conf(5) for all supported protocols</p>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em"># fai-diskimage
--u cloud3 -S2G -cDEBIAN,AMD64,FAIBASE,GRUB_PC,CLOUD,GCE
-disk.raw</p>
+<p style="margin-left:11%; margin-top: 1em"># export
+FAI_BASEFILEURL=http://fai-project.org/download/basefiles/
+<br>
+# fai-diskimage -vNu cloud3 -S2G -cJESSIE64,GCE disk.raw</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 Debian system with a small set of software packages without
 graphical desktop. The disk image disk.raw will be of size 2
 GB and the host ist called cloud3.</p>
 
-<p style="margin-left:11%; margin-top: 1em">#
-cl=DEFAULT,DHCPC,DEBIAN,AMD64,FAIBASE,DEMO,GRUB_PC,UBUNTU,XENIAL,XENIAL64,XORG
+<p style="margin-left:11%; margin-top: 1em"># export
+FAI_BASEFILEURL=http://fai-project.org/download/basefiles/
 <br>
-# fai-diskimage -v -u cloudhost -S5G -c$cl ubuntu.qcow2</p>
+# cl=DHCPC,UBUNTU,XENIAL,XENIAL64,XORG <br>
+# fai-diskimage -vNu cloudhost -S5G -c$cl ubuntu.qcow2</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a disk
 image of size 5GB called ubuntu.qcow2 for a Ubuntu 16.04
@@ -133,10 +142,27 @@ desktop.</p>
 </h2>
 
 
+<p style="margin-left:11%; margin-top: 1em">Before creating
+an image, make sure you have the configuration space
+available. Create the config space for FAI by using the
+examples from the fai-doc package.</p>
+
+<p style="margin-left:11%; margin-top: 1em"># mkdir -p
+/srv/fai/config <br>
+# cp -a /usr/share/doc/fai-doc/examples/simple
+/srv/fai/config</p>
+
 <p style="margin-left:11%; margin-top: 1em">fai-diskimage
 is not limited to creating images for virtual machines. The
 raw images can also be copies (via dd) onto a real disk for
 booting bare metal hosts.</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can start
+fai-diskimage in a clean shell environment by calling:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># env -i
+/usr/sbin/fai-diskimage -vNu cloudhost -S5G -cJESSIE64,GCE
+disk.raw</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
