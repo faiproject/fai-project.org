@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Fri Nov 25 17:17:22 2016 -->
+<!-- Creator     : groff version 1.22.3 -->
+<!-- CreationDate: Mon Dec 12 14:05:43 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -35,9 +35,8 @@
 </h2>
 
 
-
-<p style="margin-left:11%; margin-top: 1em">fai&minus;debconf
-&minus; set debconf values using classes</p>
+<p style="margin-left:11%; margin-top: 1em">fai-debconf -
+set debconf values using classes</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -45,7 +44,7 @@
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai&minus;debconf</b>
+<p style="margin-left:11%; margin-top: 1em"><b>fai-debconf</b>
 [OPTION] <i>DIRECTORY</i></p>
 
 <h2>DESCRIPTION
@@ -57,17 +56,16 @@
 only called internally by FAI and not directly by the
 user.</p>
 
-
-<p style="margin-left:11%; margin-top: 1em">fai&minus;debconf
+<p style="margin-left:11%; margin-top: 1em">fai-debconf
 reads files in DIRECTORY which are also a defined class. If
 the name of the class is a directory, all files in this
 directory are read. The files must have the format of
-debconf&minus;get&minus;selections(1). All this input is
-used to call debconf&minus;set&minus;selections(1). This is
-done in the chroot environment, if the variable $ROOTCMD is
-set. After setting the debconf values,
-dpkg&minus;reconfigure(8) is called for every package which
-is installed and for which some debconf data was set.</p>
+debconf-get-selections(1). All this input is used to call
+debconf-set-selections(1). This is done in the chroot
+environment, if the variable $ROOTCMD is set. After setting
+the debconf values, dpkg-reconfigure(8) is called for every
+package which is installed and for which some debconf data
+was set.</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -81,7 +79,7 @@ is installed and for which some debconf data was set.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>&minus;h</b></p></td>
+<p style="margin-top: 1em"><b>-h</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -93,7 +91,7 @@ of options.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;s</b></p></td>
+<p><b>-s</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -105,7 +103,7 @@ debconf database.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;v</b></p></td>
+<p><b>-v</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -116,7 +114,7 @@ debconf database.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;d</b></p></td>
+<p><b>-d</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -128,12 +126,12 @@ option.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;f</b></p></td>
+<p><b>-f</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>Run dpkg&minus;reconfigure for all packages FAI has
+<p>Run dpkg-reconfigure for all packages FAI has
 information on, not only for those whose database entries
 were modified.</p></td></tr>
 </table>
@@ -144,13 +142,13 @@ were modified.</p></td></tr>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>debconf&minus;get&minus;selections</b>(1),
-<b>debconf&minus;set&minus;selections</b>(1),
-<b>dpkg&minus;reconfigure</b>(8)</p>
+<p style="margin-left:11%; margin-top: 1em"><b>debconf-get-selections</b>(1),
+<b>debconf-set-selections</b>(1),
+<b>dpkg-reconfigure</b>(8)</p>
 
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). The FAI homepage
-is http://fai&minus;project.org.</p>
+is http://fai-project.org.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>
@@ -158,7 +156,7 @@ is http://fai&minus;project.org.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Written by
-Thomas Lange &lt;lange@informatik.uni&minus;koeln.de&gt;</p>
+Thomas Lange &lt;lange@informatik.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>

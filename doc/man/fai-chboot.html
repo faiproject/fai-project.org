@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Fri Nov 25 17:17:23 2016 -->
+<!-- Creator     : groff version 1.22.3 -->
+<!-- CreationDate: Mon Dec 12 14:05:44 2016 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,8 +37,8 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">fai-chboot
-&minus; manage the network boot configuration files</p>
+<p style="margin-left:11%; margin-top: 1em">fai-chboot -
+manage the network boot configuration files</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -48,13 +48,12 @@
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai-chboot</b>
 [OPTION]... KERNELNAME HOST... <b><br>
-fai-chboot</b> &minus;l[e|d|t|o|g] [PATTERN] <b><br>
-fai-chboot</b> &minus;e HOST... <b><br>
-fai-chboot</b> &minus;d HOST... <b><br>
-fai-chboot</b> &minus;c HOST|TEMPLATE HOST|TEMPLATE...
-<b><br>
-fai-chboot</b> &minus;i [OPTION]... HOST... <b><br>
-fai-chboot</b> &minus;I [OPTION]... HOST...</p>
+fai-chboot</b> -l[e|d|t|o|g] [PATTERN] <b><br>
+fai-chboot</b> -e HOST... <b><br>
+fai-chboot</b> -d HOST... <b><br>
+fai-chboot</b> -c HOST|TEMPLATE HOST|TEMPLATE... <b><br>
+fai-chboot</b> -i [OPTION]... HOST... <b><br>
+fai-chboot</b> -I [OPTION]... HOST...</p>
 
 <h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
@@ -87,20 +86,19 @@ address or the keyword &quot;default&quot;.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>&minus;B</b></p></td>
+<p style="margin-top: 1em"><b>-B</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
 <p style="margin-top: 1em">Set default values for
-FAI_FLAGS. This is the same as &minus;f
-verbose,sshd,reboot</p> </td></tr>
+FAI_FLAGS. This is the same as -f verbose,sshd,reboot</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
 
 
-<p><b>&minus;c</b></p></td>
+<p><b>-c</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -109,8 +107,7 @@ verbose,sshd,reboot</p> </td></tr>
 templates and enable them for network booting.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;C</b>
-<i>CFDIR</i></p>
+<p style="margin-left:11%;"><b>-C</b> <i>CFDIR</i></p>
 
 <p style="margin-left:22%;">Use CFDIR as the configuration
 directory. Default is /etc/fai. You can also set the
@@ -123,7 +120,7 @@ environment variable FAI_ETC_DIR.</p>
 <td width="9%">
 
 
-<p><b>&minus;D</b> <i>DIR</i></p></td>
+<p><b>-D</b> <i>DIR</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -135,7 +132,7 @@ DIR. The default value is /srv/tftp/fai/pxelinux.cfg/.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;d</b></p></td>
+<p><b>-d</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -148,7 +145,7 @@ it, making PXE boot fall back to the default.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;e</b></p></td>
+<p><b>-e</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -161,7 +158,7 @@ next time it uses its own PXE configuration.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;E</b></p></td>
+<p><b>-E</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -171,8 +168,7 @@ disable preserving partitions. This may erase (therefore
 option E) data on the disk.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;f</b>
-<i>fai_flags</i></p>
+<p style="margin-left:11%;"><b>-f</b> <i>fai_flags</i></p>
 
 <p style="margin-left:22%;">Set FAI_FLAGS. The flags must
 be comma separated.</p>
@@ -184,19 +180,19 @@ be comma separated.</p>
 <td width="3%">
 
 
-<p><b>&minus;F</b></p></td>
+<p><b>-F</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>Set default values for FAI_FLAGS. This is the same as
-&minus;f verbose,sshd,createvt</p></td></tr>
+<p>Set default values for FAI_FLAGS. This is the same as -f
+verbose,sshd,createvt</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
 
 
-<p><b>&minus;h</b></p></td>
+<p><b>-h</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -207,7 +203,7 @@ be comma separated.</p>
 <td width="3%">
 
 
-<p><b>&minus;i</b></p></td>
+<p><b>-i</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -220,19 +216,18 @@ FAI_ACTION</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;I</b></p></td>
+<p><b>-I</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p>Same as &minus;i but also sets FAI_ACTION=install. So a
-fully automatic installation will be performed. ATTENTION!
-This will erase most of the data on the local disks of the
+<p>Same as -i but also sets FAI_ACTION=install. So a fully
+automatic installation will be performed. ATTENTION! This
+will erase most of the data on the local disks of the
 install clients.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;k</b>
-<i>parameters</i></p>
+<p style="margin-left:11%;"><b>-k</b> <i>parameters</i></p>
 
 <p style="margin-left:22%;">Set kernel append
 parameters.</p>
@@ -244,7 +239,7 @@ parameters.</p>
 <td width="3%">
 
 
-<p><b>&minus;l</b></p></td>
+<p><b>-l</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -252,8 +247,8 @@ parameters.</p>
 <p>List the configuration for all hosts in short format. If
 PATTERN is given, list only hosts matching PATTERN. Lists
 hostname, FAI_ACTION, kernel name and IP address in hex. Use
-<b>&minus;le</b>, to list only enabled hosts, <b>-ld</b> to
-list only disabled hosts, <b>-lt</b> to list only templates,
+<b>-le</b>, to list only enabled hosts, <b>-ld</b> to list
+only disabled hosts, <b>-lt</b> to list only templates,
 <b>-lo</b> to list only hosts that do not match any of the
 previous categories, and <b>-lg</b> to list the
 configuration for all hosts, sorted and ordered by groups
@@ -266,7 +261,7 @@ performed.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;L</b></p></td>
+<p><b>-L</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -279,7 +274,7 @@ hosts matching PATTERN.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;n</b></p></td>
+<p><b>-n</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -291,7 +286,7 @@ This also enables the verbose flag.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;o</b></p></td>
+<p><b>-o</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -304,7 +299,7 @@ Normally this is the local disk.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;p</b></p></td>
+<p><b>-p</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -316,7 +311,7 @@ overwrite an existing config file.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;P</b></p></td>
+<p><b>-P</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -331,8 +326,7 @@ inside FAI.</p></td></tr>
 BOOTIF=01-08-00-27-12-34-56 <br>
 SYSUUID=00234567-1111-2222-3333-123456789000</p>
 
-<p style="margin-left:11%;"><b>&minus;s</b>
-<i>SUFFIX</i></p>
+<p style="margin-left:11%;"><b>-s</b> <i>SUFFIX</i></p>
 
 <p style="margin-left:22%;">Use SUFFIX to determine which
 kernel and initrd to use.</p>
@@ -344,18 +338,18 @@ kernel and initrd to use.</p>
 <td width="9%">
 
 
-<p><b>&minus;S</b></p></td>
+<p><b>-S</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
 
-<p>Same as &minus;i but also sets FAI_ACTION=sysinfo.</p></td></tr>
+<p>Same as -i but also sets FAI_ACTION=sysinfo.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">
 
 
-<p><b>&minus;u</b> <i>URL</i></p></td>
+<p><b>-u</b> <i>URL</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -368,7 +362,7 @@ format of this variable.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;U</b> <i>URL</i></p></td>
+<p><b>-U</b> <i>URL</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -380,7 +374,7 @@ use FTP and HTTP for getting these files.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;v</b></p></td>
+<p><b>-v</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -394,18 +388,18 @@ use FTP and HTTP for getting these files.</p></td></tr>
 
 
 <p style="margin-left:11%; margin-top: 1em">fai-chboot
-&minus;l</p>
+-l</p>
 
 <p style="margin-left:22%;">List the configuration for all
-hosts. fai-chboot &minus;FSPv -u
-nfs://faiserver/srv/fai/config atom02 The host atom02 will
-boot the FAI install kernel but with FAI_ACTION sysinfo.</p>
+hosts. fai-chboot -FSPv -u nfs://faiserver/srv/fai/config
+atom02 The host atom02 will boot the FAI install kernel but
+with FAI_ACTION sysinfo.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;l tmpl</p>
+<p style="margin-left:11%;">fai-chboot -l tmpl</p>
 
 <p style="margin-left:22%;">All templates are listed.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;IBPv -u
+<p style="margin-left:11%;">fai-chboot -IBPv -u
 nfs://faiserver/srv/fai/config atom02</p>
 
 <p style="margin-left:22%;">The host atom02 will be
@@ -413,8 +407,8 @@ installed. ATTENTION! All data on the local hard disks are
 lost in most cases, because we want to install a new system.
 After the installation the host automatically reboots.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;vSP
-&minus;s2.6.18-4-amd64 faiserver</p>
+<p style="margin-left:11%;">fai-chboot -vSP
+-s2.6.18-4-amd64 faiserver</p>
 
 <p style="margin-left:22%;">Booting kernel
 vmlinuz-2.6.18-4-amd64 <br>
@@ -425,7 +419,7 @@ append initrd=initrd.img-2.6.18-4-amd64 ip=dhcp</p>
 Writing file /srv/tftp/fai/pxelinux.cfg/01020304 for
 faiserver</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;IFv &minus;u
+<p style="margin-left:11%;">fai-chboot -IFv -u
 nfs://faiserver/srv/fai/clusterconf node03</p>
 
 <p style="margin-left:22%;">node03 will be installed using
@@ -440,13 +434,13 @@ memory test. Install the package memtest86+ and copy the
 executable memtest86+.bin to /srv/tftp/fai without the .bin
 suffix.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;o default</p>
+<p style="margin-left:11%;">fai-chboot -o default</p>
 
 <p style="margin-left:22%;">All hosts, that do not have a
 PXE configuration for their IP-address will do a localboot,
 i.e. booting from local disk.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;vc lenny64
+<p style="margin-left:11%;">fai-chboot -vc lenny64
 james007</p>
 
 <p style="margin-left:22%;">This command will tell the host
@@ -454,14 +448,14 @@ james007 to use the template called lenny64. Beforehand, you
 have to manually create the template and save it to
 /srv/tftp/fai/pxelinux.cfg/lenny64.tmpl.</p>
 
-<p style="margin-left:11%;">fai-chboot &minus;iFPv atom02
-atom03 dom kueppers</p>
+<p style="margin-left:11%;">fai-chboot -iFPv atom02 atom03
+dom kueppers</p>
 
 <p style="margin-left:22%;">The hosts atom02, atom03, dom
 and kueppers will boot the FAI install kernel. FAI_ACTION
-will not be set unless specified with option &minus;k or
-&minus;I. You can also use the script class/LAST.var on the
-install server to set FAI_ACTION.</p>
+will not be set unless specified with option -k or -I. You
+can also use the script class/LAST.var on the install server
+to set FAI_ACTION.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
