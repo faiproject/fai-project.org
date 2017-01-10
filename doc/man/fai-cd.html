@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Dec 12 14:05:46 2016 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Mon Jan  9 21:46:17 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,8 +38,8 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">fai-cd - make a
-bootable CD-ROM or USB stick that performs an FAI</p>
+<p style="margin-left:11%; margin-top: 1em">fai-cd &minus;
+make a bootable CD-ROM or USB stick that performs an FAI</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -47,10 +47,10 @@ bootable CD-ROM or USB stick that performs an FAI</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>fai-cd</b>
-[<i>OPTION</i>] -m MIRROR <i>ISOFILE</i> <b><br>
-fai-cd</b> [<i>OPTION</i>] -B <i>FILE</i> <b><br>
-fai-cd</b> [<i>OPTION</i>] -d <i>URL</i> <b><br>
-fai-cd</b> [<i>OPTION</i>] -S <i>IMAGEFILE</i></p>
+[<i>OPTION</i>] &minus;m MIRROR <i>ISOFILE</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;B <i>FILE</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;d <i>URL</i> <b><br>
+fai-cd</b> [<i>OPTION</i>] &minus;S <i>IMAGEFILE</i></p>
 
 <h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
@@ -79,7 +79,7 @@ using dd(1).</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>-A</b></p></td>
+<p style="margin-top: 1em"><b>&minus;A</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -95,7 +95,7 @@ You can add the -J option to make the image smaller.</p></td></tr>
 <td width="3%">
 
 
-<p><b>-B</b></p></td>
+<p><b>&minus;B</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -110,7 +110,7 @@ CONFIG_SRC will be empty.</p></td></tr>
 <td width="3%">
 
 
-<p><b>-b</b></p></td>
+<p><b>&minus;b</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -119,7 +119,8 @@ CONFIG_SRC will be empty.</p></td></tr>
 (a version of cdrecord).</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-C</b> <i>CFDIR</i></p>
+<p style="margin-left:11%;"><b>&minus;C</b>
+<i>CFDIR</i></p>
 
 <p style="margin-left:22%;">Use CFDIR as the configuration
 directory. Default is /etc/fai. You can also set the
@@ -132,7 +133,7 @@ environment variable FAI_ETC_DIR.</p>
 <td width="9%">
 
 
-<p><b>-d</b> <i>URL</i></p></td>
+<p><b>&minus;d</b> <i>URL</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -147,7 +148,7 @@ here, instead set FAI_CONFIGDIR in fai.conf(5).</p></td></tr>
 <td width="9%">
 
 
-<p><b>-e</b></p></td>
+<p><b>&minus;e</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -156,13 +157,13 @@ here, instead set FAI_CONFIGDIR in fai.conf(5).</p></td></tr>
 put the file base.tar.xz in the configuration space into the
 subdirectory basefiles. This option will save about 50MB of
 disk space. This option will exclude the directory even when
--H is given.</p></td></tr>
+&minus;H is given.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">
 
 
-<p><b>-f</b></p></td>
+<p><b>&minus;f</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -171,7 +172,7 @@ disk space. This option will exclude the directory even when
 new one.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-g</b> <i>FILE</i></p>
+<p style="margin-left:11%;"><b>&minus;g</b> <i>FILE</i></p>
 
 <p style="margin-left:22%;">Use FILE as grub grub.cfg file.
 The script will look for FILE in CFDIR. If FILE is located
@@ -185,7 +186,7 @@ not specified, use /etc/fai/grub.cfg.</p>
 <td width="3%">
 
 
-<p><b>-h</b></p></td>
+<p><b>&minus;h</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -196,7 +197,7 @@ not specified, use /etc/fai/grub.cfg.</p>
 <td width="3%">
 
 
-<p><b>-H</b></p></td>
+<p><b>&minus;H</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -210,7 +211,7 @@ not be put onto the CD or the USB stick.</p></td></tr>
 <td width="3%">
 
 
-<p><b>-J</b></p></td>
+<p><b>&minus;J</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -222,7 +223,7 @@ gzip.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>-M</b></p></td>
+<p><b>&minus;M</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -230,7 +231,8 @@ gzip.</p> </td></tr>
 <p>Do not add the package mirror to the CD.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-m</b> <i>DIRECTORY</i></p>
+<p style="margin-left:11%;"><b>&minus;m</b>
+<i>DIRECTORY</i></p>
 
 <p style="margin-left:22%;">Use DIRECTORY as partial FAI
 mirror. This option is mandatory, unless you use -M or
@@ -243,7 +245,7 @@ mirror. This option is mandatory, unless you use -M or
 <td width="3%">
 
 
-<p><b>-S</b></p></td>
+<p><b>&minus;S</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -262,8 +264,8 @@ various ways over the network.</p></td></tr>
 you&rsquo;ve created a mirror with fai-mirror in
 /media/mirror, you can create a CD using:</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-cd -m
-/media/mirror fai-cd.iso</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;m /media/mirror fai-cd.iso</p>
 
 <p style="margin-left:11%; margin-top: 1em">If you want to
 create a bootable USB stick (here /dev/sdf) , write the CD
@@ -277,8 +279,8 @@ to install over the network without using NFS, i.e. by
 getting the nfsroot via an http request. To do so you have
 to create a squashfs image using the following command:</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-cd -S
-squashfs.img</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;S squashfs.img</p>
 
 <p style="margin-left:11%; margin-top: 1em">In addition to
 that you can create said image without a config space and
@@ -286,8 +288,8 @@ without a mirror. This is useful for when you want to avoid
 creating a new image after modifying your config space or
 updating your mirror:</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-cd -d
-&quot;&quot; -SMeJ squashfs.img</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;d &quot;&quot; &minus;SMeJ squashfs.img</p>
 
 <p style="margin-left:11%; margin-top: 1em">To fetch the
 image via http, use the following kernel command line
@@ -299,8 +301,8 @@ option:</p>
 <p style="margin-left:11%; margin-top: 1em">Create the
 autodiscover boot image:</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-cd -JAg
-/etc/fai/grub.cfg.autodiscover fai-autod.iso</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-cd
+&minus;JAg /etc/fai/grub.cfg.autodiscover fai-autod.iso</p>
 
 <h2>NOTES
 <a name="NOTES"></a>
@@ -320,7 +322,7 @@ calling fai-cd.</p>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai-mirror(1)</b></p>
+<p style="margin-left:11%; margin-top: 1em"><b>fai&minus;mirror(1)</b></p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>mksquashfs(1)</b></p>

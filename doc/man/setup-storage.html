@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Dec 12 14:05:45 2016 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Mon Jan  9 21:46:16 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,7 +42,7 @@
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>setup-storage</b>
-- automatically prepare storage devices</p>
+&minus; automatically prepare storage devices</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -51,8 +51,9 @@
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>setup-storage</b>
-[<b>-X</b>] [<b>-f</b> <i>filename</i>] [<b>-d</b>]
-[<b>-h</b>] [<b>-s</b>] [<b>-D</b> <i>disks</i>] [<b>-L</b>
+[<b>&minus;X</b>] [<b>&minus;f</b> <i>filename</i>]
+[<b>&minus;d</b>] [<b>&minus;h</b>] [<b>&minus;s</b>]
+[<b>&minus;D</b> <i>disks</i>] [<b>&minus;L</b>
 <i>directory</i>]</p>
 
 <h2>DESCRIPTION
@@ -73,9 +74,9 @@ are prepared, an appropriate <b>fstab</b>(5) (and possibly
 also a <b>crypttab</b>(5) file is generated.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Without the
-<b>-X</b> parameter <b>setup-storage</b> runs in test-only
-mode and does not execute commands other than writing disk
-labels to a blank disk.</p>
+<b>&minus;X</b> parameter <b>setup-storage</b> runs in
+test-only mode and does not execute commands other than
+writing disk labels to a blank disk.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The exit code
 of <b>setup-storage</b> is 0 if all operations were
@@ -93,7 +94,7 @@ performed successfully and non-zero if an error occurs.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>-X</b></p></td>
+<p style="margin-top: 1em"><b>&minus;X</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -103,14 +104,15 @@ to disk. Otherwise <b>setup-storage</b> runs in test-only
 mode.</p> </td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-f</b> <i>filename</i></p>
+<p style="margin-left:11%;"><b>&minus;f</b>
+<i>filename</i></p>
 
 <p style="margin-left:22%;">Normally <b>setup-storage</b>
 selects an appropriate configuration from $FAI/disk_config/
 by picking the class with the highest priority from
 <i>classes</i> that has an existing file. If however
-<b>-f</b> is given the configuration in <i>filename</i> is
-used.</p>
+<b>&minus;f</b> is given the configuration in
+<i>filename</i> is used.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -119,7 +121,7 @@ used.</p>
 <td width="3%">
 
 
-<p><b>-d</b></p></td>
+<p><b>&minus;d</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -132,7 +134,7 @@ further details.</p></td></tr>
 <td width="3%">
 
 
-<p><b>-s</b></p></td>
+<p><b>&minus;s</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -141,13 +143,15 @@ further details.</p></td></tr>
 exit.</p> </td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-D</b> <i>disks</i></p>
+<p style="margin-left:11%;"><b>&minus;D</b>
+<i>disks</i></p>
 
 <p style="margin-left:22%;">Specify the list of disk drives
 to be configured using <b>setup-storage</b>. Overrides
 <i>disklist.</i>Do<i>not</i>forget<i>to</i>quote<i>this</i>space<i>separated</i>list.</p>
 
-<p style="margin-left:11%;"><b>-L</b> <i>directory</i></p>
+<p style="margin-left:11%;"><b>&minus;L</b>
+<i>directory</i></p>
 
 <p style="margin-left:22%;">Use the specified directory
 instead of <i>LOGDIR.</i></p>
@@ -159,7 +163,7 @@ instead of <i>LOGDIR.</i></p>
 <td width="3%">
 
 
-<p><b>-h</b></p></td>
+<p><b>&minus;h</b></p></td>
 <td width="8%"></td>
 <td width="72%">
 
@@ -179,8 +183,8 @@ instead of <i>LOGDIR.</i></p>
 will use the following environment variables: <b><br>
 disklist</b></p>
 
-<p style="margin-left:22%;">If option <b>-D</b> is not
-used, the <i>disklist</i> variable may contain a space
+<p style="margin-left:22%;">If option <b>&minus;D</b> is
+not used, the <i>disklist</i> variable may contain a space
 separated list of disk drives available in the system. Their
 order matters as they may be referred to as disk1, etc. in
 disk_config. If unset, fai-disk-info will be called to
@@ -234,7 +238,8 @@ determine the appropriate configuration to choose.</p>
 
 <p><b>setup-storage</b> generates disk_var.sh, fstab, and
 possibly crypttab (see below) in this directory. Defaults to
-/tmp/fai if unset. Option <b>-L</b> overrides this.</p></td></tr>
+/tmp/fai if unset. Option <b>&minus;L</b> overrides
+this.</p> </td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>flag_initial</b></p>
@@ -286,7 +291,8 @@ preserve_always:6,7 disklabel:msdos bootable:3</p>
 <p style="margin-left:22%; margin-top: 1em">primary /boot
 20-100 ext3 rw <br>
 primary swap 1000 swap sw <br>
-primary / 12000 ext3 rw createopts=&quot;-b 2048&quot; <br>
+primary / 12000 ext3 rw createopts=&quot;&minus;b 2048&quot;
+<br>
 logical /tmp 1000 ext3 rw,nosuid <br>
 logical /usr 5000 ext3 rw <br>
 logical /var 10%- ext3 rw <br>
@@ -342,8 +348,8 @@ formatted using ext3 filesystem.</p></td></tr>
 
 
 <p>/dev/hda3 should be formatted using ext3 filesystem;
-when calling mkfs.ext3 the option &quot;-b 2048&quot; is
-appended.</p> </td></tr>
+when calling mkfs.ext3 the option &quot;&minus;b 2048&quot;
+is appended.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -382,7 +388,7 @@ appended.</p> </td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-200981.png" alt="Image grohtml-200981.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-146191.png" alt="Image grohtml-146191.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -428,7 +434,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-200982.png" alt="Image grohtml-200982.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-146192.png" alt="Image grohtml-146192.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -613,7 +619,7 @@ cryptsetup <br>
 swap swap /dev/sdb5 swap defaults <br>
 tmp /tmp /dev/sdb6 ext2 defaults <br>
 luks /local00 /dev/sdb7 ext3 defaults,errors=remount-ro
-createopts=&quot;-m 0&quot;</p>
+createopts=&quot;&minus;m 0&quot;</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -946,8 +952,8 @@ resize:([^/,\s\-]+-[^/,\s\-]+(,[^/,\s\-]+-[^/,\s\-]+)*|all)
 | fstabkey:(device|label|uuid) <br>
 /* when creating the fstab, the key used for defining the
 device <br>
-may be the device (/dev/xxx), a label given using -L, or the
-uuid <br>
+may be the device (/dev/xxx), a label given using &minus;L,
+or the uuid <br>
 */</p>
 
 <p style="margin-left:11%; margin-top: 1em">raidoption ::=
@@ -967,8 +973,8 @@ first time */ <br>
 | fstabkey:(device|label|uuid) <br>
 /* when creating the fstab the key used for defining the
 device <br>
-may be the device (/dev/xxx), a label given using -L, or the
-uuid <br>
+may be the device (/dev/xxx), a label given using &minus;L,
+or the uuid <br>
 */</p>
 
 
@@ -1011,8 +1017,8 @@ xen */ <br>
 | fstabkey:(device|label|uuid) <br>
 /* when creating the fstab the key used for defining the
 device <br>
-may be the device (/dev/xxx), a label given using -L, or the
-uuid <br>
+may be the device (/dev/xxx), a label given using &minus;L,
+or the uuid <br>
 */ <br>
 | sameas:(disk[[:digit:]]+|[^[:space:]]+) <br>
 /* Indicate that this disk will use the same scheme <br>

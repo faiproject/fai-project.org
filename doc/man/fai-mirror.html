@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Dec 12 14:05:43 2016 -->
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Mon Jan  9 21:46:15 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,8 +38,8 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">fai-mirror -
-create and manage a partial mirror for FAI</p>
+<p style="margin-left:11%; margin-top: 1em">fai-mirror
+&minus; create and manage a partial mirror for FAI</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -67,7 +67,7 @@ configuration space (/srv/fai/config/package_config).</p>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>-a
+<p style="margin-left:11%; margin-top: 1em"><b>&minus;a
 ARCH</b></p>
 
 <p style="margin-left:22%;">Download packages from
@@ -81,7 +81,7 @@ of host.</p>
 <td width="3%">
 
 
-<p><b>-B</b></p></td>
+<p><b>&minus;B</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -96,7 +96,7 @@ in base.tar.xz.</p></td></tr>
 <td width="3%">
 
 
-<p><b>-b</b></p></td>
+<p><b>&minus;b</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -109,18 +109,18 @@ not match the Linux distribution of the nfsroot, or if you
 do not have a nfsroot yet.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-C CFDIR</b></p>
+<p style="margin-left:11%;"><b>&minus;C CFDIR</b></p>
 
 <p style="margin-left:22%;">Use CFDIR as the configuration
 directory. Default is /etc/fai. You can also set the
 environment variable FAI_ETC_DIR.</p>
 
-<p style="margin-left:11%;"><b>-c</b>
+<p style="margin-left:11%;"><b>&minus;c</b>
 <i>CLASS[,CLASS]</i></p>
 
 <p style="margin-left:22%;">Use only this list of classes
 for building the mirror. Can&rsquo;t be used in conjunction
-with -x.</p>
+with &minus;x.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -129,7 +129,7 @@ with -x.</p>
 <td width="9%">
 
 
-<p><b>-h</b></p></td>
+<p><b>&minus;h</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -140,7 +140,7 @@ with -x.</p>
 <td width="9%">
 
 
-<p><b>-m</b> <i>MAX</i></p></td>
+<p><b>&minus;m</b> <i>MAX</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -149,13 +149,13 @@ with -x.</p>
 variable MAXPACKAGES.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-x</b>
+<p style="margin-left:11%;"><b>&minus;x</b>
 <i>CLASS[,CLASS]</i></p>
 
 <p style="margin-left:22%;">Exclude these classes. Do not
 add the packages of these classes to the mirror.</p>
 
-<p style="margin-left:11%;"><b>-P FILE</b></p>
+<p style="margin-left:11%;"><b>&minus;P FILE</b></p>
 
 <p style="margin-left:22%;">Copy an APT preferences file
 into the cache config before creating the mirror. Using this
@@ -169,7 +169,7 @@ release.</p>
 <td width="3%">
 
 
-<p><b>-p</b></p></td>
+<p><b>&minus;p</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -180,7 +180,7 @@ release.</p>
 <td width="3%">
 
 
-<p><b>-v</b></p></td>
+<p><b>&minus;v</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -193,22 +193,22 @@ release.</p>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
-/files/scratch/mirror</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v /files/scratch/mirror</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 partial mirror in the directory /files/scratch/mirror using
 all classes.</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
--cDEFAULT,DEMO /debmirror</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v &minus;cDEFAULT,DEMO /debmirror</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 partial mirror containing all packages used in the classes
 DEFAULT and DEMO.</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
--cDEFAULT,AMD64 /srv/debmirror-amd64</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-mirror
+&minus;v &minus;cDEFAULT,AMD64 /srv/debmirror-amd64</p>
 
 <p style="margin-left:11%; margin-top: 1em">Will create a
 mirror including packages for amd64 architecture defined for
