@@ -32,6 +32,45 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b>Ian Kelling,  firstname @ == iankelling == dot = org
+<br><b>Date:</b> Thu, 19 Jan 2017 08:34:49 -0800
+<pre>
+How many hosts have you installed using fai? <b>5</b>
+Which version of fai are you using? <b>5.3.3~bpo8+2</b>
+Which version are you using as your install kernel? stock kernel
+
+Which types of hosts are you installing with fai? desktop, notebooks, VMs
+
+How do you boot your hosts? pxe, and pxe-kexec
+Does the default install kernel recognize all your hardware? yes
+Do you manage your configuration space under version control? Yes, in git.
+
+How big is your config space (Mbytes, # of files)? 436k, #94
+How many files do you have in ../config/files? 24
+What types of scripts are you using for local customization? bash
+
+<b>What is the business of your company/organisation?</b> none
+<br><b>Additional comments:</b>
+I publish the configuration space and related scripts:
+<a href="https://iankelling.org/git/?p=ian-specific/automated-distro-installer;a=summary">https://iankelling.org/git/?p=ian-specific/automated-distro-installer;a=summary</a>
+
+People who use fai may find these things as useful examples: it uses
+dnsmasq (on a openwrt machine) for dhcp instead of the isc
+dhcp. fai-wrapper is a small script to use basic fai classes outside of
+fai. It does not use the fai partitioning tool, but the script is
+inspired from it and works outside of fai.
+
+Features people may find useful: installs encrypted trisquel belanos,
+debian jessie, debian stretch, ubuntu 16.04, and arch (havne't done
+recently, probably a bit broken), in a multi-boot setup using multiple
+subvolumes of a single btrfs filesystem.  Utilizes multiple disks, with
+scripts to automatically decrypt on intentional reboots, but not after
+shutdown or power loss.
+</pre> <HR>
+
+
+
+
 <b>From:</b> René Bleisch, lastname climate =at= unibe dot TLD for schweiz
 <br><b>Date:</b> Thu, 12 Jan 2017 16:03:56 +0100
 <pre>
