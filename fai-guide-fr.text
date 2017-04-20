@@ -553,7 +553,7 @@ les tâches
     the system configuration sysinfo # print detailed system
     information inventory # print short hardware inventory list
 
-Pour une description plus détaillée des tâches , voir ???.
+Pour une description plus détaillée des tâches , voir [tasks].
 
 Notez que vous n'êtes pas limité aux tâches FAI. Vous pouvez
 également définir des programmes ou des scripts supplémentaires qui
@@ -625,7 +625,7 @@ configuration si les classes existantes suffisent à vos besoins.
 Comme vous pouvez le voir, les classes sont un pilier central de la
 personnalisation de votre espace de configuration et de
 l’installation de votre client. Pour définir vos propres classes,
-reportez-vous à ???.
+reportez-vous à [defining classes].
 
 
 ---------------------------------------------------------------------
@@ -875,13 +875,14 @@ installation, adapter votre espace de configuration à vos besoins
 particuliers et étendre FAI à l’aide de hooks.
 
 
-5.6. Serveur personnalisé
+5.6.  Serveur personnalisé
 
 --------------
 
 Le faiseur et sa configuration n’est nullement statique. Il est
 possible de personnaliser et d'étendre votre serveur. Pour cela,
-reportez-vous à la section ??? dans ???.
+reportez-vous à la section [Customizing your install server setup]
+dans [advanced].
 
 
 ---------------------------------------------------------------------
@@ -1022,7 +1023,7 @@ hooks/
     client appartient à la classe DEBIAN.
 
 
-6.2. Définition des classes
+6.2.  Définition des classes
 
 --------------
 
@@ -1863,7 +1864,7 @@ FTP ou HTTP. La commande fai-chboot(8)' prend en charge cette option
 avec l’option -U.
 
 
-8.5. Personnalisation de la configuration de votre serveur
+8.5.  Personnalisation de la configuration de votre serveur
 d’installation
 
 --------------
@@ -2238,12 +2239,12 @@ C’est tout!
 
 ---------------------------------------------------------------------
 
-9. Divers conseils et détails
+9.  Divers conseils et détails
 
 ---------------------------------------------------------------------
 
 
-9.1. La liste des tâches
+9.1.  La liste des tâches
 
 --------------
 

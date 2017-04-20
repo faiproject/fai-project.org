@@ -1319,7 +1319,7 @@ inventory            # print short hardware inventory list</p></div>
 </div>
 <div class="attribution">
 </div></div>
-<div class="paragraph"><p>Pour une description plus détaillée des <em>tâches</em> , voir <a href="#tâches">[tâches]</a>.</p></div>
+<div class="paragraph"><p>Pour une description plus détaillée des <em>tâches</em> , voir <a href="#tasks">[tasks]</a>.</p></div>
 <div class="paragraph"><p>Notez que vous n'êtes pas limité aux tâches FAI. Vous pouvez également définir des programmes ou des scripts supplémentaires qui seront exécutés à certaines occasions. On les appelle des <em>hooks</em>.</p></div>
 <div class="dlist"><dl>
 <dt class="hdlist1">
@@ -1350,7 +1350,7 @@ done</code></pre>
 <div class="paragraph"><p>Si un client appartient à la classe <em>A</em>, nous disons que la classe <em>A</em> est définie pour ce client. Une classe n&#8217;a pas de valeur, elle est juste définie ou non définie.</p></div>
 <div class="paragraph"><p>Les classes déterminent comment l&#8217;installation est effectuée. Par exemple, un client d&#8217;installation peut être configuré pour obtenir le bureau XFCE en y ajoutant simplement la classe <em>XFCE</em> . Naturellement, des configurations plus granulaires sont également possibles. Par exemple, les classes peuvent décrire comment le disque dur doit être partitionné, ils peuvent définir quels paquets logiciels seront installés ou quelles étapes de personnalisation seront exécutées.</p></div>
 <div class="paragraph"><p>Souvent, une configuration client est créée en modifiant ou en ajoutant uniquement les classes auxquelles ce client appartient, ce qui rend l&#8217;installation d&#8217;un nouveau client très facile. Ainsi, aucune information supplémentaire ne doit être ajoutée à l&#8217;espace de configuration si les classes existantes suffisent à vos besoins.</p></div>
-<div class="paragraph"><p>Comme vous pouvez le voir, les classes sont un pilier central de la personnalisation de votre espace de configuration et de l&#8217;installation de votre client. Pour définir vos propres classes, reportez-vous à <a href="#définition des classes">[définition des classes]</a>.</p></div>
+<div class="paragraph"><p>Comme vous pouvez le voir, les classes sont un pilier central de la personnalisation de votre espace de configuration et de l&#8217;installation de votre client. Pour définir vos propres classes, reportez-vous à <a href="#defining classes">[defining classes]</a>.</p></div>
 </div>
 </div>
 </div>
@@ -1615,8 +1615,8 @@ Writing file /srv/tftp/fai/pxelinux.cfg/C0A82164 for demohost</code></pre>
 <div class="paragraph"><p>Dans la section suivante, vous pouvez lire la planification de votre installation, adapter votre espace de configuration à vos besoins particuliers et étendre FAI à l&#8217;aide de hooks.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_a_id_custom_server_a_serveur_personnalisé"><a id="custom server"></a>Serveur personnalisé</h3>
-<div class="paragraph"><p>Le faiseur et sa configuration n&#8217;est nullement statique. Il est possible de personnaliser et d'étendre votre serveur. Pour cela, reportez-vous à la section <a href="#Personnalisation de votre installation du serveur d&#8217;installation">[Personnalisation de votre installation du serveur d&#8217;installation]</a> dans <a href="#avancé">[avancé]</a>.</p></div>
+<h3 id="_a_id_custom_server_a_serveur_personnalisé"><a id="custom server"></a> Serveur personnalisé</h3>
+<div class="paragraph"><p>Le faiseur et sa configuration n&#8217;est nullement statique. Il est possible de personnaliser et d'étendre votre serveur. Pour cela, reportez-vous à la section <a href="#Customizing your install server setup">[Customizing your install server setup]</a> dans <a href="#advanced">[advanced]</a>.</p></div>
 </div>
 </div>
 </div>
@@ -1770,7 +1770,7 @@ Les Fichiers utilisés par les scripts de personnalisation. La plupart des fichi
 </dl></div>
 </div>
 <div class="sect2">
-<h3 id="_a_id_defining_classes_a_définition_des_classes"><a id="defining classes"></a>Définition des classes</h3>
+<h3 id="_a_id_defining_classes_a_définition_des_classes"><a id="defining classes"></a> Définition des classes</h3>
 <div class="paragraph"><p>Il existe différentes possibilités pour définir des classes:
 . Certaines classes par défaut sont définies pour chaque hôte: DEFAULT, LAST et son nom d&#8217;hôte.
 . Les classes peuvent être répertoriées dans un fichier.
@@ -2375,7 +2375,7 @@ append initrd=initrd.img-3.16.0-4-amd64 ip=dhcp  root=/srv/fai/nfsroot aufs  FAI
 <div class="paragraph"><p>Voir <em>/usr/share/doc/syslinux/pxelinux.doc</em> pour des informations plus détaillées sur PXELINUX. Il existe un nouveau binaire lpxelinux qui prend également en charge le chargement du noyau et de l&#8217;initrd via FTP ou HTTP. La commande <em>fai-chboot(8)</em>' prend en charge cette option avec l&#8217;option <em>-U</em>.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_a_id_customizing_your_install_server_setup_a_personnalisation_de_la_configuration_de_votre_serveur_d_8217_installation"><a id="Customizing your install server setup"></a>Personnalisation de la configuration de votre serveur d&#8217;installation</h3>
+<h3 id="_a_id_customizing_your_install_server_setup_a_personnalisation_de_la_configuration_de_votre_serveur_d_8217_installation"><a id="Customizing your install server setup"></a> Personnalisation de la configuration de votre serveur d&#8217;installation</h3>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -2605,10 +2605,10 @@ FAI_DEBOOTSTRAP_OPTS="--arch i386 --exclude=info --include=aptitude""</code></pr
 </div>
 </div>
 <div class="sect1">
-<h2 id="_a_id_hints_a_divers_conseils_et_détails"><a id="hints"></a>Divers conseils et détails</h2>
+<h2 id="_a_id_hints_a_divers_conseils_et_détails"><a id="hints"></a> Divers conseils et détails</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_a_id_tasks_a_la_liste_des_tâches"><a id="tasks"></a>La liste des tâches</h3>
+<h3 id="_a_id_tasks_a_la_liste_des_tâches"><a id="tasks"></a> La liste des tâches</h3>
 <div class="paragraph"><p>La plupart des tâches de l&#8217;installation sont définies comme des sous-routines qui sont définies dans <em>/usr/lib/fai/subroutines</em> (par exemple <code>task_instsoft</code>). Certains sont des scripts shell externes situés dans <em>/usr/lib/fai/</em>. Ils sont appelés via un sous-programme supérieur appelé <em>task</em>. Ce sous-programme appelle les hooks si disponibles, puis appelle la tâche (définie comme <em>task</em>&lt;name&gt;_). Une tâche et ses hooks peuvent être ignorés à la demande en utilisant la commande <em>skiptask()</em>.</p></div>
 <div class="paragraph"><p>Suit maintenant la description de toutes les tâches, énumérées dans l&#8217;ordre dans lequel elles sont exécutées.</p></div>
 <div class="dlist"><dl>
@@ -3095,7 +3095,7 @@ dracut:/#</code></pre>
 <div id="footer-text">
 Version 5.3<br />
 Last updated
- 2017-03-27 15:42:08 CEST
+ 2017-04-20 11:27:23 CEST
 </div>
 </div>
 </body>
