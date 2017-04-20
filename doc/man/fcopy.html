@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Mon Jan  9 21:46:16 2017 -->
+<!-- Creator     : groff version 1.22.3 -->
+<!-- CreationDate: Thu Apr 20 11:37:48 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,8 +38,8 @@
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">fcopy &minus;
-copy files using classes</p>
+<p style="margin-left:11%; margin-top: 1em">fcopy - copy
+files using classes</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -73,9 +73,8 @@ file, a log message is printed to standard output.</p>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">Options
-&minus;c, &minus;s, &minus;t and a SOURCE are required.
-Usually &minus;c, &minus;s and &minus;t</p>
+<p style="margin-left:11%; margin-top: 1em">Options -c, -s,
+-t and a SOURCE are required. Usually -c, -s and -t</p>
 
 <p style="margin-left:22%;">are set via variables in
 FAI.</p>
@@ -87,7 +86,7 @@ FAI.</p>
 <td width="9%">
 
 
-<p><b>&minus;B</b></p></td>
+<p><b>-B</b></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -99,7 +98,7 @@ set the environment variable FCOPY_NOBACKUP to 1.</p></td></tr>
 <td width="9%">
 
 
-<p><b>&minus;b</b> <i>dir</i></p></td>
+<p><b>-b</b> <i>dir</i></p></td>
 <td width="2%"></td>
 <td width="78%">
 
@@ -109,7 +108,7 @@ hierarchy under &quot;dir&quot; instead. The same effect is
 achieved by setting environment variable FAI_BACKUPDIR.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;c</b>
+<p style="margin-left:11%;"><b>-c</b>
 <i>class[,class]</i></p>
 
 <p style="margin-left:22%;">Define classes. Multiple
@@ -117,7 +116,7 @@ classes must be comma separated. If not specified, use the
 shell environment variable $classes (space separated). The
 first class has lowest priority.</p>
 
-<p style="margin-left:11%;"><b>&minus;C</b> <i>file</i></p>
+<p style="margin-left:11%;"><b>-C</b> <i>file</i></p>
 
 <p style="margin-left:22%;">Read classes from <i>file</i>.
 Lines can contain multiple classes which are space
@@ -130,7 +129,7 @@ separated. Lines starting with # are comments.</p>
 <td width="3%">
 
 
-<p><b>&minus;d</b></p></td>
+<p><b>-d</b></p></td>
 <td width="8%"></td>
 <td width="60%">
 
@@ -143,7 +142,7 @@ separated. Lines starting with # are comments.</p>
 <td width="3%">
 
 
-<p><b>&minus;D</b></p></td>
+<p><b>-D</b></p></td>
 <td width="8%"></td>
 <td width="60%">
 
@@ -153,7 +152,7 @@ separated. Lines starting with # are comments.</p>
 </td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;F</b> <i>file</i></p>
+<p style="margin-left:11%;"><b>-F</b> <i>file</i></p>
 
 <p style="margin-left:22%;">Read list of sources from
 <i>file</i>. One SOURCE per line.</p>
@@ -165,7 +164,7 @@ separated. Lines starting with # are comments.</p>
 <td width="3%">
 
 
-<p><b>&minus;h</b></p></td>
+<p><b>-h</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -176,7 +175,7 @@ separated. Lines starting with # are comments.</p>
 <td width="3%">
 
 
-<p><b>&minus;H</b></p></td>
+<p><b>-H</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -188,7 +187,7 @@ symbolic link too.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;i</b></p></td>
+<p><b>-i</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -197,14 +196,13 @@ symbolic link too.</p></td></tr>
 with 0.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;I</b>
-<i>dir[,dir]</i></p>
+<p style="margin-left:11%;"><b>-I</b> <i>dir[,dir]</i></p>
 
 <p style="margin-left:22%;">Override list of ignored
 directories when recursing. If not given, it is taken from
 $FCOPY_IGNOREDIRS and as a last chance an internal list of
 known revision control system&rsquo;s metadata is used (CVS,
-.cvs, {arch}, .arch&minus;ids).</p>
+.cvs, {arch}, .arch-ids).</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -213,7 +211,7 @@ known revision control system&rsquo;s metadata is used (CVS,
 <td width="3%">
 
 
-<p><b>&minus;l</b></p></td>
+<p><b>-l</b></p></td>
 <td width="8%"></td>
 <td width="69%">
 
@@ -223,7 +221,7 @@ known revision control system&rsquo;s metadata is used (CVS,
 </td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;L</b> <i>file</i></p>
+<p style="margin-left:11%;"><b>-L</b> <i>file</i></p>
 
 <p style="margin-left:22%;">Log SOURCE and used class to
 <i>file</i>. Output format is <br>
@@ -232,7 +230,7 @@ where COMMENT gives some information about why the file has
 been preserved. If not specified and $LOGDIR is set, use
 $LOGDIR/fcopy.log.</p>
 
-<p style="margin-left:11%;"><b>&minus;m</b>
+<p style="margin-left:11%;"><b>-m</b>
 <i>user,group,mode</i></p>
 
 <p style="margin-left:22%;">Set user, group and mode for
@@ -247,33 +245,33 @@ or data of source file.</p>
 <td width="3%">
 
 
-<p><b>&minus;M</b></p></td>
+<p><b>-M</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
 <p>Use default values for user, group and mode. This is
-equal to &minus;m root,root,0644</p></td></tr>
+equal to -m root,root,0644</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
 
 
-<p><b>&minus;n</b></p></td>
+<p><b>-n</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
 <p>Print the commands, but do not execute them. This is
-like &minus;&minus;dry-run in other programs. You can enable
-it for all calls of fcopy by setting the environment
-variable $FCOPY_DRYRUN.</p></td></tr>
+like --dry-run in other programs. You can enable it for all
+calls of fcopy by setting the environment variable
+$FCOPY_DRYRUN.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
 
 
-<p><b>&minus;r</b></p></td>
+<p><b>-r</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -281,17 +279,15 @@ variable $FCOPY_DRYRUN.</p></td></tr>
 <p>Copy recursively (traverse down the tree). Copy all
 files below SOURCE. These are all subdirectory leaves in the
 SOURCE tree. Ignore &quot;ignored&quot; directories (see
-&quot;&minus;I&quot; for details).</p></td></tr>
+&quot;-I&quot; for details).</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;s</b>
-<i>source_dir</i></p>
+<p style="margin-left:11%;"><b>-s</b> <i>source_dir</i></p>
 
 <p style="margin-left:22%;">Look for SOURCE files relative
 to <i>source_dir</i>. Use $FAI/files if not specified.</p>
 
-<p style="margin-left:11%;"><b>&minus;t</b>
-<i>target_dir</i></p>
+<p style="margin-left:11%;"><b>-t</b> <i>target_dir</i></p>
 
 <p style="margin-left:22%;">Copy files relative to
 <i>target_dir</i>. Use $FAI_ROOT if not specified.</p>
@@ -303,7 +299,7 @@ to <i>source_dir</i>. Use $FAI/files if not specified.</p>
 <td width="3%">
 
 
-<p><b>&minus;U</b></p></td>
+<p><b>-U</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -315,7 +311,7 @@ command.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;v</b></p></td>
+<p><b>-v</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -403,8 +399,8 @@ MACH64 server1 ant04 postinst</p>
 instance of a xorg.conf file for a different Xserver
 configuration. The command</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fcopy
-&minus;s /files &minus;t /target /etc/X11/xorg.conf</p>
+<p style="margin-left:11%; margin-top: 1em"># fcopy -s
+/files -t /target /etc/X11/xorg.conf</p>
 
 <p style="margin-left:11%; margin-top: 1em">copies one of
 these files from the directory /files/etc/X11/xorg.conf to
@@ -493,10 +489,10 @@ class.</p>
 
 <p style="margin-left:11%; margin-top: 1em">User, group and
 permissions for the files can be defined in several ways.
-Option &minus;m has the highest priority and will be used
-for all files, if specified. The file file-modes in the
-source directory can contain one line for each class. The
-space separated parameters are:</p>
+Option -m has the highest priority and will be used for all
+files, if specified. The file file-modes in the source
+directory can contain one line for each class. The space
+separated parameters are:</p>
 
 <p style="margin-left:11%; margin-top: 1em">owner group
 mode class</p>
@@ -505,9 +501,9 @@ mode class</p>
 group can be specified by numeric id or by name. The file
 permissions are defined by mode, which must be octal. If
 class is missing, the data is used for all other classes,
-for which no data is defined. If neither &minus;m or
-file-modes data is available, the user, group and mode of
-the source file will be used for the target file.</p>
+for which no data is defined. If neither -m or file-modes
+data is available, the user, group and mode of the source
+file will be used for the target file.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Missing
 subdirectories for the target file are created with mode

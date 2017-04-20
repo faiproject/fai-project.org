@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.2 -->
-<!-- CreationDate: Mon Jan  9 21:46:15 2017 -->
+<!-- Creator     : groff version 1.22.3 -->
+<!-- CreationDate: Thu Apr 20 11:37:46 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,9 +38,8 @@
 </h2>
 
 
-
-<p style="margin-left:11%; margin-top: 1em">fai&minus;class
-&minus; define classes using files and scripts.</p>
+<p style="margin-left:11%; margin-top: 1em">fai-class -
+define classes using files and scripts.</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -48,7 +47,7 @@
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai&minus;class</b>
+<p style="margin-left:11%; margin-top: 1em"><b>fai-class</b>
 [OPTION] <i>DIRECTORY CLASSFILE</i></p>
 
 <h2>DESCRIPTION
@@ -60,17 +59,16 @@
 only called internally by FAI and not directly by the
 user.</p>
 
-
-<p style="margin-left:11%; margin-top: 1em">fai&minus;class
+<p style="margin-left:11%; margin-top: 1em">fai-class
 executes scripts in DIRECTORY to define classes. All classes
 are written to CLASSFILE, each class on a separate line. Use
 absolute paths for both arguments. All scripts or
-executables matching &quot;^[0&minus;9][0&minus;9]*&quot;
-(they start with two digits) are executed in alphabetical
-order. They can define classes by writing the names of the
-classes to stdout. Classes can be separated by spaces or
-written one on a line. All lines that start with a
-&quot;#&quot; are comment lines and are ignored.</p>
+executables matching &quot;^[0-9][0-9]*&quot; (they start
+with two digits) are executed in alphabetical order. They
+can define classes by writing the names of the classes to
+stdout. Classes can be separated by spaces or written one on
+a line. All lines that start with a &quot;#&quot; are
+comment lines and are ignored.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Shell scripts
 that end in &quot;.sh&quot; are sourced and can define
@@ -78,15 +76,14 @@ classes by setting the variable $newclasses. This is useful
 for scripts where you can&rsquo;t control stdout. Variables
 that are defined in these scripts are available to other
 scripts in DIRECTORY, but they are not exported to the shell
-that calls fai&minus;class. Those scripts can define
-variables by writing definitions to the file
-$LOGDIR/additional.var, which will be sourced in the
-following task.</p>
+that calls fai-class. Those scripts can define variables by
+writing definitions to the file $LOGDIR/additional.var,
+which will be sourced in the following task.</p>
 
 <p style="margin-left:11%; margin-top: 1em">All scripts can
 define additional classes by writing the classes to the file
-$LOGDIR/additional&minus;classes. These classes are defined
-after all scripts are executed. This temporary file will be
+$LOGDIR/additional-classes. These classes are defined after
+all scripts are executed. This temporary file will be
 removed after use.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The order of
@@ -94,11 +91,11 @@ the classes is important because it defines the priority of
 the classes from low to high. First, the class DEFAULT is
 defined. Then all scripts are executed to define classes.
 After that, the classes from the file
-$LOGDIR/additional&minus;classes are added. Then, all
-classes in the file with the hostname are added. Then
-classes defined by the variable ADDCLASSES are used. This
-variable must be a comma separated list of classes. You can
-define this variable on the kernel command line.</p>
+$LOGDIR/additional-classes are added. Then, all classes in
+the file with the hostname are added. Then classes defined
+by the variable ADDCLASSES are used. This variable must be a
+comma separated list of classes. You can define this
+variable on the kernel command line.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Finally, the
 class with the hostname and LAST are defined.</p>
@@ -124,7 +121,7 @@ LOGDIR.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>&minus;d</b></p></td>
+<p style="margin-top: 1em"><b>-d</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -135,7 +132,7 @@ LOGDIR.</p>
 <td width="3%">
 
 
-<p><b>&minus;h</b></p></td>
+<p><b>-h</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -146,7 +143,7 @@ LOGDIR.</p>
 <td width="3%">
 
 
-<p><b>&minus;T</b></p></td>
+<p><b>-T</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
@@ -156,11 +153,11 @@ This should never happen. The test is executed after the
 classes are defined.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;t tmpdir</b></p>
+<p style="margin-left:11%;"><b>-t tmpdir</b></p>
 
-<p style="margin-left:22%;">The file
-additional&minus;classes is read from the directory tmpdir.
-Default value is /tmp/fai/.</p>
+<p style="margin-left:22%;">The file additional-classes is
+read from the directory tmpdir. Default value is
+/tmp/fai/.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -169,7 +166,7 @@ Default value is /tmp/fai/.</p>
 <td width="3%">
 
 
-<p><b>&minus;v</b></p></td>
+<p><b>-v</b></p></td>
 <td width="8%"></td>
 <td width="33%">
 
@@ -185,10 +182,10 @@ Default value is /tmp/fai/.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">In FAI,
-fai&minus;class is used in the following way:</p>
+fai-class is used in the following way:</p>
 
-<p style="margin-left:11%; margin-top: 1em">#
-fai&minus;class /fai/class /tmp/fai/FAI_CLASSES</p>
+<p style="margin-left:11%; margin-top: 1em"># fai-class
+/fai/class /tmp/fai/FAI_CLASSES</p>
 
 <p style="margin-left:11%; margin-top: 1em">Then the list
 of all classes is assigned to the variable classes.</p>
@@ -209,12 +206,11 @@ script 01alias:</p>
 
 <p style="margin-left:11%; margin-top: 1em">catnc() { # cat
 but no comment lines <br>
-grep &minus;v &quot;^#&quot; $1 <br>
+grep -v &quot;^#&quot; $1 <br>
 } <br>
 # echo architecture in upper case <br>
-dpkg &minus;&minus;print&minus;architecture | tr /a&minus;z/
-/A&minus;Z/ <br>
-uname &minus;s | tr /a&minus;z/ /A&minus;Z/</p>
+dpkg --print-architecture | tr /a-z/ /A-Z/ <br>
+uname -s | tr /a-z/ /A-Z/</p>
 
 <p style="margin-left:11%; margin-top: 1em"># all hosts
 named ant?? use the classes in file anthill <br>
@@ -247,10 +243,9 @@ EXAMPLE:</p>
 <p style="margin-left:11%; margin-top: 1em"># add NIS and
 the NIS domain name if YPDOMAIN is defined</p>
 
-<p style="margin-left:11%; margin-top: 1em">if [ &minus;n
+<p style="margin-left:11%; margin-top: 1em">if [ -n
 &quot;$YPDOMAIN&quot; ];then <br>
-echo &quot;NIS $YPDOMAIN&quot; | tr /.a&minus;z&minus;/
-/_A&minus;Z_/ <br>
+echo &quot;NIS $YPDOMAIN&quot; | tr /.a-z-/ /_A-Z_/ <br>
 else <br>
 echo NONIS <br>
 fi</p>
@@ -282,7 +277,7 @@ everybody.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). The FAI homepage
-is http://fai&minus;project.org.</p>
+is http://fai-project.org.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>
@@ -290,7 +285,7 @@ is http://fai&minus;project.org.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Written by
-Thomas Lange &lt;lange@informatik.uni&minus;koeln.de&gt;</p>
+Thomas Lange &lt;lange@informatik.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>
