@@ -32,8 +32,8 @@
 <br>
 <br>
 <span class="downloadbox-border" >
-<a href="faicd64-large_5.3.4.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO large  &nbsp; (963 MB) </span>
+<a href="faicd64-large_5.3.6.iso" style="text-decoration: none">
+<span class="downloadbox-real" >FAI ISO large  &nbsp; (1016 MB) </span>
 </a>
 </span>
 &nbsp;
@@ -47,8 +47,8 @@ for CentOS 7 and Ubuntu 16.04
 
 
 <span class="downloadbox-border" >
-<a href="faicd64-small_5.3.4.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO small &nbsp; (590 MB)</span>
+<a href="faicd64-small_5.3.6.iso" style="text-decoration: none">
+<span class="downloadbox-real" >FAI ISO small &nbsp; (671 MB)</span>
 </a>
 </span>
 &nbsp;
@@ -61,7 +61,7 @@ basefiles are downloaded from the internet.
 <p>
 
 <span class="downloadbox-border" >
-<a href="faicd64-ubuntu-only_5.3.4.iso" style="text-decoration: none">
+<a href="faicd64-ubuntu-only_5.3.6.iso" style="text-decoration: none">
 <span class="downloadbox-real" >FAI ISO Ubuntu &nbsp; (1.1 GB)</span>
 </a>
 </span>
@@ -75,8 +75,8 @@ This image only installs Ubuntu 16.04 LTS. All packages are included.
 
 
 <span class="downloadbox-border" >
-<a href="faicd64-autodiscover_5.3.4.iso" style="text-decoration: none">
-<span class="downloadbox-real" >Autodiscover CD &nbsp; (19 MB) </span>
+<a href="faicd64-autodiscover_5.3.6.iso" style="text-decoration: none">
+<span class="downloadbox-real" >Autodiscover CD &nbsp; (24 MB) </span>
 </a>
 </span>
 &nbsp;
@@ -87,11 +87,13 @@ Boot only image which autodiscovers the FAI server.
 <br>
 
 <p style="text-align: center;">
-All boot images use Debian jessie, FAI 5.3.4, kernel 3.16, amd64 architecture,
+All boot images use Debian jessie, FAI 5.3.6, kernel 4.9, amd64 architecture,
 <a href=sha256sums.asc>sha256sum.asc</a> of the ISO's
 <HR>
 <p>
 <br>
+
+<!-- prepared for buster
 
 <span class="downloadbox-border" >
 <a href="stretch-faicd64-small_5.3.4.iso" style="text-decoration: none">
@@ -105,12 +107,13 @@ This is the small FAI CD using Debian stretch, kernel 4.9.
 <p>
 <p> &nbsp;
 <p>
+-->
 
 <h3>FAI on a USB stick</h3>
 
 You can write the ISO image onto a USB stick using the command dd(1):
 <div class="featurebox">
-<pre>dd if=faicd64-large_5.3.4.iso of=/dev/sdX</pre> </div>
+<pre>dd if=faicd64-large_5.3.6.iso of=/dev/sdX</pre> </div>
 and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
 
 <HR>
@@ -130,17 +133,21 @@ the installation media.
 <li> The root password is also fai.
 <li> The system will be installed to the first disk. All data on the disk will be deleted.
 <li> All log files from the installation can be found in <tt>/var/log/fai/localhost/last/</tt>
-
-
 <li> Look at the fai-cd <a href="/slideshow/">slideshow!</a> Showing a complete installation from CD
 <HR>
-
-
 </ul>
+</p>
+
+
+<h3> Debian 9 (stretch) Live CD, build using FAI. <a
+href="debian9-live-xfce.iso">Download ISO</a>
+<a href="http://wiki.fai-project.org/wiki/Use_nfsroot_for_diskless_clients">documentation</a>
+
+<h3>Old CD images for Debian 8 aka jessie are available <a href="../fai-cd-jessie">here</a></h3>
 
 <hr>
 <ADDRESS>
-Tue, 31 Jan 2017 14:41:35 +0100
+Tue, 25 Jul 2017 17:16:12 +0200
 </ADDRESS>
 
 
