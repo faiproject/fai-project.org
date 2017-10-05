@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Thu Apr 20 11:37:48 2017 -->
+<!-- CreationDate: Tue Oct  3 18:47:54 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -71,14 +71,6 @@ classes. In the end you have a bootable disk image.</p>
 
 <p style="margin-left:22%;">Define list of FAI classes</p>
 
-<p style="margin-left:11%;"><b>-D, --debug</b></p>
-
-<p style="margin-left:22%;">Enter debugging after the FAI
-process has finished. Therefore the fai-diskimage script is
-stopped and you may enter the chroot for debugging purpose.
-When finished, leave the chroot and send a CONT signal for
-resuming the fai-diskimage script.</p>
-
 <p style="margin-left:11%;"><b>-h, --help</b></p>
 
 <p style="margin-left:22%;">Print help</p>
@@ -117,24 +109,37 @@ See fai.conf(5) for all supported protocols. Default is
 </h2>
 
 
+<p style="margin-left:11%; margin-top: 1em">First, setup
+the configuration space. You will get an initial
+configuration including several examples.</p>
+
+<p style="margin-left:11%; margin-top: 1em">#
+fai-mk-configspace</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can now
+build your fist disk image.</p>
+
 <p style="margin-left:11%; margin-top: 1em"># export
-FAI_BASEFILEURL=http://fai-project.org/download/basefiles/
+FAI_BASEFILEURL=https://fai-project.org/download/basefiles/
 <br>
-# fai-diskimage -vNu cloud3 -S2G -cJESSIE64,GCE disk.raw</p>
+#
+cl=&quot;DEBIAN,STRETCH64,AMD64,FAIBASE,GRUB_PC,DHCPC,CLOUD&quot;
+<br>
+# fai-diskimage -vu cloud3 -S2G -c$cl cloud.raw</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 Debian system with a small set of software packages without
-graphical desktop. The disk image disk.raw will be of size 2
-GB and the host ist called cloud3.</p>
+graphical desktop. The disk image cloud.raw will be of size
+2 GB and the host is called cloud3.</p>
 
 <p style="margin-left:11%; margin-top: 1em"># export
-FAI_BASEFILEURL=http://fai-project.org/download/basefiles/
+FAI_BASEFILEURL=https://fai-project.org/download/basefiles/
 <br>
-# cl=DHCPC,UBUNTU,XENIAL,XENIAL64,XORG <br>
-# fai-diskimage -vNu cloudhost -S5G -c$cl ubuntu.qcow2</p>
+# cl=DHCPC,UBUNTU,XENIAL,XENIAL64,AMD64,XORG <br>
+# fai-diskimage -vNu ubuntu -S7G -c$cl ubuntu.qcow2</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a disk
-image of size 5GB called ubuntu.qcow2 for a Ubuntu 16.04
+image of size 7GB called ubuntu.qcow2 for a Ubuntu 16.04
 desktop.</p>
 
 <h2>NOTES
@@ -147,10 +152,8 @@ an image, make sure you have the configuration space
 available. Create the config space for FAI by using the
 examples from the fai-doc package.</p>
 
-<p style="margin-left:11%; margin-top: 1em"># mkdir -p
-/srv/fai/config <br>
-# cp -a /usr/share/doc/fai-doc/examples/simple
-/srv/fai/config</p>
+<p style="margin-left:11%; margin-top: 1em">#
+fai-mk-configspace</p>
 
 <p style="margin-left:11%; margin-top: 1em">fai-diskimage
 is not limited to creating images for virtual machines. The
@@ -161,8 +164,13 @@ booting bare metal hosts.</p>
 fai-diskimage in a clean shell environment by calling:</p>
 
 <p style="margin-left:11%; margin-top: 1em"># env -i
-/usr/sbin/fai-diskimage -vNu cloudhost -S5G -cJESSIE64,GCE
+/usr/sbin/fai-diskimage -vNu cloudhost -S5G -cSTRETCH64,GCE
 disk.raw</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can also
+build cross-architecture disk images using fai-disimage. See
+the chapter &quot;Building cross-architecture disk
+images&quot; in the FAI guide for details.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
@@ -172,7 +180,7 @@ disk.raw</p>
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). See the FAI
 manual for more information on how to use fai-monitor. The
-FAI homepage is http://fai-project.org.</p>
+FAI homepage is https://fai-project.org.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>

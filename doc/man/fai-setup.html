@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Thu Apr 20 11:37:48 2017 -->
+<!-- CreationDate: Tue Oct  3 18:47:54 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,15 +55,13 @@ Setup script for Fully Automatic Installation (FAI)</p>
 <p style="margin-left:11%; margin-top: 1em">Fully Automatic
 Installation (FAI) is used to provide unattended
 installation of Debian GNU/Linux operating systems with a
-very flexible class-based system. fai-setup is a shell
-script written for FAI to create the initial NFSROOT
-directory, add that directory to the NFS exports
-configuration file (/etc/exports), prepare the files as
-necessary to create the network boot floppy disk, and create
-the initial fai user that is used for copying over the
-installation logs to a centralized directory on the server.
-fai-make-nfsroot(8) is called to create the initial NFS root
-directory.</p>
+very flexible class-based system. fai-setup creates the
+initial NFSROOT directory and the configuration space. It
+sets up the NFS exports configuration file (/etc/exports),
+and create the initial fai user that is used for copying
+over the installation logs to a centralized directory on the
+server. fai-make-nfsroot(8) is called to create the initial
+NFS root directory.</p>
 
 <p style="margin-left:11%; margin-top: 1em">fai-setup
 should be called after each change to /etc/fai/fai.conf.</p>
@@ -105,7 +103,7 @@ not restart the nfs nserver.</p></td></tr>
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). See the FAI
 manual for more information on how to use fai-setup. The FAI
-homepage is http://fai-project.org. <i><br>
+homepage is https://fai-project.org. <i><br>
 fai-make-nfsroot</i>(8), <i>exports</i>(5)</p>
 
 <h2>FILES

@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Thu Apr 20 11:37:47 2017 -->
+<!-- CreationDate: Tue Oct  3 18:47:53 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -244,6 +244,13 @@ partitions should be preserved when they are tagged with
 preserve_reinstall (see below for details). Normally set by
 the list of FAI flags (FAI_FLAGS).</p>
 
+<p style="margin-left:11%;"><b>SS_IGNORE_VG</b></p>
+
+<p style="margin-left:22%;">This variable may contain a
+list of volume groups, that are ignored by setup-storage.
+The list can be comma or space separated. It&rsquo;s used by
+fai-diskimage.</p>
+
 <h2>FILES
 <a name="FILES"></a>
 </h2>
@@ -382,7 +389,7 @@ appended.</p> </td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-259541.png" alt="Image grohtml-259541.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-16771.png" alt="Image grohtml-16771.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -428,7 +435,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-259542.png" alt="Image grohtml-259542.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-16772.png" alt="Image grohtml-16772.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -1212,6 +1219,19 @@ constraints. setup-storage sets the alignment as follows: If
 align-at is set, align accordingly. Otherwise, if any
 partition on the particular disk is to be preserved, default
 to cylinder alignment. Else use sector alignment.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>If you use a raw partition, you may add -f to the
+createopts, otherwise mkfs.ext4 may hang du to a warning
+message. See man mfs.ext4 for more info on -f.</p></td></tr>
 </table>
 
 <h2>SEE ALSO
@@ -1221,12 +1241,12 @@ to cylinder alignment. Else use sector alignment.</p></td></tr>
 
 <p style="margin-left:11%; margin-top: 1em">This program is
 part of FAI (Fully Automatic Installation). The FAI homepage
-is http://fai-project.org.</p>
+is https://fai-project.org.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Further
 documentation, including coding related information, is
 available in a wiki page at
-http://wiki.fai-project.org/index.php/Setup-storage.</p>
+https://wiki.fai-project.org/index.php/Setup-storage.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>
