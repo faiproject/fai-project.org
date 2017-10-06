@@ -6,6 +6,7 @@ pictures
 *.tar.gz
 *.jpg
 *.mp3
+*.mp4
 fai-cd
 !fai-cd/index.html
 download
