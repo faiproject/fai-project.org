@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Tue Oct  3 18:47:54 2017 -->
+<!-- CreationDate: Wed Nov  8 16:14:46 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -67,6 +67,15 @@ fai-mirror. The ISO image will contain a compressed squashfs
 filesystem. This hybrid CD image can also be written to an
 USB stick using dd(1).</p>
 
+<p style="margin-left:11%; margin-top: 1em">NOTE: By
+default, fai-cd uses the grub file from /etc/fai/grub.cfg,
+which is designed for demo purposes. This grub menu passes
+the &quot;menu&quot; flag to the FAI_FLAGS parameter, which
+causes a menu with various installation and boot options to
+be displayed on each boot. To avoid this, you must specify
+your own grub file using the -g flag, as described
+below.</p>
+
 <h2>OPTIONS
 <a name="OPTIONS"></a>
 </h2>
@@ -119,11 +128,16 @@ CONFIG_SRC will be empty.</p></td></tr>
 (a version of cdrecord).</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>-C</b> <i>CFDIR</i></p>
+<p style="margin-left:11%;"><b>-c</b> <i>DIRECTORY</i></p>
 
-<p style="margin-left:22%;">Use CFDIR as the configuration
-directory. Default is /etc/fai. You can also set the
-environment variable FAI_ETC_DIR.</p>
+<p style="margin-left:22%;">Override the value of
+FAI_CONFIGDIR set in nfsroot.conf.</p>
+
+<p style="margin-left:11%;"><b>-C</b> <i>DIRECTORY</i></p>
+
+<p style="margin-left:22%;">Use DIRECTORY as the
+configuration directory instead of the default /etc/fai. You
+can also set the environment variable FAI_ETC_DIR.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -242,6 +256,11 @@ repositories.</p> </td></tr>
 mirror. This option is mandatory, unless you use -M or
 -B.</p>
 
+<p style="margin-left:11%;"><b>-n</b> <i>DIRECTORY</i></p>
+
+<p style="margin-left:22%;">Override the value of NFSROOT
+set in nfsroot.conf.</p>
+
 <p style="margin-left:11%;"><b>-s</b> <i>blocks</i></p>
 
 <p style="margin-left:22%;">Add additional disk space to
@@ -314,6 +333,13 @@ autodiscover boot image:</p>
 
 <p style="margin-left:11%; margin-top: 1em"># fai-cd -JAg
 /etc/fai/grub.cfg.autodiscover fai-autod.iso</p>
+
+<p style="margin-left:11%; margin-top: 1em">Specify your
+own grub file:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd -g
+/srv/fai/config/my_extras/grub.cfg -m /srv/fai/mirror
+/srv/fai/iso/fai-cd.iso</p>
 
 <h2>NOTES
 <a name="NOTES"></a>

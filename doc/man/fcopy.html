@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Tue Oct  3 18:47:54 2017 -->
+<!-- CreationDate: Wed Nov  8 16:14:46 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -192,8 +192,9 @@ symbolic link too.</p></td></tr>
 <td width="78%">
 
 
-<p>Ignore warnings about no matching class and always exit
-with 0.</p></td></tr>
+<p>Ignore warnings about no matching class and non-existing
+source directories. These warnings will not set the exit
+code to 1.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>-I</b> <i>dir[,dir]</i></p>
@@ -286,6 +287,26 @@ SOURCE tree. Ignore &quot;ignored&quot; directories (see
 
 <p style="margin-left:22%;">Look for SOURCE files relative
 to <i>source_dir</i>. Use $FAI/files if not specified.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-S</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Enable variable substitution. Every occurence of the
+pattern {%varname%} will be substituted by the value of the
+shell variable $varname which is mostly set in
+class/CLASSNAME.var. You can enable it for all calls of
+fcopy by setting the environment variable
+$FCOPY_SUBSTITUTE.</p> </td></tr>
+</table>
 
 <p style="margin-left:11%;"><b>-t</b> <i>target_dir</i></p>
 

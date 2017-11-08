@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Tue Oct  3 18:47:54 2017 -->
+<!-- CreationDate: Wed Nov  8 16:14:46 2017 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -140,8 +140,7 @@ specific data from nfsroot. See also -a.</p></td></tr>
 <td width="78%">
 
 
-<p>Remove all kernels from NFSROOT. This is the same as
-calling aptitude purge ~nlinux-image inside the nfsroot.</p></td></tr>
+<p>Remove all kernels from NFSROOT.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -161,6 +160,18 @@ upgrade all packages inside the nfsroot.</p></td></tr>
 <td width="3%">
 
 
+<p><b>-N</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Additionally install non-free packages defined in the
+NONFREE section of /etc/fai/NFSROOT.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
 <p><b>-p</b></p></td>
 <td width="8%"></td>
 <td width="78%">
@@ -169,6 +180,18 @@ upgrade all packages inside the nfsroot.</p></td></tr>
 <p>Preserve ssh configs including the keys of the root
 account. This will not preserve the ssh host keys inside the
 nfsroot.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Create a smaller nfsroot. Do not install packages
+defined in /etc/fai/NFSROOT in the FULL section.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
