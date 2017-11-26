@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="Title" content="FAI.me - build you own customized installation image" />
+      <title>FAI.me - build you own customized installation image</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+<style type="text/css" media="screen">
+.checkbox-faime {
+ display:inline-block;
+ columns: 2;
+ }
+</style>
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1> FAI.me. Build your own installation media</h1>
+This installation image will automatically install the OS and
+applications onto the computer. No network connection is needed, since
+all packages are on the installation media. You can burn this image
+onto a CD/DVD or write it to an USB stick. <p><b>All data on the first disk will be
+overridden without any further confirmation</b>.
+<br></br>
+
+<form action="/cgi/faime.cgi" method="post" enctype="multipart/form-data">
+<input type="hidden"  name="baseclasses" value="AMD64 DEBIAN DHCPC DEMO GRUB_PC FAIBASE"/>
+
+<label for="rootpw">Root password: <input size=4 id="rootpw"
+ name="rootpw" /> If not set, sudo will be configured for the user account</label>
+
+<label for="user"> &ensp; User  name: &ensp;
+<input size=4 id="user" name="username" type="text" value="debian" required
+/> Not the full name </label>
+
+<label for="pwd">User password:
+<input size=4 id="pwd" name="userpw" /> If not set, a
+password will be generated </label>
+<br></br>
+
+<select name="keyboard" >
+            <option value="gb"> English UK</option>
+            <option value="us" selected="selected"> English US</option>
+            <option value="fr"> French / Français</option>
+            <option value="de"> German / Deutsch</option>
+            <option value="pl"> Polish / Polski</option>
+            <option value="pt"> Portuguese / Português</option>
+            <option value="ru"> Russian / Pу́сский</option>
+            <option value="es"> Spanish / Español</option>
+            <option value="tr"> Turkish / Türkçe</option>
+</select> Language and keyboard layout
+<br></br>
+<select name="partition" >
+            <option value="ONE">One partition</option>
+            <option value="ONE_LVM">One partition using LVM</option>
+            <option value="HOME">Partition for /home</option>
+            <option value="HOME_LVM">Partition for /home using LVM</option>
+</select>  Disk partitioning scheme
+<br></br>
+
+<select name="suite" >
+                  <option value="stretch"> Debian 9 stable (stretch)</option>
+                  <option value="buster">Debian testing (buster)</option>
+      </select> Select a distribution
+<p></p>
+<select name="desktop" >
+                  <option value="">Plain text console, no X11 </option>
+                  <option value="XFCE">XFCE desktop</option>
+                  <option value="LXDE">LXDE desktop</option>
+                  <option value="GNOME" selected="selected">GNOME desktop</option>
+                  <option value="KDE">KDE desktop</option>
+                  <option value="MATE">MATE desktop</option>
+                  <option value="CINNAMON">CINNAMON desktop</option>
+      </select> Which desktop to install
+<p> </p>
+
+<ul class="checkbox-faime" >
+<li style="padding:0px !important;">   <input type="checkbox" name="cl2" value="DEBIAN_DEVEL" /> Debian developer tools</li>
+<li style="padding:0px !important;">   <input type="checkbox" name="cl3" value="WEBSERVER" /> Web server</li>
+<li style="padding:0px !important;">   <input type="checkbox" name="cl4" value="PRINTSERVER" /> Print server</li>
+<!-- <li style="padding:0px !important;">   <input type="checkbox" -->
+<!-- name="cl3" value="BACKPORTS" /> Kernel from backports</li> -->
+<li style="padding:0px !important;">   <input type="checkbox" name="cl5" value="SSH_SERVER" checked /> Openssh server</li>
+<li style="padding:0px !important;">   <input type="checkbox" name="cl6" value="STANDARD" checked /> Standard system tools</li>
+<li style="padding:0px !important;">   <input type="checkbox" name="cl7" value="NONFREE" checked /> Non-free Linux firmware</li>
+</ul>
+<br>
+<p style="margin: 0 0 0.2em;">Additional packages to be installed:</p>
+<textarea rows="2" cols="30" name="addpkgs"></textarea> Separate with spaces, multiple names on one line are fine
+
+<br></br>      <label for="email">Email (optional):
+      <input size=14 id="email" name="email" /> You will be informed when the image generation is finished </label>
+      <br></br>
+<ul>
+<li>For the keyboard layout we assume Generic 105-key PC</li>
+<li>To change the keyboard layout call <tt>dpkg-reconfigure
+keyboard-configuration</tt></li>
+<li>The timezone will be set to UTC. To change the timezone call <tt>dpkg-reconfigure tzdata</tt></li>
+<li>You should change the user and root password after installation</li>
+</ul>
+
+      <button name="submit_bttn" value="check">Create image</button>
+</form>
+Any feedback is welcome. Send an email to FAI.me =at= fai-project.org
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>
