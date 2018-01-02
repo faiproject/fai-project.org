@@ -38,15 +38,16 @@ applications onto the computer. No network connection is needed, since
 all packages are on the installation media. You can burn this image
 onto a CD/DVD or write it to an USB stick. <p><b>All data on the first disk will be
 overridden without any further confirmation</b>.
-<br></br>
 
 <form action="/cgi/faime.cgi" method="post" enctype="multipart/form-data">
 <input type="hidden"  name="baseclasses" value="AMD64 DEBIAN DHCPC DEMO GRUB_PC FAIBASE"/>
-
 <label for="rootpw">Root password: <input size=4 id="rootpw"
  name="rootpw" /> If not set, sudo will be configured for the user account</label>
 
-<label for="user"> &ensp; User  name: &ensp;
+<label for="rootkey">SSH key for the root account: <input size=4 id="rootkey" type="file"
+ name="rootkey" /> Upload id*.pub file for login without a password</label>
+
+<label for="user">  User  name: &ensp; &ensp;
 <input size=4 id="user" name="username" type="text" value="debian" required
 /> Not the full name </label>
 
@@ -76,8 +77,8 @@ password will be generated </label>
 <br></br>
 
 <select name="suite" >
-                  <option value="stretch"> Debian 9 stable (stretch)</option>
-                  <option value="buster">Debian testing (buster)</option>
+                  <option value="stretch"> Debian 9 stable (stretch) </option>
+                  <option value="buster">Debian testing (buster) </option>
       </select> Select a distribution
 <p></p>
 <select name="desktop" >
