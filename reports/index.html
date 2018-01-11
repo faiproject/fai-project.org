@@ -36,15 +36,116 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Jörg Striewski, last.at.ismll.de
+<br><b>Date:</b> Thu, 11 Jan 2018 11:13:48 +0100
+<pre>
+How many hosts have you installed using fai? <b>76</b>
+Which version of fai are you using? <b>5.5</b>
+
+Which types of hosts are you installing with fai? cluster nodes (execution hosts)
+
+Which version are you using as your install kernel? plain Debian kernel
+How do you boot your hosts : via network (PXE, DHCP)
+Does the default install kernel recognize all your hardware : Yes
+Which drivers are missing : none a.t.m.
+Do you manage your configuration space under version control : No
+How big is your config space : 52K, 43 files
+How many files do you have in ../config/files : 17
+
+<b>What is the business of your company/organisation?</b> research and teaching, <a href="https://www.ismll.uni-hildesheim.de/">University of Hildesheim</a>
+<br><b>Additional comments:</b>
+Our submission host (master-node) of the cluster is an Ubuntu Xenial server with fai 5.5.
+The execution hosts (compute-nodes) are all installed with fai
+</pre> <HR>
+
+
+<b>From:</b> Christian Meyer, c 2 h 5 o h @ web dot=de
+<br><b>Date:</b> Thu, 11 Jan 2018 01:17:40 +0100
+<pre>
+How many hosts have you installed using fai? <b>~60</b>
+Which version of fai are you using? <b>5.3.6</b> (Debian stable)
+
+Which types of hosts are you installing with fai? mostly Desktop and notebook PCs but VMs and Servers, too
+
+Which version are you using as your install kernel? 4.9.0-4-amd64 (Debian stable)
+How do you boot your hosts?
+   via network (PXE): with PXELinux (from Windows DC) and
+                      NFSROOT (and apt-cacher-ng) on my faiserver.
+   using FAI-CD: from USB pen drive / ISO
+
+Does the default install kernel recognize all your hardware? Mostly.
+   I have plenty of old hardware and added non-free drivers to my NFSROOT.
+
+Do you manage your configuration space under version control? No, I just do weekly backups.
+
+How big is your config space (Mbytes, # of files)? 2.1 Mbytes, 191 files
+How many files do you have in ../config/files? 126 files
+What types of scripts are you using for local customization? shell
+
+<b>What is the business of your company/organisation?</b> Education: school
+<br><b>Additional comments:</b>
+  I integrated my Debian boxes into the existing Windows AD.
+  So I put some LDAP, Kerberos and Samba things into my NFSROOT.
+  CONFIGspace contains lots of integration scripts, too.
+  (like Authentication, Proxy, Shares, Printers, ...)
+</pre> <HR>
+
+
+<b>From:</b> Andrew Ruthven, first.last ==a=t catalyst.net.nz
+<br><b>Date:</b> Thu, 11 Jan 2018 10:40:31 +1300
+<pre>
+How many hosts have you installed using fai? <b>Well over 600</b> (this is based
+    on how log directories we currently have on our primary build servers)
+Which version of fai are you using? <b>5.5</b> & 5.1.2
+
+Which types of hosts are you installing with fai? desktops, laptops, cloud nodes (compute, storage, control plane, etc),
+   general servers
+
+Which version are you using as your install kernel? Backported kernel for both Jessie and Stretch nfsroots.
+      Jessie = 3.16.x and Stretch = 4.13.x.
+How do you boot your hosts?
+ via network (PXE, DHCP): PXE, DHCP
+ using FAI-CD: sometimes for remote servers
+ from USB stick: no
+
+Does the default install kernel recognize all your hardware?
+Which drivers are missing?
+   No, newer servers tend to miss either the network or RAID cards, the
+   backport kernel typically works. We have occasionally had to add a
+   kernel module to the initrd image to be loaded.
+
+Do you manage your configuration space under version control? Yes, git and git-annex for basefiles.
+
+How big is your config space (Mbytes, # of files)? 18MB, 3,885 files.
+How many files do you have in ../config/files? 276
+
+What types of scripts are you using for local customization? shell, Perl.
+   We've implemented some of the common cfengine operations
+   in Perl, so use that in preference. We use FAI to get the base system
+   installed and enough software installed and configured to then hand
+   over to Puppet or Ansible for final setup and on-going maintenance.
+
+<b>What is the business of your company/organisation?</b> <a href="https://www.catalyst.net.nz/">Catalyst IT Ltd</a>
+<br><b>Additional comments:</b>
+We use FAI to allow repeatable, automated builds of servers and
+workstations. We have a training room, and all the PCs in that room are
+rebuilt multiple times a week with FAI.
+
+To aid with remote builds we have also developed software to allow both
+remote builds of servers using the BMC via ssh or IPMI and also
+building KVM guests using the serial console.
+</pre> <HR>
+
+
 <b>From:</b> Mark Devaney
 <br><b>Date:</b> Thu, 16 Nov 2017 08:11:44 -0600
 <pre>
 How many hosts have you installed using fai? <b>approx 200</b>
 Which version of fai are you using? <b>5.3</b>
-Which version are you using as your install kernel? plain Debian
 
 Which types of hosts are you installing with fai? cluster nodes
 
+Which version are you using as your install kernel? plain Debian
 How do you boot your hosts? PXE
 Does the default install kernel recognize all your hardware? yes
 Do you manage your configuration space under version control? subversion
