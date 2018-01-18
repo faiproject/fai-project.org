@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Wed Nov  8 16:14:46 2017 -->
+<!-- CreationDate: Thu Jan 18 16:07:25 2018 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -303,6 +303,15 @@ image to the stick via dd(1).</p>
 
 <p style="margin-left:11%; margin-top: 1em"># dd
 if=fai-cd.iso of=/dev/sdf bs=1M</p>
+
+<p style="margin-left:11%; margin-top: 1em">Some computers
+(mostly older ones) only boot from USB stick if the first
+partition is set active. You can use this command to make
+your USB stick bootable if you stick is recognized as
+/dev/sdf:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># parted
+/dev/sdf set 1 boot on</p>
 
 <p style="margin-left:11%; margin-top: 1em">It is possible
 to install over the network without using NFS, i.e. by
