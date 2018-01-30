@@ -80,6 +80,9 @@ password will be generated </label>
                   <option value="stretch"> Debian 9 stable (stretch) </option>
                   <option value="buster">Debian testing (buster) </option>
       </select> Select a distribution
+&ensp; &ensp;
+<span style="padding:0px !important;">
+<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable backports including newer kernel</span>
 <p></p>
 <select name="desktop" >
                   <option value="">Plain text console, no X11 </option>
@@ -104,7 +107,8 @@ password will be generated </label>
 </ul>
 <br>
 <p style="margin: 0 0 0.2em;">Additional packages to be installed:</p>
-<textarea rows="2" cols="30" name="addpkgs"></textarea> Separate with spaces, multiple names on one line are fine
+<textarea rows="2" cols="30" name="addpkgs"></textarea> Separate with
+spaces, multiple names on one line are fine
 
 <br></br>      <label for="email">Email (optional):
       <input size=14 id="email" name="email" /> You will be informed when the image generation is finished </label>
