@@ -45,8 +45,10 @@ overridden without any further confirmation</b>.
 <label for="rootpw">Root password: <input size=4 id="rootpw"
  name="rootpw" /> If not set, sudo will be configured for the user account</label>
 
-<label for="rootkey">SSH key for the root account: <input size=4 id="rootkey" type="file"
-accept=".pub" name="rootkey" /> Upload id*.pub file for login without a password</label>
+</span>
+<label for="rootkey">SSH key for the root account: <input size=2 id="rootkey" type="file"
+accept=".pub" name="rootkey" style="margin-right: -50px"/> Upload id*.pub file for login without a password</label>
+</span>
 
 <label for="user">  User  name: &ensp; &ensp;
 <input size=4 id="user" name="username" type="text" value="debian" required
@@ -97,14 +99,12 @@ password will be generated </label>
 <p> </p>
 
 <ul class="checkbox-faime" >
-<li style="padding:0px !important;">   <input type="checkbox" name="cl2" value="DEBIAN_DEVEL" /> Debian developer tools</li>
-<li style="padding:0px !important;">   <input type="checkbox" name="cl3" value="WEBSERVER" /> Web server</li>
-<li style="padding:0px !important;">   <input type="checkbox" name="cl4" value="PRINTSERVER" /> Print server</li>
-<!-- <li style="padding:0px !important;">   <input type="checkbox" -->
-<!-- name="cl3" value="BACKPORTS" /> Kernel from backports</li> -->
-<li style="padding:0px !important;">   <input type="checkbox" name="cl5" value="SSH_SERVER" checked /> Openssh server</li>
-<li style="padding:0px !important;">   <input type="checkbox" name="cl6" value="STANDARD" checked /> Standard system tools</li>
-<li style="padding:0px !important;">   <input type="checkbox" name="cl7" value="NONFREE" checked /> Non-free Linux firmware</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl2" value="DEBIAN_DEVEL" /> Debian developer tools</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl3" value="WEBSERVER" /> Web server</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl4" value="PRINTSERVER" /> Print server</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl5" value="SSH_SERVER" checked /> Openssh server</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl6" value="STANDARD" checked /> Standard system tools</li>
+<li style="padding:0px !important; background: none">   <input type="checkbox" name="cl7" value="NONFREE" checked /> Non-free Linux firmware</li>
 </ul>
 <br>
 <p style="margin: 0 0 0.2em;">Additional packages to be installed:</p>
