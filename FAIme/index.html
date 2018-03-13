@@ -32,7 +32,7 @@
       <div id="content">
 <!-- removed breadcrumb -->
 
-<h1> FAI.me. Build your own installation media</h1>
+<h1> FAI.me. Build your own installation media or a <a href="cloud">cloud image</a></h1>
 This installation image will automatically install the OS and
 applications onto the computer. No network connection is needed, since
 all packages are on the installation media. You can burn this image
@@ -46,8 +46,13 @@ overridden without any further confirmation</b>.
  name="rootpw" /> If not set, sudo will be configured for the user account</label>
 
 </span>
-<label for="rootkey">SSH key for the root account: <input size=2 id="rootkey" type="file"
-accept=".pub" name="rootkey" style="margin-right: -50px"/> Upload id*.pub file for login without a password</label>
+<label for="rootkey">Upload SSH keys for the root account: <input size=2 id="rootkey" type="file"
+accept=".pub" name="rootkey" style="margin-right: -50px"/>
+
+<label for="pwd">Github account:
+<input size=4 name="github" /> You can also import your SSH keys from Github</label>
+
+</label>
 </span>
 
 <label for="user">  User  name: &ensp; &ensp;
@@ -82,10 +87,11 @@ password will be generated </label>
 <select name="suite" >
                   <option value="stretch"> Debian 9 stable (stretch) </option>
                   <option value="buster">Debian testing (buster) </option>
-      </select> Select a distribution
+      </select> Distribution
 &ensp; &ensp;
 <span style="padding:0px !important;">
-<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable backports including newer kernel</span>
+<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable
+backports for stretch including newer kernel</span>
 <p></p>
 <select name="desktop" >
                   <option value="">Plain text console, no X11 </option>
@@ -107,7 +113,11 @@ password will be generated </label>
 <li style="padding:0px !important; background: none">   <input type="checkbox" name="cl7" value="NONFREE" checked /> Non-free Linux firmware</li>
 </ul>
 <br>
-<p style="margin: 0 0 0.2em;">Additional packages to be installed:</p>
+<label for="repo">Add one repository:
+      <input size=14 id="repo" name="repo" /> Only http(s) is allowed.
+      <b>This feature is beta</b>.</label>
+
+<p style="margin: 0 0 0.2em;">Add packages to be installed:</p>
 <textarea rows="2" cols="30" name="addpkgs"></textarea> Separate with
 spaces, multiple names on one line are fine
 
