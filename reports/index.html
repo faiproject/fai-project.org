@@ -36,6 +36,79 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Markus Lindberg
+<br><b>Date:</b>  Tue, 10 Apr 2018 08:30:38 +0200
+<pre>
+How many hosts have you installed using fai?
+   <b>~1000</b> Clients (Workstations, Laptops and virtual machines)
+   <b>~800 Servers</b> (Virtual machines and bare-metal)
+
+Which version of fai are you using? <b>5.6</b>
+Which version are you using as your install kernel? Debian stable kernel
+
+Which types of hosts are you installing with fai? Desktops for RnD, servers for infrastructure
+
+How do you boot your hosts? Via network PXE, TFTP
+Does the default install kernel recognize all your hardware? Currently, yes. Though we have had to install the backports
+     kernel at some point to allow network adapter drivers to work for some HP laptops.
+
+Do you manage your configuration space under version control? Yes, we used to have it under svn,
+                                                              but it has been migrated to Git instead.
+
+How big is your config space (4,9M, #336)? 4.9M, 336
+How many files do you have in ../config/files? 61
+What types of scripts are you using for local customization? Shell (sh/bash)
+
+<b>What is the business of your company/organisation?</b> Information Technology
+<br><b>Additional comments:</b>
+We have used FAI for many years in our organization and always been happy with
+the high and low level of customization available to us. We only use FAI
+for provisioning and let CFEngine take over the configuration management of the hosts
+after the installation is done.
+
+We use FAI for almost all Debian/Ubuntu installations we perform. We save a lot of
+time by utilizing FAI.
+
+Average desktop installation time:
+SSD ~9,5 minutes
+RAID1 HDD ~21,5 minutes
+
+Average virtual server installation time:
+SSD ~2,8 minutes
+</pre> <HR>
+
+
+<b>From:</b> Maximilian Stein, ms X alarm minus dispatcher de
+<br><b>Date:</b> Fri, 6 Apr 2018 19:54:03 +0200
+<pre>
+How many hosts have you installed using fai? <b>50</b>
+Which version of fai are you using? <b>5.3.6</b> Debian stretch
+Which version are you using as your install kernel? plain stretch kernel
+
+Which types of hosts are you installing with fai? web/mail/file/vpn, server, notebooks, embedded devices
+
+How do you boot your hosts?
+ via network (PXE, DHCP): X
+            using FAI-CD:
+          from USB stick: X
+custom USB stick for EFI: X
+
+Does the default install kernel recognize all your hardware? yes
+
+Do you manage your configuration space under version control? yes, git
+How big is your config space (Mbytes, # of files)? 7 MB, 914 files (flat, without history)
+How many files do you have in ../config/files? 681
+
+What types of scripts are you using for local customization? shell, python
+
+<b>What is the business of your company/organisation?</b> alarm systems for firefighters, <a href="https://alarm-dispatcher.de/">Alarm Dispatcher Systems GmbH</a>
+<br><b>Additional comments:</b>
+First, we are using FAI to setup and update our server infrastructure and laptops.
+Moreover, we also use it to setup and manage the <a href="pictures/alarm-dispatcher-device.png">embedded devices</a> shipped to our customers. 
+This is especially useful to manage the customer configuration.
+</pre> <HR>
+
+
 <b>From:</b> 朴文学, piao100101 gmailcom
 <br><b>Date:</b> Mon, 15 Jan 2018 18:11:46 +0900
 <pre>
