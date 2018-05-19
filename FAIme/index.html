@@ -48,7 +48,20 @@
 					<input type="hidden"  name="baseclasses" value="AMD64 DEBIAN DHCPC DEMO GRUB_PC FAIBASE" /></p><p>
 					<input type="hidden"  name="type" value="install"/></p><p>
 					</p>
-					<div id="advanced" style="display: none;" >
+
+					<p>
+					<label for="user">  User  name: &ensp; &ensp;
+						<input size="4" id="user" name="username" type="text" value="debian" required />
+						Not the full name </label>
+					</p>
+					<p>
+					<label for="pwd">User password:
+						<input size="4" id="pwd" name="userpw" /> If not set, a
+						password will be generated </label>
+					</p>
+
+
+	  <div id="advanced" style="display: none;" >
 						<p>
 					<label for="rootpw">Root password: <input size="4" id="rootpw"
 											  name="rootpw" /> If not set, sudo will be configured for the user account</label>
@@ -66,12 +79,6 @@
 					</p>
 
 					<p>
-					<label for="pwd">User password:
-						<input size="4" id="pwd" name="userpw" /> If not set, a
-						password will be generated </label>
-					</p>
-
-					<p>
 					<select name="partition" >
 						<option value="ONE">One partition</option>
 						<option value="ONE_LVM">One partition using LVM</option>
@@ -85,11 +92,6 @@
 						<b>This feature is beta</b>.</label>
 
 					</div>
-					<p>
-					<label for="user">  User  name: &ensp; &ensp;
-						<input size="4" id="user" name="username" type="text" value="debian" required /> 
-						Not the full name </label>
-					</p>
 
 					<p>
 					<select name="keyboard" >
@@ -111,8 +113,6 @@
 						<option value="buster">Debian testing (buster) </option>
 					</select> Distribution
 					&ensp; &ensp;
-					</p>
-					<p>
 					<span style="padding:0px !important;">
 						<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable
 						backports for stretch including newer kernel</span>
