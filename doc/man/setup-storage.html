@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Wed Feb 28 12:42:49 2018 -->
+<!-- CreationDate: Mon Jun  4 10:15:22 2018 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -389,7 +389,7 @@ appended.</p> </td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-251431.png" alt="Image grohtml-251431.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-258381.png" alt="Image grohtml-258381.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -435,7 +435,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-251432.png" alt="Image grohtml-251432.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-258382.png" alt="Image grohtml-258382.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -730,6 +730,42 @@ equivalent to using size=20% in the tmpfs mount options.</p></td></tr>
 
 <p>Mount a tmpfs on /scratch with a maximum size of 3
 GiB.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;">nfs example</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+nfs</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%">
+
+
+<p>nfs 11.22.33.44:/export/vm-root/HOSTNAME</p></td>
+<td width="62%"></td>
+<td width="23%">
+
+
+<p>/defaults</p></td></tr>
+</table>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>A diskless client setup. Mount the whole OS file system
+via NFS from an NFS server onto /.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;">Simple BTRFS example</p>
