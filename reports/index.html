@@ -36,6 +36,42 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> Sylvain MILOT, first@bic mni dot .mcgill .ca
+<br><b>Date:</b> Tue, 19 Jun 2018 22:49:23 -0400 (EDT)
+<pre>
+How many hosts have you installed using fai? <b>275</b>
+    ~200 Clients (bare-metal Workstations and virtual machines)
+    ~75 Servers  (bare-metal Servers and some virtual machines)
+
+Which version of fai are you using? <b>4.3.1+wheezy1 and 5.3.6~bpo8+1</b> ... migrating to 5.7
+
+Which version are you using as your install kernel?
+    debian 3.16 with FAI 4.3.1+wheezy1
+    custom build kernel 4.12 with FAI 5.3.6~bpo8+1
+    custom build kernel 4.14 with FAI 5.7
+
+Which types of hosts are you installing with fai? desktops, cluster nodes for grid computing
+                                                  servers: web, dns, mail, storage
+How do you boot your hosts?
+    via network (PXE, DHCP);
+    via USB stick;
+
+Does the default install kernel recognize all your hardware? yes otherwise kernel is upgraded;
+
+Do you manage your configuration space under version control? no but I should.
+How big is your config space (Mbytes, # of files)? 18M, 3332 files
+How many files do you have in ../config/files? 3001
+What types of scripts are you using for local customization? shell, perl, cfengine;
+
+<b>What is the business of your company/organisation?</b> scientific research - <a href="https://www.mcgill.ca/bic/">https://www.mcgill.ca/bic/</a>
+<br><b>Additional comments:</b>
+  We've been using FAI since 2005, starting with Debian Sarge. FAI's
+  high level of customization makes it a very useful provisioning tool.
+  We use FAI as a first stage provisioning step and use other
+  configuration management tools like cfengine to complete installation.
+</pre> <HR>
+
+
 <b>From:</b> Markus Lindberg
 <br><b>Date:</b>  Tue, 10 Apr 2018 08:30:38 +0200
 <pre>
@@ -70,11 +106,11 @@ We use FAI for almost all Debian/Ubuntu installations we perform. We save a lot 
 time by utilizing FAI.
 
 Average desktop installation time:
-SSD ~9,5 minutes
-RAID1 HDD ~21,5 minutes
+  SSD ~9,5 minutes
+  RAID1 HDD ~21,5 minutes
 
 Average virtual server installation time:
-SSD ~2,8 minutes
+  SSD ~2,8 minutes
 </pre> <HR>
 
 
