@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Jun  4 10:15:22 2018 -->
+<!-- CreationDate: Thu Jan  3 11:46:55 2019 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -144,8 +144,9 @@ exit.</p> </td></tr>
 <p style="margin-left:11%;"><b>-D</b> <i>disks</i></p>
 
 <p style="margin-left:22%;">Specify the list of disk drives
-to be configured using <b>setup-storage</b>. Overrides
-<i>disklist.</i>Do<i>not</i>forget<i>to</i>quote<i>this</i>space<i>separated</i>list.</p>
+to be configured using <b>setup-storage</b>. Overrides the
+variable <i>disklist</i>. Do not forget to quote this space
+separated list.</p>
 
 <p style="margin-left:11%;"><b>-L</b> <i>directory</i></p>
 
@@ -161,12 +162,21 @@ instead of <i>LOGDIR.</i></p>
 
 <p><b>-h</b></p></td>
 <td width="8%"></td>
-<td width="72%">
+<td width="78%">
 
 
-<p>Display the synopsis and version info and exit.</p></td>
-<td width="6%">
-</td></tr>
+<p>Display the synopsis and version info and exit.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-y</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Print disk variables as YAML file into disk_var.yml</p></td></tr>
 </table>
 
 <h2>ENVIRONMENT
@@ -389,7 +399,7 @@ appended.</p> </td></tr>
 <p style="margin-left:11%;">Create a softRAID</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-258381.png" alt="Image grohtml-258381.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-218801.png" alt="Image grohtml-218801.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -435,7 +445,7 @@ swap space and use it as such later on.</p></td></tr>
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-258382.png" alt="Image grohtml-258382.png"></p>
+<p align="center" style="margin-top: 1em"><img src="grohtml-218802.png" alt="Image grohtml-218802.png"></p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -1164,11 +1174,11 @@ logical <br>
 /* mkfs.xxx must exist */</p>
 
 <p style="margin-left:11%; margin-top: 1em">luks_options
-::= (lukscreateoptions=&quot;.*&quot;) <br>
+::= (lukscreateopts=&quot;.*&quot;) <br>
 /* options to supply to cryptsetup when creating a LUKS <br>
 * encrypted filesystem. If no ciper (-c) is specified, then
 <br>
-* aes-cbc-essiv:sha2 is used. If no key size (-s) is <br>
+* aes-xts-plain64 is used. If no key size (-s) is <br>
 * specified then 256 is used. */</p>
 
 <p style="margin-left:11%; margin-top: 1em">fs_options ::=

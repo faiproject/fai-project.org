@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Jun  4 10:15:22 2018 -->
+<!-- CreationDate: Thu Jan  3 11:46:55 2019 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -57,9 +57,11 @@ create a disk image for booting a VM</p>
 
 <p style="margin-left:11%; margin-top: 1em"><i><b>fai-diskimage</b></i>
 creates a disk image that can be used with Qemu/KVM,
-VirtualBox, VMware, Xen or by your cloud infrastructure. It
-runs the Fully Automatic Installation using a list of FAI
-classes. In the end you have a bootable disk image.</p>
+VirtualBox, VMware, Xen, Android device or by your cloud
+infrastructure. It runs the Fully Automatic Installation
+using a list of FAI classes. In the end you have a bootable
+disk image. Following formats are supported: .raw.xz,
+.raw.zst, .qcow2, .vdi, .vhdx, .vmdk, .simg.</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -161,7 +163,7 @@ fai-mk-configspace</p>
 
 <p style="margin-left:11%; margin-top: 1em">fai-diskimage
 is not limited to creating images for virtual machines. The
-raw images can also be copies (via dd) onto a real disk for
+raw images can also be copied (via dd) onto a real disk for
 booting bare metal hosts.</p>
 
 <p style="margin-left:11%; margin-top: 1em">You can start

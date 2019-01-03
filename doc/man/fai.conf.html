@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Mon Jun  4 10:15:22 2018 -->
+<!-- CreationDate: Thu Jan  3 11:46:54 2019 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -125,10 +125,14 @@ protocols and URL schemes are currently supported:</p>
 <td width="61%">
 
 
-<p>NFS: nfs://&lt;server&gt;/&lt;exported directory&gt;</p></td>
+<p>NFS: nfs://[server]/&lt;exported directory&gt;</p></td>
 <td width="17%">
 </td></tr>
 </table>
+
+<p style="margin-left:22%; margin-top: 1em">If the server
+is not specified, FAI tries to extract the server name from
+the nfsroot mount.</p>
 
 <p style="margin-left:22%; margin-top: 1em">Example:
 nfs://faiserver/srv/fai/config</p>
