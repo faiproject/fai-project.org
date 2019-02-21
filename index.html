@@ -25,10 +25,13 @@
 <!-- removed breadcrumb -->
 
 <p style="float:left; width: 65%">
-FAI is a non-interactive system to install, customize and manage
-Linux systems and software configurations on computers as well as
-virtual machines and chroot environments, from small networks to
-large-scale infrastructures like clusters and cloud environments.
+FAI is a non-interactive system to install and configure
+Linux systems and software packages on computers as well as
+virtual machines, from small networks to
+large-scale infrastructures like clusters and virtual environments.
+It can be used for creating custom disk images used in virtual
+machines or on a cloud-computing platform.
+
 </p>
 <p style="float:left; width: 65%">
 It's a tool for unattended mass deployment of Linux. You can take one
@@ -39,7 +42,7 @@ needs, without any interaction necessary.
 <p style="float:right; position:relative; top:-30px;">
 <!-- <p style="text-align: center;"> -->
 <span class="downloadbox-border" >
-<a href="/fai-cd/faicd64-large_5.7.4.iso" style="text-decoration: none">
+<a href="/fai-cd/faicd64-large_5.8.1.iso" style="text-decoration: none">
 <span class="downloadbox-real" >FAI ISO (1007 MB)</span>
 </a>
 </span>
@@ -55,8 +58,7 @@ Motto: Plan your installation, and FAI installs your plan.</p>
 <h2 style="display:inline-block;width:50%">NEWS</h2>
 
 <ul>
-
-<li>[30 Jan 2019] FAI 5.7.4 released and new ISO images available</a></li>
+<li>[14 Feb 2019] FAI 5.8.1 released and new ISO images available</a></li>
 <li>[July/August 2018] I was at <a href="https://debconf18.debconf.org/">DebConf 18</a> in Taiwan and gave a <a href="https://debconf18.debconf.org/talks/53-faime-a-build-service-for-installation-and-cloud-images/">talk</a></li>
 <li>[13 Mar 2018] FAI.me can now create cloud images, <a
 href="https://blog.fai-project.org/">blog post</a></li>
@@ -77,9 +79,11 @@ href="https://youtu.be/5eZcMTT70rg">Video
 
 <h2 style="display:inline-block;width:40%">Features</h2>
 <ul>
-<li> Installs and updates Debian, Ubuntu, CentOS, RHEL, SUSE, ...</li>
+<li> Installs Debian, Ubuntu, CentOS, RHEL, SUSE, ...</li>
 <li> Centralized deployment and configuration management</li>
-<li> Installs virtual machines using KVM, XEN or VirtualBox and Vserver</li>
+<li> Automated installation of virtual machines using KVM, XEN or VirtualBox and Vserver</li>
+<li> Creation of custom disk image for OpenStack, KVM, VirtualBox,
+VMware, Azure, EC2, GCE</li>
 <li> Easy set up of software RAID and LVM</li>
 <li> Full remote control via ssh during installation</li>
 <li> Integrated disaster recovery system</li>
