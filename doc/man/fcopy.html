@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Thu Jan  3 11:46:55 2019 -->
+<!-- CreationDate: Thu Feb 14 14:58:45 2019 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -511,10 +511,13 @@ class.</p>
 
 <p style="margin-left:11%; margin-top: 1em">User, group and
 permissions for the files can be defined in several ways.
-Option -m has the highest priority and will be used for all
-files, if specified. The file file-modes in the source
-directory can contain one line for each class. The space
-separated parameters are:</p>
+The file file-modes in the source directory has the highest
+priority, followed by modes specified by -m/-M. If both does
+not apply, the modes from the source file are used.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The file
+file-modes in the source directory can contain one line for
+each class. The space separated parameters are:</p>
 
 <p style="margin-left:11%; margin-top: 1em">owner group
 mode class</p>
