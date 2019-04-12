@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <title>FAI - Fully Automatic Installation</title>
+      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	  <!--[if lte IE 6]>
+	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
+	  <![endif]-->
+  </head>
+
+  <body id="type-b">
+    <div id="wrap">
+      <div id="header">
+	<div id="site-name">
+	  <a href="/">FAI - Fully Automatic Installation</a>
+	</div>
+<!-- removed header-menu-unused.htm -->
+      </div>
+
+<!--#include virtual="/menu.html" -->
+      <div id="content">
+<!-- removed breadcrumb -->
+
+<h1>API documentation of FAI.me service</h1>
+
+<h3>Strings:</h3>
+<pre>
+email
+username
+userpw
+rootpw
+addpkgs      list of packages space separated
+github       github user for ssh root access
+repo         same format as in sources.list
+</pre>
+
+<h3>Select menues:</h3>
+<pre>
+partition    ONE|ONE_LVM|HOME|HOME_LVM
+desktop      &lt;empty&gt;|LXDE|KDE|MATE|CINNAMON|XFCE|GNOME
+keyboard     gb|us|fr|de|pl|pt|ru|es|tr|cn|tw|hi|ja
+suite        stretch|buster
+type	     install|cloud
+</pre>
+
+<h3>Boolean values</h3>
+<pre>
+cl1 BACKPORTS              cl5 SSH_SERVER
+cl2 DEBIAN_DEVEL           cl6 STANDARD
+cl3 WEBSERVER              cl7 NONFREE
+cl4 PRINTSERVER
+
+
+Must always be used:  baseclasses AMD64 DEBIAN DHCPC DEMO GRUB_PC FAIBASE
+
+Only used when type=cloud
+disksize     int <=50
+format       raw.xz|raw.zst|qcow2|vdi|vhdx|vmdk
+hostname     string
+</pre>
+
+<h3>Examples of URL's</h3>
+<pre>
+https://fai-project.org/cgi2/faime.cgi?baseclasses=AMD64%20DEBIAN%20DHCPC%20DEMO%20GRUB_PC%20FAIBASE;type=install;username=debian;partition=ONE;keyboard=us;suite=stretch;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
+
+http://fai-project.org/cgi2/faime.cgi?baseclasses=AMD64%20DEBIAN%20DHCPC%20DEMO%20GRUB_PC%20FAIBASE;type=install;username=debian;userpw=fai;github=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=lange%40debian.org;sbm=2
+</pre>
+
+      </div>
+    </div>
+  <div id="footer"></div>
+  </div>
+  </body>
+</html>
