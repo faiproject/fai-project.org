@@ -27,7 +27,7 @@
 
 <h1>API documentation of FAI.me service</h1>
 
-<h3>Strings:</h3>
+<h3>String variables:</h3>
 <pre>
 email
 username
@@ -37,8 +37,14 @@ addpkgs      list of packages space separated
 github       github user for ssh root access
 repo         same format as in sources.list
 </pre>
-
-<h3>Select menues:</h3>
+<h3>String variables with two values (undefined or the uppercase string listed here)</h3>
+<pre>
+cl1   BACKPORTS              cl5   SSH_SERVER
+cl2   DEBIAN_DEVEL           cl6   STANDARD
+cl3   WEBSERVER              cl7   NONFREE
+cl4   PRINTSERVER
+</pre>
+<h3>Select menues define these variables:</h3>
 <pre>
 partition    ONE|ONE_LVM|HOME|HOME_LVM
 desktop      &lt;empty&gt;|LXDE|KDE|MATE|CINNAMON|XFCE|GNOME
@@ -46,18 +52,8 @@ keyboard     gb|us|fr|de|pl|pt|ru|es|tr|cn|tw|hi|ja
 suite        stretch|buster
 type	     install|cloud
 </pre>
-
-<h3>Boolean values</h3>
+<h3>Variables used only when type=cloud</h3>
 <pre>
-cl1 BACKPORTS              cl5 SSH_SERVER
-cl2 DEBIAN_DEVEL           cl6 STANDARD
-cl3 WEBSERVER              cl7 NONFREE
-cl4 PRINTSERVER
-
-
-Must always be used:  baseclasses AMD64 DEBIAN DHCPC DEMO GRUB_PC FAIBASE
-
-Only used when type=cloud
 disksize     int <=50
 format       raw.xz|raw.zst|qcow2|vdi|vhdx|vmdk
 hostname     string
@@ -65,9 +61,9 @@ hostname     string
 
 <h3>Examples of URL's</h3>
 <pre>
-https://fai-project.org/cgi2/faime.cgi?baseclasses=AMD64%20DEBIAN%20DHCPC%20DEMO%20GRUB_PC%20FAIBASE;type=install;username=debian;partition=ONE;keyboard=us;suite=stretch;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
+https://fai-project.org/cgi/faime.cgi?type=install;username=debian;partition=ONE;keyboard=us;suite=stretch;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
 
-http://fai-project.org/cgi2/faime.cgi?baseclasses=AMD64%20DEBIAN%20DHCPC%20DEMO%20GRUB_PC%20FAIBASE;type=install;username=debian;userpw=fai;github=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=lange%40debian.org;sbm=2
+http://fai-project.org/cgi/faime.cgi?type=install;username=debian;userpw=fai;github=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=lange%40debian.org;sbm=2
 </pre>
 
       </div>
