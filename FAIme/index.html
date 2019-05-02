@@ -40,7 +40,7 @@
 					overridden without any further confirmation</b>.</p>
 
 				<p>
-				<a href="#" onclick="toggle_visibility('advanced');" >Toggle</a> between basic/advanced settings
+				<a href="#" onclick="toggle_visibility('advanced');toggle_visibility('advanced2');" >Toggle</a> between basic/advanced settings
 				</p>
 				<form action="/cgi/faime.cgi" method="post" enctype="multipart/form-data">
 
@@ -119,6 +119,7 @@
 					<span style="padding:0px !important;">
 						<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable
 						backports for stretch including newer kernel</span>
+
 					</p>
 					<p>
 					<select name="desktop" >
@@ -156,8 +157,9 @@
 						<li>You should change the user and root password after installation</li>
 					</ul>
 
-					<button name="submit_bttn" value="check">Create installation image</button>
-				</form>
+					<button name="sbm" value="0">Create installation image</button> &emsp;&emsp;&emsp;<button id="advanced2" style="display: none;" name="sbm" value="1">Show API URL</button>
+
+	</form>
 				Any feedback is welcome. Send an email to FAI.me =at= fai-project.org
 
 			</div>
@@ -169,7 +171,7 @@
 function toggle_visibility(id) {
 	var e = document.getElementById(id);
 	if(e.style.display == 'none')
-		e.style.display = 'block';
+		e.style.display = 'inline';
 	else
 		e.style.display = 'none';
 }
