@@ -40,7 +40,7 @@
 					overridden without any further confirmation</b>.</p>
 
 				<p>
-				<a href="#" onclick="toggle_visibility('advanced');toggle_visibility('advanced2');" >Toggle</a> between basic/advanced settings
+				<a href="#" onclick="toggle_visibility('adv');toggle_visibility('adv2');toggle_visibility('adv3');" >Toggle</a> between basic/advanced settings
 				</p>
 				<form action="/cgi/faime.cgi" method="post" enctype="multipart/form-data">
 
@@ -60,7 +60,7 @@
 					</p>
 
 
-	  <div id="advanced" style="display: none;" >
+	  <div id="adv" style="display: none;" >
 						<p>
 					<label for="rootpw">Root password: <input size="4" id="rootpw"
 											  name="rootpw" /> If not set, sudo will be configured for the user account</label>
@@ -157,7 +157,16 @@
 						<li>You should change the user and root password after installation</li>
 					</ul>
 
-					<button name="sbm" value="0">Create installation image</button> &emsp;&emsp;&emsp;<button id="advanced2" style="display: none;" name="sbm" value="1">Show API URL</button>
+	  <div id="adv3" style="display: none;" >
+	    <ul class="checkbox-faime" >
+	    <li style="padding:0px !important; background: none">
+	    <input type="checkbox" name="cl8" value="REBOOT" /> reboot computer after installation</li>
+	    </ul>
+	  </div>
+	  <p>
+
+
+	    <button name="sbm" value="0">Create installation image</button> &emsp;&emsp;&emsp;<button id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
 
 	</form>
 				Any feedback is welcome. Send an email to FAI.me =at= fai-project.org
