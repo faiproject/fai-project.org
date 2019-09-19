@@ -118,7 +118,7 @@
 					&ensp; &ensp;
 					<span style="padding:0px !important;">
 						<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable
-						backports for stretch including newer kernel</span>
+						backports including newer kernel</span>
 
 					</p>
 					<p>
@@ -158,9 +158,16 @@
 					</ul>
 
 	  <div id="adv3" style="display: none;" >
-	    <ul class="checkbox-faime" >
+	    <ul>
 	    <li style="padding:0px !important; background: none">
-	    <input type="checkbox" name="cl8" value="REBOOT" /> reboot computer after installation</li>
+	    <input type="radio" name="cl8" value="REBOOT" /> reboot computer after installation
+	      </li>
+	    <li style="padding:0px !important; background: none">
+	      <input type="radio" name="cl8" value="HALT" /> shutdown the computer at the end
+	      </li>
+	    <li style="padding:0px !important; background: none">
+            <input type="radio" name="cl8" value="" checked /> wait to press Return at the end. Default
+	      </li>
 	    </ul>
 	  </div>
 	  <p>
