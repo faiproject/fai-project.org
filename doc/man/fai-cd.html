@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.22.3 -->
-<!-- CreationDate: Thu Feb 14 14:58:45 2019 -->
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Sep 18 14:52:21 2019 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -151,14 +151,15 @@ can also set the environment variable FAI_ETC_DIR.</p>
 <td width="78%">
 
 
-<p>Do not include the config space in the image and set the
-location of the config space to URL. This sets
-FAI_CONFIG_SRC in the grub config, which is obtained from
-the FAI configuration dir (see -C). Set it to &quot;&quot;
-to not set FAI_CONFIG_SRC. If not set, the config space is
-taken from FAI_CONFIGDIR and copied to /var/lib/fai/config
-in the image. Currently no file: is allowed here, instead
-set FAI_CONFIGDIR in nfsroot.conf(5).</p></td></tr>
+<p>Do not include the config space in the image. Instead
+set the variable to the location of the config space to URL.
+This sets FAI_CONFIG_SRC in the grub config, which is
+obtained from the FAI configuration dir (see -C). Set it to
+&quot;&quot; to not set FAI_CONFIG_SRC at all. If not set,
+the config space is taken from FAI_CONFIGDIR and copied to
+/var/lib/fai/config in the image. Currently no file: is
+allowed here, instead set FAI_CONFIGDIR in
+nfsroot.conf(5).</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="9%">
@@ -283,6 +284,19 @@ specified.</p>
 The image contains the nfsroot and can be fetched through
 various ways over the network. For an example, see the
 section &quot;FAI without NFS&quot; in the FAI Guide.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-V</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Set the volume id of the ISO. Default id is FAI_CD. You
+also must adjust the CDLABEL in /etc/fai/grub.cfg, or use -g
+and specify your own grub.cfg.</p></td></tr>
 </table>
 
 <h2>EXAMPLES
@@ -303,15 +317,6 @@ image to the stick via dd(1).</p>
 
 <p style="margin-left:11%; margin-top: 1em"># dd
 if=fai-cd.iso of=/dev/sdf bs=1M</p>
-
-<p style="margin-left:11%; margin-top: 1em">Some computers
-(mostly older ones) only boot from USB stick if the first
-partition is set active. You can use this command to make
-your USB stick bootable if you stick is recognized as
-/dev/sdf:</p>
-
-<p style="margin-left:11%; margin-top: 1em"># parted
-/dev/sdf set 1 boot on</p>
 
 <p style="margin-left:11%; margin-top: 1em">It is possible
 to install over the network without using NFS, i.e. by
