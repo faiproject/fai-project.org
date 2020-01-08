@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Wed Sep 18 14:52:21 2019 -->
+<!-- CreationDate: Tue Jan  7 08:24:11 2020 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -110,7 +110,7 @@ You can add the -J option to make the image smaller.</p></td></tr>
 
 
 <p>Create a boot only ISO image which does a network
-installation. It does not include the nfsroot, the partitial
+installation. It does not include the nfsroot, the partial
 mirror and the config space; however for it to automatically
 initiate the installation -d has to be set. By default
 CONFIG_SRC will be empty.</p></td></tr>
@@ -348,6 +348,17 @@ autodiscover boot image:</p>
 <p style="margin-left:11%; margin-top: 1em"># fai-cd -JAg
 /etc/fai/grub.cfg.autodiscover fai-autod.iso</p>
 
+<p style="margin-left:11%; margin-top: 1em">Create a
+minimalistic compressed network boot ISO image (~350MB)
+without partial mirror and basefiles:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd -BMJe
+fai-cd.iso</p>
+
+<p style="margin-left:11%; margin-top: 1em">This ISO image
+can even be further reduced in size using the -s flag to
+fai-make-nfsroot(8).</p>
+
 <p style="margin-left:11%; margin-top: 1em">Specify your
 own grub file:</p>
 
@@ -377,6 +388,9 @@ calling fai-cd.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>mksquashfs(1)</b></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>fai-make-nfsroot(8)</b></p>
 
 <h2>FILES
 <a name="FILES"></a>

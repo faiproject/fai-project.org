@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Tue Jan  7 08:24:11 2020 -->
+<!-- CreationDate: Tue Jan  7 08:24:09 2020 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>fai-statoverride</title>
+<title>fai-link</title>
 
 </head>
 <body>
 
-<h1 align="center">fai-statoverride</h1>
+<h1 align="center">fai-link</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
@@ -34,9 +34,8 @@
 </h2>
 
 
-
-<p style="margin-left:11%; margin-top: 1em">fai-statoverride
-- dpkg-statoverride for multiple files</p>
+<p style="margin-left:11%; margin-top: 1em">fai-link -
+create symlink idempotent</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -44,28 +43,31 @@
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>fai-statoverride
-FILE ...</b></p>
+<p style="margin-left:11%; margin-top: 1em"><b>fai-link</b>
+SOURCE TARGET</p>
 
 <h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">Override owner
-and mode of a file or directory. Calls dpkg-statoverride
-with multiple files. This command is idempotent.</p>
+<p style="margin-left:11%; margin-top: 1em">Create or
+change a symlink from SOURCE to TARGET, check if this
+symlink already exists and do a noop if it&rsquo;s already
+the same symlink. If $target is defined, use it as prefix
+for SOURCE. If $verbose is set, the command prints if no
+change has to be made. The order of the arguments are
+different to the ln(1) command.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
 </h2>
 
 
-
-<p style="margin-left:11%; margin-top: 1em"><i>dpkg-statoverride</i>(8)</p>
-
 <p style="margin-left:11%; margin-top: 1em">This program is
-part of FAI (Fully Automatic Installation).</p>
+part of FAI (Fully Automatic Installation). See the FAI
+manual for more information on how to use fai-monitor. The
+FAI homepage is https://fai-project.org.</p>
 
 <h2>AUTHOR
 <a name="AUTHOR"></a>
