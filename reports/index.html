@@ -36,6 +36,138 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<b>From:</b> anonymous, high school in Bavaria
+<br><b>Date:</b> Sun, 2 Feb 2020 20:42:23 +0100
+<pre>
+How many hosts have you installed using fai? <b>~100</b>
+Which version of fai are you using? <b>5.8.4</b>
+Which version are you using as your install kernel? plain Debian kernel
+
+Which types of hosts are you installing with fai? desktops
+
+How do you boot your hosts? via network
+Does the default install kernel recognize all your hardware? Yes
+
+Do you manage your configuration space under version control? git
+How big is your config space (Mbytes, # of files)? 593M
+How many files do you have in ../config/files? 150
+What types of scripts are you using for local customization? shell
+
+<b>What is the business of your company/organisation?</b> education, high school in Germany, Bavaria
+<br><b>Additional comments:</b>
+Thank you A LOT for developing fai!
+Even more thanks for your support!
+</pre> <HR>
+
+
+<b>From:</b> Jean-mathieu CHANTREIN, pre.post@ univ minus angers  dot.fr
+<br><b>Date:</b> Mon, 13 Jan 2020 10:44:27 +0100 (CET)
+<pre>
+How many hosts have you installed using fai? <b>80</b>
+Which version of fai are you using? <b>5.8.4</b>
+Which types of hosts are you installing with fai? cluster nodes and some server
+
+Which version are you using as your install kernel? plain Debian kernel
+How do you boot your hosts? via network (PXE, DHCP)
+
+Does the default install kernel recognize all your hardware? Yes
+Which drivers are missing? No drivers missing
+Do you manage your configuration space under version control? Yes, with git
+
+How big is your config space (Mbytes, # of files)? 93M, #89
+How many files do you have in ../config/files? 13
+What types of scripts are you using for local customization? Ansible
+
+<b>What is the business of your company/organisation?</b> Education, <a href="http://leria.univ-angers.fr">Leria, University of Angers</a>
+<br><b>Additional comments:</b>
+ I install minimal debian stable server with fai, rolling out ssh keys
+ and python-apt package for the hosts. I customize installation with
+ ansible via ssh after first reboot after installation.
+
+ Thanks a lot for your great work since 20 years. FAI is very useful.
+</pre> <HR>
+
+
+<b>From:</b>  Steffen Grunewald, AEI Golm
+<br><b>Date:</b> Mon, 13 Jan 2020 10:29:39 +0100
+<pre>
+How many hosts have you installed using fai? <b> more than 1500</b>
+  Over the years (since 2004, to be exact) there have been multiple generations
+  of HTC clusters. I'll give the number of compute nodes, but there have been
+  FAI installs of headnodes, storage, data-exchange and web servers as well, not
+  counting many tiems where FAI's sysinfo has been used to diagnose machines:
+
+   * a 10 node Alpha cluster (I think back then I was the first to "port" FAI to another arch, codename AlFAI)
+   * a 180+x node Dual-Athlon MP cluster ("Merlin", started with RedHat, converted to Debian and FAI on 2004, up until 2007)
+   * a 626+x node AMD Opteron cluster ("Morgane", 2007-2014)
+   * a 478 node Intel Haswell cluster ("Vulcan", 2013-, assimilated by...)
+   * a 262 node AMD Epyc/Naples cluster ("Hypatia", 2019-)
+
+
+Which version of fai are you using? <b>usually the latest stable</b>
+Which version are you using as your install kernel? Debian stock kernel
+   We had started with custom kernels 15 years ago but have been using "stock"
+   Debian kernels for many years now.
+
+Which types of hosts are you installing with fai? Cluster nodes, storage servers, machines for data transfer within the
+   LIGO/VIRGO/KAGRA Scientific Collaboration (ofter referred to as "LSC")
+
+How do you boot your hosts? PXE, both Legacy and UEFI. (15 years back, Alphas were net-booted by hand.)
+Does the default install kernel recognize all your hardware? For many years now, the Debian kernel covers all our hardware driver needs.
+
+Do you manage your configuration space under version control? Yes (git)
+How big is your config space (Mbytes, # of files)? ~ 9 MB in ~ 900 files.
+How many files do you have in ../config/files? 700+
+What types of scripts are you using for local customization? bash, cfengine (and very few perl)
+
+<b>What is the business of your company/organisation?</b> Basic research, very non-profit (you cannot sell gravitational waves)
+   <a href="https://www.aei.mpg.de">Max Planck Institute for Gravitational Physics</a>
+<br><b>Additional comments:</b>
+  I'm aware that IT support has been experimenting with FAI for some time.
+  They never got as far as our Department (Astrophysical and Cosmological
+  Relativity).
+
+  <a href="https://www.aei.mpg.de/96456/20_Computer_Clusters">Some info about the clusters</a>
+
+  Former cluster called <a href="https://hypatia.aei.mpg.de/images/Merlin/">Merlin</a>
+  <a href="https://hypatia.aei.mpg.de/images/Merlin/02150006.JPG"><img height="250"
+  src="https://hypatia.aei.mpg.de/images/Merlin/02150006.JPG"></a>  <a href="https://hypatia.aei.mpg.de/images/Merlin/02150007.JPG"><img height="250"
+  src="https://hypatia.aei.mpg.de/images/Merlin/02150007.JPG"</a> <a href="https://hypatia.aei.mpg.de/images/Merlin/IMG_1214.JPG"><img height="250" src="https://hypatia.aei.mpg.de/images/Merlin/IMG_1214.JPG"></a>
+
+<p>Old Alpha cluster in 2003
+ <a href="https://hypatia.aei.mpg.de/images/Merlin/dsc01622.jpg"><img height="250" src="https://hypatia.aei.mpg.de/images/Merlin/dsc01622.jpg"></a>
+
+   See also the <a href="https://fai-project.org/reports/index.html#atlas">ATLAS cluster</a>
+</pre> <HR>
+
+
+
+<b>From:</b> Nicolas Renault, nicolas =a=dot= renault +at+ openevents. fr
+<br><b>Date:</b> Thu, 9 Jan 2020 14:29:00 +0100
+<pre>
+How many hosts have you installed using fai? <b>3000</b>
+Which version of fai are you using? <b>5.7</b>
+Which version are you using as your install kernel?  multiple
+   - vmlinuz-4.18.0-0.bpo.1-amd64
+   - vmlinuz-3.16.0-4-amd64
+   - vmlinuz-centos-7
+   - vmlinuz-rhel-7.2 (5.9,6.5,6.6,6.7 )
+
+Which types of hosts are you installing with fai? desktop (ubuntu 16.04 / 18.04 ) / server (all type of) debian / RH / Centos
+
+How do you boot your hosts? via network (PXE, DHCP)
+Does the default install kernel recognize all your hardware? no have to use 4.18 on lenovo M720s
+Which drivers are missing? nvme SSD
+Do you manage your configuration space under version control? no
+How big is your config space (Mbytes, # of files)? 383 Mb / 310 files
+How many files do you have in ../config/files? 141
+What types of scripts are you using for local customization? shell
+
+<b>What is the business of your company/organisation?</b> IT service <a href="https://www.openevents.fr">OPENevents</a>
+<br><b>Additional comments:</b> FAI used internaly and on client IT, used on 80 sites to install desktop or
+production PC and server (ldap/samba/fw/WiFi captive portal/database/... )
+</pre> <HR>
+
 
 <b>From:</b> fai-support = lihas +.de, Adrian Reyer
 <br><b>Date:</b> Fri, 15 Mar 2019 14:12:51 +0100
