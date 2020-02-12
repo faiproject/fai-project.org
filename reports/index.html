@@ -36,6 +36,48 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+<a id=atlas></a>
+<b>From:</b> Bruce Allen, Alexander Post, Henning Fehrmann, Carsten Aulbert, Max Planck Institute for Gravitational Physics
+<br><b>Date:</b> Wed, 12 Feb 2020 11:08:35 +0100
+<pre>
+How many hosts have you installed using fai? Currently more than <b>3000 hosts</b> (mostly physical, 10-15 VM), over
+      the past ~12 years, we certainly used fai certainly way more than 10000 times to install machines.
+
+Which version of fai are you using? Currently migrating from 5.3.6/jessie to <b>5.9.1/buster</b>
+Which version are you using as your install kernel? plain Debian, usually from backports
+
+Which types of hosts are you installing with fai? we only have servers/compute nodes
+   but with the exception of the fai server itself, more then 99.9% of
+   the machines are fai installed. Maybe we will fai.me the fai server.
+
+How do you boot your hosts?   First via network/DHCP/PXE (still no UEFI) for installation, then via localboot.
+Does the default install kernel recognize all your hardware?    Usually yes, if not we go for the backports kernel.
+Do you manage your configuration space under version control?   Yes, everything in there is in git (as well as /etc/fai)
+
+How big is your config space (Mbytes, # of files)?  205 files summing up to less than 1 MByte
+How many files do you have in ../config/files? 27
+What types of scripts are you using for local customization? saltstack
+
+<b>What is the business of your company/organisation?</b> fundamental research, <a href="https://www.aei.mpg.de/atlas-cluster/">Max Planck Institute for Gravitational Physics</a>
+
+Are you using the FAI.me build service?
+As a trial/template for a few virtual machines.
+<br><b>Additional comments:</b>
+fai is nowadays only used for the bare minimum installation, after the
+first reboot our saltstack configuration takes over, i.e. we never use
+fai softupdate
+
+Rarely, we use it as a live boot environment
+
+  More hosts will com soon:
+  44 hosts each 8 V100 or RTX 2070Super GPUs and
+ 444 hosts each 2x32 Core AMD Ryzen2 and 512 GB RAM :)
+
+<a href="https://www.atlas.aei.uni-hannover.de/userdoc/topic/gettingstarted/computenodes">List of Atlas compute nodes</a>
+</pre> <HR>
+
+
+
 <b>From:</b> anonymous, high school in Bavaria
 <br><b>Date:</b> Sun, 2 Feb 2020 20:42:23 +0100
 <pre>
@@ -4136,7 +4178,6 @@ We like the tool & help. Thanks!
 </pre> <hr />
 
 
-<a id=atlas></a>
 <b>From:</b> Henning Fehrmann, henning. fehrmann {} AEI dod mpg dod de 
 <br /><b>Date:</b>  Fri, 9 Jan 2009 12:33:04 +0100
 <pre>
