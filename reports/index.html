@@ -36,6 +36,42 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <p>
 <hr/>
 
+
+<b>From:</b> Mike Gabriel,  sunweaver === debian dot=org
+<br><b>Date:</b> Wed, 19 Feb 2020 08:56:14 +0000
+<pre>
+How many hosts have you installed using fai? All devices at a grammar school <b>about 150 devices.</b>
+Which version of fai are you using? <b>5.8.4</b>
+Which version are you using as your install kernel? plain Debian kernel
+
+Which types of hosts are you installing with fai? notebooks, x86-tablets (in prep).
+
+Are you using the FAI.me build service? No.
+How do you boot your hosts? PXE+DHCP
+Does the default install kernel recognize all your hardware? So far, all drivers are recognized. Most devices are thinkpads.
+Do you manage your configuration space under version control? Nope. But we should.
+How big is your config space (Mbytes, # of files)? 620K, 98
+How many files do you have in ../config/files? 10
+
+What types of scripts are you using for local customization? In FAI itself, bash scripts. Later with puppet
+
+<b>What is the business of your company/organisation?</b> <a href="https://das-netzwerkteam.de">DAS-NETZWERKTEAM</a>, FAI is used on a customer size (Katharineum zu Lübeck, a grammar school).
+<br><b>Additional comments:</b>
+After the systems have been installed management is continued with
+puppet. The puppet agent is bootstrapped via FAI on initial setup of
+the devices.
+
+I am currently discussing with the Debian Edu developers to ship FAI
+as an additional official pathway for installing Debian Edu machines
+on site. The advantage over the current method (netinst Debian
+Installer) is the customizability of the to be installed machines.
+
+At that customer we don't deploy vanilla Debian Edu machines. Our
+systems have a set of packages as overlay that tweaks the systems even
+further than done by Debian Edu.
+</pre> <HR>
+
+
 <a id=atlas></a>
 <b>From:</b> Bruce Allen, Alexander Post, Henning Fehrmann, Carsten Aulbert, Max Planck Institute for Gravitational Physics
 <br><b>Date:</b> Wed, 12 Feb 2020 11:08:35 +0100
