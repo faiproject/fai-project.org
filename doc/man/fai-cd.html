@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Tue Jan  7 08:24:11 2020 -->
+<!-- CreationDate: Thu Feb 20 21:26:34 2020 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -59,13 +59,13 @@ fai-cd</b> [<i>OPTION</i>] -S <i>IMAGEFILE</i></p>
 
 <p style="margin-left:11%; margin-top: 1em">This command
 creates a bootable ISO CD-ROM image that performs the fully
-automatic installation from CD-ROM without an install
+automatic installation from the CD-ROM without an install
 server. The ISO image will be written to FILE. To create the
-image, the command needs the NFSROOT, the configuration
-space and optionally a partial mirror, which is created by
-fai-mirror. The ISO image will contain a compressed squashfs
-filesystem. This hybrid CD image can also be written to an
-USB stick using dd(1).</p>
+image the command requires the NFSROOT, configuration space,
+and optionally a partial mirror (which is created by
+fai-mirror). The ISO image will contain a compressed
+squashfs filesystem. This hybrid CD image can be written to
+an USB stick using dd(1).</p>
 
 <p style="margin-left:11%; margin-top: 1em">NOTE: By
 default, fai-cd uses the grub file from /etc/fai/grub.cfg,
@@ -94,11 +94,12 @@ below.</p>
 
 
 <p style="margin-top: 1em">Create a boot only CD image
-(also usable for an USB stick) with autodiscover function.
-The CD will scan the subnet for a FAI server. By default it
-shows a menu with all profiles available from which you can
-select a type of installation. This image only needs 25MB.
-You can add the -J option to make the image smaller.</p></td></tr>
+(also usable for an USB stick) with autodiscover
+functionality. The CD will scan the subnet for a FAI server.
+By default it shows a menu with all profiles available from
+which you can select a type of installation. This image only
+needs 25MB. You can add the -J option to make the image
+smaller.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -191,7 +192,7 @@ new one.</p></td></tr>
 
 <p style="margin-left:11%;"><b>-g</b> <i>FILE</i></p>
 
-<p style="margin-left:22%;">Use FILE as grub grub.cfg file.
+<p style="margin-left:22%;">Use FILE as the grub.cfg file.
 The script will look for FILE in CFDIR. If FILE is located
 in another directory then a full path must be specified. If
 not specified, use /etc/fai/grub.cfg.</p>
@@ -350,7 +351,7 @@ autodiscover boot image:</p>
 
 <p style="margin-left:11%; margin-top: 1em">Create a
 minimalistic compressed network boot ISO image (~350MB)
-without partial mirror and basefiles:</p>
+without the partial mirror and basefiles:</p>
 
 <p style="margin-left:11%; margin-top: 1em"># fai-cd -BMJe
 fai-cd.iso</p>

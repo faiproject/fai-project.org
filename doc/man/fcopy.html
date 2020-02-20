@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Tue Jan  7 08:24:11 2020 -->
+<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,9 +56,9 @@ files using classes</p>
 
 <p style="margin-left:11%; margin-top: 1em">Copy a file
 from SOURCE to its target using classes. It also sets
-permission modes, owner and group. Each SOURCE argument is a
-directory which contains one or more template files for the
-source file to copy. Depending on the list of defined
+permission modes for owner and group. Each SOURCE argument
+is a directory which contains one or more template files for
+the source file to copy. Depending on the list of defined
 classes, one file of the source directory is selected and
 copied to the target. The target filename is the name of the
 source directory.</p>
@@ -504,16 +504,15 @@ fcopy.</p>
 
 <p style="margin-left:11%; margin-top: 1em">In FAI the list
 of defined classes starts with DEFAULT and the last class is
-the hostname. So DEFAULT is only used when no file for
-another class exists. If a file is equal to the hostname,
-this will be used, since hostname should always be the last
-class.</p>
+the hostname. DEFAULT is only used when no file for another
+class exists. If a file is equal to the hostname, this will
+be used, since hostname should always be the last class.</p>
 
 <p style="margin-left:11%; margin-top: 1em">User, group and
 permissions for the files can be defined in several ways.
 The file file-modes in the source directory has the highest
-priority, followed by modes specified by -m/-M. If both does
-not apply, the modes from the source file are used.</p>
+priority, followed by modes specified by -m/-M. If neither
+applies, the modes from the source file are used.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The file
 file-modes in the source directory can contain one line for
@@ -522,7 +521,7 @@ each class. The space separated parameters are:</p>
 <p style="margin-left:11%; margin-top: 1em">owner group
 mode class</p>
 
-<p style="margin-left:11%; margin-top: 1em">where owner and
+<p style="margin-left:11%; margin-top: 1em">Where owner and
 group can be specified by numeric id or by name. The file
 permissions are defined by mode, which must be octal. If
 class is missing, the data is used for all other classes,
@@ -537,9 +536,8 @@ different from the source file, the suffix .pre_fcopy is
 appended to the old version of the target file. If source
 and target files are equal, no copy is performed. A copied
 file gets the same access and modification time as the
-source file, not the time of the copy. If also the file
-postinst exists, it will be executed after the file was
-copied.</p>
+source file, not the time of the copy. If the file postinst
+exists, it will be executed after the file was copied.</p>
 
 <h2>NOTES
 <a name="NOTES"></a>

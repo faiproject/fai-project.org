@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Tue Jan  7 08:24:09 2020 -->
+<!-- CreationDate: Thu Feb 20 21:26:32 2020 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,16 +56,16 @@ AppendIfNoSuchLine</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Add LINE to the
-end of FILE if this file does not contain this line already.
+end of FILE if the file does not contain the line already.
 If PATTERN is given, then the LINE is only appended if
 PATTERN is not found in the file.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Since ainsl is
 written in Perl, you can use Perl&rsquo;s regular
-expressions in PATTERN. If PATTERN is not given, LINE is
-used instead for matching a line in FILE. Then LINE may also
+expressions in PATTERN. If PATTERN is not supplied, LINE is
+used instead for matching a line in FILE. LINE may also
 contain the anchors &rsquo;^&rsquo; and &rsquo;$&rsquo;
-which are only treated specialy at the beginning or end of
+which are only treated specially at the beginning or end of
 the pattern and are used for matching, not when adding the
 line. Additionally, the following characters are escaped in
 LINE: ( ) +</p>
@@ -206,8 +206,8 @@ for the filename. This is used in FAI for changing files in
 0&rsquo;</p>
 
 <p style="margin-left:11%; margin-top: 1em">Append the
-entry for the floppy device to /etc/fstab, if this line
-isn&rsquo;t already included. If this line in already in
+entry for the floppy device to /etc/fstab, if the line
+isn&rsquo;t already present. If the line is already in
 /etc/fstab, but is commented out it will not be added unless
 you extend the pattern to match only at the beginning of the
 line:</p>
