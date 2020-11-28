@@ -1,97 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>FAI - Fully Automatic Installation</title>
-      <meta name="Title" content="FAI - Homepage" />
-      <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport"
+	  content="width=device-width,initial-scale=1.0"/>
+
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
+  <body>
+
+    <div class="container">
+      <!--#include virtual="header.html" -->
+      <div class="row">
+	<div class="col s12 m4 l3">
+	   <!--#include virtual="sidebar.html" -->
 	</div>
-<!-- removed header-menu-unused.htm -->
+	<div class="col s12 m8 l9">
+	  <blockquote>
+	    FAI is a tool for unattended mass deployment of Linux. It's a
+	    system to install and configure Linux systems and software
+	    packages on computers as well as virtual machines, from small
+	    labs to large-scale infrastructures like clusters and virtual
+	    environments. You can take one or more virgin PC's, turn on
+	    the power, and after a few minutes, the systems are installed,
+	    and completely configured to your exact needs, without any
+	    interaction necessary.
+	    <br><br>
+	    It can be used for creating custom disk images used in virtual
+	    machines or on a cloud-computing platform. using
+	    the <a href="/FAIme">FAI.me build service</a>.
+	  </blockquote>
+
+	</div>
       </div>
+      <div class="row">
+	<div class="col s12 center red">
+	  <p> Motto: Plan your installation, and FAI installs your plan.</p>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+	</div>
 
-<p style="float:left; width: 65%">
-FAI is a tool for unattended mass deployment of Linux.
-It's a system to install and configure
-Linux systems and software packages on computers as well as
-virtual machines, from small labs to
-large-scale infrastructures like clusters and virtual environments.
- You can take one
-or more virgin PC's, turn on the power, and after a few minutes,
-the systems are installed, and completely configured to your exact
-needs, without any interaction necessary.
-
-</p>
-<p style="float:left; width: 65%">
-It can be used for creating custom disk images used in virtual
-machines or on a cloud-computing platform. using the <a href=FAIme>FAI.me build service</a>.
-</p>
-<p style="float:right; position:relative; top:-30px;">
-<!-- <p style="text-align: center;"> -->
-<span class="downloadbox-border" >
-<a href="/fai-cd/faicd64-large_5.9.4.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO (1.1 GB)</span>
-</a>
-</span>
-</p>
-
-<br></br>
-<p></p>
-<br></br>
-
-<p style="clear:both;text-align:center;font-family: arial,verdana,sans-serif;font-size:150%">
-Motto: Plan your installation, and FAI installs your plan.</p>
-
-<h2 style="display:inline-block;width:50%">NEWS</h2>
-
-<ul>
-<li>[Apr 28, 2020] FAI 5.9.4 is released, new images available including <b>UEFI</b> support</a></li>
-  <li>[Oct 11-16 2019] Thomas was in Boston, MA joining the Debian Cloud sprint</a></li>
-<li> <b>
-I <a href="https://lists.uni-koeln.de/pipermail/linux-fai/2017-November/011869.html">announced</a> the <a href="/FAIme">FAI.me</a> service</b>
-</li>
-
-</ul>
-
-<div style="width:32%;float:right;position:relative; top:-110px;">
-<img alt="distributions" src="/pics/dist-logos.png" width="270"/>
-</div>
-
-<h2 style="display:inline-block;width:40%">Features</h2>
-<ul>
-<li> Installs Debian, Ubuntu, CentOS, RHEL, SUSE, ...</li>
-<li> Centralized deployment and configuration management</li>
-<li> Automated installation of virtual machines using KVM, XEN or VirtualBox and Vserver</li>
-<li> Creation of custom disk image for OpenStack, KVM, VirtualBox,
-VMware, Azure, EC2, GCE</li>
-<li> Easy set up of software RAID and LVM</li>
-<li> Full remote control via ssh during installation</li>
-<li> Integrated disaster recovery system</li>
-<li> Every stage can be customized via hooks</li>
-</ul>
-
-<p></p>
-<br></br>
-<b>FAI is free software, distributed under the terms of the GNU GPL, version 2 or any later version.</b>
-
-<p>&nbsp;</p>
       </div>
     </div>
-  <div id="footer"></div>
-  </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.js"></script>
   </body>
 </html>
