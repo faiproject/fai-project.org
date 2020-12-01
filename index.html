@@ -11,11 +11,28 @@
 	  content="width=device-width,initial-scale=1.0"/>
 
     <title>FAI - Fully Automatic Installation</title>
+    <style>
+      main {
+	  padding-left: 150px;
+      }
+      .sidenav {
+	  top: 70px;
+      }
+
+      @media only screen and (max-width : 992px) {
+	  header, main, footer {
+              padding-left: 0;
+	  }
+      }
+    </style>
   </head>
 
   <body>
-    <!--#include virtual="header.html" -->
-    <div class="container">
+    <header>
+      <!--#include virtual="header.html" -->
+    </header>
+    <main>
+      <div class="container">
       <div class="row">
 	<div class="col s12 z-depth-3 center orange">
 	  <h6> Motto: Plan your installation, and FAI installs your plan.</h6>
@@ -83,6 +100,7 @@
 
     </div>
 </div>
+</main>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.js"></script>
 <script>
