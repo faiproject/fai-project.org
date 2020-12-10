@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen"/>
 
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport"
-	  content="width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta charset="UTF-8"/>
     <title>FAI - Fully Automatic Installation</title>
     <style>
       main {
-	  padding-left: 150px;
+        padding-left: 150px;
       }
+
       .sidenav {
-	  top: 65px;
+        top: 65px;
       }
 
       @media only screen and (max-width : 992px) {
-	  header, main, footer {
-              padding-left: 0;
-	  }
-	  .sidenav {
-	      top: 0;
-	  }
+
+        footer,
+        header,
+        main {
+          padding-left: 0;
+        }
+
+        .sidenav {
+          top: 0;
+        }
       }
     </style>
   </head>
@@ -37,77 +43,92 @@
     </header>
     <main>
       <div class="container">
-      <div class="row">
-	<div class="col s12 z-depth-3 center orange">
-	  <h6> Motto: Plan your installation, and FAI installs your plan.</h6>
-	</div>
+        <!-- Orange header bar -->
+        <div class="row">
+          <div class="col s12 z-depth-3 center orange">
+            <h6>
+              Motto: Plan your installation, and FAI installs your plan.</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m8 l8">
+            <!-- About FAI -->
+            <div class="card white">
+              <div class="card-content black-text">
+                <span class="card-title">About FAI</span>
+                <p>FAI is a tool for unattended mass deployment of Linux. It's a system to install and configure Linux systems and software packages on computers as well as virtual machines, from small labs to large-scale infrastructures like clusters and virtual
+                  environments. You can take one or more virgin PC's, turn on the power, and after a few minutes, the systems are installed, and completely configured to your exact needs, without any interaction necessary.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m4 l4">
+            <!-- Download -->
+            <div class="card orange center hoverable">
+              <a class="waves-effect waves-light btn-large orange z-depth-0 center">
+                <i class="material-icons left">download</i>FAI ISO (1.1GB)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col s12 m8 l8">
+            <!-- About FAI.me -->
+            <div class="card white">
+              <div class="card-content black-text">
+                <span class="card-title">About FAI.me</span>
+                <p>FAI.me is a tool to create custom Debian disk images used on desktop, in virtual machines or on a cloud-computing platform.
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="/FAIme">FAI.me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col s12 m8 l8">
+            <!-- News -->
+            <div class="card white">
+              <div class="card-content black-text">
+                <span class="card-title">News</span>
+                <ul>
+                  <li class="divider"></li>
+                  <li>
+                    [Apr 28, 2020] FAI 5.9.4 is released, new images available including
+                    <b>UEFI</b>
+                    support
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    [Oct 11-16 2019] Thomas was in Boston, MA joining the Debian Cloud sprint
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    [Nov 27, 2017]
+                    <b>I
+                      <a href="https://lists.uni-koeln.de/pipermail/linux-fai/2017-November/011869.html">announced</a>
+                      the
+                      <a href="/FAIme">FAI.me</a>
+                      service</b>
+                  </li>
+                  <li class="divider"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="row">
-	<div class="col s12 m6 l4">
-	  <div class="card grey darken-2">
-	    <div class="card-content white-text">
-              <span class="card-title">About FAI</span>
-              <p>FAI is a tool for unattended mass deployment of Linux. It's a
-		system to install and configure Linux systems and software
-		packages on computers as well as virtual machines, from small
-		labs to large-scale infrastructures like clusters and virtual
-		environments. You can take one or more virgin PC's, turn on
-		the power, and after a few minutes, the systems are installed,
-		and completely configured to your exact needs, without any
-		interaction necessary.</p>
-            </div>
-	  </div>
-	</div>
-
-	<div class="col s12 m6 l4">
-	  <div class="card grey darken-2">
-	    <div class="card-content white-text">
-              <span class="card-title">About FAI.me</span>
-              <p>FAI.me is a tool to create custom Debian disk images used on
-		desktop, in virtual machines or on a cloud-computing
-		platform.
-            </div>
-	    <div class="card-action">
-              <a href="/FAIme">FAI.me</a>
-            </div>
-	  </div>
-
-	  <div class="card orange center">
-	    <a class="waves-effect waves-light btn-large orange z-depth-0
-		      center"><i class="material-icons
-					left">download</i>FAI ISO (1.1GB)</a>
-	  </div>
-	</div>
-
-	<div class="col s12 m6 l4">
-	  <div class="card grey darken-2">
-	    <div class="card-content white-text">
-              <span class="card-title">News</span>
-              <ul class="collection">
-		<li class="collection-item grey darken-2">
-		  [Apr 28, 2020] FAI 5.9.4 is released, new images
-		  available including <b>UEFI</b> support
-		</li>
-		<li class="collection-item grey darken-2">
-		  [Oct 11-16 2019] Thomas was in Boston, MA joining
-		  the Debian Cloud sprint
-		</li>
-		<li class="collection-item grey darken-2">
-		  [Nov 27, 2017] <b>I <a href="https://lists.uni-koeln.de/pipermail/linux-fai/2017-November/011869.html">announced</a> the <a href="/FAIme">FAI.me</a> service</b>
-		</li>
-	      </ul>
-	    </div>
-	  </div>
-	</div>
-
-      </div>
-
-    </div>
-</main>
-<!--JavaScript at end of body for optimized loading-->
-<script src="js/materialize.js"></script>
-<script>
-  M.AutoInit();
-</script>
-</body>
-</html>
+    </main>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
+  </body>
