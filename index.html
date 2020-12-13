@@ -14,15 +14,16 @@
     <meta charset="UTF-8"/>
     <title>FAI - Fully Automatic Installation</title>
     <style>
-      main {
-        padding-left: 150px;
+      main, footer {
+        padding-left: 100px;
       }
 
       .sidenav {
         top: 65px;
+        width: 250px;
       }
       .sidenav .divider {
-        margin-top: 0px;
+        margin-top: 0;
       }
 
       @media only screen and (max-width : 992px) {
@@ -70,9 +71,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row">
 
           <div class="col s12">
             <!-- About FAI.me -->
@@ -87,9 +85,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row">
 
           <div class="col s12">
             <!-- News -->
@@ -121,10 +116,51 @@
               </div>
             </div>
           </div>
+          <div class="col s12">
+            <!-- Features -->
+            <div class="card white">
+              <div class="card-content black-text">
+                <span class="card-title">Features</span>
+                <ul>
+                  <li class="divider"></li>
+                  <li>
+                    Installs Debian, Ubuntu, CentOS, RHEL, SUSE, ...</li>
+                  <li class="divider"></li>
+                  <li>
+                    Centralized deployment and configuration management</li>
+                  <li class="divider"></li>
+                  <li>
+                    Automated installation of virtual machines using KVM, XEN or VirtualBox and Vserver</li>
+                  <li class="divider"></li>
+                  <li>
+                    Creation of custom disk image for OpenStack, KVM, VirtualBox, VMware, Azure, EC2, GCE</li>
+                  <li class="divider"></li>
+                  <li>
+                    Easy set up of software RAID and LVM</li>
+                  <li class="divider"></li>
+                  <li>
+                    Full remote control via ssh during installation</li>
+                  <li class="divider"></li>
+                  <li>
+                    Integrated disaster recovery system</li>
+                  <li class="divider"></li>
+                  <li>
+                    Every stage can be customized via hooks</li>
+                </ul>
+              </div>
+              <div class="card-action">
+                <a href="/features/" title="Features">Read more</a>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
     </main>
+
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="footer.html" -->
+    </footer>
     <!--JavaScript at end of body for optimized loading-->
     <script src="js/materialize.js"></script>
     <script>
