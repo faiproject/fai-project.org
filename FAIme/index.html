@@ -19,6 +19,10 @@
 				padding-left: 100px;
 			}
 
+			.input-field {
+				margin-top: 0;
+			}
+
 			.sidenav {
 				top: 65px;
 				width: 250px;
@@ -48,6 +52,7 @@
 		</header>
 		<main>
 			<div class="container">
+				<!-- Top text -->
 				<div class="row">
 					<div class="col s12">
 						<h5>
@@ -70,62 +75,75 @@
 				</div>
 
 				<div class="row">
-					<form class="col s12" action="../cgi/faime.cgi" method="post" enctype="multipart/form-data">
+					<form action="../cgi/faime.cgi" method="post" enctype="multipart/form-data">
 
 						<p>
 							<input type="hidden" name="type" value="install"/>
 						</p>
 
 						<!-- Username Select -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Username (Not the full name)
+							</p>
 							<div class="input-field col s12 m6">
 								<input id="user" name="username" type="text" value="debian" required="required"/>
-								<label for="user">
-									Username (Not the full name)
-								</label>
 							</div>
+
 						</div>
 
 						<!-- UserPW Select -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								User password
+							</p>
 							<div class="input-field col s12 m6">
 								<input id="pwd" name="userpw" type="text"/>
-								<label for="pwd">User password</label>
 								<span class="helper-text">If not set, a password will be generated</span>
 							</div>
 						</div>
 
 						<div id="adv" style="display: none;">
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Root password
+								</p>
 								<div class="input-field col s12 m6">
 									<input type="text" id="rootpw" name="rootpw"/>
-									<label for="rootpw">Root password</label>
 									<span class="helper-text">If not set, sudo will be configured for the user account</span>
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Upload SSH keys for the root account
+								</p>
 								<div class="col s12 m6 file-field input-field">
-									<p>Upload SSH keys for the root account</p>
-									<div class="btn">
+									<div class="btn grey">
 										<i class="material-icons">folder_open</i>
 										<input id="rootkey" type="file" accept=".pub" name="rootkey"/>
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text">
 									</div>
+									<br>
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Github username
+								</p>
 								<div class="col s12 m6 input-field">
 									<input type="text" name="github" id="github"/>
-									<label for="github">Github account</label>
 									<span class="helper-text">You can also import your SSH keys from Github</span>
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Disk partitioning scheme
+								</p>
 								<div class="col s12 m6 input-field">
 									<select name="partition">
 										<option value="ONE">One partition</option>
@@ -133,14 +151,15 @@
 										<option value="HOME">Partition for /home</option>
 										<option value="HOME_LVM">Partition for /home using LVM</option>
 									</select>
-									<label>Disk partitioning scheme</label>
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Add one public available Debian package repository
+								</p>
 								<div class="col s12 m6 input-field">
 									<input type="text" id="repo" name="repo"/>
-									<label for="repo">Add one public available Debian package repository</label>
 									<span class="helper-text">
 										Only http(s) is allowed. Examples:
 										<br>
@@ -154,7 +173,10 @@
 						</div>
 
 						<!-- Keyboard/Language Select -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Language and keyboard layout
+							</p>
 							<div class="input-field col s12 m6">
 								<select name="keyboard">
 									<option value="gb">English UK</option>
@@ -171,32 +193,38 @@
 									<option value="hi">Hindi / हिन्दी</option>
 									<option value="ja">Japanese / 日本語</option>
 								</select>
-								<label>Language and keyboard layout</label>
 							</div>
 						</div>
 
 						<!-- Distribution Select -->
-						<div class="row">
-							<div class="col s12 m6 input-field">
-								<select name="suite">
-									<option value="buster">Debian 10 "buster" (stable)
-									</option>
-									<option value="bullseye">Debian "bullseye" (testing)
-									</option>
-									<option value="stretch">
-										Debian 9 "stretch" (oldstable)
-									</option>
-								</select>
-								<label>Distribution</label>
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Distribution
+							</p>
+							<div class="col s12 m6">
+								<div class="input-field">
+									<select name="suite">
+										<option value="buster">Debian 10 "buster" (stable)
+										</option>
+										<option value="bullseye">Debian "bullseye" (testing)
+										</option>
+										<option value="stretch">
+											Debian 9 "stretch" (oldstable)
+										</option>
+									</select>
+								</div>
+								<label>
+									<input type="checkbox" name="cl1" value="BACKPORTS"/>
+									<span>Enable backports including newer kernel (not for testing)</span>
+								</label>
 							</div>
-							<label class="col s12 m6">
-								<input type="checkbox" name="cl1" value="BACKPORTS"/>
-								<span>Enable backports including newer kernel (not for testing)</span>
-							</label>
 						</div>
 
 						<!-- Desktop Select -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Which desktop to install
+							</p>
 							<div class="col s12 m6 input-field">
 								<select name="desktop">
 									<option value="">Plain text console, no X11</option>
@@ -208,12 +236,14 @@
 									<option value="MATE">MATE desktop</option>
 									<option value="CINNAMON">CINNAMON desktop</option>
 								</select>
-								<label>Which desktop to install</label>
 							</div>
 						</div>
 
 						<!-- Additional Software Checkboxes -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Select additional software
+							</p>
 							<ul class="col s12 m6">
 								<li>
 									<label>
@@ -255,24 +285,28 @@
 						</div>
 
 						<!-- addpkgs -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Add packages to be installed
+							</p>
 							<div class="col s12 m6 input-field">
 								<textarea name="addpkgs" class="materialize-textarea"></textarea>
-								<label for="addpkgs">Add packages to be installed</label>
 								<span class="helper-text">Separate with spaces, multiple names on one line are fine</span>
 							</div>
 						</div>
 
 						<!-- Optional Email input -->
-						<div class="row">
+						<div class="col s12 m10">
+							<p class="col s12 m4">
+								Email (optional)
+							</p>
 							<div class="col s12 m6 input-field">
 								<input id="email" type="email" class="validate" name="email"/>
-								<label for="email">Email (optional)</label>
 								<span class="helper-text" data-error="Invalid input" data-success="You will be informed when the image generation is finished">You will be informed when the image generation is finished</span>
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="col s12 m10">
 							<div class="col s12">
 								<ul>
 									<li>For the keyboard layout we assume Generic 105-key PC</li>
@@ -288,73 +322,74 @@
 						</div>
 
 						<div id="adv3" style="display: none;">
-							<div class="row">
+							<div class="col s12 m10">
+								<p class="col s12 m4">
+									Grub options (optional)
+								</p>
 								<div class="col s12 m6 input-field">
 									<input type="text" id="cmdline" name="cmdline"/>
-									<label for="cmdline">Grub options (optional)</label>
 									<span class="helper-text">Will be used during installation and for the new system</span>
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="col s12 m6">
+							<div class="col s12 m10">
 
-										<label>
-											<input class="with-gap" type="radio" name="cl8" value="REBOOT"/>
-											<span>reboot computer after installation</span>
-										</label>
-										<label>
-											<input class="with-gap" type="radio" name="cl8" value="HALT"/>
-											<span>shutdown the computer at the end</span>
-										</label>
-										<label>
-											<input class="with-gap" type="radio" name="cl8" value="" checked="checked"/>
-											<span>wait to press Return at the end. Default</span>
-										</label>
+								<div class="col s12 m6">
+									<label>
+										<input class="with-gap" type="radio" name="cl8" value="REBOOT"/>
+										<span>reboot computer after installation</span>
+									</label>
+									<label>
+										<input class="with-gap" type="radio" name="cl8" value="HALT"/>
+										<span>shutdown the computer at the end</span>
+									</label>
+									<label>
+										<input class="with-gap" type="radio" name="cl8" value="" checked="checked"/>
+										<span>wait to press Return at the end. Default</span>
+									</label>
 
 								</div>
 							</div>
+
 						</div>
 
-						<div class="row">
-							<div class="col s12 m6">
-								<button class="btn orange" name="sbm" value="0">Create installation image</button>
-								<button class="btn orange" id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
-							</div>
+						<div class="col s12 m6">
+							<br>
+							<button class="btn orange" name="sbm" value="0">Create installation image</button>
+							<button class="btn orange" id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
 						</div>
-					</div>
 
-				</form>
+					</form>
+				</div>
 				<div class="row">
 					<div class="col s12">
 						<b>Any feedback is welcome. Send an email to FAI.me =at= fai-project.org</b>
 					</div>
 				</div>
+
 			</div>
+			<!-- Container End -->
+		</main>
 
-		</div>
-		<!-- Container End -->
-	</main>
+		<footer class="page-footer white">
+			<!--#include virtual="../footer.html" -->
+		</footer>
+		<!--JavaScript at end of body for optimized loading-->
+		<script src="../js/materialize.js"></script>
+		<script>
+			M.AutoInit();
+		</script>
+		<script>
+			<!--
+			function toggle_visibility(id) {
+				var e = document.getElementById(id);
+				if (e.style.display == 'none')
+					e.style.display = 'inline';
+				else
+					e.style.display = 'none';
+				}
 
-	<footer class="page-footer white">
-		<!--#include virtual="../footer.html" -->
-	</footer>
-	<!--JavaScript at end of body for optimized loading-->
-	<script src="../js/materialize.js"></script>
-	<script>
-		M.AutoInit();
-	</script>
-	<script>
-		<!--
-		function toggle_visibility(id) {
-			var e = document.getElementById(id);
-			if (e.style.display == 'none')
-				e.style.display = 'inline';
-			else
-				e.style.display = 'none';
-			}
-
-		//-->
-	</script>
-</body>
+			//-->
+		</script>
+	</body>
 </html>
