@@ -1,0 +1,37 @@
+/*
+This can be included instead of sidenav.css for compact sidenav layout
+*/
+
+footer,
+main {
+  padding-left: 100px;
+}
+
+.sidenav {
+  top: 65px;
+  width: 250px;
+
+}
+.sidenav li {
+  line-height: 30px;
+}
+.sidenav li a {
+  height: 30px;
+  line-height: 30px;
+}
+.sidenav .divider {
+  margin-top: 0;
+}
+
+@media only screen and (max-width : 992px) {
+
+  footer,
+  header,
+  main {
+    padding-left: 0;
+  }
+
+  .sidenav {
+    top: 0;
+  }
+}
