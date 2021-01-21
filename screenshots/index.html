@@ -1,102 +1,113 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-<title>Fully Automatic Installation - Screenshots</title>
-<!--       <meta name="Title" content="FAI - Screenshots" /> -->
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.css" media="screen"/>
+
+    <!--Import sidenav.css-->
+    <link type="text/css" rel="stylesheet" href="../css/sidenav.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
+  <body>
+    <header>
+      <!--#include virtual="../header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <h2>Videos</h2>
+
+        <ul>
+          <li>
+            Cross-architecture building an ARM64 disk image:
+            <a href="https://youtu.be/5eZcMTT70rg">
+              Video in english</a>
+            (<a href="fai-5.4-cross-architecture.mp4">download 49MB)</a>
+            <a href="https://fai-project.org/logs/armhost/last/">log files</a>
+          </li>
+          <li>
+            FAI 5.0 server installation from CD:
+            <a href="https://youtu.be/POOuZdWmnqA">
+              Video in german
+            </a>
+            (<a href="faiserver-install.avi">download 19MB)</a>.
+          </li>
+          <li>
+            Four different machines are installed simultaneously.:
+            <a href="https://youtu.be/btbqz_hVfpo">
+              Video in german about FAI 5.0</a>
+            (<a href="fai-5.0.avi">download 105MB)</a>.
+          </li>
+          <li>
+            Ubuntu Oneiric (11.10) installation
+            <a href="http://www.youtube.com/watch?v=yLIZL_iyAww">Video 1</a>,
+            <a href="http://www.youtube.com/watch?v=nW5MS3_pzyY">Video 2</a>,
+            <a href="https://www.youtube.com/watch?v=1Vw9NJ9KVfE">Video 3</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=wpLPRG3QA64">Demo video</a>
+            for
+            <a href="https://www.tuxedocomputers.com/TUXEDO-WebFAI.geek">WebFAI</a>
+          </li>
+          <li>
+            <a href="../talks">Videos of talks about FAI</a>
+          </li>
+        </ul>
+
+        <h2>The fai-monitor GUI</h2>
+        The FAI monitor daemon (fai-monitor) receives small messages from each install client (<a href="/logs/fai-monitor.log">sample log file of fai-monitor</a>), which describes what each client is doing at the moment. The GUI creates a nice table and is showing all actions in real time for all clients.
+
+        <a href="fai-monitor.gif"><img alt="An example of the fai-monitor-gui" src="faimond.png" width="600" border="0"/></a>
+        (Click on screenshot for animated gif)
+
+        <h2>The new autodiscover function of FAI 5.0</h2>
+
+        <img alt="FAI autodiscover" src="fai1.png" width="600"/>
+
+        <img alt="FAI autodiscover" src="fai2.png" width="600"/>
+
+        <img alt="FAI autodiscover" src="fai3.png" width="600"/>
+
+        <img alt="FAI autodiscover" src="fai4.png" width="600"/>
+
+        <img alt="FAI autodiscover" src="fai5.png" width="600"/>
+
+        <img alt="FAI autodiscover" src="fai10.png" width="600"/>
+
+        <h2>A slideshow of an installation via CD</h2>
+
+        <a href="/slideshow/"><img alt="slideshow overview" src="slideshow-overview.png" border="0"/></a>
+
+        <h2>Sample log files</h2>
+        <ul>
+          <li>
+            <a href="fai.txt">fai.log</a>
+            from an installation
+          </li>
+          <li>
+            <a href="/logs">More Log files</a>
+            of successfully installed computers
+          </li>
+        </ul>
+
       </div>
-
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
-
-<h2>Videos</h2>
-
-<ul>
-<li> Cross-architecture building an ARM64 disk image: <a href="https://youtu.be/5eZcMTT70rg"> Video in english</a>
-(<a href="fai-5.4-cross-architecture.mp4">download 49MB)</a>
-<a href="https://fai-project.org/logs/armhost/last/">log files</a>
-
-<li> FAI 5.0 server installation from CD: <a href="https://youtu.be/POOuZdWmnqA"> Video in german </a>
- (<a href="faiserver-install.avi">download 19MB)</a>.
-
-<li> Four different machines are installed simultaneously.: <a href="https://youtu.be/btbqz_hVfpo"> Video in german about FAI 5.0</a>
- (<a href="fai-5.0.avi">download 105MB)</a>. 
-
-
-<li> Ubuntu Oneiric (11.10) installation <a href="http://www.youtube.com/watch?v=yLIZL_iyAww">Video 1</a>, 
-<a href="http://www.youtube.com/watch?v=nW5MS3_pzyY">Video 2</a>, 
-<a href="https://www.youtube.com/watch?v=1Vw9NJ9KVfE">Video 3</a>
-
-<li> <a href="https://www.youtube.com/watch?v=wpLPRG3QA64">Demo video</a> for <a href="https://www.tuxedocomputers.com/TUXEDO-WebFAI.geek">WebFAI</a>
-
-<li> <a href="../talks">Videos of talks about FAI</a>
-</ul>
-
-<p>
-
-<h2>The fai-monitor GUI</h2>
-The FAI monitor daemon (fai-monitor) receives small messages from each install
-client (<a href="/logs/fai-monitor.log">sample log file of fai-monitor</a>), which describes
-what each client is doing at the moment. The GUI creates a nice table
-and is showing all actions in real time for all clients.
-<p> &nbsp;<p> 
-
-<a href="fai-monitor.gif"><img alt="An example of the fai-monitor-gui"
-                  src="faimond.png" width="600" border="0"/></a>
- (Click on screenshot for animated gif)
-<p>
-
-<h2>The new autodiscover function of FAI 5.0</h2>
-<p>
-<img alt="FAI autodiscover" src="fai1.png" width="600" />
-<p>
-<img alt="FAI autodiscover" src="fai2.png" width="600" />
-<p>
-<img alt="FAI autodiscover" src="fai3.png" width="600" />
-<p>
-<img alt="FAI autodiscover" src="fai4.png" width="600" />
-<p>
-<img alt="FAI autodiscover" src="fai5.png" width="600" />
-<p>
-<img alt="FAI autodiscover" src="fai10.png" width="600" />
- </a>
-
-
-<h2>A slideshow of an installation via CD</h2>
-<p>
-<a href="/slideshow/"><img alt="slideshow overview" src="slideshow-overview.png" border="0"/>
- </a>
-
-<p>
-
-<h2>Sample log files</h2>
-<ul>
-<li> <a href="fai.txt">fai.log</a> from an installation
-<li> <a href="/logs">More Log files</a> of successfully installed computers
-</ul>
-
-
-      </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+    </main>
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="../footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="../js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
