@@ -1,87 +1,123 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Import sidenav.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <h4>FAI guide</h4>
+
+            <ul>
+              <li>
+                &bullet; FAI Guide
+                <a href="/fai-guide.text">ASCII</a>,
+                <a href="/fai-guide.pdf">PDF</a>,
+                <a href="/fai-guide.ps.gz">Postscript</a>,
+                <a href="/fai-guide/">HTML</a>
+              </li>
+              <li>
+                <a id="search"></a>
+                &bullet; Search in the FAI guide:
+                <form method="get" action="https://google.com/search">
+                  <p class="input-field inline">
+                    <input type="text" name="q" size="30" maxlength="255" value=""/>
+                    <input type="hidden" name="as_q" value="site:fai-project.org/fai-guide/"/>
+                    <input type="submit" name="btnG" value="Search" class="btn grey"/>
+                  </p>
+                </form>
+              </li>
+              <li>
+                &bullet; List of
+                <a href="http://wiki.fai-project.org/index.php/Variables">important variables</a>
+                inside FAI</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h4>The manual pages</h4>
+            <ul>
+              <li>
+                &bullet;
+                <a href="../doc/man/">All man pages</a>
+              </li>
+              <li>
+                <a id="search"></a>
+                &bullet; Search the man pages:
+                <form method="get" action="https://google.com/search">
+                  <p class="input-field inline">
+                    <input type="text" name="q" size="30" maxlength="255" value=""/>
+                    <input type="hidden" name="as_q" value="site:fai-project.org/doc/man/"/>
+                    <input type="submit" name="btnG" value="Search" class="btn grey"/>
+                  </p>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h4>The FAI wiki</h4>
+            <ul>
+              <li>
+                &bullet;
+                <a href="https://wiki.fai-project.org">https://wiki.fai-project.org</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h4>A FAI blog</h4>
+            <ul>
+              <li>
+                <a href="https://blog.fai-project.org">https://blog.fai-project.org</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h4>
+              <a href="/talks">Talks about FAI</a>
+            </h4>
+          </div>
+        </div>
+
       </div>
+    </main>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
-
-<h1>FAI guide</h1>
-
-<ul>
-<li> FAI Guide <a href="/fai-guide.text">ASCII</a>, <a
-href="/fai-guide.pdf">PDF</a>, <a
-href="/fai-guide.ps.gz">Postscript</a>, <a
-href="/fai-guide/">HTML</a>
-</li>
-<li>
-<a id=search></a>
-Search in the FAI guide:
- <form METHOD="get" ACTION="http://google.com/search"><p>
-  <input type="text"   name="q" size="30" maxlength="255" value=""/>
-  <input type="hidden" name="as_q" value="site:fai-project.org/fai-guide/"/>
-  <input type="submit" name="btnG" value="Search" />
-</p>
- </form>
-</li>
-<li> List of <a href="http://wiki.fai-project.org/index.php/Variables">important variables</a> inside FAI</li>
-</ul>
-
-<p>
-
-<h1>The manual pages</h1>
-<ul>
-<li> <a href="../doc/man/">All man pages
-<li>
-<a id=search></a>
-Search the man pages:
- <form METHOD="get" ACTION="http://google.com/search"><p>
-  <input type="text"   name="q" size="30" maxlength="255" value=""/>
-  <input type="hidden" name="as_q" value="site:fai-project.org/doc/man/"/>
-  <input type="submit" name="btnG" value="Search" />
-</p>
- </form>
-</li>
-</ul>
-
-<p>
-
-<h1>The FAI wiki</h1>
-<ul>
-<li> <a href="http://wiki.fai-project.org">http://wiki.fai-project.org</a>
-</ul>
-
-<h1>A FAI blog</h1>
-<ul>
-<li> <a href="http://blog.fai-project.org">http://blog.fai-project.org</a>
-</ul>
-
-<p>&nbsp <p>
-
-<h1> <a href="/talks">Talks about FAI</a></h1>
-      </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
-</html>
