@@ -53,7 +53,7 @@ or
 <li> The packages are signed with the gpg key of Thomas Lange. Two ways of getting the gpg key in your apt configuration
 
   <pre>gpg -a --recv-keys 2BF8D9FE074BCDE4; gpg -a --export 2BF8D9FE074BCDE4 | apt-key add -</pre>
-  <pre>wget -O - https://fai-project.org/download/2BF8D9FE074BCDE4.asc | sudo apt-key add -</pre>
+  <pre>wget -O fai-project.gpg https://fai-project.org/download/2BF8D9FE074BCDE4.gpg; sudo cp fai-project.gpg /etc/apt/trusted.gpg.d/</pre>
 
 <p>
 
@@ -78,16 +78,15 @@ and put this into the basefiles subdirectory.
 
 
 <br>
-Old official packages:
+Official packages:
 <p>
 <div class="featurebox"><h3>
 <pre>
-deb http://archive.ubuntu.com/ubuntu/ xenial universe
+deb http://archive.ubuntu.com/ubuntu/ bionic universe
 </pre>
 </h3></div>
 
-<a href="https://launchpad.net/~fai/+archive/ppa">PPA</a> containing
-FAI 5.3 and older versions:
+See also this <a href="https://launchpad.net/~fai/+archive/ppa">PPA</a>
 
 <!--
  or the
@@ -96,12 +95,14 @@ and
 <a href="https://launchpad.net/ubuntu/+source/fai">list</a> of FAI packages in Ubuntu releases.
 -->
 
+<!--
 <p>
 <div class="featurebox"><h3>
 <pre>
 deb http://ppa.launchpad.net/fai/ppa/ubuntu wily main
 </pre>
 </h3></div>
+-->
 
 <p>
 
