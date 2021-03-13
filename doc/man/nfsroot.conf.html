@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
+<!-- CreationDate: Sat Mar 13 13:06:49 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -144,6 +144,14 @@ FAI_FLAGS=&quot;sshd&quot;. Example:</p>
 <p style="margin-left:22%;">Directory of hooks to be
 sourced at the end of fai-make-nfsroot, i.e. they have to be
 shell scripts.</p>
+
+<p style="margin-left:11%;"><b>NFSROOT_SERVER</b></p>
+
+<p style="margin-left:22%;">IP address of the NFS server
+for the rootfs if not on the DHCP server. This is only used
+by fai-chboot to work around dracut&rsquo;s DHCP handling
+which prefers the DHCP server&rsquo;s IP address above all
+other DHCP options.</p>
 
 
 <p style="margin-left:11%;"><b>FAI_DEBOOTSTRAP_OPTS</b></p>

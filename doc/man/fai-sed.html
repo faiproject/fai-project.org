@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:32 2020 -->
+<!-- CreationDate: Sat Mar 13 13:06:49 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,6 +23,7 @@
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
 <a href="#EXAMPLES">EXAMPLES</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 <a href="#AUTHOR">AUTHOR</a><br>
@@ -52,13 +53,45 @@ CMD FILE</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Execute a sed
-command, CMD, on FILE but do not overwrite the file if
-nothing changes. If $target is defined, use it as prefix for
-the path to FILE.</p>
+script - here called CMD - on FILE but do not overwrite the
+file if nothing changes. If $target is defined, use it as
+prefix for the path to FILE.</p>
 
-<p style="margin-left:11%; margin-top: 1em">The exit code
-is 0 if no changes were done, 1 if the file was changed and
-exit codes greater 1 indicate errors.</p>
+<p style="margin-left:11%; margin-top: 1em">The exit status
+0 indicates success. A nonzero value indicates failure.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-E</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">If fai-sed changed the file exit
+with 9 instead of 0.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Dry run. Print if file would have changed, but do not
+change it.</p></td></tr>
+</table>
 
 <h2>EXAMPLES
 <a name="EXAMPLES"></a>

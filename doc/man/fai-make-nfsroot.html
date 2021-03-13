@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
+<!-- CreationDate: Sat Mar 13 13:06:50 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -93,6 +93,12 @@ password.</p> </td></tr>
 base.tgz (or base.tar.gz, base.tar.xz, base.txz) for the
 nfsroot. This avoids calling debootstrap and therefore
 reduces the buildtime for the nfsroot.</p>
+
+<p style="margin-left:11%;"><b>-c, --class</b>
+<i>CLASS</i>[,<i>CLASS</i>]</p>
+
+<p style="margin-left:22%;">Add these classes to the
+internal list of classes. This is usually not necessary.</p>
 
 <p style="margin-left:11%;"><b>-C CFDIR</b></p>
 
@@ -285,9 +291,9 @@ fai-make-nfsroot.</p>
 <p style="margin-left:11%;"><i>/etc/fai/nfsroot-hooks/</i></p>
 
 <p style="margin-left:22%;">Directory containing shell
-scripts to be sourced at the end of fai-make-nfsroot for
-additional configuration of the nfsroot. Can be changed with
-NFSROOT_HOOKS.</p>
+scripts (using LSB namespaces) to be sourced at the end of
+fai-make-nfsroot for additional configuration of the
+nfsroot. Can be changed with NFSROOT_HOOKS.</p>
 
 
 <p style="margin-left:11%;"><i>/etc/fai/apt/sources.list</i></p>
