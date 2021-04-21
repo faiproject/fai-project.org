@@ -92,7 +92,7 @@
         </div>
 
         <div class="row">
-          <div class="col s12">
+          <div class="col s10">
             <h4>The new autodiscover function of FAI 5.0</h4>
             <div class="carousel carouselAutodiscover carousel-slider center" data-indicators="true">
               <div class="carousel-fixed-item center middle-indicator">
@@ -131,7 +131,7 @@
         </div>
 
         <div class="row">
-          <div class="col s12">
+          <div class="col s10">
             <h4>A slideshow of an installation via CD</h4>
             <div class="carousel carouselInstallation carousel-slider center" data-indicators="true">
               <div class="carousel-fixed-item center middle-indicator">
@@ -163,7 +163,7 @@
                 <img class="responsive-img" alt="FAI installation" src="/pics/installation/105.png"/>
               </div>
               <div class="carousel-item" href="#six!">
-                <img class="responsive-img" alt="FAI installation" src="/pics/installation/106.png"/>
+                <img class="" alt="FAI installation" src="/pics/installation/106.png"/>
               </div>
               <div class="carousel-item" href="#seven!">
                 <img class="responsive-img" alt="FAI installation" src="/pics/installation/107.png"/>
@@ -246,7 +246,7 @@
       M.AutoInit();
     </script>
     <script>
-      $('.carousel.carousel-slider').carousel({fullWidth: true, indicators: true});
+      $('.carousel.carousel-slider').carousel({fullWidth: true, indicators: true, duration: 100,});
 
       // move next carousel (autodiscover)
       $('.moveNextAutodiscoverCarousel').click(function (e) {
@@ -273,6 +273,7 @@
         e.stopPropagation();
         $('.carouselInstallation').carousel('prev');
       });
+
     </script>
   </body>
 </html>
