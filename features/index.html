@@ -1,99 +1,240 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <title>FAI - Fully Automatic Installation</title>
-      <meta name="Title" content="FAI - Features" />
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Import sidenav.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
+    <style>
+      li {
+        margin-top: 0.8em;
+      }
+    </style>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
-      </div>
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <h4>What is FAI? Main Features</h4>
+          <ul>
+            <li>
+              <span class="valign-wrapper">
+                <i class="material-icons">done</i>&nbsp;<span>
+                  A tool for automated unattended installation. Lazy system administrators like it.
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Remote network installation of different Linux flavors</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Easy-to-use centralized management system for your Linux deployment.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      FAI profiles extend the FAI class concept</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      FAI shows a curses based menu for selecting a profile</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      It's fast. It only takes a few minutes for a complete installation.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Scalable. FAI users manage their computer infrastructures starting from a few computers up to several thousands of machines.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Easy creation of customized Linux installation media like CD, DVD or USB stick</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Autodiscover of the FAI install server when doing a network installation</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Different hardware and different configuration requirements are easy to establish using FAI. You do not need to repeat information that is shared among several machines.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Using the FAI class concept, you can group a bunch of similar machines.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Installation targets: desktops, servers, notebooks, Beowulf cluster, rendering or web server farm, Linux laboratory or classroom.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Linux rollout, mass installation and automated server provisioning are additional topics of FAI.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      FAI is lightweight. No special daemons are running, no database setup is needed.<br>It's architecture independent, since it consists only of shell, Perl and Cfengine scripts.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Besides initial installations, it is also used for daily maintenance.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Creating customized chroot environments, also cross-architecture for e.g. for embedded devices</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Building your own disk image for cloud instances, also cross-architecture</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Cloning machines using disk images is supported</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Also bare-metal provisioning and deploying virtual machines is supported</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      Compared to tools like kickstart or cobbler for Red Hat, autoyast for SUSE or Jumpstart for SUN Solaris, FAI is much more flexible.<br>You can tune every small part of your configuration to your local needs using hooks.</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      More technical information in the
+                      <a href=/poster>flyer and poster</a></span></span>
+                </li>
+              </ul>
+            </div>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+            <div class="row">
+              <h4>Other projects using FAI</h4>
+              <ul>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      <a href="https://wiki.debian.org/DebianLAN">DebianLAN</a></span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      <a href="http://openqrm.org/">OpenQRM</a></span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      <a href="https://qlustar.com/">Qlustar</a>. The Qlustar Installer CD is a customized FAI-CD</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      <a href="https://www.fusiondirectory.org/">FusionDirectory</a>
+                      is a fork of GOsa</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">done</i>&nbsp;<span>
+                      <a href="https://oss.gonicus.de/labs/gosa/">GOsa</a></span></span>
+                </li>
+              </ul>
+            </div>
 
-<a name="description"></a>
-<h1>What is FAI? Main Features</h1>
-<ul>
-<li> A tool for automated unattended installation. Lazy system administrators like it.
-<li> Remote network installation of different Linux flavors
-<li> Easy-to-use centralized management system for your Linux deployment.
-<li> FAI profiles extend the FAI class concept
-<li> FAI shows a curses based menu for selecting a profile
-<li> It's fast. It only takes a few minutes for a complete installation.
-<li> Scalable. FAI users manage their computer infrastructures starting
- from a few computers up to several thousands of machines.
-<li> Easy creation of customized Linux installation media like CD, DVD or USB stick
-<li> Autodiscover of the FAI install server when doing a network installation
-<li> Different hardware and different configuration requirements are easy to
-establish using FAI. <br>You do not need to repeat information that is shared
-among several machines.
-<li> Using the FAI class concept, you can group a bunch of similar machines.
-<li> Installation targets: desktops, servers, notebooks, Beowulf cluster, rendering or web server farm, Linux laboratory or classroom.
-<li> Linux rollout, mass installation and automated server provisioning are additional topics of FAI.
-<li> FAI is lightweight. No special daemons are running, no database setup
-is needed.<br>It's architecture independent, since it consists
-only of shell, Perl and Cfengine scripts.
-<li> Besides initial installations, it is also used for daily maintenance.
-<li> Creating customized chroot environments, also cross-architecture
-for e.g. for embedded devices
-<li> Building your own disk image for cloud instances, also cross-architecture
-<li> Cloning machines using disk images is supported
-<li> Also bare-metal provisioning and deploying virtual machines is supported
-<li> Compared to tools like kickstart or cobbler for Red Hat, autoyast for SUSE or
-Jumpstart for SUN Solaris, FAI is much more flexible.<br>You can tune every
-small part of your configuration to your local needs using hooks.
-<li> More technical information in the <a href=/poster>flyer and poster</a>
-</ul>
+            <div class="row">
+              <h4>FAI Installation Steps</h4>
+              <ul>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Network boot via PXE</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Receive configuration data via HTTP, NFS, svn or git</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Run scripts to determine FAI classes and variables</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Partition local hard disks and create RAID, LVM configuration and the file systems</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Install and configure software packages</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Customize OS and software to your local needs</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      Reboot freshly installed machine</span></span>
+                </li>
+                <li>
+                  <span class="valign-wrapper">
+                    <i class="material-icons">arrow_forward</i>&nbsp;<span>
+                      All this can also be done via an unattended CD installation</span></span>
+                </li>
+              </ul>
+            </div>
 
-<p>
+            <div class="row">
+              <h4>FAI History</h4>
+              FAI is rock-solid. It's now more than 16 years old. FAI was started in 1999 at the University of Cologne, when
+              <a href="https://cs.uni-koeln.de/ls-juenger/people/lange">Thomas</a>
+              had to organize an installation of a Linux cluster. Today, FAI is regularly used in
+              <a href="/reports/">varying environments</a>, ranging from a dozen machines up to several thousands machines.
+            </div>
+          </div>
+        </main>
 
-<h1>Other projects using FAI</h1>
-<ul>
-<li> <a href="https://wiki.debian.org/DebianLAN">DebianLAN</a>
-<li> <a href="http://openqrm.org/">OpenQRM</a>
-<li> <a href="https://qlustar.com/">Qlustar</a>. The Qlustar Installer
-CD is a customized FAI-CD
-<li> <a href="https://www.fusiondirectory.org/">FusionDirectory</a> is
-a fork of GOsa
-<li> <a href="https://oss.gonicus.de/labs/gosa/">GOsa</a>
-</ul>
-<p>
-
-<h1>FAI Installation Steps</h1>
-<UL>
-<li> Network boot via PXE
-<li> Receive configuration data via HTTP, NFS, svn or git
-<li> Run scripts to determine FAI classes and variables
-<li> Partition local hard disks and create RAID, LVM configuration and the file systems
-<li> Install and configure software packages
-<li> Customize OS and software to your local needs
-<li> Reboot freshly installed machine
-<li> All this can also be done via an unattended CD installation
-</ul>
-
-<h1>FAI History</h1>
-FAI is rock-solid. It's now more than 16 years old. FAI was started in 1999 at
-the University of Cologne, when
-<a href="https://cs.uni-koeln.de/ls-juenger/people/lange">Thomas</a> had to
-organize an installation of a Linux cluster. Today, FAI is regularly used in <a href="/reports/">varying environments</a>,
-ranging from a dozen machines up to several thousands machines.
-<p>
-      </div>
-    </div>
-  <div id="footer"></div>
-  </div>
-  </body>
-</html>
+        <footer class="page-footer grey darken-3">
+          <!--#include virtual="/footer.html" -->
+        </footer>
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="/js/materialize.js"></script>
+        <script>
+          M.AutoInit();
+        </script>
+      </body>
