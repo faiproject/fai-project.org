@@ -3,8 +3,8 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="Title" content="FAI.me - build you own customized installation image" />
-		<title>FAI.me - build you own customized installation image</title>
+		<meta name="Title" content="FAI.me - build your own custom ISO" />
+		<title>FAI.me - build your own custom ISO</title>
 		<link rel="stylesheet" href="/css/main.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 		<!--[if lte IE 6]>
@@ -32,9 +32,11 @@
 			<div id="content">
 				<!-- removed breadcrumb -->
 
-				<h1> FAI.me. Build your own installation media or a <a href="cloud">cloud image</a></h1>
-				This installation image will automatically install the OS and
-				applications onto the computer. No network connection is needed, since
+				<h1> FAI.me. Build your own customized
+				ISO or a <a href="cloud">cloud image</a></h1>
+				This image will do an unattended
+				installation of the OS and the
+				selected applications. No network connection is needed, since
 				all packages are on the installation media. You can burn this image
 				onto a CD/DVD or write it to an USB
 				stick. Legacy BIOS and UEFI are supported.<p><b>All data on the first disk will be
@@ -89,7 +91,7 @@
 
 					<label for="repo">Add one public available Debian package repository:
 						<input size="14" id="repo" name="repo" /> Only http(s) is allowed.
-Examples:<p> <tt>http://download.proxmox.com/debian/pve buster pve-no-subscription</tt>
+<p> Examples:<p>  <tt>http://download.proxmox.com/debian/pve buster pve-no-subscription</tt>
 					  <br>
 					    <tt>https://download.docker.com/linux/debian buster stable</tt>
 					</label>
@@ -124,7 +126,7 @@ Examples:<p> <tt>http://download.proxmox.com/debian/pve buster pve-no-subscripti
 					<span style="padding:0px !important;">
 						<input type="checkbox" name="cl1" value="BACKPORTS" /> Enable
 						backports including
-						newer kernel (not for testing)</span>
+						newer kernel (only for stable)</span>
 
 					</p>
 					<p>
