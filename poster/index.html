@@ -1,56 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <meta name="Title" content="FAI - Poster" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Import sidenav.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <h4>FAI poster and flyer</h4>
+        <div class="row">
+
+          <div class="col s12 m6">
+            <a href="/poster/flyer-de.pdf">
+              <figure>
+                <img alt="flyer german" src="flyer-de-thumb.png" border="0">
+                <figcaption>FAI flyer, german version</figcaption>
+              </figure>
+            </a>
+
+            <a href="/poster/flyer-en.pdf">
+              <figure>
+                <img alt="flyer english" src="flyer-en-thumb.png" border="0">
+                <figcaption>FAI flyer, english version</figcaption>
+              </figure>
+            </a>
+
+          </div>
+
+          <div class="col s12 m6">
+            <a href="/poster/poster.pdf">
+              <figure>
+                <img alt="poster thumb" src="poster-thumb.png">
+                <figcaption>FAI poster</figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
       </div>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+    </main>
 
-<h1>FAI poster and flyer</h1>
-
-<table>
-<tr> <td width="300">
-<div>
-<a href="/poster/flyer-de.pdf"><img alt="flyer german" src="flyer-de-thumb.png" border="0" ></a>
-<p>
-<b>FAI flyer, german version</b>
-<hr />
-<a href="/poster/flyer-en.pdf"><img alt="flyer english" src="flyer-en-thumb.png" border="0"></a>
-<p>
-<b>FAI flyer, english version</b>
-</div>
-</td><td width="270"><div>
-<a href="/poster/poster.pdf"><img alt="poster thumb" src="poster-thumb.png" border="0" ></a>
-<b>FAI poster</b>
-</div>
-</td></tr>
-</table>
-
-<p>
-      </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
