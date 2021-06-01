@@ -35,7 +35,7 @@
 				<h1> FAI.me. Build your own customized
 				ISO or a <a href="cloud">cloud image</a></h1>
 				This image will do an unattended
-				installation of the OS and the
+				installation of Debian and the
 				selected applications. No network connection is needed, since
 				all packages are on the installation media. You can burn this image
 				onto a CD/DVD or write it to an USB
@@ -156,18 +156,11 @@
 					<textarea rows="2" cols="30" name="addpkgs"></textarea> Separate with
 					spaces, multiple names on one line are fine
 
-					<p>      <label for="email">Email (optional):
-						<input size="14" id="email" name="email" /> You will be informed when the image generation is finished </label>
-					</p>
-					<ul>
-						<li>For the keyboard layout we assume Generic 105-key PC</li>
-						<li>To change the keyboard layout call <code>dpkg-reconfigure
-								keyboard-configuration</code></li>
-						<li>The timezone will be set to UTC. To change the timezone call <code>dpkg-reconfigure tzdata</code></li>
-						<li>You should change the user and root password after installation</li>
-					</ul>
 
-	  <div id="adv3" style="display: none;" >
+	  <p><div id="adv3" style="display: none;" >
+	    <label for="postinst">Custom script put into /usr/local/bin/ : <input size="2"	id="postinst" type="file" accept=".sh,.sh.gz" name="postinst" style="margin-right: -50px"/>
+	      <input type="checkbox" name="rclocal" value="1" checked /> Execute this script during first boot
+	    </label>
 
      <label for="cmdline">Grub options (optional): <input size="20"
      id="cmdline" name="cmdline" /> Will be used during installation
@@ -187,6 +180,17 @@
 	  </div>
 	  <p>
 
+					<p>      <label for="email">Email (optional):
+						<input size="14" id="email" name="email" /> You will be informed when the image generation is finished </label>
+					</p>
+
+					<ul>
+						<li>For the keyboard layout we assume Generic 105-key PC</li>
+						<li>To change the keyboard layout call <code>dpkg-reconfigure
+								keyboard-configuration</code></li>
+						<li>The timezone will be set to UTC. To change the timezone call <code>dpkg-reconfigure tzdata</code></li>
+						<li>You should change the user and root password after installation</li>
+					</ul>
 
 	    <button name="sbm" value="0">Create installation image</button> &emsp;&emsp;&emsp;<button id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
 
