@@ -43,7 +43,7 @@ with any virtual machine. It's running a 64bit Debian Linux.
 
 
 <span style="display: inline-block">
-<label for="disksize">Disk size in Gbytes (<=50): <input size=1 id="disksize"
+<label for="disksize">Disk size in Gbytes (<=99): <input size=1 id="disksize"
  name="disksize"  type="text" value="5" maxlength="2" style="margin-right: 20px" required /> </label></span>
 <select name="format" >
             <option value="raw.xz" > raw.xz</option>
@@ -101,6 +101,7 @@ password will be generated </label>
 
 <select name="suite" >
                   <option value="bullseye">Debian "bullseye" (stable) </option>
+                  <option value="bookworm">Debian "bookworm" (testing) </option>
                   <option value="buster">Debian 10 "buster" (oldstable) </option>
       </select> Select a distribution
 &ensp; &ensp;
