@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      .prevImg {
+        position: fixed;
+        top: 50%;
+        left: 15%;
+      }
+      .nextImg {
+        position: fixed;
+        top: 50%;
+        left: 80%;
+      }
+      .prevNextText {
+        font-size: 4.2rem;
+      }
+      div.prevNextText {
+        color: red !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+              <a onclick="plusDivs(-1)" class="prevImg prevNextText">
+                <i class="material-icons prevNextText">chevron_left</i>
+              </a>
+
+              <a onclick="plusDivs(+1)" class="nextImg prevNextText">
+                <i class="material-icons prevNextText">chevron_right</i>
+              </a>
+
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/101.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/102.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/103.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/104.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/105.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/106.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/107.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/108.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/109.png"/>
+            <img class="responsive-img mySlides" alt="FAI installation" src="/pics/installation/110.png"/>
+
+            <!--<button class="btn middle-indicator" onclick="plusDivs(-1)">&#10094;</button> <button class="btn middle-indicator right" onclick="plusDivs(+1)">&#10095;</button>-->
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+          slideIndex = 1
+        }
+        if (n < 1) {
+          slideIndex = x.length
+        };
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+      }
+    </script>
+  </body>
+</html>

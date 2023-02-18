@@ -1,170 +1,163 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <meta name="Title" content="FAI - CD" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Import sidenav-compact.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <h4 class="col s12">FAI CD: The Easy Way to Start With FAI</h4>
+
+          <div class="col s12 valign-wrapper">
+            <div class="col m5 s12 valign">
+              <a href="faicd64-large_5.10.3.iso" class="waves-effect waves-light btn orange black-text">
+                <i class="material-icons left">download</i>FAI ISO large (1.2GB)</a>
+            </div>
+            <p class="col m7 s12">
+              The default image. Includes all packages for XFCE and GNOME but only the basefiles for CentOS 8 and Ubuntu 20.04
+            </p>
+          </div>
+
+          <div class="col s12 valign-wrapper">
+            <div class="col m5 s12 valign">
+              <a href="faicd64-small_5.10.3.iso" class="waves-effect waves-light btn orange black-text">
+                <i class="material-icons left">download</i>FAI ISO small (674MB)</a>
+            </div>
+            <p class="col m7 s12">
+              Only the XFCE packages are included. Other packages and basefiles are downloaded from the internet.
+            </p>
+          </div>
+
+          <div class="col s12 valign-wrapper">
+            <div class="col m5 s12 valign">
+              <a href="faicd64-ubuntu-only_5.10.3.iso" class="waves-effect waves-light btn orange black-text">
+                <i class="material-icons left">download</i>FAI ISO Ubuntu (1.3GB)</a>
+            </div>
+            <p class="col m7 s12">
+              This image only installs Ubuntu 20.04 LTS. All packages are included.
+            </p>
+          </div>
+
+          <div class="col s12 valign-wrapper">
+            <div class="col m5 s12 valign">
+              <a href="faicd64-autodiscover_5.10.3.iso" class="waves-effect waves-light btn orange black-text">
+                <i class="material-icons left">download</i>Autodiscover CD (38MB)</a>
+            </div>
+            <p class="col m7 s12">
+              Boot only image which autodiscovers the FAI server.
+            </p>
+          </div>
+
+          <p class="col s12">
+            All installation images use Debian 11 aka bullseye, FAI 5.10.3, kernel 5.10, amd64 architecture,
+            <a href="sha256sums.asc">sha256sum.asc</a>
+            of the ISO's. The can boot from CD/DVD or USB stick with legacy BIOS or UEFI.
+          </p>
+
+          <p class="col s12 center">
+            <b>If none of the ISOs fit your needs, use the
+              <a href="/FAIme">FAI.ME build service</a>.
+            </b>
+            This also supports Debian 10 with a backports kernel.</p>
+
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h5>FAI on a USB stick</h5>
+            You can write the ISO image onto a USB stick using the command dd(1):
+            <pre>&nbsp;&nbsp;<code class="grey lighten-2">dd if=faicd64-large_5.10.3.iso of=/dev/sdx</code></pre>
+            and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h5>Short description for the FAI CD images</h5>
+            <ul>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>These installation images can install Debian 10 (XFCE and GNOME), Ubuntu 20.04 and CentOS 8, without the need of an install server</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>No network is needed and you can install the whole system from the installation media.</span></span>
+              </li>
+
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>You can set up your own FAI install server using this installation media.</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>You can select from a simple menu which distribution to install</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>After the installation the account demo with the password fai is available.</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>The root password is also fai.</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>The system will be installed to the first disk. All data on the disk will be deleted.</span></span>
+              </li>
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>All log files from the installation can be found in
+                    <tt>/var/log/fai/localhost/last/</tt></span></span>
+              </li>
+
+              <li>
+                <span class="valign-wrapper">
+                  <i class="material-icons">done</i>&nbsp;<span>Look at the fai-cd
+                    <a href="/screenshots/">slideshow!</a>
+                    Showing a complete installation from CD</span></span>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <h5>Debian Live ISO created by FAI</h5>
+
+            <a href="debian11-live-xfce.iso">Live CD</a>
+            using Debian 11 (bullseye) ,
+            <a href="https://wiki.fai-project.org/index.php/Use_nfsroot_for_diskless_clients">documentation</a>
+          </div>
+        </div>
       </div>
+    </main>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
-
-<h1>FAI CD: The Easy Way to Start With FAI</h1>
-
-<br>
-<br>
-<br>
-<span class="downloadbox-border" >
-<a href="faicd64-large_5.10.3.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO large  &nbsp; (1.2 GB) </span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-&nbsp;
-The default image. Includes all packages for XFCE and GNOME but only the basefiles
-for CentOS 8 and Ubuntu 20.04
-<p>
-<p> &nbsp;
-<p>
-
-
-<span class="downloadbox-border" >
-<a href="faicd64-small_5.10.3.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO small &nbsp; (674 MB)</span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-&nbsp;
-Only the XFCE packages are included. Other packages and
-basefiles are downloaded from the internet.
-<p>
-<p> &nbsp;
-<p>
-
-<span class="downloadbox-border" >
-<a href="faicd64-ubuntu-only_5.10.3.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO Ubuntu &nbsp; (1.3 GB)</span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-&nbsp;
-This image only installs Ubuntu 20.04 LTS. All packages are included.
-<p>
-<p> &nbsp;
-<p>
-
-
-<span class="downloadbox-border" >
-<a href="faicd64-autodiscover_5.10.3.iso" style="text-decoration: none">
-<span class="downloadbox-real" >Autodiscover CD &nbsp; (38 MB) </span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-&nbsp;
-Boot only image which autodiscovers the FAI server.
-</p>
-<br>
-
-All installation images use Debian 11 aka bullseye, FAI 5.10.3, kernel 5.10, amd64 architecture,
-<a href=sha256sums.asc>sha256sum.asc</a> of the ISO's. The can boot
-from CD/DVD or USB stick with legacy BIOS or UEFI.
-<br>
-<p style="text-align: center;">
-<b>If none of the ISOs fit your needs, use the <a href="/FAIme">FAI.ME build
-service</a></b>. This also supports Debian 10 (oldstable) with a backports kernel
-and Debian 11.
-
-<!-- prepared for buster
-
-<span class="downloadbox-border" >
-<a href="stretch-faicd64-small_5.3.4.iso" style="text-decoration: none">
-<span class="downloadbox-real" >FAI ISO small (stretch) &nbsp; (685 MB)</span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-&nbsp;
-This is the small FAI CD using Debian stretch, kernel 4.9.
-<p>
-<p> &nbsp;
-<p>
--->
-
-<h3>FAI on a USB stick</h3>
-
-You can write the ISO image onto a USB stick using the command dd(1):
-<div class="featurebox">
-<pre>dd if=faicd64-large_5.10.3.iso of=/dev/sdX</pre> </div>
-and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
-
-<HR>
-<p>
-
-<h3>Short description for the FAI CD images</h3>
-<ul>
-<li> These installation images can install Debian 11 (XFCE and GNOME),
-Ubuntu 20.04 and CentOS 8, without the need of an install server
-<li> No network is needed and you can install the whole system from
-the installation media.
-
-
-<li> You can set up your own FAI install server using this installation media.
-<li> You can select from a simple menu which distribution to install
-<li> After the installation the account demo with the password fai is available.
-<li> The root password is also fai.
-<li> The system will be installed to the first disk. All data on the disk will be deleted.
-<li> All log files from the installation can be found in <tt>/var/log/fai/localhost/last/</tt>
-<li> Look at the fai-cd <a href="/slideshow/">slideshow!</a> Showing a complete installation from CD
-<HR>
-</ul>
-</p>
-
-
-<h2> Debian Live ISO created by FAI</h2>
-
-   <p>
-&nbsp;
-    <p>
-      <span class="downloadbox-border" >
-<a href="debian11-live-xfce.iso" style="text-decoration: none">
-<span class="downloadbox-real" >Live CD  &nbsp; (550 MB) </span>
-</a>
-</span>
-&nbsp;
-&nbsp;
-using Debian 11 (bullseye), <a href="https://wiki.fai-project.org/index.php/Use_nfsroot_for_diskless_clients">documentation</a>
-
-<hr>
-<ADDRESS>
-  Sat, 17 Apr 2021 22:45:33 +0200
-</ADDRESS>
-
-
-      </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
-</html>
