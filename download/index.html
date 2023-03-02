@@ -1,35 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <meta name="Title" content="FAI - Download" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="/css/code.css" media="screen"/>
+
+    <!--Import sidenav-compact.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="http://fai-project.org">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
-      </div>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col l9 m9 s8">
 
-<h1>Package download</h1>
+        <h3>Package download</h3>
 The FAI software is divided in several packages:
-<ul>
+<ul class="col s12 browser-default">
 <li> <b>fai-server</b>: Package needed on the install server
 <li> <b>fai-client</b>: This package is needed on all hosts
 <li> <b>fai-doc</b>: The documentation
@@ -38,87 +40,75 @@ The FAI software is divided in several packages:
 <li> <b>fai-quickstart</b>: Meta package for easy setup of an install server
 </ul>
 
-<ul>
-<li> Entry for /etc/apt/sources.list and for /etc/fai/apt/sources.list:
 <p>
-<div class="featurebox"><h3>
-<pre>deb https://fai-project.org/download bullseye koeln</pre>
-</h3></div>
-or
+Entry for /etc/apt/sources.list and for /etc/fai/apt/sources.list:
 <p>
-<div class="featurebox"><h3>
-<pre>deb https://fai-project.org/download buster koeln</pre>
-</h3></div>
+<pre><code class="language-bash">
+deb https://fai-project.org/download bullseye koeln
+</code></pre>
 
-<li> The packages are signed with the gpg key of Thomas Lange. Two ways of getting the gpg key in your apt configuration
 
-  <pre>gpg -a --recv-keys 2BF8D9FE074BCDE4; gpg -a --export 2BF8D9FE074BCDE4 | apt-key add -</pre>
-  <pre>wget -O fai-project.gpg https://fai-project.org/download/2BF8D9FE074BCDE4.gpg; sudo cp fai-project.gpg /etc/apt/trusted.gpg.d/</pre>
+The packages are signed with the gpg key of Thomas Lange. Add the gpg key in your apt configuration:
 
-<p>
 
-<li> FAI packages from the official <A href=" https://fai-project.org/download/buster/">project repository</A> or
-from a <a href=http://deb.debian.org/debian/pool/main/f/fai/>Debian mirror</a>.
-</ul>
-<hr />
+<pre><code class="language-bash">
+$ wget https://fai-project.org/download/fai-project.gpg
+$ sudo cp fai-project.gpg /etc/apt/trusted.gpg.d/
+</code></pre>
 
 <p>
 
-<h1>Packages for Ubuntu</h1>
+FAI packages from the official <a href=" https://fai-project.org/download/bullseye/">project repository</A> or
+from a <a href=https://deb.debian.org/debian/pool/main/f/fai/>Debian mirror</a>.
 
-Due to a bug in Ubuntu, you cannot create an Ubuntu nfsroot! See
+<p>
+
+<h3>Packages for Ubuntu</h3>
+
+Due to a bug in Ubuntu, you cannot create an Ubuntu nfsroot. See
 <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1660587">
 https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1660587</a>.
 
 On an FAI server running Ubuntu, you must create a Debian nfsroot and also
-create an Ubuntu <a href="/download/basefiles">base file</a>
+download an Ubuntu <a href="/download/basefiles">base file</a>
 and put this into the basefiles subdirectory.
 
 
-
-
-<br>
-Official packages:
-<p>
-<div class="featurebox"><h3>
+<ul class="col s12 browser-default">
+<li> <a href="https://launchpad.net/ubuntu/+source/fai">Official Ubuntu packages</a></li>
+<li> <a href="https://launchpad.net/~fai/+archive/ppa">Ubuntu PPA</a>.
+<li> Sources.list entry for Ubuntu packages:
 <pre>
-deb http://archive.ubuntu.com/ubuntu/ bionic universe
+deb http://archive.ubuntu.com/ubuntu/ jammy universe
 </pre>
-</h3></div>
-
-See also this <a href="https://launchpad.net/~fai/+archive/ppa">PPA</a>
-
-<!--
- or the
-<a href="https://launchpad.net/~fai/+archive/testing/">testing PPA</a>
-and 
-<a href="https://launchpad.net/ubuntu/+source/fai">list</a> of FAI packages in Ubuntu releases.
--->
-
-<!--
-<p>
-<div class="featurebox"><h3>
-<pre>
-deb http://ppa.launchpad.net/fai/ppa/ubuntu wily main
-</pre>
-</h3></div>
--->
-
-<p>
-
-
-
-<h1>Misc download</h1>
-<ul>
-<li> <a href="basefiles">Base files</a> are needed for Ubuntu, CentOS
-or SLC or cross architecture installations</li>
-<li> <a href="misc">Misc</a>, like tar balls of a generic nfsroot</li>
-
+</li>
 </ul>
 
+<p>
+
+<h3>Misc download</h3>
+<ul class="col s12 browser-default">
+<li> <a href="basefiles">Base files</a> are needed for Ubuntu, CentOS
+or Rocky Linux or cross architecture installations</li>
+<li> <a href="misc">Misc</a> downloads, like tar balls of a generic nfsroot</li>
+</ul>
+
+          </div>
+
+        </div>
       </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+
+    </main>
+
+
+
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
