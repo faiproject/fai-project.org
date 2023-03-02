@@ -77,11 +77,14 @@
         </div>
 
         <div class="row">
-          <div class="col s12">
+          <div class="col s10 m8">
             <h5>FAI on a USB stick</h5>
-            You can write the ISO image onto a USB stick using the command dd(1):
-            <pre>&nbsp;&nbsp;<code class="grey lighten-2">dd if=faicd64-large_5.10.3.iso of=/dev/sdx</code></pre>
-            and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf).
+            You can write the ISO image onto a USB stick using the command dd(1) and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf):
+
+<pre><code>
+dd if=faicd64-large_5.10.3.iso of=/dev/sdx
+</code></pre>
+
           </div>
         </div>
 
