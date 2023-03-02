@@ -48,13 +48,13 @@ cl4   PRINTSERVER
 <pre>
 partition    ONE|ONE_LVM|HOME|HOME_LVM
 desktop      &lt;empty&gt;|LXDE|KDE|MATE|CINNAMON|XFCE|GNOME
-keyboard     gb|us|fr|de|pl|pt|ru|es|tr|cn|tw|hi|ja
-suite        stretch|buster
+keyboard     gb|us|fr|de|it|pl|pt|ru|es|tr|cn|tw|hi|fi|ja
+suite        buster|bullseye|bookworm
 type	     install|cloud
 </pre>
 <h6>Variables used only when type=cloud</h6>
 <pre>
-disksize     int <=50
+disksize     int <= 100
 format       raw.xz|raw.zst|qcow2|vdi|vhdx|vmdk
 hostname     string
 </pre>
