@@ -1,48 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <title>FAI - Roadmap</title>
-      <meta name="Title" content="FAI - Roadmap" />
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen"/>
+
+    <!--Import sidenav-compact.css-->
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"/>
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
-      </div>
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+
 
 <a name=description></a>
-<h1>Roadmap for FAI</h1>
+<h3>Roadmap for FAI</h3>
 These are topics that are important for the next FAI release.
 If you have any suggestions or like to work on a topic, please get in
 contact before you start working.
 
 <br>
-<br>
-<br>
-<br>
-<h1>Topics for FAI 6.X</h1>
-<ul>
-<li> --- TODO ---
+<h3>Topics for FAI 6.X</h3>
+<ul class="col s12 browser-default">
+--- TODO ---
 <li> add Ubuntu support to FAI.me service (postponed)
 <li> relax and recover from testing and release process!
-<li> --- DONE ---
+<br>    --- DONE ---
 <li> support target release in package_config
 <li> use zstd instead of gzip
 <li> partition label and partition uuid support in setup-storage
@@ -50,7 +49,7 @@ contact before you start working.
 <li> UEFI support for fai-cd
 <li> add grub cmdline options to FAI.me service
 <li> btrfs and NVMe support for setup-storage
-<li> --- LONG TERM ---
+<br> --- LONG TERM ---
 <li> zfs support?
 <li> fai-monitor-gui: new option, remove host if everything went fine
 <li> add option -l to fai command. List status of fai. Show list of
@@ -62,9 +61,22 @@ classes, date of last fai action
   Fri, 26 Aug 2022 22:46:04 +0200
 </ADDRESS>
 
+
+
+          </div>
+
+        </div>
       </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+
+    </main>
+
+    <footer class="page-footer grey darken-3">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
