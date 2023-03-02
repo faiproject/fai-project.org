@@ -7,6 +7,15 @@
     url(/css/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+    local('MaterialIconsRound-Regular'),
+    url(/css/MaterialIconsRound-Regular.otf) format('truetype');
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
