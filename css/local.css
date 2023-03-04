@@ -50,3 +50,10 @@ pre code {
     -moz-border-radius: 14px;
     border-radius: 14px;
 }
+
+.fai-btn {
+  background-color:  #ff9800;
+}
+.fai-btn:hover {
+  background-color: #CC6600;
+}
