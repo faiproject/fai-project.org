@@ -1,0 +1,150 @@
+	    <!-- Keyboard/Language Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Language and keyboard layout
+	      </p>
+	      <div class="input-field col s12 m6">
+		<select class="browser-default" name="keyboard">
+		  <option value="gb">English UK</option>
+		  <option value="us" selected="selected">English US</option>
+                  <option value="fi">Finnish / Suomi</option>
+		  <option value="fr">French / Français</option>
+		  <option value="de">German / Deutsch</option>
+		  <option value="pl">Polish / Polski</option>
+		  <option value="pt">Portuguese / Português</option>
+		  <option value="ru">Russian / Pу́сский</option>
+		  <option value="es">Spanish / Español</option>
+		  <option value="tr">Turkish / Türkçe</option>
+		  <option value="cn">Chinese (Simplified) /中文(简体)</option>
+		  <option value="tw">Chinese (Traditional) / 中文(繁體)</option>
+		  <option value="hi">Hindi / हिन्दी</option>
+		  <option value="ja">Japanese / 日本語</option>
+		</select>
+	      </div>
+	    </div>
+
+	    <!-- Distribution Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Distribution
+	      </p>
+	      <div class="col s12 m6">
+		<div class="input-field">
+		  <select class="browser-default" name="suite" selected="bullseye">
+		    <option value="buster">Debian 10 buster (oldstable)
+		    </option>
+		    <option value="bullseye">Debian 11 bullseye (stable)
+		    </option>
+		    <option value="bookworm">Debian 12 bookworm (testing)
+		    </option>
+		  </select>
+		</div>
+		<label>
+		  <input type="checkbox" class="filled-in" name="cl1" value="BACKPORTS"/>
+		  <span>Enable backports including newer kernel</span>
+		</label>
+	      </div>
+	    </div>
+
+	    <!-- Desktop Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+                <br>
+		Which desktop to install
+	      </p>
+              <br>
+	      <div class="col s12 m6 input-field">
+		<select class="browser-default" name="desktop">
+		  <option value="">Plain text console, no X11</option>
+		  <option value="XFCE">XFCE desktop</option>
+		  <option value="LXDE">LXDE desktop</option>
+		  <option value="LXQT">LXQT desktop</option>
+		  <option value="GNOME" selected="selected">GNOME desktop</option>
+		  <option value="KDE">KDE desktop</option>
+		  <option value="MATE">MATE desktop</option>
+		  <option value="CINNAMON">CINNAMON desktop</option>
+		</select>
+	      </div>
+	    </div>
+
+	    <!-- Additional Software Checkboxes -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Select additional software
+	      </p>
+	      <ul class="col s12 m6">
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl2" value="DEBIAN_DEVEL"/>
+		    <span>Debian developer tools</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl3" value="WEBSERVER"/>
+		    <span>Web server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl4" value="PRINTSERVER"/>
+		    <span>Print server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl5" value="SSH_SERVER" checked="checked"/>
+		    <span>Openssh server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl6" value="STANDARD" checked="checked"/>
+		    <span>Standard system tools</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl7" value="NONFREE" checked="checked"/>
+		    <span>Non-free Linux firmware</span>
+		  </label>
+		</li>
+	      </ul>
+	    </div>
+
+	    <!-- addpkgs -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Add packages to be installed
+	      </p>
+	      <div class="col s12 m6 input-field">
+		<textarea name="addpkgs" class="materialize-textarea"></textarea>
+		<span class="helper-text">Separate with spaces, multiple names on one line are fine</span>
+	      </div>
+	    </div>
+
+	    <!-- Optional Email input -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Email (optional)
+	      </p>
+	      <div class="col s12 m6 input-field">
+		<input id="email" type="email" class="validate" name="email"/>
+		<span class="helper-text" data-error="Invalid input" data-success="You will be informed when the image generation is finished">You will be informed when the image generation is finished</span>
+	      </div>
+	    </div>
+
+	    <div class="col s12 m10">
+	      <div class="col s12">
+		<ul class="browser-default">
+		  <li>You should change the user and root password after installation</li>
+		  <li>For the keyboard layout we assume Generic 105-key PC</li>
+		  <li>To change the keyboard layout call
+		    <code>dpkg-reconfigure keyboard-configuration</code>
+		  </li>
+		  <li>The timezone will be set to UTC. To change the timezone call
+		    <code>dpkg-reconfigure tzdata</code>
+		  </li>
+		</ul>
+	      </div>
+	    </div>
