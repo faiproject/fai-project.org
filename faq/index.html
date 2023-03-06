@@ -1,44 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen">
+
+    <!-- Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
-      </div>
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m10">
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
+<h3>Frequently Asked Questions (FAQ)</h3>
 
-<h1>Frequently Asked Questions (FAQ)</h1>
+<p>
+  <br>
 
-
-<a name="download"></a>
-<h2>Which repository do I have to use to get FAI for jessie/...?</h2>
+    <a id="download"></a>
+<h4>Which repository do I have to use to get FAI for jessie/...?</h4>
 
 <p>If you want to deploy Debian <strong>jessie</strong> the entry for
 /etc/apt/sources.list and for /etc/fai/apt/sources.list should contain:</p>
 
-<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<div class="featurebox"><h5>
 <pre>
 deb http://fai-project.org/download jessie koeln
-</pre></h3></div>
+</pre></h5></div>
 
 This is the default setup, which uses the same distribution for the
 server itself and the nfsroot. But you can also mix distributions
@@ -46,14 +45,14 @@ versions, for e.g. using a server running wheezy and create a jessie
 nfsroot on this server. The distribution you want to deploy on your
 clients is also independent from those defined here.
 
-<a name="ubuntu"></a>
-<h2>Is FAI available for Ubuntu?</h2>
+<a id="ubuntu"></a>
+<h4>Is FAI available for Ubuntu?</h4>
 
 <p>Yes, please visit <a href="https://launchpad.net/~fai/+archive/ppa">the PPA
   for Ubuntu FAI webpage</a> for details.</p>
 
-<a name="kernel"></a>
-<h2>I need a more recent hardware support/kernel version</h2>
+<a id="kernel"></a>
+<h4>I need a more recent hardware support/kernel version</h4>
 
 <p>FAI by default uses the same kernel version as present in Debian.  Depending
 on the time-frame since the last Debian release this kernel might not support
@@ -63,16 +62,16 @@ provides Debian packages of recent kernel versions which can be used within FAI,
 just following <a href="https://wiki.fai-project.org/index.php/Grml_Kernel">the
   instructions from the Grml_Kernel page in the wiki</a>.</p>
 
-<a name="dash"></a>
-<h2>I get strange errors like 'ifclass: not found' during execution</h2>
+<a id="dash"></a>
+<h4>I get strange errors like 'ifclass: not found' during execution</h4>
 
 <p>Debian supports /bin/dash as interpreter for /bin/sh. FAI uses bash scripts
 which aren't supported by dash. If you notice errors like 'ifclass: not found'
 during execution of FAI make sure to use '#!/bin/bash' as shebang line in your
 scripts instead of '#!/bin/sh'.</p>
 
-<a name="two_dhcp_servers"></a>
-<h2>Using two DHCP daemons in the same subnet</h2>
+<a id="two_dhcp_servers"></a>
+<h4>Using two DHCP daemons in the same subnet</h4>
 
 <p>If you have two DHCP daemons in the subnet of your FAI infrastructure,
 and one uses the option <em>allow unknown-clients</em> you are in trouble,
@@ -92,16 +91,16 @@ controlled by B), you can instruct DHCP daemon A to ignore those clients.
 For each install client you add a line into DHCPd.conf (of DHCP A) like
 this:</p>
 
-<div class="featurebox"><h3> <!-- brrrrrr, this is dirty, Thomas!-->
+<div class="featurebox">
 <pre>
 host demohost {hardware ethernet 00:42:23:11:be:af;ignore booting;}
-</pre></h3></div>
+</pre></h5></div>
 
 <p>That's it. If demohost does a PXE boot, DHCP A will ignore it, and
 DHCP B can answer the request.</p>
 
-<a name="bugreports"></a>
-<h2>Where should I report bugreports?</h2>
+<a id="bugreports"></a>
+<h4>Where should I report bugreports?</h4>
 
 <p>Please report bugs against the according FAI Debian package (fai-client,
 fai-server,...) using <a href="https://wiki.debian.org/reportbug">reportbug</a>
@@ -110,14 +109,27 @@ to <a
 If you do not know how to use reportbug please write a mail to the <a
   href="/mailinglist/">linux-fai mailinglist</a>.</p>
 
+<br>
 <hr>
+
 <address>
 Mon, 14 Mar 2016 16:57:40 +0100
 </address>
 
+
+          </div>
+        </div>
       </div>
-    </div>
-  <div id="footer"></div>
-  </div>
+
+    </main>
+
+    <footer class="page-footer white">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
