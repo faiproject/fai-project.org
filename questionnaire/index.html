@@ -1,36 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <title>FAI - Fully Automatic Installation</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-	  <!--[if lte IE 6]>
-	  <link rel="stylesheet" type="text/css" href="/css/ie6_or_less.css" />
-	  <![endif]-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen">
+
+    <!-- Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>FAI - Fully Automatic Installation</title>
   </head>
 
-  <body id="type-b">
-    <div id="wrap">
-      <div id="header">
-	<div id="site-name">
-	  <a href="/">FAI - Fully Automatic Installation</a>
-	</div>
-<!-- removed header-menu-unused.htm -->
-      </div>
+  <body>
+    <header>
+      <!--#include virtual="/header.html" -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6">
 
-<!--#include virtual="/menu.html" -->
-      <div id="content">
-<!-- removed breadcrumb -->
-
-<h1>FAI questionnaire</h1>
+    <h3>FAI questionnaire</h3>
 
 <p>
 I'm very interested in your experiences with fai, bug reports, new ideas,...
-<br />
+<br>
 Please send this questionnaire to &nbsp;  fai @=@ fai-project.org<br />
 All replies to this questionnaire are available at
 <a href="https://fai-project.org/reports">https://fai-project.org/reports</a>
@@ -40,10 +37,10 @@ Thanks in advance Thomas
 ----------------------------------------------------------------
 last edited: november 18, 2019
 
-Are you using the FAI.me build service? 
-How many hosts have you installed using fai? 
-Which version of fai are you using? 
-Which version are you using as your install kernel? 
+Are you using the FAI.me build service?
+How many hosts have you installed using fai?
+Which version of fai are you using?
+Which version are you using as your install kernel?
       (eg.: plain Debian kernel)
       (eg.: custom build kernel 2.6)
 
@@ -60,7 +57,7 @@ Which drivers are missing?
 
 Do you manage your configuration space under version control?
 
-How big is your config space (Mbytes, # of files)? 
+How big is your config space (Mbytes, # of files)?
 cd <to your config space> (/srv/fai/config by default)
 du -sh --exclude=.svn --exclude=.git --exclude=basefiles
 find ! -type d | grep -v svn|grep -v cvs|fgrep -v .git|wc -l
@@ -77,7 +74,7 @@ You can also add some words, how you are using FAI in your company.
 Additional comments:
 
 
-Do you have some nice pictures of your installation? 
+Do you have some nice pictures of your installation?
 
 I would like to mention your name or email address and your company's
 name on the FAI web page where I like to collect all questionnaires of
@@ -91,10 +88,21 @@ May I publish the logo of your company?
 May I publish your pictures?
 ----------------------------------------------------------------
 </pre>
-<p>
 
+
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+
+    </main>
+
+    <footer class="page-footer white">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>
