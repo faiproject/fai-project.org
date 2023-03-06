@@ -62,7 +62,7 @@
 	  <form action="../cgi/faime.cgi" method="post" enctype="multipart/form-data">
 
 	    <p>
-	      <input type="hidden" name="type" value="install"/>
+	      <input type="hidden" name="type" value="install">
 	    </p>
 
             <!--#include virtual="user_name_pw.html" -->
@@ -90,7 +90,7 @@
 		  Add one public available Debian package repository
 		</p>
 		<div class="col s12 m6 input-field">
-		  <input type="text" id="repo" name="repo"/>
+		  <input type="text" id="repo" name="repo">
 		  <span class="helper-text">
 		    Only http(s) is allowed. Examples:
 		    <br>
@@ -112,7 +112,7 @@
 		  Custom script to put into /usr/local/bin/
 		</p>
                 <div class="col s12 m6 input-field">
-                  <label for="postinst"> <input size="2"      id="postinst" type="file" accept=".sh,.sh.gz" name="postinst" style="margin-right: -50px"/>
+                  <label for="postinst"> <input size="2"      id="postinst" type="file" accept=".sh,.sh.gz" name="postinst" style="margin-right: -50px">
                   </label>
 		</div>
 	      </div>
@@ -123,7 +123,7 @@
 
                 <div class="col s12 m6 input-field">
 		  <label>
-                    <input type="checkbox" class="filled-in" name="rclocal" value="1" checked />
+                    <input type="checkbox" class="filled-in" name="rclocal" value="1" checked >
                     <span> </span>
 
                   </label>
@@ -136,7 +136,7 @@
 		  Grub options (optional)
 		</p>
 		<div class="col s12 m6 input-field">
-		  <input type="text" id="cmdline" name="cmdline"/>
+		  <input type="text" id="cmdline" name="cmdline">
 		  <span class="helper-text">Will be used during installation and for the new system</span>
 		</div>
 	      </div>
@@ -145,17 +145,17 @@
 
 		<div class="col s12 m12">
 		  <label>
-		    <input class="with-gap" type="radio" name="cl8" value="REBOOT"/>
+		    <input class="with-gap" type="radio" name="cl8" value="REBOOT">
 		    <span>reboot computer after installation</span>
 		  </label>
                   <br>
 		  <label>
-		    <input class="with-gap" type="radio" name="cl8" value="HALT"/>
+		    <input class="with-gap" type="radio" name="cl8" value="HALT">
 		    <span>shutdown the computer at the end</span>
 		  </label>
                   <br>
 		  <label>
-		    <input class="with-gap" type="radio" name="cl8" value="" checked="checked"/>
+		    <input class="with-gap" type="radio" name="cl8" value="" checked="checked">
 		    <span>wait to press Return at the end.</span>
 		  </label>
 
