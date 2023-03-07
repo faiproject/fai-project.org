@@ -2,7 +2,6 @@
 This can be included instead of sidenav.css for compact sidenav layout
 */
 
-footer,
 main {
   padding-left: 100px;
 }
@@ -10,6 +9,8 @@ main {
 .sidenav {
   top: 75px;
   width: 220px;
+  height: 728px;
+  padding-bottom: 0px;
 }
 .sidenav li {
   line-height: 30px;
