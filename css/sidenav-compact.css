@@ -8,9 +8,8 @@ main {
 }
 
 .sidenav {
-  top: 65px;
+  top: 75px;
   width: 220px;
-
 }
 .sidenav li {
   line-height: 30px;
