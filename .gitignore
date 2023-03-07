@@ -11,11 +11,11 @@ pictures
 *.jpg
 *.mp3
 *.mp4
-fai-cd
-!fai-cd/index.html
+fai-cd/*.iso
+fai-cd/sha256sums*
 download
-videos
 !download/index.html
+videos
 logs
 pics
 fai-guide
