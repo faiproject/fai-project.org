@@ -1,3 +1,23 @@
+fai (6.0) unstable; urgency=low
+
+  * enhance disk_config format for partition label support
+  * support partition labels and partition uuids in fstab
+  * support for Alpine Linux and Arch Linux package managers
+  * use zstd instead of gzip
+  * add support for release specification in PACKAGES line
+    via release=<name>
+  * fai-chboot: variable substitution for $IP and $HOST when coping a
+    template
+  * all customization scripts now write to scripts.log. The old
+    behaviour can be enable by setting $FAI_USE_OLD_SCRIPT_LOGS
+  * drop support of .asc signatures of your repository, use .gpg
+    instead
+  * add support for NVme devices in fai-kvm
+  * rename CENTOS classes to ROCKY
+  * add ssh key for root remote access using classes
+
+ -- Thomas Lange <lange@debian.org>  Sun, 13 Nov 2022 00:17:41 +0100
+
 fai (5.10) unstable; urgency=low
 
   * fai-sed: change exit value if file was changed, add options -E, -n
