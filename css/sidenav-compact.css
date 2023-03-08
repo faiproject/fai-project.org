@@ -6,6 +6,9 @@ main {
   padding-left: 100px;
 }
 
+.nav-wrapper {
+  line-height: 56px;
+}
 .sidenav {
   top: 75px;
   width: 220px;
