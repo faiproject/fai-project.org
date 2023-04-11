@@ -1,0 +1,119 @@
+	    <!-- Keyboard/Language Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Language and keyboard layout
+	      </p>
+	      <div class="input-field col s12 m6">
+		<select class="browser-default" name="keyboard">
+		  <option value="gb">English UK</option>
+		  <option value="us" selected="selected">English US</option>
+                  <option value="fi">Finnish / Suomi</option>
+		  <option value="fr">French / Français</option>
+		  <option value="de">German / Deutsch</option>
+		  <option value="pl">Polish / Polski</option>
+		  <option value="pt">Portuguese / Português</option>
+		  <option value="ru">Russian / Pу́сский</option>
+		  <option value="es">Spanish / Español</option>
+		  <option value="tr">Turkish / Türkçe</option>
+		  <option value="cn">Chinese (Simplified) /中文(简体)</option>
+		  <option value="tw">Chinese (Traditional) / 中文(繁體)</option>
+		  <option value="hi">Hindi / हिन्दी</option>
+		  <option value="ja">Japanese / 日本語</option>
+		</select>
+	      </div>
+	    </div>
+
+	    <!-- Distribution Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Distribution
+	      </p>
+	      <div class="col s12 m6">
+		<div class="input-field">
+		  <select class="browser-default" name="suite">
+		    <option value="ubuntu" selected="selected">Ubuntu LTS 22.04
+		    </option>
+		  </select>
+		</div>
+		<label>
+		  <input type="checkbox" class="filled-in" name="cl1" value="HWE">
+		  <span>Enable Ubuntu LTS Hardware Enablement Stack (HWE)</span>
+		</label>
+	      </div>
+	    </div>
+
+	    <!-- Desktop Select -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+                <br>
+		Which desktop to install
+	      </p>
+              <br>
+	      <div class="col s12 m6 input-field">
+		<select class="browser-default" name="desktop">
+		  <option value="">Ubuntu Server</option>
+		  <option value="XORG" selected="selected">Ubuntu Desktop</option>
+		</select>
+	      </div>
+	    </div>
+
+	    <!-- Additional Software Checkboxes -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Select additional software
+	      </p>
+	      <ul class="col s12 m6">
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl2" value="DEBIAN_DEVEL">
+		    <span>Debian developer tools</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl3" value="WEBSERVER">
+		    <span>Web server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl4" value="PRINTSERVER">
+		    <span>Print server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl5" value="SSH_SERVER" checked="checked">
+		    <span>Openssh server</span>
+		  </label>
+		</li>
+		<li>
+		  <label>
+		    <input type="checkbox" class="filled-in" name="cl6" value="STANDARD" checked="checked">
+		    <span>Standard system tools</span>
+		  </label>
+		</li>
+	      </ul>
+	    </div>
+
+	    <!-- addpkgs -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Add packages to be installed
+	      </p>
+	      <div class="col s12 m6 input-field">
+		<textarea name="addpkgs" class="materialize-textarea"></textarea>
+		<span class="helper-text">Separate with spaces, multiple names on one line are fine</span>
+	      </div>
+	    </div>
+
+	    <!-- Optional Email input -->
+	    <div class="col s12 m10">
+	      <p class="col s12 m4">
+		Email (optional)
+	      </p>
+	      <div class="col s12 m6 input-field">
+		<input id="email" type="email" class="validate" name="email">
+		<span class="helper-text" data-error="Invalid input" data-success="You will be informed when the image generation is finished">You will be informed when the image generation is finished</span>
+	      </div>
+	    </div>

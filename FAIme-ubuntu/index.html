@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/css/local.css" media="screen">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>FAI.me - build your own custom ISO</title>
+    <style>
+      .input-field {
+	  margin-top: 0;
+      }
+      select {
+          border: 1px solid #000000
+      }
+      select:focus {
+          outline: none
+      }
+      label {
+          color: #000000
+      }
+      .input-field .helper-text {
+          color: #000000
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!--#include virtual="/sidenav.html" -->
+    </header>
+    <main>
+      <div class="container">
+	<!-- Top text -->
+	<div class="row">
+	  <div class="col s12">
+	    <h5>
+	      FAI.me. Build your own installation ISO for <b>Ubuntu</b>
+	    </h5>
+            <h6>
+              <ul class="browser-default">
+                <li><a href="../FAIme">Debian version</a><p></li>
+                <li><a href="../FAIme/cloud">Cloud images</a></li>
+              </ul>
+            </h6>
+
+	    <div class="divider"></div>
+	    <p>
+              This image will do an unattended installation of Ubuntu
+              and the selected applications. No network connection is needed, since all packages are on the installation media. You can write this image to an USB stick or CD. Legacy
+	      BIOS and UEFI are supported.
+	      <br>
+	      <b>All data on the first disk will be overridden without any further confirmation.</b>
+	    </p>
+
+	    <p>
+	      <a href="#" onclick="toggle_all()">Toggle</a>
+	      between basic/advanced settings
+	    </p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <form action="../cgi/faime.cgi" method="post" enctype="multipart/form-data">
+
+	    <p>
+	      <input type="hidden" name="type" value="install">
+	    </p>
+
+            <!--#include virtual="user_name_pw.html" -->
+
+	    <div id="adv" style="display: none;">
+
+              <!--#include virtual="root.html" -->
+
+	      <div class="col s12 m10">
+		<p class="col s12 m4">
+		  Disk partitioning scheme
+		</p>
+		<div class="col s12 m6 input-field">
+		  <select class="browser-default" name="partition">
+		    <option value="ONE">One partition</option>
+		    <option value="ONE_LVM">One partition using LVM</option>
+		    <option value="HOME">Partition for /home</option>
+		    <option value="HOME_LVM">Partition for /home using LVM</option>
+		  </select>
+		</div>
+	      </div>
+
+	      <div class="col s12 m10">
+		<p class="col s12 m4">
+		  Add one public available package repository
+		</p>
+		<div class="col s12 m6 input-field">
+		  <input type="text" id="repo" name="repo">
+		  <span class="helper-text">
+		    Only http(s) is allowed. Examples:
+		    <br>
+		    http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+		    <br>
+		    https://download.docker.com/linux/debian bullseye stable
+		  </span>
+		</div>
+	      </div>
+
+	    </div>
+
+            <!--#include virtual="key-distr-desk-pkgs.html" -->
+
+	    <div id="adv3" style="display: none;">
+
+	      <div class="col s12 m10">
+		<p class="col s12 m4">
+		  Custom script to put into /usr/local/bin/
+		</p>
+                <div class="col s12 m6 input-field">
+                  <label for="postinst"> <input size="2"      id="postinst" type="file" accept=".sh,.sh.gz" name="postinst" style="margin-right: -50px">
+                  </label>
+		</div>
+	      </div>
+	      <div class="col s12 m10">
+		<p class="col s12 m4">
+                  Execute this script during first boot
+		</p>
+
+                <div class="col s12 m6 input-field">
+		  <label>
+                    <input type="checkbox" class="filled-in" name="rclocal" value="1" checked >
+                    <span> </span>
+
+                  </label>
+		</div>
+	      </div>
+
+
+	      <div class="col s12 m10">
+		<p class="col s12 m4">
+		  Grub options (optional)
+		</p>
+		<div class="col s12 m6 input-field">
+		  <input type="text" id="cmdline" name="cmdline">
+		  <span class="helper-text">Will be used during installation and for the new system</span>
+		</div>
+	      </div>
+
+	      <div class="col s12 m10">
+
+		<div class="col s12 m12">
+		  <label>
+		    <input class="with-gap" type="radio" name="cl8" value="REBOOT">
+		    <span>reboot computer after installation</span>
+		  </label>
+                  <br>
+		  <label>
+		    <input class="with-gap" type="radio" name="cl8" value="HALT">
+		    <span>shutdown the computer at the end</span>
+		  </label>
+                  <br>
+		  <label>
+		    <input class="with-gap" type="radio" name="cl8" value="" checked="checked">
+		    <span>wait to press Return at the end.</span>
+		  </label>
+
+		</div>
+	      </div>
+
+	    </div>
+
+            <!--#include virtual="hints.html" -->
+
+	    <div class="col s12 m8">
+	      <br>
+	      <button class="btn fai-btn" name="sbm" value="0">Create installation image</button>
+	      <button class="btn fai-btn" id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
+	    </div>
+
+	  </form>
+	</div>
+	<div class="row">
+	  <div class="col s12">
+	    <b>Any feedback is welcome. Send an email to FAI.me =at= fai-project.org</b>
+	  </div>
+	</div>
+
+      </div>
+      <!-- Container End -->
+    </main>
+
+    <footer class="page-footer white">
+      <!--#include virtual="/footer.html" -->
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/js/materialize.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
+    <script>
+    <!--
+      function toggle_visibility(id) {
+	  var e = document.getElementById(id);
+	  if (e.style.display == 'none')
+	      e.style.display = 'inline';
+	  else
+	      e.style.display = 'none';
+      }
+
+      function toggle_all() {
+          toggle_visibility('adv');
+          toggle_visibility('adv2');
+          toggle_visibility('adv3');
+      }
+      //-->
+    </script>
+  </body>
+</html>
