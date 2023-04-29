@@ -9,21 +9,47 @@
 	      </div>
 
 	      <div class="col s12 m10">
-		<p class="col s12 m4">
-		  Upload SSH keys for the root account
+		<p class="col s12 m6">
+                  Upload SSH keys for the root account.<br> Upload a file,
+		  use an username for github, gitlab or Debian gitlab or
+		  specify a custom download URL.
 		</p>
-		<div class="col s12 m6 input-field">
+
+	      <div class="col s12 m12">
 		    <input id="rootkey" type="file" accept=".pub" name="rootkey" style="margin-top: 1rem;">
 		  <br>
-		</div>
-	      </div>
+		  <br>
 
-	      <div class="col s12 m10">
+		  <label>
+		    <input class="with-gap" type="radio" name="gittype" value="github" >
+		    <span>GitHub user name</span>
+		  </label>
+                  <br>
+		  <label>
+		    <input class="with-gap" type="radio" name="gittype" value="gitlab">
+		    <span>GitLab.com user name</span>
+		  </label>
+                  <br>
+		  <label>
+		    <input class="with-gap" type="radio" name="gittype" value="salsa">
+		    <span>salsa.debian.org user name</span>
+		  </label>
+                  <br>
+		  <label>
+		    <input class="with-gap" type="radio" name="gittype" value="user">
+		    <span>Custom URL for ssh public keys (e.g. https://yourdomain.org/bob-ssh.keys)</span>
+		  </label>
+
+              </div>
+            </div>
+
+            <div class="col s12 m10">
 		<p class="col s12 m4">
-		  Github username
+		  Git user name or custom URL
 		</p>
 		<div class="col s12 m6 input-field">
-		  <input type="text" name="github" id="github">
-		  <span class="helper-text">You can also import your SSH keys from Github</span>
+		  <input type="text" name="gituser" id="gituser">
+                  <br>
+                  <br>
 		</div>
 	      </div>
