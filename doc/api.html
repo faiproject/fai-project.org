@@ -33,7 +33,8 @@ username
 userpw
 rootpw
 addpkgs      list of packages space separated
-github       github user for ssh root access
+gittype      one of github, gitlab, salsa, user (means a custom URL)
+gituser      user name for gittype public ssh key for root access or a custom URL
 repo         same format as in sources.list
 </pre>
 <h6>String variables with two values (undefined or the uppercase string listed here)</h6>
@@ -41,14 +42,14 @@ repo         same format as in sources.list
 cl1   BACKPORTS              cl5   SSH_SERVER
 cl2   DEBIAN_DEVEL           cl6   STANDARD
 cl3   WEBSERVER              cl7   NONFREE
-cl4   PRINTSERVER
+cl4   PRINTSERVER            cl8   HALT|REBOOT|&lt;empty&gt;
 </pre>
 <h6>Select menues define these variables:</h6>
 <pre>
 partition    ONE|ONE_LVM|HOME|HOME_LVM
-desktop      &lt;empty&gt;|LXDE|KDE|MATE|CINNAMON|XFCE|GNOME
+desktop      &lt;empty&gt;|LXDE|KDE|MATE|CINNAMON|XFCE|GNOME|XORG
 keyboard     gb|us|fr|de|it|pl|pt|ru|es|tr|cn|tw|hi|fi|ja
-suite        buster|bullseye|bookworm
+suite        buster|bullseye|bookworm|ubuntu
 type	     install|cloud
 </pre>
 <h6>Variables used only when type=cloud</h6>
@@ -62,7 +63,7 @@ hostname     string
 <pre>
 https://fai-project.org/cgi/faime.cgi?type=install;username=debian;partition=ONE;keyboard=us;suite=stretch;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
 
-https://fai-project.org/cgi/faime.cgi?type=install;username=debian;userpw=fai;github=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=you%40yourmailserver.org;sbm=2
+https://fai-project.org/cgi/faime.cgi?type=install;username=debian;userpw=fai;gittype=salsa;gituser=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=you%40yourmailserver.org;sbm=2
 
 https://fai-project.org/cgi/faime.cgi?type=cloud;disksize=5;format=raw.zst;hostname=debian;rootpw=fai;username=debian;userpw=fai;keyboard=us;suite=buster;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=zile;sbm=2
 </pre>
