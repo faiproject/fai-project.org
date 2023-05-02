@@ -52,6 +52,10 @@ keyboard     gb|us|fr|de|it|pl|pt|ru|es|tr|cn|tw|hi|fi|ja
 suite        buster|bullseye|bookworm|ubuntu
 type	     install|cloud
 </pre>
+
+XORG is only usefull with suite=ubuntu, which means an Ubuntu desktop
+installation. Without XORG it will be a Ubuntu server installation.
+
 <h6>Variables used only when type=cloud</h6>
 <pre>
 disksize     int &le; 99
@@ -61,11 +65,13 @@ hostname     string
 
 <h6>Examples of URL's</h6>
 <pre>
-https://fai-project.org/cgi/faime.cgi?type=install;username=debian;partition=ONE;keyboard=us;suite=stretch;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
+https://fai-project.org/cgi/faime.cgi?type=install;username=debian;partition=ONE;keyboard=us;suite=bullseye;cl1=BACKPORTS;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;sbm=2
 
-https://fai-project.org/cgi/faime.cgi?type=install;username=debian;userpw=fai;gittype=salsa;gituser=mrfai;partition=HOME_LVM;keyboard=de;suite=buster;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=you%40yourmailserver.org;sbm=2
+https://fai-project.org/cgi/faime.cgi?type=install;username=debian;userpw=fai;gittype=salsa;gituser=mrfai;partition=HOME_LVM;keyboard=de;suite=bookworm;desktop=XFCE;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=mc%20gimp;email=you%40yourmailserver.org;sbm=2
 
-https://fai-project.org/cgi/faime.cgi?type=cloud;disksize=5;format=raw.zst;hostname=debian;rootpw=fai;username=debian;userpw=fai;keyboard=us;suite=buster;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=zile;sbm=2
+https://fai-project.org/cgi/faime.cgi?type=cloud;disksize=8;format=raw.zst;hostname=debian;rootpw=fai;username=debian;userpw=fai;keyboard=us;suite=bookworm;cl5=SSH_SERVER;cl6=STANDARD;cl7=NONFREE;addpkgs=zile;sbm=2
+
+https://fai-project.org/cgi/faime.cgi?type=install;username=ubuntu;userpw=fai;gittype=github;gituser=mrfai;partition=HOME_LVM;keyboard=us;suite=ubuntu;desktop=XORG;cl5=SSH_SERVER;cl6=STANDARD;addpkgs=zile%20mc%20curl;rclocal=1;sbm=2"
 </pre>
 
 
