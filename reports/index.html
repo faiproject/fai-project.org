@@ -34,6 +34,60 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <hr>
 <div>
 
+
+
+<b>From:</b> Henning Glawe, first.gla..@@mpsd@dot@mpg de
+<br><b>Date:</b> Sun, 28 May 2023 12:44:28 +0200
+<pre>
+How many hosts have you installed using fai? <b>173</b>
+Which version of fai are you using? <b>5.10.3</b>
+Which version are you using as your install kernel? 5.10.0-15-amd64
+
+Which types of hosts are you installing with fai?
+    desktops: 1
+    laptops: 57
+    buildbot workers (CI for https://octopus-code.org, amd64 and ppc64el, some with nVidia GPGPU): 32
+    HPC nodes (amd64, some with nVidia Tesla nVlink): 43
+    Proxmox hypervisors: 3 active + 1 standby
+    NAT routers: 1
+    Syslog/monitoring servers: 2
+    File/backup servers: 10
+    web servers/buildbot masters: 6
+
+How do you boot your hosts?
+    via network (PXE, DHCP): almost all hosts
+    exceptions: ppc64el setup via D-I + fai softupdate
+
+Does the default install kernel recognize all your hardware? yes
+Which drivers are missing? none
+Do you manage your configuration space under version control? yes, in git.
+How big is your config space (Mbytes, # of files)? 7.2M
+How many files do you have in ../config/files? 341
+
+What types of scripts are you using for local customization? bash, perl, python
+
+<b>What is the business of your company/organisation?</b> Science/Research, <a href="http://www.mpsd.mpg.de">Max Planck Institute for the Structure and Dynamics of Matter</a>
+
+<br><b>Additional comments:</b>
+Using FAI for all Linux installs for all servers and theory department laptops.
+FAI softupdate is run frequently to update client configuration and package configuration.
+Using both single-host ``ssh root@client fai softupdate`` and
+fai-updater (<a href="https://github.com/glaweh/fai-updater">https://github.com/glaweh/fai-updater</a>) to broadcast fai softupdates.
+
+<a href="pictures/fai-updater.png"><img alt="FAI updater" src="pictures/fai-updater.png" width=400></a>&nbsp;<a href="pictures/fai-updater-with-log.png"><img alt="FAI updater with log" src="pictures/fai-updater-with-log.png" width=400></a>
+</pre> <HR>
+
+
+> What is the business of your company/organization (please add name and link)?
+
+> You can also add some words, how you are using FAI in your company.
+
+
+> Do you have some nice pictures of your installation?
+Pictures of hardware would be pretty boring, maybe you could include the attached
+fai-updater screenshots.
+
+
 <b>From:</b> anonymous
 <br><b>Date:</b> Wed, 11 May 2022 19:20:07 +0000
 <pre>
