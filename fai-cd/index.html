@@ -24,28 +24,29 @@
 
           <div class="col s12 m10 valign-wrapper">
             <div class="col m5 s12 valign">
-              <a href="faicd64-large_6.0.iso" class="waves-effect waves-light btn fai-btn black-text">
-                <i class="material-icons left">download</i>FAI ISO large (1.3GB)</a>
+              <a href="faicd64-large_6.0.3.iso" class="waves-effect waves-light btn fai-btn black-text">
+                <i class="material-icons left">download</i>FAI ISO large (1.8GB)</a>
             </div>
             <p class="col m7 s12">
-              The default image. Includes all packages for XFCE and GNOME but only the basefiles for Rocky Linux 9 and Ubuntu 22.04
+              The default image. Includes all packages for the XFCE
+              and GNOME desktop but only the basefiles for Rocky Linux 9 and Ubuntu 22.04
             </p>
           </div>
 
           <div class="col s12 m10 valign-wrapper">
             <div class="col m5 s12 valign">
-              <a href="faicd64-small_6.0.iso" class="waves-effect waves-light btn fai-btn black-text">
-                <i class="material-icons left">download</i>FAI ISO small (761MB)</a>
+              <a href="faicd64-small_6.0.3.iso" class="waves-effect waves-light btn fai-btn black-text">
+                <i class="material-icons left">download</i>FAI ISO small (875MB)</a>
             </div>
             <p class="col m7 s12">
-              Only the XFCE packages are included. Other packages and basefiles are downloaded from the internet.
+              Includes packages for a stripped down XFCE desktop (without libreoffice). Other packages and basefiles are downloaded from the internet.
             </p>
           </div>
 
           <div class="col s12 m10 valign-wrapper">
             <div class="col m5 s12 valign">
-              <a href="faicd64-ubuntu-only_6.0.iso" class="waves-effect waves-light btn fai-btn black-text">
-                <i class="material-icons left">download</i>FAI ISO Ubuntu (1.6GB)</a>
+              <a href="faicd64-ubuntu-only_6.0.3.iso" class="waves-effect waves-light btn fai-btn black-text">
+                <i class="material-icons left">download</i>FAI ISO Ubuntu (1.7GB)</a>
             </div>
             <p class="col m7 s12">
               This image only installs Ubuntu 22.04 LTS. All packages are included.
@@ -54,8 +55,8 @@
 
           <div class="col s12 m10 valign-wrapper">
             <div class="col m5 s12 valign">
-              <a href="faicd64-autodiscover_6.0.iso" class="waves-effect waves-light btn fai-btn black-text">
-                <i class="material-icons left">download</i>Autodiscover CD (46MB)</a>
+              <a href="faicd64-autodiscover_6.0.3.iso" class="waves-effect waves-light btn fai-btn black-text">
+                <i class="material-icons left">download</i>Autodiscover CD (49MB)</a>
             </div>
             <p class="col m7 s12">
               Boot only image which autodiscovers the FAI server.
@@ -63,7 +64,7 @@
           </div>
 
           <p class="col s12">
-            All installation images use Debian 12 aka bookworm, FAI 6.0, kernel 6.X, amd64 architecture,
+            All installation images use Debian 12 aka bookworm, FAI 6.0.3, kernel 6.1, amd64 architecture,
             <a href="sha256sums.asc">sha256sum.asc</a>
             of the ISO's. They can boot from CD/DVD or USB stick with legacy BIOS or UEFI.
           </p>
@@ -82,7 +83,7 @@
             You can write the ISO image onto a USB stick using the command dd(1) and replace /dev/sdX with the name of your USB device (e.g. /dev/sdf):
 
 <pre><code>
-dd if=faicd64-large_6.0.iso of=/dev/sdx
+dd if=faicd64-large_6.0.3.iso of=/dev/sdx
 </code></pre>
 
           </div>
