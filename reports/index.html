@@ -34,6 +34,62 @@ Currently we have more than 300 detailed reports. Please also fill out the <a hr
 <hr>
 <div>
 
+<b>From:</b> anonymous
+<br><b>Date:</b> Fri, 01 Sep 2023 09:48:50 +0000
+<pre>
+Are you using the FAI.me build service? NO
+How many hosts have you installed using fai? more than <b>200 hundreds</b>
+Which version of fai are you using? <b>5.8.4</b>, Debian 10 default version
+Which types of hosts are you installing with fai?  servers and desktop
+
+How do you boot your hosts? FAI-CD
+Which version are you using as your install kernel? default debian kernel (buster/bullseye/bookworm)
+Does the default install kernel recognize all your hardware? no issue
+Do you manage your configuration space under version control? yes (git)
+How big is your config space (Mbytes, # of files)? Iso is around 800mb (not talking about ansible post-install)
+How many files do you have in ../config/files? 319
+
+What types of scripts are you using for local customization? shell and ansible post-install
+
+<b>What is the business of your company/organisation?</b> bank finance
+</pre> <HR>
+
+
+
+<b>From:</b> Florent
+<br><b>Date:</b> Sat, 1 Jul 2023 13:49:35 +0200
+<pre>
+
+Are you using the FAI.me build service? NO
+How many hosts have you installed using fai? <b>about 30</b> We install our development machines with the iso file we created with
+   FAI. Let's say about 30... For production only 3.
+Which version of fai are you using? <b>6.0.3</b> we use the debian bullseye packaged version.
+Which types of hosts are you installing with fai? servers
+
+How do you boot your hosts? We use FAI-CD to create an iso that we flash to a USB drive
+
+Does the default install kernel recognize all your hardware?
+  No harware problem for us, but once again we are only one seapath user
+  with our specific hardware choices
+
+Do you manage your configuration space under version control? Yes, see our <a href="https://github.com/seapath/build_debian_iso/tree/main/srv_fai_config">git repo</a>
+How big is your config space (Mbytes, # of files)? 204KB, 31 files
+How many files do you have in ../config/files? 5
+What types of scripts are you using for local customization? only basic shell
+
+<b>What is the business of your company/organisation?</b> Linux foundation project <a href="https://lfenergy.org/projects/seapath/">Seapath</a>
+<br><b>Additional comments:</b>
+Seapath uses FAI to "just" build an installation media with the needed
+software preinstalled (ceph, pacemaker, openvswitch, etc.). We do
+almost zero configuration, since we have many ansible playbooks to
+deal with that in a second step
+https://github.com/seapath/ansible/tree/debian-main.
+The only configuration we do is to add default credentials (users/ssh
+keys) and default networking, so that we can connect to the server
+directly after deployment.
+I have a <a href="https://www.youtube.com/watch?v=VrA5nVihIqQ">video tutorial about this.
+</pre> <HR>
+
 
 
 <b>From:</b> Henning Glawe, first.gla..@@mpsd@dot@mpg de
