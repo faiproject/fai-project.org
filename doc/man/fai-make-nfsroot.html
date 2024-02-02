@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat Mar 13 13:06:50 2021 -->
+<!-- CreationDate: Mon Jan 22 22:28:21 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -89,9 +89,9 @@ password.</p> </td></tr>
 
 <p style="margin-left:11%;"><b>-B BASETGZ</b></p>
 
-<p style="margin-left:22%;">Use specified BASETGZ file as
-base.tgz (or base.tar.gz, base.tar.xz, base.txz) for the
-nfsroot. This avoids calling debootstrap and therefore
+<p style="margin-left:22%;">Use specified file as base file
+(can be base.tar.zst, base.tzst , base.tar.xz, base.txz) for
+the nfsroot. This avoids calling debootstrap and therefore
 reduces the buildtime for the nfsroot.</p>
 
 <p style="margin-left:11%;"><b>-c, --class</b>
@@ -244,8 +244,8 @@ defined in /etc/fai/NFSROOT in the FULL section.</p></td></tr>
 <td width="78%">
 
 
-<p>Use gzip for compressing the base.tar file. Default is
-to use xz.</p></td></tr>
+<p>Use zstd for compressing the base.tar file which is much
+faster than xz. Default is to use xz.</p></td></tr>
 </table>
 
 <h2>NOTES
@@ -302,9 +302,9 @@ nfsroot. Can be changed with NFSROOT_HOOKS.</p>
 NFSROOT.</p>
 
 
-<p style="margin-left:11%;"><i>/etc/fai/apt/keys/*.asc</i></p>
+<p style="margin-left:11%;"><i>/etc/fai/apt/keys/*.gpg</i></p>
 
-<p style="margin-left:22%;">Repository keys in .asc format
+<p style="margin-left:22%;">Repository keys in .gpg format
 found here will be installed into the NFSROOT.</p>
 
 
@@ -319,7 +319,7 @@ values of FAI_VERSION and NFSROOT to this file.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;</p>
+&lt;lange@cs.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>

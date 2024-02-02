@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat Mar 13 13:06:49 2021 -->
+<!-- CreationDate: Mon Jan 22 22:28:20 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -70,14 +70,15 @@ defining variables.</p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>FAI_DEBOOTSTRAP</b></p>
 
-<p style="margin-left:22%;">Two parameters for
+<p style="margin-left:22%;">Two or three parameters for
 debootstrap(8), space separated. Debootstrap is called as
 the first part of fai-make-nfsroot unless -B is used. This
-variable defines SUITE and MIRROR for debootstrap.
-Example:</p>
+variable defines SUITE and MIRROR for debootstrap. The third
+parameter is the name of the bootstrap script variant to
+use. Example:</p>
 
 
-<p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP=&quot;stretch
+<p style="margin-left:22%; margin-top: 1em">FAI_DEBOOTSTRAP=&quot;bullseye
 http://deb.debian.org/debian&quot;</p>
 
 <p style="margin-left:11%;"><b>NFSROOT_ETC_HOSTS</b></p>
@@ -192,7 +193,7 @@ is https://fai-project.org.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This man page
 was written by Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;.</p>
+&lt;lange@cs.uni-koeln.de&gt;.</p>
 <hr>
 </body>
 </html>

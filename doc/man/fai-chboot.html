@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
+<!-- CreationDate: Mon Jan 22 22:28:20 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -53,7 +53,8 @@ fai-chboot</b> -e HOST... <b><br>
 fai-chboot</b> -d HOST... <b><br>
 fai-chboot</b> -c HOST|TEMPLATE HOST|TEMPLATE... <b><br>
 fai-chboot</b> -i [OPTION]... HOST... <b><br>
-fai-chboot</b> -I [OPTION]... HOST...</p>
+fai-chboot</b> -I [OPTION]... HOST... <b><br>
+fai-chboot</b> -a [ACTION]... HOST...</p>
 
 <h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
@@ -79,6 +80,12 @@ address or the keyword &quot;default&quot;.</p>
 </h2>
 
 
+<p style="margin-left:11%; margin-top: 1em"><b>-a</b>
+<i>action</i></p>
+
+<p style="margin-left:22%;">Same as -i but also sets
+FAI_ACTION.</p>
+
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
@@ -86,13 +93,13 @@ address or the keyword &quot;default&quot;.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>-B</b></p></td>
+<p><b>-B</b></p></td>
 <td width="8%"></td>
 <td width="78%">
 
 
-<p style="margin-top: 1em">Set default values for
-FAI_FLAGS. This is the same as -f verbose,sshd,reboot</p></td></tr>
+<p>Set default values for FAI_FLAGS. This is the same as -f
+verbose,sshd,reboot</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -103,9 +110,17 @@ FAI_FLAGS. This is the same as -f verbose,sshd,reboot</p></td></tr>
 <td width="78%">
 
 
-<p>Copy an existing config file to one or more hosts or
-templates and enable them for network booting.</p></td></tr>
+<p>Copy an existing config file (called template) to one or
+more hosts and enable them for network booting. fai-chboot
+performs these substitutions if you use $IP or $HOST in your
+template:</p> </td></tr>
 </table>
+
+<p style="margin-left:22%; margin-top: 1em">$IP : the IP
+address as dotted decimal</p>
+
+<p style="margin-left:22%; margin-top: 1em">$HOST : the
+assigned hostname</p>
 
 <p style="margin-left:11%;"><b>-C</b> <i>CFDIR</i></p>
 
@@ -338,7 +353,7 @@ SYSUUID=00234567-1111-2222-3333-123456789000</p>
 <td width="78%">
 
 
-<p style="margin-top: 1em">Query the absolute patch and
+<p style="margin-top: 1em">Query the absolute path and
 filename of the PXE configuration file for a host or a list
 of hosts.</p></td></tr>
 </table>
@@ -516,7 +531,7 @@ is https://fai-project.org.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;</p>
+&lt;lange@cs.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>

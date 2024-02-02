@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
+<!-- CreationDate: Mon Jan 22 22:28:21 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -60,8 +60,8 @@ creates a disk image that can be used with Qemu/KVM,
 VirtualBox, VMware, Xen, Android device or by your cloud
 infrastructure. It runs the Fully Automatic Installation
 using a list of FAI classes. In the end you have a bootable
-disk image. Following formats are supported: .raw.xz,
-.raw.zst, .qcow2, .vdi, .vhdx, .vmdk, .simg.</p>
+disk image. Following formats are supported: .raw, .raw.xz,
+.raw.zst, .qcow2, .qcow2.zst, .vdi, .vhdx, .vmdk, .simg.</p>
 
 <h2>OPTIONS
 <a name="OPTIONS"></a>
@@ -72,6 +72,11 @@ disk image. Following formats are supported: .raw.xz,
 --class</b> <i>CLASS</i>[,<i>CLASS</i>]</p>
 
 <p style="margin-left:22%;">Define list of FAI classes</p>
+
+<p style="margin-left:11%;"><b>-C CFDIR</b></p>
+
+<p style="margin-left:22%;">Use CFDIR as the configuration
+directory. Default is /etc/fai.</p>
 
 <p style="margin-left:11%;"><b>-h, --help</b></p>
 
@@ -125,24 +130,30 @@ build your fist disk image.</p>
 FAI_BASEFILEURL=https://fai-project.org/download/basefiles/
 <br>
 #
-cl=&quot;DEBIAN,STRETCH64,AMD64,FAIBASE,GRUB_PC,DHCPC,DEMO,CLOUD,LAST&quot;
+cl=&quot;DEBIAN,BOOKWORM64,AMD64,FAIBASE,GRUB_PC,DHCPC,DEMO,CLOUD,LAST&quot;
 <br>
 # fai-diskimage -vu cloud3 -S2G -c$cl cloud.raw</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 Debian system with a small set of software packages without
-graphical desktop. The disk image cloud.raw will be of size
-2 GB and the host is called cloud3.</p>
+a graphical desktop. The disk image cloud.raw will be of
+size 2 GB and the host is called cloud3.</p>
 
 <p style="margin-left:11%; margin-top: 1em"># export
 FAI_BASEFILEURL=https://fai-project.org/download/basefiles/
 <br>
-# cl=DHCPC,UBUNTU,XENIAL,XENIAL64,AMD64,XORG,LAST <br>
-# fai-diskimage -vNu ubuntu -S7G -c$cl ubuntu.qcow2</p>
+# export NIC1=ens3 <br>
+#
+cl=DEBIAN,FAIBASE,UBUNTU,JAMMY64,AMD64,GRUB_PC,DHCPC,XORG,DEMO,LAST
+<br>
+# fai-diskimage -vNu ubuntu -S15G -c$cl ubuntu.qcow2</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a disk
-image of size 7GB called ubuntu.qcow2 for a Ubuntu 16.04
-desktop.</p>
+image of size 15GB called ubuntu.qcow2 for a Ubuntu 22.04
+desktop. You have to set the variable NIC1 to the name of
+the network interface inside the environment you will run
+this disk image. Here, ens3 is the network name inside a
+KVM/QEMU virtual machine.</p>
 
 <h2>NOTES
 <a name="NOTES"></a>
@@ -153,14 +164,6 @@ desktop.</p>
 will use zerofree if it&rsquo;s available on the host for
 getting better compression of the raw images.</p>
 
-<p style="margin-left:11%; margin-top: 1em">Before creating
-an image, make sure you have the configuration space
-available. Create the config space for FAI by using the
-examples from the fai-doc package.</p>
-
-<p style="margin-left:11%; margin-top: 1em">#
-fai-mk-configspace</p>
-
 <p style="margin-left:11%; margin-top: 1em">fai-diskimage
 is not limited to creating images for virtual machines. The
 raw images can also be copied (via dd) onto a real disk for
@@ -170,8 +173,8 @@ booting bare metal hosts.</p>
 fai-diskimage in a clean shell environment by calling:</p>
 
 <p style="margin-left:11%; margin-top: 1em"># env -i
-/usr/sbin/fai-diskimage -vNu cloudhost -S5G -cSTRETCH64,GCE
-disk.raw</p>
+/usr/sbin/fai-diskimage -vNu cloudhost -S5G
+-cBOOKWORM64,CLOUD disk.raw</p>
 
 <p style="margin-left:11%; margin-top: 1em">You can also
 build cross-architecture disk images using fai-disimage. See
@@ -194,7 +197,7 @@ FAI homepage is https://fai-project.org.</p>
 
 
 <p style="margin-left:11%; margin-top: 1em">Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;</p>
+&lt;lange@cs.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>

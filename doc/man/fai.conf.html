@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:33 2020 -->
+<!-- CreationDate: Mon Jan 22 22:28:20 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -168,6 +168,28 @@ three slashes like this: file:///</p>
 
 <p style="margin-top: 1em">&bull;</p></td>
 <td width="10%"></td>
+<td width="41%">
+
+
+<p style="margin-top: 1em">Detect directory: detect://</p></td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">Check several
+places on a local storage. First check /media/data/config,
+otherwise use the default when booting an ISO
+(/var/lib/fai/config).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="10%"></td>
 <td width="78%">
 
 
@@ -271,10 +293,18 @@ the install server to save log files and call</p>
 end of an installation, <b>fai</b>(8) may connect to the
 install server using <b>FAI_LOGPROTO</b> (see below) to
 store the generated log files and to change the network boot
-configuration of the target host. To fully enable this,
-configure .rhosts and PAM such that the configured user can
-log in from all install clients without password. This
-account should have write permissions for /srv/tftp/fai. For
+configuration of the target host. By default calling
+fai-setup(8) will set up ssh access for <b>LOGUSER</b> so
+the install client can save the log files onto the
+server.</p>
+
+<p style="margin-left:22%; margin-top: 1em">This will not
+be passed onto the fai clients. To enable this on the fai
+clients check /srv/fai/config/class/FAIBASE.var to activate
+the transfer of logfiles to the server.</p>
+
+<p style="margin-left:22%; margin-top: 1em">This account
+should have write permissions for /srv/tftp/fai. For
 example, you can use write permissions for the group
 linuxadm. chgrp linuxadm /srv/tftp/fai;chmod g+w
 /srv/tftp/fai. If the variable is undefined, this feature is

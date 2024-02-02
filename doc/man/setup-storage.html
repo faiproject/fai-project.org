@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat Mar 13 13:06:50 2021 -->
+<!-- CreationDate: Mon Jan 22 22:28:21 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -291,6 +291,10 @@ FAI sources this file in scripts/GRUB_PC/10-setup. If
 encryption was configured, a proper <b>crypttab</b>(5) file
 plus key files will be generated.</p>
 
+<p style="margin-left:11%; margin-top: 1em">The output of
+setup-storage is also written to the log file
+format.log.</p>
+
 <h2>EXAMPLES
 <a name="EXAMPLES"></a>
 </h2>
@@ -300,22 +304,114 @@ plus key files will be generated.</p>
 <p style="margin-left:11%; margin-top: 1em"><b>setup-storage</b>
 configures storage devices according to a FAI disk_config
 file. The full grammar describing the syntax of these
-disk_config files is given below. First we show a number of
+disk_config files is given below. The syntax is similar to
+the structure of an fstab file. First we show a number of
 examples to give an intuition what these should look like.
 <br>
-Simple configuration of /dev/hda</p>
+Simple configuration of /dev/sda</p>
 
-<p style="margin-left:22%; margin-top: 1em">disk_config hda
-preserve_always:6,7 disklabel:msdos bootable:3</p>
+<p style="margin-left:15%; margin-top: 1em">disk_config
+disk1 disklabel:msdos bootable:3</p>
 
-<p style="margin-left:22%; margin-top: 1em">primary /boot
-20-100 ext3 rw <br>
-primary swap 1000 swap sw <br>
-primary / 12000 ext3 rw createopts=&quot;-b 2048&quot; <br>
-logical /tmp 1000 ext3 rw,nosuid <br>
-logical /usr 5000 ext3 rw <br>
-logical /var 10%- ext3 rw <br>
-logical /nobackup 0- xfs rw</p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-3%"></td>
+<td width="13%">
+
+
+<p>primary</p></td>
+<td width="10%">
+
+
+<p>/boot</p></td>
+<td width="8%">
+
+
+<p>20-100</p></td>
+<td width="8%"></td>
+<td width="7%">
+
+
+<p>ext4</p></td>
+<td width="42%">
+
+
+<p>rw</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-3%"></td>
+<td width="13%">
+
+
+<p>primary</p></td>
+<td width="10%">
+
+
+<p>swap</p></td>
+<td width="8%">
+
+
+<p>1G</p></td>
+<td width="8%"></td>
+<td width="7%">
+
+
+<p>swap</p></td>
+<td width="42%">
+
+
+<p>sw</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-3%"></td>
+<td width="13%">
+
+
+<p>primary</p></td>
+<td width="10%">
+
+
+<p>/</p></td>
+<td width="8%">
+
+
+<p>12G</p></td>
+<td width="8%"></td>
+<td width="7%">
+
+
+<p>ext4</p></td>
+<td width="42%">
+
+
+<p>rw,noatime</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-3%"></td>
+<td width="13%">
+
+
+<p>logical</p></td>
+<td width="10%">
+
+
+<p>/backup</p></td>
+<td width="8%">
+
+
+<p>10%-</p></td>
+<td width="8%"></td>
+<td width="7%">
+
+
+<p>xfs</p></td>
+<td width="42%">
+
+
+<p>rw</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -329,9 +425,11 @@ logical /nobackup 0- xfs rw</p>
 <td width="78%">
 
 
-<p>Preserve /dev/hda6 and /dev/hda7. The disklabel is msdos
-which is the default for x86. Furthermore, partition
-/dev/hda3 is made bootable.</p></td></tr>
+<p>The first disk found is going to be partitioned. FAI
+looks into /proc/partitions and sets the variable
+<i>disklist</i>. The disklabel is msdos which is the default
+for x86. Let&rsquo;s assume /dev/sda is the first disk. Then
+partition /dev/sda3 is made bootable.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -342,9 +440,9 @@ which is the default for x86. Furthermore, partition
 <td width="78%">
 
 
-<p>Create a primary partition /dev/hda1 with a size between
+<p>Create a primary partition /dev/sda1 with a size between
 20 and 100 MiB and mount it read-write as /boot; it is
-formatted using ext3 filesystem.</p></td></tr>
+formatted using ext4 filesystem.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -355,7 +453,7 @@ formatted using ext3 filesystem.</p></td></tr>
 <td width="78%">
 
 
-<p>/dev/hda2 will be a swap space of 1000 MiB</p></td></tr>
+<p>/dev/sda2 will be a swap space of 1 GiB</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -366,9 +464,7 @@ formatted using ext3 filesystem.</p></td></tr>
 <td width="78%">
 
 
-<p>/dev/hda3 should be formatted using ext3 filesystem;
-when calling mkfs.ext3 the option &quot;-b 2048&quot; is
-appended.</p> </td></tr>
+<p>/dev/sda3 should be formatted using ext4 filesystem</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -379,35 +475,134 @@ appended.</p> </td></tr>
 <td width="78%">
 
 
-<p>Create the logical partition /dev/hda5</p></td></tr>
-<tr valign="top" align="left">
-<td width="11%"></td>
-<td width="1%">
-
-
-<p>&bull;</p></td>
-<td width="10%"></td>
-<td width="78%">
-
-
-<p>Make /dev/hda7 at least 10% of the disk size</p></td></tr>
-<tr valign="top" align="left">
-<td width="11%"></td>
-<td width="1%">
-
-
-<p>&bull;</p></td>
-<td width="10%"></td>
-<td width="78%">
-
-
-<p>Use mkfs.xfs to format the partition 8</p></td></tr>
+<p>Create the logical partition /dev/sda5 (because the
+first logical partition will always become number 5) Make it
+at least 10% of the disk size. Use mkfs.xfs to format this
+partition.</p> </td></tr>
 </table>
 
-<p style="margin-left:11%;">Create a softRAID</p>
+<p style="margin-left:11%;">Create a software RAID</p>
+
+<p style="margin-left:15%; margin-top: 1em">disk_config
+sda</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%">
 
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-251251.png" alt="Image grohtml-251251.png"></p>
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="7%">
+
+
+<p>20G</p></td>
+<td width="6%"></td>
+<td width="49%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%"></td>
+<td width="15%"></td>
+<td width="7%"></td>
+<td width="6%"></td>
+<td width="49%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="7%">
+
+
+<p>4G</p></td>
+<td width="6%"></td>
+<td width="49%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%"></td>
+<td width="15%"></td>
+<td width="7%"></td>
+<td width="6%"></td>
+<td width="49%">
+
+
+<p>-</p></td></tr>
+</table>
+
+<p style="margin-left:15%; margin-top: 1em">disk_config sdb
+sameas: sda</p>
+
+<p style="margin-left:15%; margin-top: 1em">disk_config
+raid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%">
+
+
+<p>raid1</p></td>
+<td width="15%">
+
+
+<p>/</p></td>
+<td width="7%">
+
+
+<p>sda1,sdb1</p></td>
+<td width="6%"></td>
+<td width="6%">
+
+
+<p>ext4</p></td>
+<td width="43%">
+
+
+<p>rw</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="8%">
+
+
+<p>raid1</p></td>
+<td width="15%">
+
+
+<p>swap</p></td>
+<td width="7%">
+
+
+<p>sda2,sdb2</p></td>
+<td width="6%"></td>
+<td width="6%">
+
+
+<p>swap</p></td>
+<td width="43%">
+
+
+<p>sw</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -423,7 +618,7 @@ appended.</p> </td></tr>
 
 <p>Create 2 partitions of size 20 and 4 GiB, respectively,
 on disks /dev/sda and /dev/sdb. No file system or fstab
-entry will be created.</p></td></tr>
+entry will be created. on these partitions.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -435,7 +630,7 @@ entry will be created.</p></td></tr>
 
 
 <p>Create a RAID-1 on /dev/sda1 and /dev/sdb1, format using
-mkfs.ext3 and mount it as /</p></td></tr>
+mkfs.ext4 and mount it as /</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
@@ -452,8 +647,71 @@ swap space and use it as such later on.</p></td></tr>
 
 <p style="margin-left:11%;">Advanced softRAID features</p>
 
+<p style="margin-left:15%; margin-top: 1em">disk_config
+raid</p>
 
-<p align="center" style="margin-top: 1em"><img src="grohtml-251252.png" alt="Image grohtml-251252.png"></p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="7%">
+
+
+<p>raid1</p></td>
+<td width="17%">
+
+
+<p>/</p></td>
+<td width="7%"></td>
+<td width="15%"></td>
+<td width="43%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="7%"></td>
+<td width="17%">
+
+
+<p>sda1,sdd1</p></td>
+<td width="7%">
+
+
+<p>ext4</p></td>
+<td width="15%"></td>
+<td width="43%">
+
+
+<p>rw,errors=remount-ro</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="7%">
+
+
+<p>raid0</p></td>
+<td width="17%">
+
+
+<p>-</p></td>
+<td width="7%"></td>
+<td width="15%"></td>
+<td width="43%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="7%"></td>
+<td width="17%">
+
+
+<p>disk2.2,sdc1,sde1:spare:missing ext4 default</p></td>
+<td width="7%"></td>
+<td width="15%"></td>
+<td width="43%">
+</td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -501,16 +759,144 @@ up and hence the configuration can be left out.</p></td></tr>
 
 <p style="margin-left:11%;">Simple LVM example</p>
 
-<p style="margin-left:22%; margin-top: 1em">disk_config sda
-bootable:1 <br>
-primary /boot 500 ext3 rw <br>
-primary - 4096- - -</p>
+<p style="margin-left:15%; margin-top: 1em">disk_config sda
+bootable:1</p>
 
-<p style="margin-left:22%; margin-top: 1em">disk_config lvm
-<br>
-vg my_pv sda2 <br>
-my_pv_swap swap 2048 swap sw <br>
-my_pv_root / 2048 ext3 rw</p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%">
+
+
+<p>primary</p></td>
+<td width="11%"></td>
+<td width="10%"></td>
+<td width="16%">
+
+
+<p>/boot</p></td>
+<td width="15%">
+
+
+<p>500</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="22%">
+
+
+<p>rw</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="11%"></td>
+<td width="10%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="15%"></td>
+<td width="22%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%">
+
+
+<p>primary</p></td>
+<td width="11%"></td>
+<td width="10%"></td>
+<td width="16%">
+
+
+<p>-</p></td>
+<td width="15%">
+
+
+<p>4096-</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="22%">
+
+
+<p>-</p></td></tr>
+</table>
+
+<p style="margin-left:15%; margin-top: 1em">disk_config
+lvm</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="11%">
+
+
+<p>vg</p></td>
+<td width="10%">
+
+
+<p>my_pv</p></td>
+<td width="16%">
+
+
+<p>sda2</p></td>
+<td width="15%"></td>
+<td width="15%"></td>
+<td width="22%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="11%">
+
+
+<p>my_pv_swap</p></td>
+<td width="10%"></td>
+<td width="16%">
+
+
+<p>swap</p></td>
+<td width="15%">
+
+
+<p>2048</p></td>
+<td width="15%">
+
+
+<p>swap</p></td>
+<td width="22%">
+
+
+<p>sw</p></td></tr>
+<tr valign="top" align="left">
+<td width="15%"></td>
+<td width="-4%"></td>
+<td width="11%">
+
+
+<p>my_pv_root</p></td>
+<td width="10%"></td>
+<td width="16%">
+
+
+<p>/</p></td>
+<td width="15%">
+
+
+<p>2048</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="22%">
+
+
+<p>rw</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -554,27 +940,346 @@ _root.</p> </td></tr>
 <p style="margin-left:11%;">LVM on software RAID</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk1 <br>
-primary - 350 - - <br>
-primary swap 2G swap sw,pri=1 <br>
-primary - 0- - -</p>
+disk1</p>
 
-<p style="margin-left:22%; margin-top: 1em">disk_config sdb
-sameas:disk1</p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>primary</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>-</p></td>
+<td width="13%"></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>350</p></td>
+<td width="13%">
+
+
+<p>-</p></td>
+<td width="35%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>primary</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>swap</p></td>
+<td width="13%"></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>2G</p></td>
+<td width="13%">
+
+
+<p>swap</p></td>
+<td width="35%">
+
+
+<p>sw,pri=1</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>primary</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>-</p></td>
+<td width="13%"></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>0-</p></td>
+<td width="13%">
+
+
+<p>-</p></td>
+<td width="35%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-raid fstabkey:uuid <br>
-raid1 /boot disk1.1,disk2.1 ext4
-rw,noatime,errors=remount-ro <br>
-raid1 - disk1.3,disk2.3 - -</p>
+disk2 sameas:disk1</p>
+
+<p style="margin-left:22%; margin-top: 1em">disk_config
+raid fstabkey:uuid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>raid1</p></td>
+<td width="12%">
+
+
+<p>/boot</p></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%">
+
+
+<p>disk1.1,disk2.1</p></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>ext4</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>rw,noatime,errors=remount-ro</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>raid1</p></td>
+<td width="12%">
+
+
+<p>-</p></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%">
+
+
+<p>disk1.3,disk2.3</p></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config lvm
-fstabkey:uuid <br>
-vg vg_system md1 <br>
-vg_system-root / 8G ext4 rw,noatime <br>
-vg_system-var /var 20G ext4 rw,noatime <br>
-vg_system-home /home 10G ext4 rw,noatime,nosuid,nodev <br>
-vg_system-tmp /tmp 30G ext4 rw,noatime,nosuid,nodev</p>
+fstabkey:uuid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>vg</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>vg_system</p></td>
+<td width="13%">
+
+
+<p>md1</p></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>vg_system-root</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>/</p></td>
+<td width="13%">
+
+
+<p>8G</p></td>
+<td width="35%">
+
+
+<p>ext4</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>rw,noatime</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>vg_system-var</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>/var</p></td>
+<td width="13%">
+
+
+<p>20G</p></td>
+<td width="35%">
+
+
+<p>ext4</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>rw,noatime</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>vg_system-home</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>/home</p></td>
+<td width="13%">
+
+
+<p>10G</p></td>
+<td width="35%">
+
+
+<p>ext4</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>rw,noatime,nosuid,nodev</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%">
+
+
+<p>vg_system-tmp</p></td>
+<td width="12%"></td>
+<td width="12%">
+
+
+<p>/tmp</p></td>
+<td width="13%">
+
+
+<p>30G</p></td>
+<td width="35%">
+
+
+<p>ext4</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="10%"></td>
+<td width="12%"></td>
+<td width="12%"></td>
+<td width="13%"></td>
+<td width="35%">
+
+
+<p>rw,noatime,nosuid,nodev</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -626,19 +1331,203 @@ initrd generator.</p>
 <p style="margin-left:11%;">Crypt example</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-/dev/sdb <br>
-primary / 21750 ext3 defaults,errors=remount-ro <br>
-primary /boot 250 ext3 defaults <br>
-logical - 4000 - - <br>
-logical - 2000 - - <br>
-logical - 10- - -</p>
+/dev/sdb</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/</p></td>
+<td width="16%">
+
+
+<p>21750</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="23%">
+
+
+<p>defaults,errors=remount-ro</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/boot</p></td>
+<td width="16%">
+
+
+<p>250</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="23%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>4000</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>2000</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>10-</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-cryptsetup <br>
-swap swap /dev/sdb5 swap defaults <br>
-tmp /tmp /dev/sdb6 ext2 defaults <br>
-luks /local00 /dev/sdb7 ext3 defaults,errors=remount-ro
-createopts=&quot;-m 0&quot;</p>
+cryptsetup</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>swap</p></td>
+<td width="15%">
+
+
+<p>swap</p></td>
+<td width="16%">
+
+
+<p>/dev/sdb5</p></td>
+<td width="15%">
+
+
+<p>swap</p></td>
+<td width="23%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>tmp</p></td>
+<td width="15%">
+
+
+<p>/tmp</p></td>
+<td width="16%">
+
+
+<p>/dev/sdb6</p></td>
+<td width="15%">
+
+
+<p>ext2</p></td>
+<td width="23%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>luks</p></td>
+<td width="15%">
+
+
+<p>/local00</p></td>
+<td width="16%">
+
+
+<p>/dev/sdb7</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="23%">
+
+
+<p>defaults,errors=remount-ro createopts=&quot;-m
+0&quot;</p> </td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -711,33 +1600,230 @@ underlying physical device (PV) in LVM.</p></td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-cryptsetup <br>
-luks - /dev/md1 - -</p>
+cryptsetup</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-11%"></td>
+<td width="11%"></td>
+<td width="10%">
+
+
+<p>luks</p></td>
+<td width="11%"></td>
+<td width="57%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-11%"></td>
+<td width="11%"></td>
+<td width="10%">
+
+
+<p>-</p></td>
+<td width="11%"></td>
+<td width="57%">
+
+
+<p>/dev/md1</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-11%"></td>
+<td width="11%"></td>
+<td width="10%"></td>
+<td width="11%"></td>
+<td width="57%">
+
+
+<p>- -</p></td></tr>
+</table>
 
 <p style="margin-left:11%;">Plain disk + LUKS + LVM2
 example</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk1 disklabel:gpt bootable:1 fstabkey:uuid align-at:1M
-<br>
-primary - 100% - -</p>
+disk1 disklabel:gpt bootable:1 fstabkey:uuid align-at:1M</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>100%</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-cryptsetup <br>
-luks:&quot;passwd&quot; - disk1.1 - -</p>
+cryptsetup</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%">
+
+
+<p>luks:&quot;passwd&quot;</p></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>-</p></td>
+<td width="15%">
+
+
+<p>disk1.1</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config lvm
-fstabkey:uuid <br>
-vg vg1 disk1.1 <br>
-vg1-root / 30%- ext4
-defaults,errors=remount-ro,noatime,rw</p>
+fstabkey:uuid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>vg</p></td>
+<td width="15%">
+
+
+<p>vg1</p></td>
+<td width="16%">
+
+
+<p>disk1.1</p></td>
+<td width="15%"></td>
+<td width="23%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>vg1-root</p></td>
+<td width="15%">
+
+
+<p>/</p></td>
+<td width="16%">
+
+
+<p>30%-</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="23%">
+
+
+<p>defaults,errors=remount-ro,noatime,rw</p></td></tr>
+</table>
 
 <p style="margin-left:11%;">tmpfs example</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-tmpfs <br>
-tmpfs /tmp RAM:20% defaults <br>
-tmpfs /scratch 3GiB defaults</p>
+tmpfs</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>tmpfs</p></td>
+<td width="15%">
+
+
+<p>/tmp</p></td>
+<td width="16%">
+
+
+<p>RAM:20%</p></td>
+<td width="38%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>tmpfs</p></td>
+<td width="15%">
+
+
+<p>/scratch</p></td>
+<td width="16%">
+
+
+<p>3GiB</p></td>
+<td width="38%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>tmpfs</p></td>
+<td width="15%">
+
+
+<p>/scratch2</p></td>
+<td width="16%">
+
+
+<p>-</p></td>
+<td width="38%">
+
+
+<p>defaults</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -766,6 +1852,18 @@ equivalent to using size=20% in the tmpfs mount options.</p></td></tr>
 
 <p>Mount a tmpfs on /scratch with a maximum size of 3
 GiB.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Mount a tmpfs on /scratch2, use the system default size
+for this tmpfs.</p></td></tr>
 </table>
 
 <p style="margin-left:11%;">nfs example</p>
@@ -807,22 +1905,162 @@ via NFS from an NFS server onto /.</p></td></tr>
 <p style="margin-left:11%;">Simple BTRFS example</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk1 <br>
-primary /boot 500 ext4 rw <br>
-primary - 2G- - -</p>
+disk1</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/boot</p></td>
+<td width="16%">
+
+
+<p>500</p></td>
+<td width="15%">
+
+
+<p>ext4</p></td>
+<td width="23%">
+
+
+<p>rw</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>2G-</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk2 <br>
-primary - 2G- - -</p>
+disk2</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>2G-</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="23%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
 disk3 sameas:disk2 <br>
 disk_config disk4 sameas:disk2</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-btrfs fstabkey:uuid <br>
-btrfs raid1 / disk1.2,disk2.1 noatime,subvol=@/ <br>
-btrfs raid1 /home disk3.1,disk4.1 subvol=@home,noatime</p>
+btrfs fstabkey:uuid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>btrfs</p></td>
+<td width="15%">
+
+
+<p>raid1</p></td>
+<td width="16%">
+
+
+<p>/</p></td>
+<td width="15%"></td>
+<td width="23%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>disk1.2,disk2.1</p></td>
+<td width="15%"></td>
+<td width="23%">
+
+
+<p>noatime,subvol=@/</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>btrfs</p></td>
+<td width="15%">
+
+
+<p>raid1</p></td>
+<td width="16%">
+
+
+<p>/home</p></td>
+<td width="15%"></td>
+<td width="23%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>disk3.1,disk4.1</p></td>
+<td width="15%"></td>
+<td width="23%">
+
+
+<p>subvol=@home,noatime</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -882,19 +2120,282 @@ be changed using createopts.</p></td></tr>
 <p style="margin-left:11%;">External log device example</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-/dev/sda fstabkey:uuid bootable:2 <br>
-primary / 20GiB ext3 defaults <br>
-primary /boot 250 ext2 defaults <br>
-primary swap 4GiB swap defaults <br>
-logical - 256 ext3_journal - <br>
-logical - 256 ext4_journal - <br>
-logical - 256 xfs_journal -</p>
+/dev/sda fstabkey:uuid bootable:2</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/</p></td>
+<td width="16%">
+
+
+<p>20GiB</p></td>
+<td width="30%">
+
+
+<p>ext3</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>defaults</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/boot</p></td>
+<td width="16%">
+
+
+<p>250</p></td>
+<td width="30%">
+
+
+<p>ext2</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>defaults</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>swap</p></td>
+<td width="16%">
+
+
+<p>4GiB</p></td>
+<td width="30%">
+
+
+<p>swap</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>defaults</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>256</p></td>
+<td width="30%">
+
+
+<p>ext3_journal</p></td>
+<td width="8%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>256</p></td>
+<td width="30%">
+
+
+<p>ext4_journal</p></td>
+<td width="8%">
+
+
+<p>-</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>logical</p></td>
+<td width="15%">
+
+
+<p>-</p></td>
+<td width="16%">
+
+
+<p>256</p></td>
+<td width="30%">
+
+
+<p>xfs_journal</p></td>
+<td width="8%">
+
+
+<p>-</p></td></tr>
+</table>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-/dev/sdb fstabkey:uuid <br>
-primary /mnt/ext3 33% ext3:journal=/dev/sda5 defaults <br>
-primary /mnt/ext4 33% ext4:journal=/dev/sda6 defaults <br>
-primary /mnt/xfs 33% xfs:journal=/dev/sda7 defaults</p>
+/dev/sdb fstabkey:uuid</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/mnt/ext3</p></td>
+<td width="16%">
+
+
+<p>33%</p></td>
+<td width="30%"></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>ext3:journal=/dev/sda5</p></td>
+<td width="30%"></td>
+<td width="8%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/mnt/ext4</p></td>
+<td width="16%">
+
+
+<p>33%</p></td>
+<td width="30%"></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>ext4:journal=/dev/sda6</p></td>
+<td width="30%"></td>
+<td width="8%">
+
+
+<p>defaults</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>primary</p></td>
+<td width="15%">
+
+
+<p>/mnt/xfs</p></td>
+<td width="16%">
+
+
+<p>33%</p></td>
+<td width="30%"></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%">
+
+
+<p>xfs:journal=/dev/sda7</p></td>
+<td width="30%"></td>
+<td width="8%">
+
+
+<p>defaults</p></td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -940,9 +2441,110 @@ the log device</p></td></tr>
 table and EFI/ESP partition</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk1 disklabel:gpt fstabkey:uuid bootable:1 <br>
-primary /boot/efi 200 vfat rw <br>
-primary / 1G- ext4 rw</p>
+disk1 disklabel:gpt fstabkey:partlabel bootable:1</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>p=efi</p></td>
+<td width="15%">
+
+
+<p>/boot/efi</p></td>
+<td width="16%">
+
+
+<p>200</p></td>
+<td width="30%">
+
+
+<p>vfat</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>rw</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>p=root</p></td>
+<td width="15%">
+
+
+<p>/</p></td>
+<td width="16%">
+
+
+<p>1G-20G</p></td>
+<td width="30%">
+
+
+<p>ext4</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>rw</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%">
+
+
+<p>p=</p></td>
+<td width="15%">
+
+
+<p>/data</p></td>
+<td width="16%">
+
+
+<p>1G-</p></td>
+<td width="30%">
+
+
+<p>ext4</p></td>
+<td width="8%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-7%"></td>
+<td width="16%"></td>
+<td width="15%"></td>
+<td width="16%"></td>
+<td width="30%">
+
+
+<p>rw</p></td>
+<td width="8%">
+</td></tr>
+</table>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -956,9 +2558,16 @@ primary / 1G- ext4 rw</p>
 <td width="78%">
 
 
-<p>Creating a ESP partition is very simple. Use a GPT
-partition table, create a vfat partition which is also
-bootable. That&rsquo;s it.</p></td></tr>
+<p>Creating a ESP partition for UEFI boot is very simple.
+Use a GPT partition table, create a vfat partition for
+/boot/efi which is also bootable. That&rsquo;s it. A name
+after p= is used as the partition label. Remember that GPT
+does not use logical partition. Just use p= for each
+partition. The fstab entries will use the partition labels
+if defined. Otherwise it will fall back to the file system
+UUID or the device name. Setting fstabkey:partuuid will use
+the UUID of the partition (not the UUID of the file system)
+for the fstab entries.</p></td></tr>
 </table>
 
 <h2>SYNTAX
@@ -989,9 +2598,9 @@ disk_config lvm( &lt;lvmoption&gt;)* <br>
 | disk_config end <br>
 | disk_config disk[[:digit:]]+( &lt;option&gt;)* <br>
 | disk_config [^[:space:]]+( &lt;option&gt;)* <br>
-/* fully qualified device-path or short form, like hda,
+/* fully qualified device-path or short form, like sda,
 whereby full <br>
-* path is assumed to be /dev/hda; may contain shell globbing
+* path is assumed to be /dev/sda; may contain shell globbing
 such <br>
 * as /dev/disk/by-id/scsi-* */ <br>
 | &lt;volume&gt;</p>
@@ -1025,8 +2634,9 @@ resize:([^/,\s\-]+-[^/,\s\-]+(,[^/,\s\-]+-[^/,\s\-]+)*|all)
 | fstabkey:(device|label|uuid) <br>
 /* when creating the fstab, the key used for defining the
 device <br>
-may be the device (/dev/xxx), a label given using -L, or the
-uuid <br>
+may be the device (/dev/xxx), a label given using -L, <br>
+the filesystem uuid, partition label (only when using GPT)
+or partition uuid <br>
 */</p>
 
 <p style="margin-left:11%; margin-top: 1em">raidoption ::=
@@ -1062,8 +2672,8 @@ empty */ <br>
 | preserve_always:([[:digit:]]+(,[[:digit:]]+)*|all) <br>
 /* preserve partitions -- always; the numbers refer to
 partition <br>
-numbers, i.e., preserve_always:5 for /dev/hda refers to
-/dev/hda5, <br>
+numbers, i.e., preserve_always:5 for /dev/sda refers to
+/dev/sda5, <br>
 which may not necessarily be the 5th line of the
 configuration */ <br>
 | preserve_reinstall:([[:digit:]]+(,[[:digit:]]+)*|all) <br>
@@ -1087,7 +2697,7 @@ used for referring to partitions. */ <br>
 | virtual <br>
 /* do not assume the disk to be a physical device, use with
 xen */ <br>
-| fstabkey:(device|label|uuid) <br>
+| fstabkey:(device|label|uuid|partuuid|partlabel) <br>
 /* when creating the fstab the key used for defining the
 device <br>
 may be the device (/dev/xxx), a label given using -L, or the
@@ -1130,6 +2740,9 @@ primary <br>
 | raw-disk <br>
 /* for physical disks only: do not partition this disk, use
 it as-is */ <br>
+| m{^p=([^/,;]*).br <br>
+/* p=&lt;NAME&gt; set NAME as gpt partition label, NAME may
+be empty */ <br>
 | raid[0156] <br>
 /* raid level */ <br>
 | luks <br>
@@ -1350,7 +2963,7 @@ Kerim G&Atilde;&frac14;ney, Thomas Lange and others.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The original
 and primary author of FAI is Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;.</p>
+&lt;lange@cs.uni-koeln.de&gt;.</p>
 <hr>
 </body>
 </html>

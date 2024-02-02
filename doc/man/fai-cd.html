@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Feb 20 21:26:34 2020 -->
+<!-- CreationDate: Mon Jan 22 22:28:20 2024 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -235,7 +235,7 @@ not be put onto the CD or the USB stick.</p></td></tr>
 
 
 <p>Use xz compression when calling mksquashfs. Default is
-gzip.</p> </td></tr>
+zstd, which is much faster.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -318,6 +318,44 @@ image to the stick via dd(1).</p>
 
 <p style="margin-left:11%; margin-top: 1em"># dd
 if=fai-cd.iso of=/dev/sdf bs=1M</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Building a
+live ISO</b>:</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can create
+a live ISO using two FAI commands. First, you need to build
+your own live environment, containing all software including
+configuration that you like to use. Using the command
+&quot;fai dirinstall&quot; you do an installation using the
+FAI config space into a directory which will become your
+live system. After that you create a bootable ISO which
+includes this directory tree.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Define the FAI
+classes:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">cl=&quot;DEBIAN,BOOKWORM64,AMD64,FAIBASE,XFCE,XORG,DHCPC,DEMO,LIVEISO,LAST&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Build the live
+environment directory tree:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># LC_ALL=C fai
+-v dirinstall -u xfce33 -c $cl \ <br>
+-s file:///srv/fai/config /srv/xfce</p>
+
+<p style="margin-left:11%; margin-top: 1em">Then create the
+live ISO:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd -s500
+-MH -d none -g /etc/fai/grub.cfg.live \ <br>
+-n /srv/xfce live.iso</p>
+
+<p style="margin-left:11%; margin-top: 1em">Hint: The FAI
+nfsroot is not needed when building a live ISO.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>More
+advanced usage</b>:</p>
 
 <p style="margin-left:11%; margin-top: 1em">It is possible
 to install over the network without using NFS, i.e. by
@@ -414,7 +452,7 @@ configuration file for fai-cd.</p>
 
 
 <p style="margin-left:11%;">Thomas Lange
-&lt;lange@informatik.uni-koeln.de&gt;</p>
+&lt;lange@cs.uni-koeln.de&gt;</p>
 <hr>
 </body>
 </html>
