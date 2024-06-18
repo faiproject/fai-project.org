@@ -41,6 +41,7 @@
 	  <div class="col s12">
 	    <h5>
 	      FAI.me. Build your own installation ISO for <b>Debian</b>
+            <!--#include virtual="bug.html" -->
 	    </h5>
               <ul style="font-size: 120%" class="browser-default">
                 <li><a href="../FAIme-ubuntu">Ubuntu version</a><p></li>
@@ -114,42 +115,9 @@
 
 	    <div id="adv3" style="display: none;">
 
-	      <div class="col s12 m10">
-		<p class="col s12 m4">
-		  Custom script to put into /usr/local/bin/
-		</p>
-                <div class="col s12 m6 input-field">
-                  <label for="postinst"> <input size="2"      id="postinst" type="file" accept=".sh,.sh.gz" name="postinst" style="margin-right: -50px">
-                  </label>
-		</div>
-	      </div>
-	      <div class="col s12 m10">
-		<p class="col s12 m4">
-                  Execute this script during first boot
-		</p>
-
-                <div class="col s12 m6 input-field">
-		  <label>
-                    <input type="checkbox" class="filled-in" name="rclocal" value="1" checked >
-                    <span> </span>
-
-                  </label>
-		</div>
-	      </div>
-
+            <!--#include virtual="postinst-grub.html" -->
 
 	      <div class="col s12 m10">
-		<p class="col s12 m4">
-		  Grub options (optional)
-		</p>
-		<div class="col s12 m6 input-field">
-		  <input type="text" id="cmdline" name="cmdline">
-		  <span class="helper-text">Will be used during installation and for the new system</span>
-		</div>
-	      </div>
-
-	      <div class="col s12 m10">
-
 		<div class="col s12 m12">
 		  <label>
 		    <input class="with-gap" type="radio" name="cl8" value="REBOOT">
@@ -165,7 +133,6 @@
 		    <input class="with-gap" type="radio" name="cl8" value="" checked="checked">
 		    <span>wait to press Return at the end.</span>
 		  </label>
-
 		</div>
 	      </div>
 
