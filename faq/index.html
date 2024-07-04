@@ -28,19 +28,19 @@
   <br>
 
     <a id="download"></a>
-<h4>Which repository do I have to use to get FAI for jessie/...?</h4>
+<h4>Which repository do I have to use to get FAI for bookworm/...?</h4>
 
-<p>If you want to deploy Debian <strong>jessie</strong> the entry for
+<p>If you want to deploy Debian <strong>bookworm</strong> the entry for
 /etc/apt/sources.list and for /etc/fai/apt/sources.list should contain:</p>
 
 <div class="featurebox"><h5>
 <pre>
-deb http://fai-project.org/download jessie koeln
+deb http://fai-project.org/download bookworm koeln
 </pre></h5></div>
 
 This is the default setup, which uses the same distribution for the
 server itself and the nfsroot. But you can also mix distributions
-versions, for e.g. using a server running wheezy and create a jessie
+versions, for e.g. using a server running wheezy and create a bookworm
 nfsroot on this server. The distribution you want to deploy on your
 clients is also independent from those defined here.
 
@@ -55,11 +55,7 @@ clients is also independent from those defined here.
 
 <p>FAI by default uses the same kernel version as present in Debian.  Depending
 on the time-frame since the last Debian release this kernel might not support
-the most recent hardware. You can use the backports kernel or the grml
-kernel. The <a href="http://grml.org/">Grml</a> live system
-provides Debian packages of recent kernel versions which can be used within FAI,
-just following <a href="https://wiki.fai-project.org/index.php/Grml_Kernel">the
-  instructions from the Grml_Kernel page in the wiki</a>.</p>
+the most recent hardware. You should use the backports kernel.</p>
 
 <a id="dash"></a>
 <h4>I get strange errors like 'ifclass: not found' during execution</h4>
@@ -112,7 +108,7 @@ If you do not know how to use reportbug please write a mail to the <a
 <hr>
 
 <address>
-Mon, 14 Mar 2016 16:57:40 +0100
+Thu, 20 Jun 2024 23:38:26 +0200
 </address>
 
 
