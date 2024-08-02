@@ -10,7 +10,7 @@
 
     <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <title>FAI.me - build your own custom ISO</title>
+    <title>FAI.me - build your own custom live ISO</title>
     <style>
       .input-field {
 	  margin-top: 0;
@@ -40,16 +40,16 @@
 	<div class="row">
 	  <div class="col s12">
 	    <h5>
-	      FAI.me. Build your own <b>Debian cloud image</b>
+	      FAI.me. Build your own <b>Debian live image</b>
 	    </h5>
               <ul  style="font-size: 120%" class="browser-default">
                 <li><a href="../../FAIme-ubuntu">Ubuntu installation ISO</a></li>
                 <li><a href="../../FAIme">Debian installation ISO</a></li>
-                <li><a href="../live">Debian live ISO</a><p></li>
+                <li><a href="../cloud">Debian cloud ISO</a></li>
               </ul>
 	    <div class="divider"></div>
 	    <p>
-              This FAI.me image is a bootable disk image that can be
+              This live image that can be
               used with any virtual machine. It's running a 64bit Debian Linux.
    	    </p>
 
@@ -58,32 +58,7 @@
 
         <div class="row">
           <form action="/cgi/faime.cgi" method="post" enctype="multipart/form-data">
-            <input type="hidden"  name="type" value="cloud">
-
-
-	    <div class="col s12 m10">
-	      <p class="col s12 m4">
-		Disk size in Gbytes (&le;99):
-	      </p>
-	      <div class="input-field col s1">
-                <input size=1 id="disksize" name="disksize"  type="text" value="5" maxlength="2" style="margin-right: 20px" required >
-	      </div>
-	    </div>
-
-            <div class="col s12 m10">
-	      <p class="col s12 m4">
-		Disk image format:
-	      </p>
-	      <div class="col s5 m3">
-                <select class="browser-default" name="format" >
-            <option value="raw.zst" selected="selected"> raw.zst</option>
-            <option value="qcow2"> qcow2</option>
-            <option value="vdi"> vdi</option>
-            <option value="vhdx"> vhdx</option>
-            <option value="vmdk"> vmdk</option>
-                </select>
-	      </div>
-	    </div>
+            <input type="hidden"  name="type" value="live">
 
 	    <div class="col s12 m10">
 	      <p class="col s12 m4">
@@ -98,7 +73,7 @@
 
             <!--#include virtual="../root.html" -->
 
-            <!--#include virtual="../key-distr-desk-pkgs.html" -->
+            <!--#include virtual="../key-distr-desk-pkgs2.html" -->
 
             <!--#include virtual="../postinst-grub.html" -->
 
@@ -106,7 +81,7 @@
 
             <div class="col s12 m6">
 	      <br>
-	        <button class="btn fai-btn" name="submit_bttn" value="check">Create disk image</button>
+	        <button class="btn fai-btn" name="submit_bttn" value="check">Create live image</button>
 	      </div>
             </form>
 
@@ -115,7 +90,6 @@
         <div class="row">
 	  <div class="col s12">
             <p>
-            Start this disk image with: <code> kvm -m 2G -hda imagename</code>
             <p>
 	    <b>Any feedback is welcome. Send an email to FAI.me =at= fai-project.org</b>
 	  </div>
