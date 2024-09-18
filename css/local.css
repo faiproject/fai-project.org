@@ -51,7 +51,7 @@ pre code {
     border-radius: 14px;
 }
 
-.fai-btn {
+.fai-btn, .fai-btn:focus {
   background-color:  #ff9800;
 }
 .fai-btn:hover {
