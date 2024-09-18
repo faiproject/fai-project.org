@@ -34,6 +34,36 @@ Currently we have more than 350 detailed reports. Please also fill out the <a hr
 <hr>
 <div>
 
+<b>From:</b> memorysolution
+<br><b>Date:</b> Wed, 11 Sep 2024 09:37:47 +0000
+<pre>
+Are you using the FAI.me build service? No
+How many hosts have you installed using fai? <b>&gt; 10.000</b>
+Which version of fai are you using? <b>6.0.5</b>
+Which version are you using as your install kernel? 6.7 from experimental
+
+Which types of hosts are you installing with fai? bare metal servers
+
+How do you boot your hosts? PXE
+Does the default install kernel recognize all your hardware? yes, mostly
+Which drivers are missing? Sometimes we need the newest kernel and Nvidia drivers
+Do you manage your configuration space under version control? git
+How big is your config space (Mbytes, # of files)? 1.9M, #100
+How many files do you have in ../config/files? 10
+What types of scripts are you using for local customization? shell
+
+<b>What is the business of your company/organisation?</b> Manufacturer of Custom Server Solutions, <a href="https://www.memorysolution.de/">Memorysolution GmbH</a>
+<br><b>Additional comments:</b>
+We are using the FAI boot environment for hardware tests on newly
+assembled servers without installing an OS.
+
+We use a special extended nfsroot including a lot of hardware testing
+tools and Nvidia drivers for GPUs. We boot the FAI system, then stress
+test the hardware components and write a detailed report of the
+tests. This includes the hardware inventory and a list of MAC addresses
+and all sorts of serial numbers and firmware versions.
+</pre> <HR>
+
 
 <b>From:</b> Marco Ferrara
 <br><b>Date:</b> Fri, 19 Jul 2024 16:33:04 +0100
