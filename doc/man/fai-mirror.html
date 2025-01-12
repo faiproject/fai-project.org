@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Mon Jan 22 22:28:20 2024 -->
+<!-- CreationDate: Sat Jan 11 21:18:54 2025 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -212,27 +212,35 @@ package_config/&lt;classes&gt;.</p> </td></tr>
 </h2>
 
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
+<p style="margin-left:11%; margin-top: 1em">$ fai-mirror -v
 /files/scratch/mirror</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 partial mirror in the directory /files/scratch/mirror using
 all classes.</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
+<p style="margin-left:11%; margin-top: 1em">$ fai-mirror -v
 -cDEFAULT,DEMO /debmirror</p>
 
 <p style="margin-left:11%; margin-top: 1em">Creates a
 partial mirror containing all packages used in the classes
 DEFAULT and DEMO.</p>
 
-<p style="margin-left:11%; margin-top: 1em"># fai-mirror -v
--cDEFAULT,AMD64 /srv/debmirror-amd64</p>
+<p style="margin-left:11%; margin-top: 1em">$ fai-mirror -v
+-cDEFAULT,DEBIAN,DEMO,AMD64,GRUB_PC /srv/debmirror-amd64</p>
 
-<p style="margin-left:11%; margin-top: 1em">Will create a
-mirror including packages for amd64 architecture defined for
-classes DEFAULT and AMD64. You can also run this on a non
-amd64 host.</p>
+<p style="margin-left:11%; margin-top: 1em">This will
+create a mirror including packages for the amd64
+architecture defined for the classes specified. You can also
+run this on a non amd64 host.</p>
+
+<p style="margin-left:11%; margin-top: 1em">$ fai-mirror -v
+-xARM64,ROCKY,UBUNTU,NOBLE,LIVEISO,CLOUD,STANDARD
+/tmp/large</p>
+
+<p style="margin-left:11%; margin-top: 1em">This builds a
+mirror that is used for the large FAI ISO that&rsquo;s
+available on the projects home page.</p>
 
 <h2>NOTES
 <a name="NOTES"></a>

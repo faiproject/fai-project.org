@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Mon Jan 22 22:28:21 2024 -->
+<!-- CreationDate: Sat Jan 11 21:18:55 2025 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -169,6 +169,18 @@ instead of <i>LOGDIR.</i></p>
 
 
 <p>Display the synopsis and version info and exit.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Print the commands that would be executed, then
+exit.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="3%">
@@ -940,7 +952,7 @@ _root.</p> </td></tr>
 <p style="margin-left:11%;">LVM on software RAID</p>
 
 <p style="margin-left:22%; margin-top: 1em">disk_config
-disk1</p>
+disk1 disklabel:msdos fstabkey:uuid</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -1052,39 +1064,11 @@ raid fstabkey:uuid</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
+<td width="-4%">
 
 
-<p>raid1</p></td>
-<td width="12%">
-
-
-<p>/boot</p></td>
-<td width="12%"></td>
-<td width="13%"></td>
-<td width="35%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%">
-
-
-<p>disk1.1,disk2.1</p></td>
-<td width="12%"></td>
-<td width="13%"></td>
-<td width="35%">
-
-
-<p>ext4</p></td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%"></td>
-<td width="12%"></td>
+<p>raid1 /boot disk1.1,disk2.1 ext4</p></td>
+<td width="34%"></td>
 <td width="13%"></td>
 <td width="35%">
 
@@ -1092,28 +1076,11 @@ raid fstabkey:uuid</p>
 <p>rw,noatime,errors=remount-ro</p></td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
+<td width="-4%">
 
 
-<p>raid1</p></td>
-<td width="12%">
-
-
-<p>-</p></td>
-<td width="12%"></td>
-<td width="13%"></td>
-<td width="35%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%">
-
-
-<p>disk1.3,disk2.3</p></td>
-<td width="12%"></td>
+<p>raid1 - disk1.3,disk2.3</p></td>
+<td width="34%"></td>
 <td width="13%"></td>
 <td width="35%">
 
@@ -1122,9 +1089,7 @@ raid fstabkey:uuid</p>
 <tr valign="top" align="left">
 <td width="22%"></td>
 <td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%"></td>
-<td width="12%"></td>
+<td width="34%"></td>
 <td width="13%"></td>
 <td width="35%">
 
@@ -1139,29 +1104,26 @@ fstabkey:uuid</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
+<td width="-4%">
 
 
-<p>vg</p></td>
+<p>vg vg_system</p></td>
+<td width="10%"></td>
 <td width="12%"></td>
 <td width="12%">
 
 
-<p>vg_system</p></td>
-<td width="13%">
-
-
 <p>md1</p></td>
+<td width="13%"></td>
 <td width="35%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
+<td width="-4%">
 
 
 <p>vg_system-root</p></td>
+<td width="10%"></td>
 <td width="12%"></td>
 <td width="12%">
 
@@ -1170,7 +1132,7 @@ fstabkey:uuid</p>
 <td width="13%">
 
 
-<p>8G</p></td>
+<p>4G-50G</p></td>
 <td width="35%">
 
 
@@ -1188,42 +1150,11 @@ fstabkey:uuid</p>
 <p>rw,noatime</p></td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
-
-
-<p>vg_system-var</p></td>
-<td width="12%"></td>
-<td width="12%">
-
-
-<p>/var</p></td>
-<td width="13%">
-
-
-<p>20G</p></td>
-<td width="35%">
-
-
-<p>ext4</p></td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%"></td>
-<td width="12%"></td>
-<td width="13%"></td>
-<td width="35%">
-
-
-<p>rw,noatime</p></td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
+<td width="-4%">
 
 
 <p>vg_system-home</p></td>
+<td width="10%"></td>
 <td width="12%"></td>
 <td width="12%">
 
@@ -1232,38 +1163,7 @@ fstabkey:uuid</p>
 <td width="13%">
 
 
-<p>10G</p></td>
-<td width="35%">
-
-
-<p>ext4</p></td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%"></td>
-<td width="12%"></td>
-<td width="12%"></td>
-<td width="13%"></td>
-<td width="35%">
-
-
-<p>rw,noatime,nosuid,nodev</p></td></tr>
-<tr valign="top" align="left">
-<td width="22%"></td>
-<td width="-4%"></td>
-<td width="10%">
-
-
-<p>vg_system-tmp</p></td>
-<td width="12%"></td>
-<td width="12%">
-
-
-<p>/tmp</p></td>
-<td width="13%">
-
-
-<p>30G</p></td>
+<p>1G-</p></td>
 <td width="35%">
 
 
@@ -1317,16 +1217,16 @@ RAID 1 (/dev/md0), which will be mounted at /boot.</p></td></tr>
 <td width="78%">
 
 
-<p>The third partitions of each device are combined as
+<p>The third partition of each device are combined as
 another RAID 1, but not mounted. Instead, the resulting
 device /dev/md1 is used to host the LVM volume group
 vg_system.</p> </td></tr>
 </table>
 
-<p style="margin-left:22%; margin-top: 1em">Do not forget
-to install the packages mdadm and lvm2 into a system using
-this partition scheme. Also set rd.auto when using dracut as
-initrd generator.</p>
+<p style="margin-left:22%; margin-top: 1em">ATTENTION! Do
+not forget to install the packages mdadm and lvm2 into a
+system using this partition scheme. Also set rd.auto when
+using dracut as initrd generator.</p>
 
 <p style="margin-left:11%;">Crypt example</p>
 
