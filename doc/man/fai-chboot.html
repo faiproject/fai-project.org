@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat Jan 11 21:18:54 2025 -->
+<!-- CreationDate: Tue Apr  1 07:29:48 2025 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -494,6 +494,16 @@ will not be set unless specified with option -k or -I. You
 can also use the script class/LAST.var on the install server
 to set FAI_ACTION.</p>
 
+<p style="margin-left:11%;">fai-chboot -IFv -U
+http://faiserver/fai -u <br>
+nfs://faiserver/srv/fai/config demohost</p>
+
+<p style="margin-left:22%;">The host demohost will receive
+the kernel and initrd via the HTTP (which is much faster
+than using tftp). On the faiserver you have to run a web
+server and create a symlink using: <br>
+$ ln -s /srv/tftp/fai /var/www/html/fai</p>
+
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
@@ -506,13 +516,11 @@ to set FAI_ACTION.</p>
 </h2>
 </td>
 <td width="4%"></td>
-<td width="56%">
+<td width="78%">
 
 
 <p style="margin-top: 1em">Currently only PXE boot is
-supported.</p> </td>
-<td width="22%">
-</td></tr>
+supported but also with UEFI.</p></td></tr>
 </table>
 
 <h2>SEE ALSO

@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat Jan 11 21:18:54 2025 -->
+<!-- CreationDate: Tue Apr  1 07:29:48 2025 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -313,7 +313,7 @@ you&rsquo;ve created a mirror with fai-mirror in
 /media/mirror fai-cd.iso</p>
 
 <p style="margin-left:11%; margin-top: 1em">If you want to
-create a bootable USB stick (here /dev/sdf) , write the CD
+create a bootable USB stick (here /dev/sdf), write the CD
 image to the stick via dd(1).</p>
 
 <p style="margin-left:11%; margin-top: 1em"># dd
@@ -356,6 +356,21 @@ nfsroot is not needed when building a live ISO.</p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>More
 advanced usage</b>:</p>
+
+<p style="margin-left:11%; margin-top: 1em">You can build a
+special installation ISO for an USB stick that contains the
+config space on a writeable partition instead inside the
+read-only ISO. The log files of the installations will be
+save to this partition. After you have created the mirror in
+/tmp/mirror, build the ISO using the following two
+commands:</p>
+
+<p style="margin-left:11%; margin-top: 1em"># fai-cd -d
+detect:// -m /tmp/mirror fai.iso <br>
+# mk-data-partition -c fai.iso /srv/fai/config</p>
+
+<p style="margin-left:11%; margin-top: 1em">After that copy
+this ISO onto the USB stick.</p>
 
 <p style="margin-left:11%; margin-top: 1em">It is possible
 to install over the network without using NFS, i.e. by
