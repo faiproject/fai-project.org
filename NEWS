@@ -1,3 +1,36 @@
+fai (6.4) unstable; urgency=low
+
+  * Add FAI configs for UEFI environment for Rocky Linux and Almalinux
+  * packages_config: add support for boolean expressions with FAI
+    classes in PACKAGES line
+    e.g.: PACKAGES install UBUNTU && XORG && ! MINT
+  * new implementation of command ifclass also supports boolean
+    expression
+  * fai-kvm: add support for UEFI variables
+
+ -- Thomas Lange <lange@debian.org>  Wed, 16 Apr 2025 10:28:52 +0200
+
+fai (6.3) unstable; urgency=low
+
+  * Add Alma Linux to profiles menu
+  * FAI now uses the dracut overlayfs module instead of the Debian
+    specific dracut module overlay-root. You need dracut >= 100 for that.
+    The kernel cmdline options need to be adjusted.
+
+    # For PXE boot using NFS (used in pxelinux.cfg/ configs):
+    OLD: rootovl
+    NEW: rd.live.overlay.overlayfs
+
+    # For booting an ISO (used inside any grub.cfg):
+    OLD: rd.live.image
+    NEW: rd.live.overlay.overlayfs
+
+    For bookworm use the dracut package from bookworm-bpo
+    106-5~bpo12+1 which is also available in the fai-project.org
+    package repository.
+
+ -- Thomas Lange <lange@debian.org>  Tue, 25 Mar 2025 13:19:42 +0100
+
 fai (6.2) unstable; urgency=low
 
   * fai-cd can now create live images
