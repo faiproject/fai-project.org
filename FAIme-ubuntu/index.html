@@ -6,28 +6,13 @@
     <link type="text/css" rel="stylesheet" href="/css/sidenav-compact.css" media="screen">
     <link type="text/css" rel="stylesheet" href="/css/local.css" media="screen">
 
+	<link type="text/css" rel="stylesheet" href="../FAIme/css/index-styling.css">
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <link rel="icon" href="/pics/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <title>FAI.me - build your own custom ISO</title>
-    <style>
-      .input-field {
-	  margin-top: 0;
-      }
-      select {
-          border: 1px solid #000000
-      }
-      select:focus {
-          outline: none
-      }
-      label {
-          color: #000000
-      }
-      .input-field .helper-text {
-          color: #000000
-      }
-    </style>
   </head>
 
   <body>
@@ -39,8 +24,8 @@
 	<!-- Top text -->
 	<div class="row">
 	  <div class="col s12">
-	    <h5 style="text-align: center; line-height: 200%">
-	      FAI.me. Build your own <br> <b>Installation ISO for Ubuntu 24.04</b>
+	    <h5 class="center-title">
+	      FAI.me. Build your own </br> <b>Installation ISO for Ubuntu 24.04</b>
             <!--#include virtual="bug.html" -->
 
 	      <!--#include virtual="select-menu.html" -->
@@ -70,7 +55,7 @@
 
             <!--#include virtual="user_name_pw.html" -->
 
-	    <div id="adv" style="display: none;">
+	    <div class="invisible" id="adv">
 
               <!--#include virtual="root.html" -->
 
@@ -109,7 +94,7 @@
             <!--#include virtual="language.html" -->
             <!--#include virtual="key-distr-desk-pkgs.html" -->
 
-	    <div id="adv3" style="display: none;">
+	    <div class="invisible" id="adv3">
 
               <!--#include virtual="../FAIme/postinst-grub.html" -->
 
@@ -139,7 +124,7 @@
 	    <div class="col s12 m8">
 	      <br>
 	      <button class="btn fai-btn" name="sbm" value="0">Create installation image</button>
-	      <button class="btn fai-btn" id="adv2" style="display: none;" name="sbm" value="1">Show API URL</button>
+	      <button class="btn fai-btn invisible" id="adv2" name="sbm" value="1">Show API URL</button>
 	    </div>
 
 	  </form>
