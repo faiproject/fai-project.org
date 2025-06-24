@@ -1,36 +1,36 @@
 const suites = new Map([
-    ["bookworm", "Debian 12 Bookworm (stable)"],
+    ["default", "Debian 12 Bookworm (stable)"],
     ["trixie", "Debian 13 Trixie (testing)"]
 ]);
-const suite_selected = "bookworm";
 
 const desktops = new Map([
     ["", "Plain text console, no X11"],
     ["XFCE", "XFCE desktop"],
     ["LXDE", "LXDE desktop"],
     ["LXQT", "LXQT desktop"],
-    ["GNOME", "GNOME desktop"],
+    ["default", "GNOME desktop"],
     ["KDE", "KDE desktop"],
     ["MATE", "MATE desktop"],
     ["CINNAMON", "CINNAMON desktop"],
     ["More", "another option"]
 ]);
-const desktop_selected = "GNOME";
 
-function populateSelect(pSelectElement, pMap, pSelected) {
+const DEFAULT_KEY = "default";
+
+function populateSelect(pSelectElement, pMap) {
     pMap.forEach(function(value, key) {
         let opt = document.createElement("option");
         opt.value = key;
         opt.innerHTML = value;
-        if(key === pSelected) {
+        if(key === DEFAULT_KEY) {
             opt.selected = "selected";
         }
         pSelectElement.appendChild(opt);
     });
 }
 
-function populateSelectId(pId, pMap, pSelected) {
-    populateSelect(document.getElementById(pId), pMap, pSelected);
+function populateSelectId(pId, pMap) {
+    populateSelect(document.getElementById(pId), pMap);
 }
 
 function getElementInsideContainer(containerID, childID) {
@@ -39,5 +39,5 @@ function getElementInsideContainer(containerID, childID) {
     return (parent.id && parent.id === containerID) ? elm : {};
 }
 
-populateSelectId("desktop", desktops, desktop_selected);
-populateSelect(getElementInsideContainer("suite_div", "suite"), suites, suite_selected);
+populateSelectId("desktop", desktops);
+populateSelect(getElementInsideContainer("suite_div", "suite"), suites);
