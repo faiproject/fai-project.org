@@ -15,7 +15,7 @@ const desktops = new Map([
     ["GNOME", "GNOME desktop"],
     ["KDE", "KDE desktop"],
     ["MATE", "MATE desktop"],
-    ["CINNAMON", "CINNAMON desktop"],
+    ["CINNAMON", "CINNAMON desktop"]
 ]);
 
 function populateSelect(pId, pMap) {
