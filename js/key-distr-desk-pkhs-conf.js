@@ -18,9 +18,8 @@ const desktops = new Map([
     ["CINNAMON", "CINNAMON desktop"]
 ]);
 
-function populateSelect(pId, pMap) {
+function populateSelect(pSelectElement, pMap) {
     let toMakeDefaultKey = null;
-    let select = document.getElementById(pId);
     pMap.forEach(function(value, key) {
         if(key === "default") {
             toMakeDefaultKey = value;
@@ -31,7 +30,7 @@ function populateSelect(pId, pMap) {
             if(key === toMakeDefaultKey) {
                 opt.selected = "selected";
             }
-            select.appendChild(opt);
+            pSelectElement.appendChild(opt);
         }
     });
 }
