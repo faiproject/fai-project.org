@@ -1,3 +1,4 @@
+// default must be set at the top of the map
 const partitions = new Map([
     ["default", "ONE"],
     ["ONE", "One partition"],
@@ -16,13 +17,11 @@ function updateAllElements() {
     }
 }
 
-const DEFAULT_KEY = "default";
-
 function populateSelect(pId, pMap) {
     let toMakeDefaultKey = null;
     let select = document.getElementById(pId);
     pMap.forEach(function(value, key) {
-        if(key === DEFAULT_KEY) {
+        if(key === "default") {
             toMakeDefaultKey = value;
         } else {
             let opt = document.createElement("option");

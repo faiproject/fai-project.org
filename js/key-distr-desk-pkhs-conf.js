@@ -1,9 +1,11 @@
+// default must be set at the top of the map
 const suites = new Map([
     ["default", "bookworm"],
     ["bookworm", "Debian 12 Bookworm (stable)"],
     ["trixie", "Debian 13 Trixie (testing)"]
 ]);
 
+// default must be set at the top of the map
 const desktops = new Map([
     ["default", "GNOME"],
     ["", "Plain text console, no X11"],
@@ -14,16 +16,13 @@ const desktops = new Map([
     ["KDE", "KDE desktop"],
     ["MATE", "MATE desktop"],
     ["CINNAMON", "CINNAMON desktop"],
-    ["More", "another option"]
 ]);
-
-const DEFAULT_KEY = "default";
 
 function populateSelect(pId, pMap) {
     let toMakeDefaultKey = null;
     let select = document.getElementById(pId);
     pMap.forEach(function(value, key) {
-        if(key === DEFAULT_KEY) {
+        if(key === "default") {
             toMakeDefaultKey = value;
         } else {
             let opt = document.createElement("option");
