@@ -1,0 +1,24 @@
+.input-field {
+	margin-top: 0;
+}
+select {
+    border: 1px solid #000000
+}
+select:focus {
+    outline: none
+}
+label {
+    color: #000000
+}
+.input-field .helper-text {
+color: #000000
+}
+
+.center-title {
+    text-align: center;
+    line-height: 200%;
+}
+
+.invisible {
+    display: none;
+}

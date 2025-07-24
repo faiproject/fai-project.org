@@ -4,13 +4,8 @@
 		Distribution
 	      </p>
 	      <div class="col s12 m6">
-		<div class="input-field">
-		  <select class="browser-default" name="suite">
-		    <option value="bookworm" selected="selected">Debian 12 Bookworm (stable)
-		    </option>
-		    <option value="trixie">Debian 13 Trixie (testing)
-		    </option>
-		  </select>
+		<div class="input-field" id="suite_div">
+		  <select class="browser-default" id="suite" name="suite"></select>
 		</div>
 
                 <p>  <input type="checkbox" class="fai" id="cl1" name="cl1" value="BACKPORTS">
@@ -26,16 +21,7 @@
 	      </p>
               <br>
 	      <div class="col s12 m6 input-field">
-		<select class="browser-default" name="desktop">
-		  <option value="">Plain text console, no Xorg desktop</option>
-		  <option value="XFCE">XFCE desktop</option>
-		  <option value="LXDE">LXDE desktop</option>
-		  <option value="LXQT">LXQT desktop</option>
-		  <option value="GNOME" selected="selected">GNOME desktop</option>
-		  <option value="KDE">KDE desktop</option>
-		  <option value="MATE">MATE desktop</option>
-		  <option value="CINNAMON">CINNAMON desktop</option>
-		</select>
+	      	<select class="browser-default" id="desktop" name="desktop"></select>
 	      </div>
 	    </div>
 
@@ -104,3 +90,5 @@
 		<span class="helper-text" data-error="Invalid input" data-success="You will be informed when the image generation is finished">You will be informed when the image generation is finished</span>
 	      </div>
 	    </div>
+
+		<script src="../js/key-distr-desk-pkhs-conf.js"></script>
