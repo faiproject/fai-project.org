@@ -1,5 +1,6 @@
 const partitions = new Map([
-    ["default", "One partition"],
+    ["default", "ONE"],
+    ["ONE", "One partition"],
     ["ONE_LVM", "One partition using LVM"],
     ["HOME", "Partition for /home"],
     ["HOME_LVM", "Partition for /home using LVM"]
@@ -18,15 +19,20 @@ function updateAllElements() {
 const DEFAULT_KEY = "default";
 
 function populateSelect(pId, pMap) {
+    let toMakeDefaultKey = null;
     let select = document.getElementById(pId);
     pMap.forEach(function(value, key) {
-        let opt = document.createElement("option");
-        opt.value = key;
-        opt.innerHTML = value;
         if(key === DEFAULT_KEY) {
-            opt.selected = "selected";
+            toMakeDefaultKey = value;
+        } else {
+            let opt = document.createElement("option");
+            opt.value = key;
+            opt.innerHTML = value;
+            if(key === toMakeDefaultKey) {
+                opt.selected = "selected";
+            }
+            select.appendChild(opt);
         }
-        select.appendChild(opt);
     });
 }
 

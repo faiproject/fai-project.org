@@ -1,14 +1,16 @@
 const suites = new Map([
-    ["default", "Debian 12 Bookworm (stable)"],
+    ["default", "bookworm"],
+    ["bookworm", "Debian 12 Bookworm (stable)"],
     ["trixie", "Debian 13 Trixie (testing)"]
 ]);
 
 const desktops = new Map([
+    ["default", "GNOME"],
     ["", "Plain text console, no X11"],
     ["XFCE", "XFCE desktop"],
     ["LXDE", "LXDE desktop"],
     ["LXQT", "LXQT desktop"],
-    ["default", "GNOME desktop"],
+    ["GNOME", "GNOME desktop"],
     ["KDE", "KDE desktop"],
     ["MATE", "MATE desktop"],
     ["CINNAMON", "CINNAMON desktop"],
@@ -17,15 +19,21 @@ const desktops = new Map([
 
 const DEFAULT_KEY = "default";
 
-function populateSelect(pSelectElement, pMap) {
+function populateSelect(pId, pMap) {
+    let toMakeDefaultKey = null;
+    let select = document.getElementById(pId);
     pMap.forEach(function(value, key) {
-        let opt = document.createElement("option");
-        opt.value = key;
-        opt.innerHTML = value;
         if(key === DEFAULT_KEY) {
-            opt.selected = "selected";
+            toMakeDefaultKey = value;
+        } else {
+            let opt = document.createElement("option");
+            opt.value = key;
+            opt.innerHTML = value;
+            if(key === toMakeDefaultKey) {
+                opt.selected = "selected";
+            }
+            select.appendChild(opt);
         }
-        pSelectElement.appendChild(opt);
     });
 }
 
